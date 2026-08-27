@@ -5,10 +5,12 @@
   "main": "index.html",
   "scripts": {
     "start": "python3 -m http.server 8080",
-    "cap:init": "npx cap init \"İngilizce Cümle Fabrikası\" com.alionur.englishapp --web-dir .",
+    "copy-web": "mkdir -p www && cp -r assets css js data index.html manifest.json sw.js www/ 2>/dev/null || true",
+    "sync": "npm run copy-web && npx cap sync android",
+    "cap:init": "npx cap init \"İngilizce Cümle Fabrikası\" com.alionur.englishapp --web-dir www",
     "cap:add": "npx cap add android",
-    "cap:sync": "npx cap sync android",
-    "cap:open": "npx cap open android"
+    "cap:sync": "npm run sync",
+    "cap:open": "npm run sync && npx cap open android"
   },
   "dependencies": {
     "@capacitor/core": "^6.0.0"
