@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">İngilizce Cümle Fabrikası</string>
+    <string name="title_activity_main">İngilizce Cümle Fabrikası</string>
+    <string name="package_name">com.alionur.englishapp</string>
+    <string name="custom_url_scheme">com.alionur.englishapp</string>
+</resources>

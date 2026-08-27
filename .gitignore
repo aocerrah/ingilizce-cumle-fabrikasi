@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Android build outputs
+android/app/build/
+android/.gradle/
+android/build/
+android/local.properties
+*.apk
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Temp logs
+*.log

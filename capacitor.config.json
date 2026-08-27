@@ -1,0 +1,8 @@
+{
+  "appId": "com.alionur.englishapp",
+  "appName": "İngilizce Cümle Fabrikası",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "english-sentence-builder-apk",
+  "version": "1.0.0",
+  "description": "Android İngilizce Kelime, Gramer ve SVOMPT Cümle Kurma Programı",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8080",
+    "cap:init": "npx cap init \"İngilizce Cümle Fabrikası\" com.alionur.englishapp --web-dir .",
+    "cap:add": "npx cap add android",
+    "cap:sync": "npx cap sync android",
+    "cap:open": "npx cap open android"
+  },
+  "dependencies": {
+    "@capacitor/core": "^6.0.0"
+  },
+  "devDependencies": {
+    "@capacitor/android": "^6.0.0",
+    "@capacitor/cli": "^6.0.0"
+  }
+}

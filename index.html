@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>İngilizce Cümle Fabrikası & 158 Fiil (SVOMPT)</title>
+  
+  <!-- PWA Meta Tags & Manifest -->
+  <link rel="manifest" href="./manifest.json?v=5">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="İngilizce APK">
+  <meta name="description" content="Android İngilizce Kelime, Gramer ve SVOMPT Cümle Kurma Programı">
+  
+  <!-- Google Fonts: Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet with Cache Busting -->
+  <link rel="stylesheet" href="./css/styles.css?v=5">
+
+  <script>
+    // Auto-update Service Worker on new version
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(registrations => {
+        for (let registration of registrations) {
+          registration.update();
+        }
+      });
+    }
+  </script>
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Top Header -->
+    <header class="app-header">
+      <div class="header-brand" onclick="app.switchTab('home')" style="cursor: pointer;">
+        <div class="app-logo-badge">158</div>
+        <div class="header-title-group">
+          <h1>Cümle Fabrikası</h1>
+          <p>80 A2 + 78 B1 (158 Fiil)</p>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <div class="stat-chip streak" title="Günlük Seri">
+          <span>🔥</span>
+          <span id="header-streak-val">1 Gün</span>
+        </div>
+        <div class="stat-chip xp" title="Toplam XP" onclick="app.switchTab('home')" style="cursor:pointer;">
+          <span>⭐</span>
+          <span id="header-xp-val">0 XP</span>
+        </div>
+        <button class="icon-btn" id="theme-toggle-btn" title="Tema Değiştir" onclick="app.toggleTheme()">
+          ☀️
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      
+      <!-- 1. Home View -->
+      <section class="view-section active" id="view-home">
+        <div id="home-content-area"></div>
+      </section>
+
+      <!-- 2. Guided Daily Routine View -->
+      <section class="view-section" id="view-routine">
+        <div id="routine-content-area"></div>
+      </section>
+
+      <!-- 3. Sentence Builder View -->
+      <section class="view-section" id="view-builder">
+        <div class="section-header">
+          <h2>🧩 Cümle Fabrikası</h2>
+          <p>SVOMPT kuralıyla olumlu, olumsuz ve soru cümleleri oluşturun</p>
+        </div>
+
+        <div class="builder-modes">
+          <button class="mode-btn active" data-mode="studio" onclick="sentenceBuilder.setMode('studio')">
+            🛠️ SVOMPT Studio
+          </button>
+          <button class="mode-btn" data-mode="scramble" onclick="sentenceBuilder.setMode('scramble')">
+            🔀 Cümle Sıralama Oyunu
+          </button>
+        </div>
+
+        <div id="builder-content-area"></div>
+      </section>
+
+      <!-- 4. Verbs Vault View (158 Core Curriculum Verbs) -->
+      <section class="view-section" id="view-verbs">
+        <div id="verbs-content-area"></div>
+      </section>
+
+      <!-- 5. Dedicated Vocabulary Trainer & Memory Book -->
+      <section class="view-section" id="view-vocab">
+        <div id="vocab-trainer-content-area"></div>
+      </section>
+
+      <!-- 6. Grammar Academy View -->
+      <section class="view-section" id="view-grammar">
+        <div id="grammar-content-area"></div>
+      </section>
+
+      <!-- 7. Story Reader View -->
+      <section class="view-section" id="view-story">
+        <div id="story-content-area"></div>
+      </section>
+
+      <!-- 8. Quiz Arena View -->
+      <section class="view-section" id="view-quiz">
+        <div id="quiz-content-area"></div>
+      </section>
+
+    </main>
+
+    <!-- Bottom Navigation Bar (Android Mobile Feel) -->
+    <nav class="bottom-nav">
+      <button class="nav-tab active" data-tab="home">
+        <span class="tab-icon">🏠</span>
+        <span class="tab-label">Ana Sayfa</span>
+      </button>
+      <button class="nav-tab" data-tab="routine">
+        <span class="tab-icon">⚡</span>
+        <span class="tab-label">Günlük Ders</span>
+      </button>
+      <button class="nav-tab" data-tab="builder">
+        <span class="tab-icon">🧩</span>
+        <span class="tab-label">Cümle Kur</span>
+      </button>
+      <button class="nav-tab" data-tab="verbs">
+        <span class="tab-icon">📚</span>
+        <span class="tab-label">158 Fiil</span>
+      </button>
+      <button class="nav-tab" data-tab="vocab">
+        <span class="tab-icon">📓</span>
+        <span class="tab-label">Ezber</span>
+      </button>
+      <button class="nav-tab" data-tab="quiz">
+        <span class="tab-icon">🎯</span>
+        <span class="tab-label">Sınav</span>
+      </button>
+    </nav>
+  </div>
+
+  <!-- Add New Word Modal -->
+  <div class="modal-overlay" id="add-word-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>📓 Kelime Defterine Ekle</h3>
+        <button class="icon-btn" onclick="verbsView.closeAddWordModal()">✕</button>
+      </div>
+
+      <p style="font-size:0.82rem; color:var(--text-secondary);">
+        Öğrenmek istediğiniz İngilizce kelimeyi ve Türkçe anlamını girin. Çift taraflı kartlarla anında ezberlemeye başlayın.
+      </p>
+
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <div class="form-row">
+          <label>🇬🇧 İngilizce Kelime (Örn: Soccer, Chair, Library, Beautiful)</label>
+          <input type="text" id="new-word-en" class="select-input" placeholder="İngilizce kelime yazın...">
+        </div>
+
+        <div class="form-row">
+          <label>🇹🇷 Türkçe Anlamı (Örn: Futbol, Sandalye, Kütüphane, Güzel)</label>
+          <input type="text" id="new-word-tr" class="select-input" placeholder="Türkçe karşılığını yazın...">
+        </div>
+      </div>
+
+      <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:10px;">
+        <button class="btn-secondary" onclick="verbsView.closeAddWordModal()">İptal</button>
+        <button class="btn-primary" onclick="verbsView.submitNewWord()">💾 Deftere Kaydet (+3 XP)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reward Celebration Modal -->
+  <div class="modal-overlay" id="reward-celebration-modal">
+    <div class="modal-card" style="text-align:center; border:2px solid #f59e0b; box-shadow:0 0 35px rgba(245, 158, 11, 0.4);">
+      <div style="font-size:3.5rem; animation: bounce 1s infinite alternate;">🎁</div>
+      <span class="stat-chip xp" id="reward-celeb-xp" style="margin:0 auto; font-size:0.9rem;">XP TAMAMLANDI</span>
+      <h3 id="reward-celeb-title" style="font-size:1.3rem; font-weight:900; color:#f59e0b; margin-top:8px;">
+        🎉 TEBRİKLER! BABANDAN ÖDÜL KAZANDIN!
+      </h3>
+      <div id="reward-celeb-desc" style="font-size:1rem; color:var(--text-primary); margin:12px 0;"></div>
+      <p style="font-size:0.8rem; color:var(--text-secondary);">
+        Harika bir azim gösterdin! Şimdi babana bu ekranı gösterip ödülünü isteyebilirsin! 🌟
+      </p>
+      <button class="btn-primary" style="width:100%; justify-content:center; margin-top:12px;" onclick="rewardsEngine.closeCelebrationModal()">
+        🏆 Harika! Devam Et
+      </button>
+    </div>
+  </div>
+
+  <!-- Reward Settings Modal (Parent Customization) -->
+  <div class="modal-overlay" id="reward-settings-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>⚙️ Babandan Ödül Ayarları</h3>
+        <button class="icon-btn" onclick="rewardsEngine.closeSettingsModal()">✕</button>
+      </div>
+
+      <p style="font-size:0.82rem; color:var(--text-secondary);">
+        Öğrenci her XP barajına ulaştığında kazanacağı ödül vaadini buradan özelleştirebilirsiniz:
+      </p>
+
+      <div id="reward-settings-list" style="display:flex; flex-direction:column; gap:10px;"></div>
+
+      <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:10px;">
+        <button class="btn-secondary" onclick="rewardsEngine.closeSettingsModal()">İptal</button>
+        <button class="btn-primary" onclick="rewardsEngine.saveSettingsFromModal()">💾 Kaydet</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Video Lesson Modal -->
+  <div class="modal-overlay" id="video-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="video-modal-title">YouTube Ders Videosu</h3>
+        <button class="icon-btn" onclick="grammarView.closeVideoModal()">✕</button>
+      </div>
+      <div class="video-container" id="video-modal-iframe-wrapper"></div>
+      <button class="btn-secondary" style="width:100%; justify-content:center;" onclick="grammarView.closeVideoModal()">
+        Pencereyi Kapat
+      </button>
+    </div>
+  </div>
+
+  <!-- Android APK & Installation Guide Modal -->
+  <div class="modal-overlay" id="install-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>📱 Telefona Yükleme Kılavuzu</h3>
+        <button class="icon-btn" onclick="app.closeInstallGuideModal()">✕</button>
+      </div>
+      
+      <div style="font-size:0.88rem; line-height:1.6; color:var(--text-primary); display:flex; flex-direction:column; gap:12px;">
+        <div style="background:var(--bg-card); padding:12px; border-radius:var(--radius-md); border-left:3px solid var(--primary);">
+          <strong style="color:var(--primary);">Yöntem 1: Anında Telefona Yükleme (PWA / WebAPK)</strong>
+          <p style="font-size:0.8rem; color:var(--text-secondary); margin-top:4px;">
+            1. Telefonunuzun Chrome tarayıcısından bu adresi açın.<br>
+            2. Sağ üstteki <strong>üç noktaya (⋮)</strong> dokunun.<br>
+            3. <strong>"Ana Ekrana Ekle"</strong> veya <strong>"Uygulamayı Yükle"</strong> butonuna basın.<br>
+            4. Uygulama telefonunuza yerel APK gibi kurulur ve internetsiz çalışır!
+          </p>
+        </div>
+
+        <div style="background:var(--bg-card); padding:12px; border-radius:var(--radius-md); border-left:3px solid var(--accent);">
+          <strong style="color:var(--accent);">Yöntem 2: Android Studio ile APK Derleme</strong>
+          <p style="font-size:0.8rem; color:var(--text-secondary); margin-top:4px;">
+            Proje kök dizininde hazır Capacitor Android yapılandırması bulunmaktadır. <code>npx cap open android</code> komutuyla Android Studio'da açıp tek tıkla <strong>Build APK</strong> yapabilirsiniz.
+          </p>
+        </div>
+      </div>
+
+      <button class="btn-primary" style="width:100%; justify-content:center;" onclick="app.closeInstallGuideModal()">
+        Anladım
+      </button>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Scripts with Cache-Busting Version Query -->
+  <script src="./js/app_data.js?v=5"></script>
+  <script src="./js/speech_utils.js?v=5"></script>
+  <script src="./js/custom_words.js?v=5"></script>
+  <script src="./js/vocabulary_trainer.js?v=5"></script>
+  <script src="./js/daily_routine.js?v=5"></script>
+  <script src="./js/notification_manager.js?v=5"></script>
+  <script src="./js/rewards_engine.js?v=5"></script>
+  <script src="./js/sentence_builder.js?v=5"></script>
+  <script src="./js/verbs_view.js?v=5"></script>
+  <script src="./js/grammar_view.js?v=5"></script>
+  <script src="./js/story_view.js?v=5"></script>
+  <script src="./js/quiz_engine.js?v=5"></script>
+  <script src="./js/app.js?v=5"></script>
+
+</body>
+</html>
