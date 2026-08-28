@@ -1,6 +1,6 @@
 /**
  * SVOMPT Studio & Cümle Sıralama Oyunu (Sentence Builder)
- * Interactive sentence building, color-coded SVOMPT tokens, dynamic conjugations, and Turkish translations.
+ * Interactive sentence building, color-coded SVOMPT tokens, 20+ Grammar Tenses & Modals, dynamic conjugations, and Turkish translations.
  */
 
 class SentenceBuilder {
@@ -9,7 +9,7 @@ class SentenceBuilder {
 
     // Studio Selection State
     this.selectedType = 'pos'; // 'pos' | 'neg' | 'que'
-    this.selectedTense = 'present_simple'; // 'present_simple' | 'present_continuous' | 'past_simple' | 'future_will' | 'modal_can' | 'modal_must' | 'modal_should'
+    this.selectedTense = 'present_simple';
     this.selectedSubject = 'She';
     this.selectedVerbKey = 'play';
     this.selectedObject = 'the VR headsets and sensors';
@@ -44,24 +44,24 @@ class SentenceBuilder {
     ];
 
     this.verbs = [
-      { key: 'play', en: 'play', tr: 'oynamak', v_s: 'plays', v2: 'played', v_ing: 'playing', tr_stem: 'oyna', icon: '🎮' },
-      { key: 'study', en: 'study', tr: 'çalışmak / incelemek', v_s: 'studies', v2: 'studied', v_ing: 'studying', tr_stem: 'incele', icon: '📖' },
-      { key: 'analyze', en: 'analyze', tr: 'analiz etmek', v_s: 'analyzes', v2: 'analyzed', v_ing: 'analyzing', tr_stem: 'analiz et', icon: '🔬' },
-      { key: 'use', en: 'use', tr: 'kullanmak', v_s: 'uses', v2: 'used', v_ing: 'using', tr_stem: 'kullan', icon: '💻' },
-      { key: 'create', en: 'create', tr: 'oluşturmak', v_s: 'creates', v2: 'created', v_ing: 'creating', tr_stem: 'oluştur', icon: '✨' },
-      { key: 'develop', en: 'develop', tr: 'geliştirmek', v_s: 'develops', v2: 'developed', v_ing: 'developing', tr_stem: 'geliştir', icon: '🚀' },
-      { key: 'watch', en: 'watch', tr: 'izlemek', v_s: 'watches', v2: 'watched', v_ing: 'watching', tr_stem: 'izle', icon: '👁️' },
-      { key: 'test', en: 'test', tr: 'test etmek', v_s: 'tests', v2: 'tested', v_ing: 'testing', tr_stem: 'test et', icon: '🧪' },
-      { key: 'learn', en: 'learn', tr: 'öğrenmek', v_s: 'learns', v2: 'learned', v_ing: 'learning', tr_stem: 'öğren', icon: '🎓' },
-      { key: 'explore', en: 'explore', tr: 'keşfetmek', v_s: 'explores', v2: 'explored', v_ing: 'exploring', tr_stem: 'keşfet', icon: '🧭' },
-      { key: 'practice', en: 'practice', tr: 'pratik yapmak', v_s: 'practices', v2: 'practiced', v_ing: 'practicing', tr_stem: 'pratik yap', icon: '⚽' },
-      { key: 'build', en: 'build', tr: 'inşa etmek', v_s: 'builds', v2: 'built', v_ing: 'building', tr_stem: 'inşa et', icon: '🏗️' },
-      { key: 'write', en: 'write', tr: 'yazmak', v_s: 'writes', v2: 'wrote', v_ing: 'writing', tr_stem: 'yaz', icon: '✍️' },
-      { key: 'read', en: 'read', tr: 'okumak', v_s: 'reads', v2: 'read', v_ing: 'reading', tr_stem: 'oku', icon: '📚' },
-      { key: 'listen', en: 'listen to', tr: 'dinlemek', v_s: 'listens to', v2: 'listened to', v_ing: 'listening to', tr_stem: 'dinle', icon: '🎧' },
-      { key: 'visit', en: 'visit', tr: 'ziyaret etmek', v_s: 'visits', v2: 'visited', v_ing: 'visiting', tr_stem: 'ziyaret et', icon: '🏛️' },
-      { key: 'help', en: 'help', tr: 'yardım etmek', v_s: 'helps', v2: 'helped', v_ing: 'helping', tr_stem: 'yardım et', icon: '🤝' },
-      { key: 'solve', en: 'solve', tr: 'çözmek', v_s: 'solves', v2: 'solved', v_ing: 'solving', tr_stem: 'çöz', icon: '🧩' }
+      { key: 'play', en: 'play', tr: 'oynamak', v_s: 'plays', v2: 'played', v3: 'played', v_ing: 'playing', tr_stem: 'oyna', icon: '🎮' },
+      { key: 'study', en: 'study', tr: 'çalışmak / incelemek', v_s: 'studies', v2: 'studied', v3: 'studied', v_ing: 'studying', tr_stem: 'incele', icon: '📖' },
+      { key: 'analyze', en: 'analyze', tr: 'analiz etmek', v_s: 'analyzes', v2: 'analyzed', v3: 'analyzed', v_ing: 'analyzing', tr_stem: 'analiz et', icon: '🔬' },
+      { key: 'use', en: 'use', tr: 'kullanmak', v_s: 'uses', v2: 'used', v3: 'used', v_ing: 'using', tr_stem: 'kullan', icon: '💻' },
+      { key: 'create', en: 'create', tr: 'oluşturmak', v_s: 'creates', v2: 'created', v3: 'created', v_ing: 'creating', tr_stem: 'oluştur', icon: '✨' },
+      { key: 'develop', en: 'develop', tr: 'geliştirmek', v_s: 'develops', v2: 'developed', v3: 'developed', v_ing: 'developing', tr_stem: 'geliştir', icon: '🚀' },
+      { key: 'watch', en: 'watch', tr: 'izlemek', v_s: 'watches', v2: 'watched', v3: 'watched', v_ing: 'watching', tr_stem: 'izle', icon: '👁️' },
+      { key: 'test', en: 'test', tr: 'test etmek', v_s: 'tests', v2: 'tested', v3: 'tested', v_ing: 'testing', tr_stem: 'test et', icon: '🧪' },
+      { key: 'learn', en: 'learn', tr: 'öğrenmek', v_s: 'learns', v2: 'learned', v3: 'learned', v_ing: 'learning', tr_stem: 'öğren', icon: '🎓' },
+      { key: 'explore', en: 'explore', tr: 'keşfetmek', v_s: 'explores', v2: 'explored', v3: 'explored', v_ing: 'exploring', tr_stem: 'keşfet', icon: '🧭' },
+      { key: 'practice', en: 'practice', tr: 'pratik yapmak', v_s: 'practices', v2: 'practiced', v3: 'practiced', v_ing: 'practicing', tr_stem: 'pratik yap', icon: '⚽' },
+      { key: 'build', en: 'build', tr: 'inşa etmek', v_s: 'builds', v2: 'built', v3: 'built', v_ing: 'building', tr_stem: 'inşa et', icon: '🏗️' },
+      { key: 'write', en: 'write', tr: 'yazmak', v_s: 'writes', v2: 'wrote', v3: 'written', v_ing: 'writing', tr_stem: 'yaz', icon: '✍️' },
+      { key: 'read', en: 'read', tr: 'okumak', v_s: 'reads', v2: 'read', v3: 'read', v_ing: 'reading', tr_stem: 'oku', icon: '📚' },
+      { key: 'listen', en: 'listen to', tr: 'dinlemek', v_s: 'listens to', v2: 'listened to', v3: 'listened to', v_ing: 'listening to', tr_stem: 'dinle', icon: '🎧' },
+      { key: 'visit', en: 'visit', tr: 'ziyaret etmek', v_s: 'visits', v2: 'visited', v3: 'visited', v_ing: 'visiting', tr_stem: 'ziyaret et', icon: '🏛️' },
+      { key: 'help', en: 'help', tr: 'yardım etmek', v_s: 'helps', v2: 'helped', v3: 'helped', v_ing: 'helping', tr_stem: 'yardım et', icon: '🤝' },
+      { key: 'solve', en: 'solve', tr: 'çözmek', v_s: 'solves', v2: 'solved', v3: 'solved', v_ing: 'solving', tr_stem: 'çöz', icon: '🧩' }
     ];
 
     this.objects = [
@@ -159,7 +159,7 @@ class SentenceBuilder {
         <span class="legend-pill pill-t" style="color:#fb7185; border-color:rgba(251,113,133,0.4); background:rgba(239,68,68,0.15);">🟥 T (Zaman)</span>
       </div>
 
-      <!-- Controls Card (Sentence Form & Tense Selector) -->
+      <!-- Controls Card (Sentence Form & Extended Tense Selector) -->
       <div class="controls-card">
         <div class="form-row">
           <label>CÜMLE TÜRÜ (SENTENCE FORM)</label>
@@ -177,15 +177,40 @@ class SentenceBuilder {
         </div>
 
         <div class="form-row" style="margin-top:8px;">
-          <label>ZAMAN / KİP YAPISI (TENSE & MODALS)</label>
-          <select class="select-input" id="builder-tense-select" onchange="sentenceBuilder.setTense(this.value)">
-            <option value="present_simple" ${this.selectedTense === 'present_simple' ? 'selected' : ''}>Simple Present (Geniş Zaman / Rutinler)</option>
-            <option value="present_continuous" ${this.selectedTense === 'present_continuous' ? 'selected' : ''}>Present Continuous (Şimdiki Zaman)</option>
-            <option value="past_simple" ${this.selectedTense === 'past_simple' ? 'selected' : ''}>Simple Past (Geçmiş Zaman - V2 / Did)</option>
-            <option value="future_will" ${this.selectedTense === 'future_will' ? 'selected' : ''}>Future Simple (Gelecek Zaman - Will)</option>
-            <option value="modal_can" ${this.selectedTense === 'modal_can' ? 'selected' : ''}>Modals: Can (Yetenek / -ebilmek)</option>
-            <option value="modal_must" ${this.selectedTense === 'modal_must' ? 'selected' : ''}>Modals: Must (Zorunluluk / -meli)</option>
-            <option value="modal_should" ${this.selectedTense === 'modal_should' ? 'selected' : ''}>Modals: Should (Tavsiye / -meli)</option>
+          <label>ZAMAN / KİP YAPISI (20+ TENSES, ASPECTS & MODALS)</label>
+          <select class="select-input" id="builder-tense-select" onchange="sentenceBuilder.setTense(this.value)" style="font-weight:600;">
+            <optgroup label="--- 📅 GÜNCEL ZAMANLAR (PRESENT TENSES) ---">
+              <option value="present_simple" ${this.selectedTense === 'present_simple' ? 'selected' : ''}>Simple Present (Geniş Zaman / Rutinler - V1/Vs)</option>
+              <option value="present_continuous" ${this.selectedTense === 'present_continuous' ? 'selected' : ''}>Present Continuous (Şimdiki Zaman - am/is/are + V-ing)</option>
+              <option value="present_perfect" ${this.selectedTense === 'present_perfect' ? 'selected' : ''}>Present Perfect (Yakın Geçmiş / Etkisi Süren - have/has + V3)</option>
+              <option value="present_perfect_continuous" ${this.selectedTense === 'present_perfect_continuous' ? 'selected' : ''}>Present Perfect Continuous (Süregelen Zaman - have been + V-ing)</option>
+            </optgroup>
+
+            <optgroup label="--- ⏳ GEÇMİŞ ZAMANLAR (PAST TENSES) ---">
+              <option value="past_simple" ${this.selectedTense === 'past_simple' ? 'selected' : ''}>Simple Past (Geçmiş Zaman - V2 / Did)</option>
+              <option value="past_continuous" ${this.selectedTense === 'past_continuous' ? 'selected' : ''}>Past Continuous (Geçmişte Süregelen - was/were + V-ing)</option>
+              <option value="past_perfect" ${this.selectedTense === 'past_perfect' ? 'selected' : ''}>Past Perfect (Önceki Geçmiş Zaman - had + V3 / -mişti)</option>
+              <option value="used_to" ${this.selectedTense === 'used_to' ? 'selected' : ''}>Used to (Eski Alışkanlık / Eskiden Yapardı)</option>
+            </optgroup>
+
+            <optgroup label="--- 🔮 GELECEK ZAMANLAR (FUTURE TENSES) ---">
+              <option value="future_will" ${this.selectedTense === 'future_will' ? 'selected' : ''}>Future Simple (Gelecek Zaman - will + V1)</option>
+              <option value="future_going_to" ${this.selectedTense === 'future_going_to' ? 'selected' : ''}>Be Going To (Planlı Gelecek Zaman - is/are going to + V1)</option>
+              <option value="future_continuous" ${this.selectedTense === 'future_continuous' ? 'selected' : ''}>Future Continuous (Gelecekte Yapıyor Olacak - will be + V-ing)</option>
+              <option value="future_perfect" ${this.selectedTense === 'future_perfect' ? 'selected' : ''}>Future Perfect (Gelecekte Tamamlanmış - will have + V3)</option>
+            </optgroup>
+
+            <optgroup label="--- 💡 KİPLER & MODALLAR (MODALS) ---">
+              <option value="modal_can" ${this.selectedTense === 'modal_can' ? 'selected' : ''}>Modals: Can (Yetenek / İzin - -ebilmek)</option>
+              <option value="modal_could" ${this.selectedTense === 'modal_could' ? 'selected' : ''}>Modals: Could (Geçmiş Yetenek / Nezaket - -ebilirdi)</option>
+              <option value="modal_must" ${this.selectedTense === 'modal_must' ? 'selected' : ''}>Modals: Must (Güçlü Zorunluluk / -meli)</option>
+              <option value="modal_have_to" ${this.selectedTense === 'modal_have_to' ? 'selected' : ''}>Modals: Have to (Dış Zorunluluk / -mek zorunda)</option>
+              <option value="modal_should" ${this.selectedTense === 'modal_should' ? 'selected' : ''}>Modals: Should (Tavsiye / Öneri / -meli)</option>
+              <option value="modal_may" ${this.selectedTense === 'modal_may' ? 'selected' : ''}>Modals: May (Olasılık / İzin / -ebilir)</option>
+              <option value="modal_might" ${this.selectedTense === 'modal_might' ? 'selected' : ''}>Modals: Might (Düşük İhtimal / -ebilir)</option>
+              <option value="modal_would" ${this.selectedTense === 'modal_would' ? 'selected' : ''}>Modals: Would (Koşul / İstek / -erdi)</option>
+              <option value="modal_would_like" ${this.selectedTense === 'modal_would_like' ? 'selected' : ''}>Modals: Would like to (İstemek / Arzu etmek)</option>
+            </optgroup>
           </select>
         </div>
       </div>
@@ -340,7 +365,12 @@ class SentenceBuilder {
     const man = randomItem(this.manners);
     const plc = randomItem(this.places);
 
-    const tenses = ['present_simple', 'present_continuous', 'past_simple', 'future_will', 'modal_can', 'modal_must', 'modal_should'];
+    const tenses = [
+      'present_simple', 'present_continuous', 'present_perfect', 'present_perfect_continuous',
+      'past_simple', 'past_continuous', 'past_perfect', 'used_to',
+      'future_will', 'future_going_to', 'future_continuous', 'future_perfect',
+      'modal_can', 'modal_could', 'modal_must', 'modal_have_to', 'modal_should', 'modal_may', 'modal_might', 'modal_would', 'modal_would_like'
+    ];
     const tense = randomItem(tenses);
     const types = ['pos', 'neg', 'que'];
     const type = randomItem(types);
@@ -374,7 +404,7 @@ class SentenceBuilder {
     const is1s = person === '1s';
     const isPlural = person === '3p' || person === '1p';
 
-    // Present Simple (Geniş Zaman)
+    // 1. Present Simple (Geniş Zaman)
     if (tense === 'present_simple') {
       if (type === 'pos') {
         const rSuffix = endsWithVowel ? 'r' : (isFront ? 'er' : 'ar');
@@ -397,11 +427,10 @@ class SentenceBuilder {
       }
     }
 
-    // Present Continuous (Şimdiki Zaman - yor)
+    // 2. Present Continuous (Şimdiki Zaman - yor)
     if (tense === 'present_continuous') {
       let yorStem = stem;
       if (endsWithVowel) {
-        // oyna -> oynuyor, incele -> inceliyor, izle -> izliyor
         yorStem = stem.slice(0, -1) + (isFront ? 'i' : 'u');
       } else {
         yorStem = stem + (isFront ? 'i' : 'u');
@@ -423,7 +452,23 @@ class SentenceBuilder {
       }
     }
 
-    // Past Simple (Geçmiş Zaman - di/dı)
+    // 3. Present Perfect (Yakın Geçmiş - have/has V3)
+    if (tense === 'present_perfect') {
+      const mistir = isFront ? 'miştir' : 'mıştır';
+      if (type === 'pos') return `${stem}${mistir}`;
+      if (type === 'neg') return isFront ? `${stem}memiştir` : `${stem}mamıştır`;
+      return isFront ? `${stem}miş midir?` : `${stem}mış mıdır?`;
+    }
+
+    // 4. Present Perfect Continuous (have been V-ing)
+    if (tense === 'present_perfect_continuous') {
+      const mekte = isFront ? 'mektedir' : 'maktadır';
+      if (type === 'pos') return `${stem}${mekte}`;
+      if (type === 'neg') return isFront ? `${stem}memektedir` : `${stem}mamaktadır`;
+      return isFront ? `${stem}mekte midir?` : `${stem}makta mıdır?`;
+    }
+
+    // 5. Past Simple (Geçmiş Zaman - di/dı)
     if (tense === 'past_simple') {
       const d = isFront ? 'di' : 'dı';
       if (type === 'pos') {
@@ -443,7 +488,39 @@ class SentenceBuilder {
       }
     }
 
-    // Future Simple (Gelecek Zaman - ecek/acak)
+    // 6. Past Continuous (was/were V-ing)
+    if (tense === 'past_continuous') {
+      let yorStem = stem;
+      if (endsWithVowel) {
+        yorStem = stem.slice(0, -1) + (isFront ? 'i' : 'u');
+      } else {
+        yorStem = stem + (isFront ? 'i' : 'u');
+      }
+      const base = yorStem + 'yordu';
+      if (type === 'pos') return base;
+      if (type === 'neg') return stem + (isFront ? 'mi' : 'mı') + 'yordu';
+      return `${yorStem}yor muydu?`;
+    }
+
+    // 7. Past Perfect (had + V3)
+    if (tense === 'past_perfect') {
+      const misti = isFront ? 'mişti' : 'mıştı';
+      if (type === 'pos') return `${stem}${misti}`;
+      if (type === 'neg') return isFront ? `${stem}memişti` : `${stem}mamıştı`;
+      return isFront ? `${stem}miş miydi?` : `${stem}mış mıydı?`;
+    }
+
+    // 8. Used to
+    if (tense === 'used_to') {
+      const rSuffix = endsWithVowel ? 'r' : (isFront ? 'er' : 'ar');
+      const di = isFront ? 'di' : 'dı';
+      const base = 'eskiden ' + stem + rSuffix + di;
+      if (type === 'pos') return base;
+      if (type === 'neg') return 'eskiden ' + stem + (isFront ? 'mezdi' : 'mazdı');
+      return 'eskiden ' + stem + rSuffix + (isFront ? ' miydi?' : ' mıydı?');
+    }
+
+    // 9. Future Simple (will + V1)
     if (tense === 'future_will') {
       const y = endsWithVowel ? 'y' : '';
       const ecek = isFront ? `${y}ecek` : `${y}acak`;
@@ -463,7 +540,37 @@ class SentenceBuilder {
       }
     }
 
-    // Modals
+    // 10. Be Going To (is/are going to)
+    if (tense === 'future_going_to') {
+      const y = endsWithVowel ? 'y' : '';
+      const ecek = isFront ? `${y}ecek (planlı)` : `${y}acak (planlı)`;
+      if (type === 'pos') return `${stem}${ecek}`;
+      if (type === 'neg') return isFront ? `${stem}meyecek (planlı)` : `${stem}mayacak (planlı)`;
+      return isFront ? `${stem}${y}ecek mi?` : `${stem}${y}acak mı?`;
+    }
+
+    // 11. Future Continuous (will be V-ing)
+    if (tense === 'future_continuous') {
+      let yorStem = stem;
+      if (endsWithVowel) {
+        yorStem = stem.slice(0, -1) + (isFront ? 'i' : 'u');
+      } else {
+        yorStem = stem + (isFront ? 'i' : 'u');
+      }
+      if (type === 'pos') return `${yorStem}yor olacak`;
+      if (type === 'neg') return stem + (isFront ? 'mi' : 'mı') + 'yor olacak';
+      return `${yorStem}yor mu olacak?`;
+    }
+
+    // 12. Future Perfect (will have V3)
+    if (tense === 'future_perfect') {
+      const mis = isFront ? 'miş olacak' : 'mış olacak';
+      if (type === 'pos') return `${stem}${mis}`;
+      if (type === 'neg') return isFront ? `${stem}memiş olacak` : `${stem}mamış olacak`;
+      return isFront ? `${stem}miş mi olacak?` : `${stem}mış mı olacak?`;
+    }
+
+    // 13. Modals
     if (tense === 'modal_can') {
       const y = endsWithVowel ? 'y' : '';
       const ebil = isFront ? `${y}ebilir` : `${y}abilir`;
@@ -471,17 +578,65 @@ class SentenceBuilder {
       if (type === 'neg') return isFront ? `${stem}${y}emez` : `${stem}${y}amaz`;
       return `${stem}${ebil} mi?`;
     }
+
+    if (tense === 'modal_could') {
+      const y = endsWithVowel ? 'y' : '';
+      const ebilirdi = isFront ? `${y}ebilirdi` : `${y}abilirdi`;
+      if (type === 'pos') return `${stem}${ebilirdi}`;
+      if (type === 'neg') return isFront ? `${stem}${y}emezdi` : `${stem}${y}amazdı`;
+      return `${stem}${ebilirdi} mi?`;
+    }
+
     if (tense === 'modal_must') {
       const meli = isFront ? 'meli' : 'malı';
-      if (type === 'pos') return `${stem}${meli}`;
+      if (type === 'pos') return `${stem}${meli} (zorunlu)`;
       if (type === 'neg') return isFront ? `${stem}memeli` : `${stem}mamalı`;
       return `${stem}${meli} mi?`;
     }
+
+    if (tense === 'modal_have_to') {
+      const zor = isFront ? 'mek zorunda' : 'mak zorunda';
+      if (type === 'pos') return `${stem}${zor}`;
+      if (type === 'neg') return `${stem}${zor} değil`;
+      return `${stem}${zor} mu?`;
+    }
+
     if (tense === 'modal_should') {
       const meli = isFront ? 'meli' : 'malı';
       if (type === 'pos') return `${stem}${meli} (tavsiye)`;
       if (type === 'neg') return isFront ? `${stem}memeli (tavsiye)` : `${stem}mamalı (tavsiye)`;
       return `${stem}${meli} mi?`;
+    }
+
+    if (tense === 'modal_may') {
+      const y = endsWithVowel ? 'y' : '';
+      const ebil = isFront ? `${y}ebilir` : `${y}abilir`;
+      if (type === 'pos') return `${stem}${ebil} (izin/ihtimal)`;
+      if (type === 'neg') return `${stem}${ebil} değil`;
+      return `${stem}${ebil} mi?`;
+    }
+
+    if (tense === 'modal_might') {
+      const y = endsWithVowel ? 'y' : '';
+      const ebil = isFront ? `${y}ebilir (ihtimal)` : `${y}abilir (ihtimal)`;
+      if (type === 'pos') return `${stem}${ebil}`;
+      if (type === 'neg') return isFront ? `${stem}${y}emeyebilir` : `${stem}${y}amayabilir`;
+      return `${stem}${ebil} mi?`;
+    }
+
+    if (tense === 'modal_would') {
+      const rSuffix = endsWithVowel ? 'r' : (isFront ? 'er' : 'ar');
+      const di = isFront ? 'di' : 'dı';
+      if (type === 'pos') return stem + rSuffix + di;
+      if (type === 'neg') return stem + (isFront ? 'mezdi' : 'mazdı');
+      return stem + rSuffix + (isFront ? ' miydi?' : ' mıydı?');
+    }
+
+    if (tense === 'modal_would_like') {
+      const mek = isFront ? 'mek ister' : 'mak ister';
+      if (type === 'pos') return `${stem}${mek}`;
+      if (type === 'neg') return isFront ? `${stem}mek istemez` : `${stem}mak istemez`;
+      return isFront ? `${stem}mek ister mi?` : `${stem}mak ister mi?`;
     }
 
     return stem;
@@ -505,6 +660,7 @@ class SentenceBuilder {
     const V1 = verbObj.en;
     const Vs = verbObj.v_s;
     const V2 = verbObj.v2;
+    const V3 = verbObj.v3 || verbObj.v2;
     const Ving = verbObj.v_ing;
     const stem = verbObj.tr_stem;
 
@@ -516,7 +672,7 @@ class SentenceBuilder {
     const type = this.selectedType;
     const tense = this.selectedTense;
 
-    // Styles for SVOMPT Tokens
+    // Direct SVOMPT Color Tokens Styles
     const styleS = 'color: #f59e0b; border-bottom: 3px solid #f59e0b; font-weight: 800; padding: 2px 6px; display: inline-block;';
     const styleV = 'color: #38bdf8; border-bottom: 3px solid #38bdf8; font-weight: 800; padding: 2px 6px; display: inline-block;';
     const styleO = 'color: #34d399; border-bottom: 3px solid #34d399; font-weight: 800; padding: 2px 6px; display: inline-block;';
@@ -524,7 +680,7 @@ class SentenceBuilder {
     const styleP = 'color: #f472b6; border-bottom: 3px solid #f472b6; font-weight: 800; padding: 2px 6px; display: inline-block;';
     const styleT = 'color: #fb7185; border-bottom: 3px solid #fb7185; font-weight: 800; padding: 2px 6px; display: inline-block;';
 
-    // Auxiliary & Verb Assembly
+    // 1. Simple Present
     if (tense === 'present_simple') {
       if (type === 'pos') {
         const verbWord = is3rdSingular ? Vs : V1;
@@ -539,7 +695,9 @@ class SentenceBuilder {
         enHtml = `<span class="svompt-word word-v" style="${styleV}">${aux}</span> <span class="svompt-word word-s" style="${styleS}">${S.toLowerCase()}</span> <span class="svompt-word word-v" style="${styleV}">${V1}</span>`;
         rawEnText = `${aux} ${S.toLowerCase()} ${V1}`;
       }
-    } else if (tense === 'present_continuous') {
+    } 
+    // 2. Present Continuous
+    else if (tense === 'present_continuous') {
       const be = isFirstPerson ? 'am' : (is3rdSingular ? 'is' : 'are');
       if (type === 'pos') {
         enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">${be} ${Ving}</span>`;
@@ -553,7 +711,41 @@ class SentenceBuilder {
         enHtml = `<span class="svompt-word word-v" style="${styleV}">${capBe}</span> <span class="svompt-word word-s" style="${styleS}">${S.toLowerCase()}</span> <span class="svompt-word word-v" style="${styleV}">${Ving}</span>`;
         rawEnText = `${capBe} ${S.toLowerCase()} ${Ving}`;
       }
-    } else if (tense === 'past_simple') {
+    } 
+    // 3. Present Perfect
+    else if (tense === 'present_perfect') {
+      const have = is3rdSingular ? 'has' : 'have';
+      if (type === 'pos') {
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">${have} ${V3}</span>`;
+        rawEnText = `${S} ${have} ${V3}`;
+      } else if (type === 'neg') {
+        const negHave = is3rdSingular ? "hasn't" : "haven't";
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">${negHave} ${V3}</span>`;
+        rawEnText = `${S} ${negHave} ${V3}`;
+      } else { // que
+        const capHave = is3rdSingular ? 'Has' : 'Have';
+        enHtml = `<span class="svompt-word word-v" style="${styleV}">${capHave}</span> <span class="svompt-word word-s" style="${styleS}">${S.toLowerCase()}</span> <span class="svompt-word word-v" style="${styleV}">${V3}</span>`;
+        rawEnText = `${capHave} ${S.toLowerCase()} ${V3}`;
+      }
+    }
+    // 4. Present Perfect Continuous
+    else if (tense === 'present_perfect_continuous') {
+      const have = is3rdSingular ? 'has been' : 'have been';
+      if (type === 'pos') {
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">${have} ${Ving}</span>`;
+        rawEnText = `${S} ${have} ${Ving}`;
+      } else if (type === 'neg') {
+        const negHave = is3rdSingular ? "hasn't been" : "haven't been";
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">${negHave} ${Ving}</span>`;
+        rawEnText = `${S} ${negHave} ${Ving}`;
+      } else { // que
+        const capHave = is3rdSingular ? 'Has' : 'Have';
+        enHtml = `<span class="svompt-word word-v" style="${styleV}">${capHave}</span> <span class="svompt-word word-s" style="${styleS}">${S.toLowerCase()}</span> <span class="svompt-word word-v" style="${styleV}">been ${Ving}</span>`;
+        rawEnText = `${capHave} ${S.toLowerCase()} been ${Ving}`;
+      }
+    }
+    // 5. Simple Past
+    else if (tense === 'past_simple') {
       if (type === 'pos') {
         enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">${V2}</span>`;
         rawEnText = `${S} ${V2}`;
@@ -564,7 +756,51 @@ class SentenceBuilder {
         enHtml = `<span class="svompt-word word-v" style="${styleV}">Did</span> <span class="svompt-word word-s" style="${styleS}">${S.toLowerCase()}</span> <span class="svompt-word word-v" style="${styleV}">${V1}</span>`;
         rawEnText = `Did ${S.toLowerCase()} ${V1}`;
       }
-    } else if (tense === 'future_will') {
+    } 
+    // 6. Past Continuous
+    else if (tense === 'past_continuous') {
+      const was = (isFirstPerson || is3rdSingular) ? 'was' : 'were';
+      if (type === 'pos') {
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">${was} ${Ving}</span>`;
+        rawEnText = `${S} ${was} ${Ving}`;
+      } else if (type === 'neg') {
+        const negWas = (isFirstPerson || is3rdSingular) ? "wasn't" : "weren't";
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">${negWas} ${Ving}</span>`;
+        rawEnText = `${S} ${negWas} ${Ving}`;
+      } else { // que
+        const capWas = (isFirstPerson || is3rdSingular) ? 'Was' : 'Were';
+        enHtml = `<span class="svompt-word word-v" style="${styleV}">${capWas}</span> <span class="svompt-word word-s" style="${styleS}">${S.toLowerCase()}</span> <span class="svompt-word word-v" style="${styleV}">${Ving}</span>`;
+        rawEnText = `${capWas} ${S.toLowerCase()} ${Ving}`;
+      }
+    }
+    // 7. Past Perfect
+    else if (tense === 'past_perfect') {
+      if (type === 'pos') {
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">had ${V3}</span>`;
+        rawEnText = `${S} had ${V3}`;
+      } else if (type === 'neg') {
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">hadn't ${V3}</span>`;
+        rawEnText = `${S} hadn't ${V3}`;
+      } else { // que
+        enHtml = `<span class="svompt-word word-v" style="${styleV}">Had</span> <span class="svompt-word word-s" style="${styleS}">${S.toLowerCase()}</span> <span class="svompt-word word-v" style="${styleV}">${V3}</span>`;
+        rawEnText = `Had ${S.toLowerCase()} ${V3}`;
+      }
+    }
+    // 8. Used to
+    else if (tense === 'used_to') {
+      if (type === 'pos') {
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">used to ${V1}</span>`;
+        rawEnText = `${S} used to ${V1}`;
+      } else if (type === 'neg') {
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">didn't use to ${V1}</span>`;
+        rawEnText = `${S} didn't use to ${V1}`;
+      } else { // que
+        enHtml = `<span class="svompt-word word-v" style="${styleV}">Did</span> <span class="svompt-word word-s" style="${styleS}">${S.toLowerCase()}</span> <span class="svompt-word word-v" style="${styleV}">use to ${V1}</span>`;
+        rawEnText = `Did ${S.toLowerCase()} use to ${V1}`;
+      }
+    }
+    // 9. Future Simple (will)
+    else if (tense === 'future_will') {
       if (type === 'pos') {
         enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">will ${V1}</span>`;
         rawEnText = `${S} will ${V1}`;
@@ -575,7 +811,51 @@ class SentenceBuilder {
         enHtml = `<span class="svompt-word word-v" style="${styleV}">Will</span> <span class="svompt-word word-s" style="${styleS}">${S.toLowerCase()}</span> <span class="svompt-word word-v" style="${styleV}">${V1}</span>`;
         rawEnText = `Will ${S.toLowerCase()} ${V1}`;
       }
-    } else if (tense === 'modal_can') {
+    } 
+    // 10. Be Going To
+    else if (tense === 'future_going_to') {
+      const be = isFirstPerson ? 'am' : (is3rdSingular ? 'is' : 'are');
+      if (type === 'pos') {
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">${be} going to ${V1}</span>`;
+        rawEnText = `${S} ${be} going to ${V1}`;
+      } else if (type === 'neg') {
+        const negBe = isFirstPerson ? 'am not' : (is3rdSingular ? "isn't" : "aren't");
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">${negBe} going to ${V1}</span>`;
+        rawEnText = `${S} ${negBe} going to ${V1}`;
+      } else { // que
+        const capBe = be.charAt(0).toUpperCase() + be.slice(1);
+        enHtml = `<span class="svompt-word word-v" style="${styleV}">${capBe}</span> <span class="svompt-word word-s" style="${styleS}">${S.toLowerCase()}</span> <span class="svompt-word word-v" style="${styleV}">going to ${V1}</span>`;
+        rawEnText = `${capBe} ${S.toLowerCase()} going to ${V1}`;
+      }
+    }
+    // 11. Future Continuous
+    else if (tense === 'future_continuous') {
+      if (type === 'pos') {
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">will be ${Ving}</span>`;
+        rawEnText = `${S} will be ${Ving}`;
+      } else if (type === 'neg') {
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">won't be ${Ving}</span>`;
+        rawEnText = `${S} won't be ${Ving}`;
+      } else { // que
+        enHtml = `<span class="svompt-word word-v" style="${styleV}">Will</span> <span class="svompt-word word-s" style="${styleS}">${S.toLowerCase()}</span> <span class="svompt-word word-v" style="${styleV}">be ${Ving}</span>`;
+        rawEnText = `Will ${S.toLowerCase()} be ${Ving}`;
+      }
+    }
+    // 12. Future Perfect
+    else if (tense === 'future_perfect') {
+      if (type === 'pos') {
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">will have ${V3}</span>`;
+        rawEnText = `${S} will have ${V3}`;
+      } else if (type === 'neg') {
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">won't have ${V3}</span>`;
+        rawEnText = `${S} won't have ${V3}`;
+      } else { // que
+        enHtml = `<span class="svompt-word word-v" style="${styleV}">Will</span> <span class="svompt-word word-s" style="${styleS}">${S.toLowerCase()}</span> <span class="svompt-word word-v" style="${styleV}">have ${V3}</span>`;
+        rawEnText = `Will ${S.toLowerCase()} have ${V3}`;
+      }
+    }
+    // 13. Modals: Can
+    else if (tense === 'modal_can') {
       if (type === 'pos') {
         enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">can ${V1}</span>`;
         rawEnText = `${S} can ${V1}`;
@@ -586,7 +866,22 @@ class SentenceBuilder {
         enHtml = `<span class="svompt-word word-v" style="${styleV}">Can</span> <span class="svompt-word word-s" style="${styleS}">${S.toLowerCase()}</span> <span class="svompt-word word-v" style="${styleV}">${V1}</span>`;
         rawEnText = `Can ${S.toLowerCase()} ${V1}`;
       }
-    } else if (tense === 'modal_must') {
+    } 
+    // 14. Modals: Could
+    else if (tense === 'modal_could') {
+      if (type === 'pos') {
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">could ${V1}</span>`;
+        rawEnText = `${S} could ${V1}`;
+      } else if (type === 'neg') {
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">couldn't ${V1}</span>`;
+        rawEnText = `${S} couldn't ${V1}`;
+      } else { // que
+        enHtml = `<span class="svompt-word word-v" style="${styleV}">Could</span> <span class="svompt-word word-s" style="${styleS}">${S.toLowerCase()}</span> <span class="svompt-word word-v" style="${styleV}">${V1}</span>`;
+        rawEnText = `Could ${S.toLowerCase()} ${V1}`;
+      }
+    }
+    // 15. Modals: Must
+    else if (tense === 'modal_must') {
       if (type === 'pos') {
         enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">must ${V1}</span>`;
         rawEnText = `${S} must ${V1}`;
@@ -597,7 +892,25 @@ class SentenceBuilder {
         enHtml = `<span class="svompt-word word-v" style="${styleV}">Must</span> <span class="svompt-word word-s" style="${styleS}">${S.toLowerCase()}</span> <span class="svompt-word word-v" style="${styleV}">${V1}</span>`;
         rawEnText = `Must ${S.toLowerCase()} ${V1}`;
       }
-    } else if (tense === 'modal_should') {
+    } 
+    // 16. Modals: Have to
+    else if (tense === 'modal_have_to') {
+      const have = is3rdSingular ? 'has to' : 'have to';
+      if (type === 'pos') {
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">${have} ${V1}</span>`;
+        rawEnText = `${S} ${have} ${V1}`;
+      } else if (type === 'neg') {
+        const aux = is3rdSingular ? "doesn't have to" : "don't have to";
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">${aux} ${V1}</span>`;
+        rawEnText = `${S} ${aux} ${V1}`;
+      } else { // que
+        const aux = is3rdSingular ? 'Does' : 'Do';
+        enHtml = `<span class="svompt-word word-v" style="${styleV}">${aux}</span> <span class="svompt-word word-s" style="${styleS}">${S.toLowerCase()}</span> <span class="svompt-word word-v" style="${styleV}">have to ${V1}</span>`;
+        rawEnText = `${aux} ${S.toLowerCase()} have to ${V1}`;
+      }
+    }
+    // 17. Modals: Should
+    else if (tense === 'modal_should') {
       if (type === 'pos') {
         enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">should ${V1}</span>`;
         rawEnText = `${S} should ${V1}`;
@@ -607,6 +920,58 @@ class SentenceBuilder {
       } else { // que
         enHtml = `<span class="svompt-word word-v" style="${styleV}">Should</span> <span class="svompt-word word-s" style="${styleS}">${S.toLowerCase()}</span> <span class="svompt-word word-v" style="${styleV}">${V1}</span>`;
         rawEnText = `Should ${S.toLowerCase()} ${V1}`;
+      }
+    }
+    // 18. Modals: May
+    else if (tense === 'modal_may') {
+      if (type === 'pos') {
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">may ${V1}</span>`;
+        rawEnText = `${S} may ${V1}`;
+      } else if (type === 'neg') {
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">may not ${V1}</span>`;
+        rawEnText = `${S} may not ${V1}`;
+      } else { // que
+        enHtml = `<span class="svompt-word word-v" style="${styleV}">May</span> <span class="svompt-word word-s" style="${styleS}">${S.toLowerCase()}</span> <span class="svompt-word word-v" style="${styleV}">${V1}</span>`;
+        rawEnText = `May ${S.toLowerCase()} ${V1}`;
+      }
+    }
+    // 19. Modals: Might
+    else if (tense === 'modal_might') {
+      if (type === 'pos') {
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">might ${V1}</span>`;
+        rawEnText = `${S} might ${V1}`;
+      } else if (type === 'neg') {
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">might not ${V1}</span>`;
+        rawEnText = `${S} might not ${V1}`;
+      } else { // que
+        enHtml = `<span class="svompt-word word-v" style="${styleV}">Might</span> <span class="svompt-word word-s" style="${styleS}">${S.toLowerCase()}</span> <span class="svompt-word word-v" style="${styleV}">${V1}</span>`;
+        rawEnText = `Might ${S.toLowerCase()} ${V1}`;
+      }
+    }
+    // 20. Modals: Would
+    else if (tense === 'modal_would') {
+      if (type === 'pos') {
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">would ${V1}</span>`;
+        rawEnText = `${S} would ${V1}`;
+      } else if (type === 'neg') {
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">wouldn't ${V1}</span>`;
+        rawEnText = `${S} wouldn't ${V1}`;
+      } else { // que
+        enHtml = `<span class="svompt-word word-v" style="${styleV}">Would</span> <span class="svompt-word word-s" style="${styleS}">${S.toLowerCase()}</span> <span class="svompt-word word-v" style="${styleV}">${V1}</span>`;
+        rawEnText = `Would ${S.toLowerCase()} ${V1}`;
+      }
+    }
+    // 21. Modals: Would like to
+    else if (tense === 'modal_would_like') {
+      if (type === 'pos') {
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">would like to ${V1}</span>`;
+        rawEnText = `${S} would like to ${V1}`;
+      } else if (type === 'neg') {
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">wouldn't like to ${V1}</span>`;
+        rawEnText = `${S} wouldn't like to ${V1}`;
+      } else { // que
+        enHtml = `<span class="svompt-word word-v" style="${styleV}">Would</span> <span class="svompt-word word-s" style="${styleS}">${S.toLowerCase()}</span> <span class="svompt-word word-v" style="${styleV}">like to ${V1}</span>`;
+        rawEnText = `Would ${S.toLowerCase()} like to ${V1}`;
       }
     }
 
