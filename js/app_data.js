@@ -7504,9 +7504,9 @@ const APP_DATA = {
     ]
   },
   "stats": {
-    "total_items": 273,
+    "total_items": 308,
     "verbs_count": 158,
-    "phrasal_verbs_count": 25,
+    "phrasal_verbs_count": 60,
     "nouns_count": 25,
     "adverbs_count": 20,
     "conjunctions_count": 15,
@@ -13714,6 +13714,1161 @@ const APP_DATA = {
     },
     {
       "id": 184,
+      "original_id": 26,
+      "unique_id": "PHRASAL_26",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "carry on",
+      "meaning": "devam etmek, sürdürmek",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Süreç & Kararlılık",
+      "forms": {
+        "v1": "carry on",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Süreç & Kararlılık",
+      "sentences": {
+        "positive": {
+          "en": "The athletes carried on training despite heavy rain.",
+          "tr": "Sporcular şiddetli yağmura rağmen antrenmana devam ettiler."
+        },
+        "negative": {
+          "en": "Don't carry on working if you feel dizzy or nauseous.",
+          "tr": "Başın dönerse veya miden bulanırsa çalışmaya devam etme."
+        },
+        "question": {
+          "en": "How long will you carry on this high-intensity training regimen?",
+          "tr": "Bu yüksek yoğunluklu antrenman düzenini ne kadar sürdüreceksin?"
+        }
+      }
+    },
+    {
+      "id": 185,
+      "original_id": 27,
+      "unique_id": "PHRASAL_27",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "come across",
+      "meaning": "karşılaşmak, tesadüfen bulmak",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Keşif & Arama",
+      "forms": {
+        "v1": "come across",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Keşif & Arama",
+      "sentences": {
+        "positive": {
+          "en": "Researchers came across an intriguing pattern in the sensor telemetry.",
+          "tr": "Araştırmacılar sensör telemetrisinde ilgi çekici bir kalıpla karşılaştılar."
+        },
+        "negative": {
+          "en": "I didn't come across any errors in your English grammar exercise.",
+          "tr": "İngilizce gramer alıştırmanda hiçbir hatayla karşılaşmadım."
+        },
+        "question": {
+          "en": "Did you come across any old sports records in the archive?",
+          "tr": "Arşivde hiç eski spor rekoruna rastladın mı?"
+        }
+      }
+    },
+    {
+      "id": 186,
+      "original_id": 28,
+      "unique_id": "PHRASAL_28",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "get along with",
+      "meaning": "biriyle iyi geçinmek, anlaşmak",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Sosyal & Takım Ruhu",
+      "forms": {
+        "v1": "get along with",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Sosyal & Takım Ruhu",
+      "sentences": {
+        "positive": {
+          "en": "Teammates must get along with each other to achieve tactical synergy.",
+          "tr": "Taktiksel sinerjiye ulaşmak için takım arkadaşları birbiriyle iyi geçinmelidir."
+        },
+        "negative": {
+          "en": "He doesn't get along with colleagues who refuse constructive feedback.",
+          "tr": "Yapıcı geri bildirimi reddeden meslektaşlarıyla iyi anlaşamaz."
+        },
+        "question": {
+          "en": "How well do the new academy players get along with the senior captain?",
+          "tr": "Yeni akademi oyuncuları kıdemli kaptanla ne kadar iyi anlaşıyor?"
+        }
+      }
+    },
+    {
+      "id": 187,
+      "original_id": 29,
+      "unique_id": "PHRASAL_29",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "get over",
+      "meaning": "atlatmak, üstesinden gelmek, iyileşmek",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Sağlık & Psikoloji",
+      "forms": {
+        "v1": "get over",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Sağlık & Psikoloji",
+      "sentences": {
+        "positive": {
+          "en": "The sprinter got over her hamstring injury in just four weeks.",
+          "tr": "Depar koşucusu arka adale sakatlığını sadece dört haftada atlattı."
+        },
+        "negative": {
+          "en": "He hasn't gotten over the disappointment of losing the final match yet.",
+          "tr": "Final maçını kaybetmenin hayal kırıklığını henüz atlatamadı."
+        },
+        "question": {
+          "en": "How long did it take you to get over the severe flu?",
+          "tr": "Şiddetli gribi atlatman ne kadar sürdü?"
+        }
+      }
+    },
+    {
+      "id": 188,
+      "original_id": 30,
+      "unique_id": "PHRASAL_30",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "work out",
+      "meaning": "antrenman yapmak, çözüme ulaşmak",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Spor & Problem Çözme",
+      "forms": {
+        "v1": "work out",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Spor & Problem Çözme",
+      "sentences": {
+        "positive": {
+          "en": "Ela works out at the fitness center three mornings a week.",
+          "tr": "Ela haftada üç sabah fitness merkezinde antrenman yapar."
+        },
+        "negative": {
+          "en": "The tactical plan didn't work out as expected during the second half.",
+          "tr": "Taktik plan ikinci yarıda beklendiği gibi çözüme/başarıya ulaşmadı."
+        },
+        "question": {
+          "en": "How often do professional athletes work out in the gym?",
+          "tr": "Profesyonel sporcular spor salonunda ne sıklıkla antrenman yaparlar?"
+        }
+      }
+    },
+    {
+      "id": 189,
+      "original_id": 31,
+      "unique_id": "PHRASAL_31",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "warm up",
+      "meaning": "ısınmak, ısınma hareketleri yapmak",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Spor & Hazırlık",
+      "forms": {
+        "v1": "warm up",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Spor & Hazırlık",
+      "sentences": {
+        "positive": {
+          "en": "Always warm up for fifteen minutes before running at full speed.",
+          "tr": "Tam hızda koşmadan önce daima on beş dakika ısının."
+        },
+        "negative": {
+          "en": "He didn't warm up properly and strained his calf muscle.",
+          "tr": "Düzgünce ısınmadı ve baldır kasını zorladı."
+        },
+        "question": {
+          "en": "What exercises do you do to warm up before a volleyball match?",
+          "tr": "Voleybol maçından önce ısınmak için hangi egzersizleri yaparsın?"
+        }
+      }
+    },
+    {
+      "id": 190,
+      "original_id": 32,
+      "unique_id": "PHRASAL_32",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "cool down",
+      "meaning": "soğumak, sakinleşmek",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Spor & Toparlanma",
+      "forms": {
+        "v1": "cool down",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Spor & Toparlanma",
+      "sentences": {
+        "positive": {
+          "en": "Athletes cool down by jogging lightly and stretching after drills.",
+          "tr": "Sporcular egzersizlerden sonra hafif tempolu koşup esneyerek soğurlar."
+        },
+        "negative": {
+          "en": "Don't skip cooling down after high-intensity anaerobic sprints.",
+          "tr": "Yüksek yoğunluklu anaerobik deparlardan sonra soğumayı atlamayın."
+        },
+        "question": {
+          "en": "Why is it essential to cool down after vigorous physical exercise?",
+          "tr": "Zorlu fiziksel egzersizden sonra soğumak neden hayatidir?"
+        }
+      }
+    },
+    {
+      "id": 191,
+      "original_id": 33,
+      "unique_id": "PHRASAL_33",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "look into",
+      "meaning": "incelemek, araştırmak",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Bilimsel & Analiz",
+      "forms": {
+        "v1": "look into",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Bilimsel & Analiz",
+      "sentences": {
+        "positive": {
+          "en": "The scientific committee will look into the causes of the tracking anomaly.",
+          "tr": "Bilim kurulu takip anomalisinin nedenlerini inceleyecek/araştıracak."
+        },
+        "negative": {
+          "en": "The police didn't look into the complaint without sufficient evidence.",
+          "tr": "Polis yeterli delil olmadan şikayeti araştırmadı."
+        },
+        "question": {
+          "en": "Will you look into the latest research on cognitive reaction time?",
+          "tr": "Bilişsel tepki süresiyle ilgili en son araştırmayı inceleyecek misiniz?"
+        }
+      }
+    },
+    {
+      "id": 192,
+      "original_id": 34,
+      "unique_id": "PHRASAL_34",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "look up to",
+      "meaning": "hayranlık duymak, örnek almak",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Sosyal & Rol Model",
+      "forms": {
+        "v1": "look up to",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Sosyal & Rol Model",
+      "sentences": {
+        "positive": {
+          "en": "Young academy players look up to Olympic champions for inspiration.",
+          "tr": "Genç akademi oyuncuları ilham almak için Olimpik şampiyonları örnek alırlar."
+        },
+        "negative": {
+          "en": "He doesn't look up to athletes who lack sportsmanship.",
+          "tr": "Sportmenlikten yoksun sporcuları örnek almaz/hayranlık duymaz."
+        },
+        "question": {
+          "en": "Which famous scientist or athlete do you look up to most?",
+          "tr": "En çok hangi ünlü bilim insanını veya sporcuyu örnek alıyorsun?"
+        }
+      }
+    },
+    {
+      "id": 193,
+      "original_id": 35,
+      "unique_id": "PHRASAL_35",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "take up",
+      "meaning": "başlamak (hobi/spor), yer kaplamak",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Aktivite & Zaman",
+      "forms": {
+        "v1": "take up",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Aktivite & Zaman",
+      "sentences": {
+        "positive": {
+          "en": "Ela decided to take up competitive volleyball this semester.",
+          "tr": "Ela bu dönem müsabık voleybola başlamaya karar verdi."
+        },
+        "negative": {
+          "en": "This heavy testing equipment doesn't take up too much floor space.",
+          "tr": "Bu ağır test ekipmanı zemin üzerinde çok fazla yer kaplamaz."
+        },
+        "question": {
+          "en": "Why did you take up learning English through interactive mobile apps?",
+          "tr": "Etkileşimli mobil uygulamalarla İngilizce öğrenmeye neden başladın?"
+        }
+      }
+    },
+    {
+      "id": 194,
+      "original_id": 36,
+      "unique_id": "PHRASAL_36",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "make up",
+      "meaning": "oluşturmak, uydurmak, telafi etmek",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Akademik & İletişim",
+      "forms": {
+        "v1": "make up",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Akademik & İletişim",
+      "sentences": {
+        "positive": {
+          "en": "International players make up forty percent of the academy squad.",
+          "tr": "Uluslararası oyuncular akademi kadrosunun yüzde kırkını oluşturur."
+        },
+        "negative": {
+          "en": "She didn't make up any excuses for missing morning practice.",
+          "tr": "Sabah antrenmanını kaçırmak için hiçbir bahane uydurmadı."
+        },
+        "question": {
+          "en": "How will you make up for the missed laboratory sessions?",
+          "tr": "Kaçırılan laboratuvar seanslarını nasıl telafi edeceksin?"
+        }
+      }
+    },
+    {
+      "id": 195,
+      "original_id": 37,
+      "unique_id": "PHRASAL_37",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "bring about",
+      "meaning": "sebep olmak, yol açmak, meydana getirmek",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Değişim & Sonuç",
+      "forms": {
+        "v1": "bring about",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Değişim & Sonuç",
+      "sentences": {
+        "positive": {
+          "en": "New sensor technology brought about major breakthroughs in sports science.",
+          "tr": "Yeni sensör teknolojisi spor biliminde büyük atılımlara yol açtı/sebep oldu."
+        },
+        "negative": {
+          "en": "Careless training plans will not bring about positive athletic growth.",
+          "tr": "Dikkatsiz antrenman planları olumlu atletik gelişime yol açmayacaktır."
+        },
+        "question": {
+          "en": "What factors brought about the sudden change in team performance?",
+          "tr": "Takım performansındaki ani değişime hangi faktörler yol açtı?"
+        }
+      }
+    },
+    {
+      "id": 196,
+      "original_id": 38,
+      "unique_id": "PHRASAL_38",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "turn up",
+      "meaning": "sesi açmak, ortaya çıkmak, varmak",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Hareket & Ses",
+      "forms": {
+        "v1": "turn up",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Hareket & Ses",
+      "sentences": {
+        "positive": {
+          "en": "Please turn up the volume so everyone can hear the pronunciation clearly.",
+          "tr": "Lütfen sesi açın ki herkes telaffuzu net bir şekilde duyabilsin."
+        },
+        "negative": {
+          "en": "He didn't turn up at the press conference on time.",
+          "tr": "Basın toplantısına zamanında gelmedi/ortaya çıkmadı."
+        },
+        "question": {
+          "en": "What time did the guest instructor turn up at the seminar?",
+          "tr": "Konuk eğitmen seminere saat kaçta geldi?"
+        }
+      }
+    },
+    {
+      "id": 197,
+      "original_id": 39,
+      "unique_id": "PHRASAL_39",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "turn on",
+      "meaning": "açmak (cihaz, ışık)",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Teknoloji & Kullanım",
+      "forms": {
+        "v1": "turn on",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Teknoloji & Kullanım",
+      "sentences": {
+        "positive": {
+          "en": "The technician turned on the high-speed motion capture system.",
+          "tr": "Teknisyen yüksek hızlı hareket yakalama sistemini açtı."
+        },
+        "negative": {
+          "en": "Don't turn on the VR headset before strapping it securely.",
+          "tr": "VR başlığını güvenli bir şekilde bağlamadan önce açmayın."
+        },
+        "question": {
+          "en": "Did you turn on the optical sprint timing gates?",
+          "tr": "Optik depar zamanlama kapılarını açtın mı?"
+        }
+      }
+    },
+    {
+      "id": 198,
+      "original_id": 40,
+      "unique_id": "PHRASAL_40",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "turn off",
+      "meaning": "kapatmak (cihaz, ışık)",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Teknoloji & Kullanım",
+      "forms": {
+        "v1": "turn off",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Teknoloji & Kullanım",
+      "sentences": {
+        "positive": {
+          "en": "Please turn off your mobile devices during the official examination.",
+          "tr": "Resmi sınav sırasında lütfen mobil cihazlarınızı kapatın."
+        },
+        "negative": {
+          "en": "He didn't turn off the biometric recording software properly.",
+          "tr": "Biyometrik kayıt yazılımını düzgünce kapatmadı."
+        },
+        "question": {
+          "en": "Why did you turn off the air conditioning in the gym?",
+          "tr": "Spor salonundaki klimayı neden kapattın?"
+        }
+      }
+    },
+    {
+      "id": 199,
+      "original_id": 41,
+      "unique_id": "PHRASAL_41",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "pick up",
+      "meaning": "öğrenmek/kapmak, arabayla almak, toplamak",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Öğrenme & Günlük",
+      "forms": {
+        "v1": "pick up",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Öğrenme & Günlük",
+      "sentences": {
+        "positive": {
+          "en": "Children pick up new languages quickly through gamified stories.",
+          "tr": "Çocuklar oyunlaştırılmış hikayeler sayesinde yeni dilleri çabucak kaparlar/öğrenirler."
+        },
+        "negative": {
+          "en": "The driver didn't pick up the guest researchers from the airport.",
+          "tr": "Şoför konuk araştırmacıları havalimanından almadı."
+        },
+        "question": {
+          "en": "Where did you pick up such natural English pronunciation?",
+          "tr": "Böyle doğal bir İngilizce telaffuzu nerede kaptın/öğrendin?"
+        }
+      }
+    },
+    {
+      "id": 200,
+      "original_id": 42,
+      "unique_id": "PHRASAL_42",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "put up with",
+      "meaning": "katlanmak, tahammül etmek",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Sabır & Zorluk",
+      "forms": {
+        "v1": "put up with",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Sabır & Zorluk",
+      "sentences": {
+        "positive": {
+          "en": "Dedicated athletes put up with grueling daily workouts to win.",
+          "tr": "Özverili sporcular kazanmak için yorucu günlük antrenmanlara katlanırlar."
+        },
+        "negative": {
+          "en": "She won't put up with disrespectful behavior in the classroom.",
+          "tr": "Sınıfta saygısız davranışa tahammül etmeyecektir."
+        },
+        "question": {
+          "en": "How do coaches put up with extreme pressure during tournament finals?",
+          "tr": "Antrenörler turnuva finallerinde aşırı baskıya nasıl katlanırlar?"
+        }
+      }
+    },
+    {
+      "id": 201,
+      "original_id": 43,
+      "unique_id": "PHRASAL_43",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "show up",
+      "meaning": "çıkagelmek, ortaya çıkmak, görünmek",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Katılım & Zaman",
+      "forms": {
+        "v1": "show up",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Katılım & Zaman",
+      "sentences": {
+        "positive": {
+          "en": "More than fifty candidates showed up for the academy soccer trials.",
+          "tr": "Akademi futbol seçmeleri için elliden fazla aday çıkageldi/katıldı."
+        },
+        "negative": {
+          "en": "He didn't show up for the morning briefing due to traffic.",
+          "tr": "Trafik nedeniyle sabah bilgilendirme toplantısına gelmedi."
+        },
+        "question": {
+          "en": "Why didn't the visiting team show up on the football pitch?",
+          "tr": "Konuk takım futbol sahasında neden görünmedi/çıkmadı?"
+        }
+      }
+    },
+    {
+      "id": 202,
+      "original_id": 44,
+      "unique_id": "PHRASAL_44",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "show off",
+      "meaning": "hava atmak, gösteriş yapmak",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Kişilik & Davranış",
+      "forms": {
+        "v1": "show off",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Kişilik & Davranış",
+      "sentences": {
+        "positive": {
+          "en": "Disciplined players focus on teamwork rather than showing off.",
+          "tr": "Disiplinli oyuncular gösteriş yapmaktan ziyade takım çalışmasına odaklanırlar."
+        },
+        "negative": {
+          "en": "She doesn't show off her academic awards on social media.",
+          "tr": "Akademik ödülleriyle sosyal medyada gösteriş yapmaz/hava atmaz."
+        },
+        "question": {
+          "en": "Why was the striker showing off after scoring the winning goal?",
+          "tr": "Forvet galibiyet golünü attıktan sonra neden hava atıyordu?"
+        }
+      }
+    },
+    {
+      "id": 203,
+      "original_id": 45,
+      "unique_id": "PHRASAL_45",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "take off",
+      "meaning": "havalanmak, çıkarmak (kıyafet), hızla yükselmek",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Havacılık & Başarı",
+      "forms": {
+        "v1": "take off",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Havacılık & Başarı",
+      "sentences": {
+        "positive": {
+          "en": "The startup took off rapidly after releasing their mobile grammar app.",
+          "tr": "Girişim, mobil gramer uygulamasını yayınladıktan sonra hızla yükselişe geçti."
+        },
+        "negative": {
+          "en": "The charter flight didn't take off on schedule because of thunderstorms.",
+          "tr": "Fırtına nedeniyle özel uçuş planlanan zamanda havalanmadı."
+        },
+        "question": {
+          "en": "Did the athlete take off his running spikes before entering the lab?",
+          "tr": "Sporcu laboratuvara girmeden önce koşu çivili ayakkabılarını çıkardı mı?"
+        }
+      }
+    },
+    {
+      "id": 204,
+      "original_id": 46,
+      "unique_id": "PHRASAL_46",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "take over",
+      "meaning": "devralmak, yönetimi ele almak",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Yönetim & Süreç",
+      "forms": {
+        "v1": "take over",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Yönetim & Süreç",
+      "sentences": {
+        "positive": {
+          "en": "The experienced coach will take over the national youth squad.",
+          "tr": "Deneyimli antrenör ulusal genç kadroyu devralacak."
+        },
+        "negative": {
+          "en": "Artificial intelligence will not completely take over human teaching.",
+          "tr": "Yapay zeka insan öğretmenliğini tamamen devralmayacaktır."
+        },
+        "question": {
+          "en": "Who will take over the biomechanics department next year?",
+          "tr": "Gelecek yıl biyomekanik bölümünü kim devralacak?"
+        }
+      }
+    },
+    {
+      "id": 205,
+      "original_id": 47,
+      "unique_id": "PHRASAL_47",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "back up",
+      "meaning": "desteklemek, yedeklemek (veri)",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Bilişim & Destek",
+      "forms": {
+        "v1": "back up",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Bilişim & Destek",
+      "sentences": {
+        "positive": {
+          "en": "Always back up your experimental research data to the cloud daily.",
+          "tr": "Deneysel araştırma verilerinizi her gün mutlaka buluta yedekleyin."
+        },
+        "negative": {
+          "en": "He didn't back up his claim with verified scientific facts.",
+          "tr": "İddiasını doğrulanmış bilimsel gerçeklerle desteklemedi."
+        },
+        "question": {
+          "en": "Did you back up the full tracking database before updating?",
+          "tr": "Güncellemeden önce tüm takip veritabanını yedekledin mi?"
+        }
+      }
+    },
+    {
+      "id": 206,
+      "original_id": 48,
+      "unique_id": "PHRASAL_48",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "end up",
+      "meaning": "sonuçlanmak, kendini ... bulmak",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Sonuç & Süreç",
+      "forms": {
+        "v1": "end up",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Sonuç & Süreç",
+      "sentences": {
+        "positive": {
+          "en": "Unplanned training schedules often end up causing chronic injuries.",
+          "tr": "Plansız antrenman programları sıklıkla kronik sakatlıklara yol açarak sonuçlanır."
+        },
+        "negative": {
+          "en": "He didn't end up in the reserve squad; he earned a starting spot.",
+          "tr": "Kendini yedek kadroda bulmadı; ilk 11'de bir yer kazandı."
+        },
+        "question": {
+          "en": "How did the young scientist end up presenting at Harvard?",
+          "tr": "Genç bilim insanı kendini Harvard'da sunum yaparken nasıl buldu?"
+        }
+      }
+    },
+    {
+      "id": 207,
+      "original_id": 49,
+      "unique_id": "PHRASAL_49",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "fill in",
+      "meaning": "doldurmak (form, boşluk)",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Akademik & İdari",
+      "forms": {
+        "v1": "fill in",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Akademik & İdari",
+      "sentences": {
+        "positive": {
+          "en": "Please fill in the medical screening questionnaire before testing.",
+          "tr": "Testten önce lütfen sağlık tarama anketini doldurunuz."
+        },
+        "negative": {
+          "en": "She didn't fill in all required fields on the scholarship form.",
+          "tr": "Burs formundaki tüm gerekli alanları doldurmadı."
+        },
+        "question": {
+          "en": "Can you fill in the missing irregular verb forms in this table?",
+          "tr": "Bu tablodaki eksik düzensiz fiil hallerini doldurabilir misin?"
+        }
+      }
+    },
+    {
+      "id": 208,
+      "original_id": 50,
+      "unique_id": "PHRASAL_50",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "pass out",
+      "meaning": "bayılmak, dağıtmak",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Sağlık & Organizasyon",
+      "forms": {
+        "v1": "pass out",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Sağlık & Organizasyon",
+      "sentences": {
+        "positive": {
+          "en": "Dehydrated runners can pass out during extreme summer marathons.",
+          "tr": "Susuz kalan koşucular aşırı sıcak yaz maratonlarında bayılabilirler."
+        },
+        "negative": {
+          "en": "The assistant didn't pass out the test papers until everyone sat down.",
+          "tr": "Asistan herkes oturana kadar sınav kağıtlarını dağıtmadı."
+        },
+        "question": {
+          "en": "Why did the marathon runner pass out near the finish line?",
+          "tr": "Maraton koşucusu bitiş çizgisine yakın yerde neden bayıldı?"
+        }
+      }
+    },
+    {
+      "id": 209,
+      "original_id": 51,
+      "unique_id": "PHRASAL_51",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "pay off",
+      "meaning": "karşılığını vermek, borcu ödemek",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Başarı & Emek",
+      "forms": {
+        "v1": "pay off",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Başarı & Emek",
+      "sentences": {
+        "positive": {
+          "en": "Months of disciplined grammar revision finally paid off in the exam.",
+          "tr": "Aylarca süren disiplinli gramer tekrarı nihayet sınavda karşılığını verdi."
+        },
+        "negative": {
+          "en": "Shortcuts in conditioning will not pay off during tough competitions.",
+          "tr": "Kondisyonda kestirmeden gitmek zorlu yarışmalarda karşılığını vermeyecektir."
+        },
+        "question": {
+          "en": "Did all your late-night coding sessions pay off with this app?",
+          "tr": "Gece geç saatlere kadar süren tüm kodlama seansların bu uygulamayla karşılığını verdi mi?"
+        }
+      }
+    },
+    {
+      "id": 210,
+      "original_id": 52,
+      "unique_id": "PHRASAL_52",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "check in",
+      "meaning": "giriş yapmak, kayıt yaptırmak",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Otel & Havaalanı",
+      "forms": {
+        "v1": "check in",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Otel & Havaalanı",
+      "sentences": {
+        "positive": {
+          "en": "The athletic delegation checked in to the campus dormitory at noon.",
+          "tr": "Spor heyeti öğlen kampüs yurduna giriş yaptı/kayıt yaptırdı."
+        },
+        "negative": {
+          "en": "They didn't check in their biometric testing baggage at the airport.",
+          "tr": "Havaalanında biyometrik test bagajlarını teslim etmediler/kaydettirmediler."
+        },
+        "question": {
+          "en": "What time do we need to check in for the international flight?",
+          "tr": "Uluslararası uçuş için saat kaçta check-in yapmamız gerekiyor?"
+        }
+      }
+    },
+    {
+      "id": 211,
+      "original_id": 53,
+      "unique_id": "PHRASAL_53",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "check out",
+      "meaning": "çıkış yapmak, kontrol etmek/göz atmak",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "İnceleme & Ayrılış",
+      "forms": {
+        "v1": "check out",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: İnceleme & Ayrılış",
+      "sentences": {
+        "positive": {
+          "en": "Check out the latest SVOMPT sentence builder feature in the app!",
+          "tr": "Uygulamadaki en son SVOMPT cümle kurucu özelliğine göz atın/kontrol edin!"
+        },
+        "negative": {
+          "en": "He didn't check out of the hotel before noon.",
+          "tr": "Öğleden önce otelden çıkış yapmadı."
+        },
+        "question": {
+          "en": "Did you check out the new video lectures on relative clauses?",
+          "tr": "Sıfat cümlecikleri hakkındaki yeni video derslere göz attın mı?"
+        }
+      }
+    },
+    {
+      "id": 212,
+      "original_id": 54,
+      "unique_id": "PHRASAL_54",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "grow up",
+      "meaning": "büyümek, yetişmek",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Yaşam & Gelişim",
+      "forms": {
+        "v1": "grow up",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Yaşam & Gelişim",
+      "sentences": {
+        "positive": {
+          "en": "Ela grew up in Eskişehir with a deep passion for science and volleyball.",
+          "tr": "Ela bilime ve voleybola derin bir tutkuyla Eskişehir'de büyüdü."
+        },
+        "negative": {
+          "en": "He didn't grow up in an English-speaking country, yet he speaks fluently.",
+          "tr": "İngilizce konuşulan bir ülkede büyümedi, yine de akıcı konuşuyor."
+        },
+        "question": {
+          "en": "Where did you grow up during your early childhood years?",
+          "tr": "Erken çocukluk yıllarında nerede büyüdün?"
+        }
+      }
+    },
+    {
+      "id": 213,
+      "original_id": 55,
+      "unique_id": "PHRASAL_55",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "hold on",
+      "meaning": "beklemek, tutunmak",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Telefon & Hareket",
+      "forms": {
+        "v1": "hold on",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Telefon & Hareket",
+      "sentences": {
+        "positive": {
+          "en": "Please hold on while I transfer your call to the department head.",
+          "tr": "Görüşmenizi bölüm başkanına aktarırken lütfen hatta bekleyin."
+        },
+        "negative": {
+          "en": "He couldn't hold on to the gymnastic bar with sweaty hands.",
+          "tr": "Terli elleriyle jimnastik barına tutunamadı."
+        },
+        "question": {
+          "en": "Can you hold on for two minutes while I fetch the sensor cable?",
+          "tr": "Ben sensör kablosunu getirirken iki dakika bekleyebilir misin?"
+        }
+      }
+    },
+    {
+      "id": 214,
+      "original_id": 56,
+      "unique_id": "PHRASAL_56",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "look for",
+      "meaning": "aramak",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Arama & İhtiyaç",
+      "forms": {
+        "v1": "look for",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Arama & İhtiyaç",
+      "sentences": {
+        "positive": {
+          "en": "Scientists are looking for innovative methods to reduce muscle soreness.",
+          "tr": "Bilim insanları kas ağrısını azaltmak için yenilikçi yöntemler arıyorlar."
+        },
+        "negative": {
+          "en": "She wasn't looking for excuses; she was looking for solutions.",
+          "tr": "Bahane aramıyordu; çözüm arıyordu."
+        },
+        "question": {
+          "en": "What kind of reference books are you looking for in the library?",
+          "tr": "Kütüphanede ne tür kaynak kitaplar arıyorsunuz?"
+        }
+      }
+    },
+    {
+      "id": 215,
+      "original_id": 57,
+      "unique_id": "PHRASAL_57",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "pass away",
+      "meaning": "vefat etmek, hayatını kaybetmek",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Yaşam & Saygı",
+      "forms": {
+        "v1": "pass away",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Yaşam & Saygı",
+      "sentences": {
+        "positive": {
+          "en": "The legendary Olympic coach passed away peacefully last week.",
+          "tr": "Efsanevi Olimpik antrenör geçen hafta huzur içinde vefat etti."
+        },
+        "negative": {
+          "en": "His legacy did not pass away; it lives on in young athletes.",
+          "tr": "Onun mirası yok olup gitmedi/ölmedi; genç sporcularda yaşamaya devam ediyor."
+        },
+        "question": {
+          "en": "When did the founder of modern sports science pass away?",
+          "tr": "Modern spor biliminin kurucusu ne zaman vefat etti?"
+        }
+      }
+    },
+    {
+      "id": 216,
+      "original_id": 58,
+      "unique_id": "PHRASAL_58",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "throw away",
+      "meaning": "çöpe atmak, elden çıkarmak",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Çevre & İsraf",
+      "forms": {
+        "v1": "throw away",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Çevre & İsraf",
+      "sentences": {
+        "positive": {
+          "en": "Never throw away recyclable biometric sensor batteries into regular trash.",
+          "tr": "Geri dönüştürülebilir biyometrik sensör pillerini asla normal çöpe atmayın."
+        },
+        "negative": {
+          "en": "She didn't throw away her old grammar flashcards.",
+          "tr": "Eski gramer flaş kartlarını çöpe atmadı."
+        },
+        "question": {
+          "en": "Why did you throw away the user manual for the tracking equipment?",
+          "tr": "Takip ekipmanının kullanım kılavuzunu neden çöpe attın?"
+        }
+      }
+    },
+    {
+      "id": 217,
+      "original_id": 59,
+      "unique_id": "PHRASAL_59",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "drop out",
+      "meaning": "bırakmak, okuldan/yarıştan ayrılmak",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Eğitim & Yarışma",
+      "forms": {
+        "v1": "drop out",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Eğitim & Yarışma",
+      "sentences": {
+        "positive": {
+          "en": "He didn't drop out of the tournament despite a painful blister.",
+          "tr": "Ağrılı bir su toplamasına rağmen turnuvadan ayrılmadı/bırakmadı."
+        },
+        "negative": {
+          "en": "Diligent students rarely drop out of challenging academic courses.",
+          "tr": "Çalışkan öğrenciler zorlu akademik dersleri nadiren bırakırlar."
+        },
+        "question": {
+          "en": "Why did the marathon runner drop out at the thirty-kilometer mark?",
+          "tr": "Maraton koşucusu otuzuncu kilometrede yarışı neden bıraktı?"
+        }
+      }
+    },
+    {
+      "id": 218,
+      "original_id": 60,
+      "unique_id": "PHRASAL_60",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "fall apart",
+      "meaning": "dağılmak, parçalanmak, çökmek",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Yapı & Psikoloji",
+      "forms": {
+        "v1": "fall apart",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Yapı & Psikoloji",
+      "sentences": {
+        "positive": {
+          "en": "Without mutual trust, a sports team's tactical structure falls apart.",
+          "tr": "Karşılıklı güven olmadan bir spor takımının taktiksel yapısı dağılır."
+        },
+        "negative": {
+          "en": "The athlete's mental composure didn't fall apart during tie-breaks.",
+          "tr": "Tie-break anlarında sporcunun zihinsel soğukkanlılığı dağılmadı/çökmedi."
+        },
+        "question": {
+          "en": "Why did the old laboratory wooden prototype fall apart?",
+          "tr": "Eski laboratuvar ahşap prototipi neden parçalandı/dağıldı?"
+        }
+      }
+    },
+    {
+      "id": 219,
       "original_id": 1,
       "unique_id": "NOUN_1",
       "type": "noun",
@@ -13746,7 +14901,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 185,
+      "id": 220,
       "original_id": 2,
       "unique_id": "NOUN_2",
       "type": "noun",
@@ -13779,7 +14934,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 186,
+      "id": 221,
       "original_id": 3,
       "unique_id": "NOUN_3",
       "type": "noun",
@@ -13812,7 +14967,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 187,
+      "id": 222,
       "original_id": 4,
       "unique_id": "NOUN_4",
       "type": "noun",
@@ -13845,7 +15000,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 188,
+      "id": 223,
       "original_id": 5,
       "unique_id": "NOUN_5",
       "type": "noun",
@@ -13878,7 +15033,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 189,
+      "id": 224,
       "original_id": 6,
       "unique_id": "NOUN_6",
       "type": "noun",
@@ -13911,7 +15066,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 190,
+      "id": 225,
       "original_id": 7,
       "unique_id": "NOUN_7",
       "type": "noun",
@@ -13944,7 +15099,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 191,
+      "id": 226,
       "original_id": 8,
       "unique_id": "NOUN_8",
       "type": "noun",
@@ -13977,7 +15132,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 192,
+      "id": 227,
       "original_id": 9,
       "unique_id": "NOUN_9",
       "type": "noun",
@@ -14010,7 +15165,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 193,
+      "id": 228,
       "original_id": 10,
       "unique_id": "NOUN_10",
       "type": "noun",
@@ -14043,7 +15198,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 194,
+      "id": 229,
       "original_id": 11,
       "unique_id": "NOUN_11",
       "type": "noun",
@@ -14076,7 +15231,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 195,
+      "id": 230,
       "original_id": 12,
       "unique_id": "NOUN_12",
       "type": "noun",
@@ -14109,7 +15264,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 196,
+      "id": 231,
       "original_id": 13,
       "unique_id": "NOUN_13",
       "type": "noun",
@@ -14142,7 +15297,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 197,
+      "id": 232,
       "original_id": 14,
       "unique_id": "NOUN_14",
       "type": "noun",
@@ -14175,7 +15330,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 198,
+      "id": 233,
       "original_id": 15,
       "unique_id": "NOUN_15",
       "type": "noun",
@@ -14208,7 +15363,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 199,
+      "id": 234,
       "original_id": 16,
       "unique_id": "NOUN_16",
       "type": "noun",
@@ -14241,7 +15396,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 200,
+      "id": 235,
       "original_id": 17,
       "unique_id": "NOUN_17",
       "type": "noun",
@@ -14274,7 +15429,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 201,
+      "id": 236,
       "original_id": 18,
       "unique_id": "NOUN_18",
       "type": "noun",
@@ -14307,7 +15462,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 202,
+      "id": 237,
       "original_id": 19,
       "unique_id": "NOUN_19",
       "type": "noun",
@@ -14340,7 +15495,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 203,
+      "id": 238,
       "original_id": 20,
       "unique_id": "NOUN_20",
       "type": "noun",
@@ -14373,7 +15528,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 204,
+      "id": 239,
       "original_id": 21,
       "unique_id": "NOUN_21",
       "type": "noun",
@@ -14406,7 +15561,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 205,
+      "id": 240,
       "original_id": 22,
       "unique_id": "NOUN_22",
       "type": "noun",
@@ -14439,7 +15594,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 206,
+      "id": 241,
       "original_id": 23,
       "unique_id": "NOUN_23",
       "type": "noun",
@@ -14472,7 +15627,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 207,
+      "id": 242,
       "original_id": 24,
       "unique_id": "NOUN_24",
       "type": "noun",
@@ -14505,7 +15660,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 208,
+      "id": 243,
       "original_id": 25,
       "unique_id": "NOUN_25",
       "type": "noun",
@@ -14538,7 +15693,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 209,
+      "id": 244,
       "original_id": 1,
       "unique_id": "ADV_1",
       "type": "adverb",
@@ -14571,7 +15726,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 210,
+      "id": 245,
       "original_id": 2,
       "unique_id": "ADV_2",
       "type": "adverb",
@@ -14604,7 +15759,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 211,
+      "id": 246,
       "original_id": 3,
       "unique_id": "ADV_3",
       "type": "adverb",
@@ -14637,7 +15792,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 212,
+      "id": 247,
       "original_id": 4,
       "unique_id": "ADV_4",
       "type": "adverb",
@@ -14670,7 +15825,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 213,
+      "id": 248,
       "original_id": 5,
       "unique_id": "ADV_5",
       "type": "adverb",
@@ -14703,7 +15858,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 214,
+      "id": 249,
       "original_id": 6,
       "unique_id": "ADV_6",
       "type": "adverb",
@@ -14736,7 +15891,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 215,
+      "id": 250,
       "original_id": 7,
       "unique_id": "ADV_7",
       "type": "adverb",
@@ -14769,7 +15924,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 216,
+      "id": 251,
       "original_id": 8,
       "unique_id": "ADV_8",
       "type": "adverb",
@@ -14802,7 +15957,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 217,
+      "id": 252,
       "original_id": 9,
       "unique_id": "ADV_9",
       "type": "adverb",
@@ -14835,7 +15990,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 218,
+      "id": 253,
       "original_id": 10,
       "unique_id": "ADV_10",
       "type": "adverb",
@@ -14868,7 +16023,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 219,
+      "id": 254,
       "original_id": 11,
       "unique_id": "ADV_11",
       "type": "adverb",
@@ -14901,7 +16056,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 220,
+      "id": 255,
       "original_id": 12,
       "unique_id": "ADV_12",
       "type": "adverb",
@@ -14934,7 +16089,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 221,
+      "id": 256,
       "original_id": 13,
       "unique_id": "ADV_13",
       "type": "adverb",
@@ -14967,7 +16122,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 222,
+      "id": 257,
       "original_id": 14,
       "unique_id": "ADV_14",
       "type": "adverb",
@@ -15000,7 +16155,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 223,
+      "id": 258,
       "original_id": 15,
       "unique_id": "ADV_15",
       "type": "adverb",
@@ -15033,7 +16188,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 224,
+      "id": 259,
       "original_id": 16,
       "unique_id": "ADV_16",
       "type": "adverb",
@@ -15066,7 +16221,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 225,
+      "id": 260,
       "original_id": 17,
       "unique_id": "ADV_17",
       "type": "adverb",
@@ -15099,7 +16254,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 226,
+      "id": 261,
       "original_id": 18,
       "unique_id": "ADV_18",
       "type": "adverb",
@@ -15132,7 +16287,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 227,
+      "id": 262,
       "original_id": 19,
       "unique_id": "ADV_19",
       "type": "adverb",
@@ -15165,7 +16320,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 228,
+      "id": 263,
       "original_id": 20,
       "unique_id": "ADV_20",
       "type": "adverb",
@@ -15198,7 +16353,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 229,
+      "id": 264,
       "original_id": 1,
       "unique_id": "CONJ_1",
       "type": "conjunction",
@@ -15231,7 +16386,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 230,
+      "id": 265,
       "original_id": 2,
       "unique_id": "CONJ_2",
       "type": "conjunction",
@@ -15264,7 +16419,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 231,
+      "id": 266,
       "original_id": 3,
       "unique_id": "CONJ_3",
       "type": "conjunction",
@@ -15297,7 +16452,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 232,
+      "id": 267,
       "original_id": 4,
       "unique_id": "CONJ_4",
       "type": "conjunction",
@@ -15330,7 +16485,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 233,
+      "id": 268,
       "original_id": 5,
       "unique_id": "CONJ_5",
       "type": "conjunction",
@@ -15363,7 +16518,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 234,
+      "id": 269,
       "original_id": 6,
       "unique_id": "CONJ_6",
       "type": "conjunction",
@@ -15396,7 +16551,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 235,
+      "id": 270,
       "original_id": 7,
       "unique_id": "CONJ_7",
       "type": "conjunction",
@@ -15429,7 +16584,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 236,
+      "id": 271,
       "original_id": 8,
       "unique_id": "CONJ_8",
       "type": "conjunction",
@@ -15462,7 +16617,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 237,
+      "id": 272,
       "original_id": 9,
       "unique_id": "CONJ_9",
       "type": "conjunction",
@@ -15495,7 +16650,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 238,
+      "id": 273,
       "original_id": 10,
       "unique_id": "CONJ_10",
       "type": "conjunction",
@@ -15528,7 +16683,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 239,
+      "id": 274,
       "original_id": 11,
       "unique_id": "CONJ_11",
       "type": "conjunction",
@@ -15561,7 +16716,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 240,
+      "id": 275,
       "original_id": 12,
       "unique_id": "CONJ_12",
       "type": "conjunction",
@@ -15594,7 +16749,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 241,
+      "id": 276,
       "original_id": 13,
       "unique_id": "CONJ_13",
       "type": "conjunction",
@@ -15627,7 +16782,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 242,
+      "id": 277,
       "original_id": 14,
       "unique_id": "CONJ_14",
       "type": "conjunction",
@@ -15660,7 +16815,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 243,
+      "id": 278,
       "original_id": 15,
       "unique_id": "CONJ_15",
       "type": "conjunction",
@@ -15693,7 +16848,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 244,
+      "id": 279,
       "original_id": 1,
       "unique_id": "PREP_1",
       "type": "preposition",
@@ -15726,7 +16881,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 245,
+      "id": 280,
       "original_id": 2,
       "unique_id": "PREP_2",
       "type": "preposition",
@@ -15759,7 +16914,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 246,
+      "id": 281,
       "original_id": 3,
       "unique_id": "PREP_3",
       "type": "preposition",
@@ -15792,7 +16947,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 247,
+      "id": 282,
       "original_id": 4,
       "unique_id": "PREP_4",
       "type": "preposition",
@@ -15825,7 +16980,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 248,
+      "id": 283,
       "original_id": 5,
       "unique_id": "PREP_5",
       "type": "preposition",
@@ -15858,7 +17013,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 249,
+      "id": 284,
       "original_id": 6,
       "unique_id": "PREP_6",
       "type": "preposition",
@@ -15891,7 +17046,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 250,
+      "id": 285,
       "original_id": 7,
       "unique_id": "PREP_7",
       "type": "preposition",
@@ -15924,7 +17079,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 251,
+      "id": 286,
       "original_id": 8,
       "unique_id": "PREP_8",
       "type": "preposition",
@@ -15957,7 +17112,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 252,
+      "id": 287,
       "original_id": 9,
       "unique_id": "PREP_9",
       "type": "preposition",
@@ -15990,7 +17145,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 253,
+      "id": 288,
       "original_id": 10,
       "unique_id": "PREP_10",
       "type": "preposition",
@@ -16023,7 +17178,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 254,
+      "id": 289,
       "original_id": 1,
       "unique_id": "ADJ_1",
       "type": "adjective",
@@ -16056,7 +17211,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 255,
+      "id": 290,
       "original_id": 2,
       "unique_id": "ADJ_2",
       "type": "adjective",
@@ -16089,7 +17244,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 256,
+      "id": 291,
       "original_id": 3,
       "unique_id": "ADJ_3",
       "type": "adjective",
@@ -16122,7 +17277,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 257,
+      "id": 292,
       "original_id": 4,
       "unique_id": "ADJ_4",
       "type": "adjective",
@@ -16155,7 +17310,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 258,
+      "id": 293,
       "original_id": 5,
       "unique_id": "ADJ_5",
       "type": "adjective",
@@ -16188,7 +17343,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 259,
+      "id": 294,
       "original_id": 6,
       "unique_id": "ADJ_6",
       "type": "adjective",
@@ -16221,7 +17376,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 260,
+      "id": 295,
       "original_id": 7,
       "unique_id": "ADJ_7",
       "type": "adjective",
@@ -16254,7 +17409,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 261,
+      "id": 296,
       "original_id": 8,
       "unique_id": "ADJ_8",
       "type": "adjective",
@@ -16287,7 +17442,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 262,
+      "id": 297,
       "original_id": 9,
       "unique_id": "ADJ_9",
       "type": "adjective",
@@ -16320,7 +17475,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 263,
+      "id": 298,
       "original_id": 10,
       "unique_id": "ADJ_10",
       "type": "adjective",
@@ -16353,7 +17508,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 264,
+      "id": 299,
       "original_id": 1,
       "unique_id": "IDIOM_1",
       "type": "idiom",
@@ -16386,7 +17541,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 265,
+      "id": 300,
       "original_id": 2,
       "unique_id": "IDIOM_2",
       "type": "idiom",
@@ -16419,7 +17574,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 266,
+      "id": 301,
       "original_id": 3,
       "unique_id": "IDIOM_3",
       "type": "idiom",
@@ -16452,7 +17607,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 267,
+      "id": 302,
       "original_id": 4,
       "unique_id": "IDIOM_4",
       "type": "idiom",
@@ -16485,7 +17640,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 268,
+      "id": 303,
       "original_id": 5,
       "unique_id": "IDIOM_5",
       "type": "idiom",
@@ -16518,7 +17673,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 269,
+      "id": 304,
       "original_id": 6,
       "unique_id": "IDIOM_6",
       "type": "idiom",
@@ -16551,7 +17706,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 270,
+      "id": 305,
       "original_id": 7,
       "unique_id": "IDIOM_7",
       "type": "idiom",
@@ -16584,7 +17739,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 271,
+      "id": 306,
       "original_id": 8,
       "unique_id": "IDIOM_8",
       "type": "idiom",
@@ -16617,7 +17772,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 272,
+      "id": 307,
       "original_id": 9,
       "unique_id": "IDIOM_9",
       "type": "idiom",
@@ -16650,7 +17805,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 273,
+      "id": 308,
       "original_id": 10,
       "unique_id": "IDIOM_10",
       "type": "idiom",
