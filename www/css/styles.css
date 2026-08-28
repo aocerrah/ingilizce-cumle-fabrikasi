@@ -693,12 +693,12 @@ body {
   cursor: default;
 }
 
-.svompt-word.word-s { color: #f59e0b; border-bottom: 3px solid #f59e0b; }
-.svompt-word.word-v { color: #38bdf8; border-bottom: 3px solid #38bdf8; }
-.svompt-word.word-o { color: #10b981; border-bottom: 3px solid #10b981; }
-.svompt-word.word-m { color: #c084fc; border-bottom: 3px solid #c084fc; }
-.svompt-word.word-p { color: #f472b6; border-bottom: 3px solid #f472b6; }
-.svompt-word.word-t { color: #f87171; border-bottom: 3px solid #f87171; }
+.svompt-word.word-s { color: #f59e0b !important; border-bottom: 3px solid #f59e0b !important; }
+.svompt-word.word-v { color: #38bdf8 !important; border-bottom: 3px solid #38bdf8 !important; }
+.svompt-word.word-o { color: #34d399 !important; border-bottom: 3px solid #34d399 !important; }
+.svompt-word.word-m { color: #c084fc !important; border-bottom: 3px solid #c084fc !important; }
+.svompt-word.word-p { color: #f472b6 !important; border-bottom: 3px solid #f472b6 !important; }
+.svompt-word.word-t { color: #fb7185 !important; border-bottom: 3px solid #fb7185 !important; }
 
 .sentence-tr-display {
   font-size: 1rem;

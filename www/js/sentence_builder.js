@@ -151,12 +151,12 @@ class SentenceBuilder {
     container.innerHTML = `
       <!-- SVOMPT Legend Pills -->
       <div class="svompt-legend">
-        <span class="legend-pill pill-s">🟨 S (Özne)</span>
-        <span class="legend-pill pill-v">🟦 V (Fiil & Zaman)</span>
-        <span class="legend-pill pill-o">🟩 O (Nesne)</span>
-        <span class="legend-pill pill-m">🟪 M (Durum/Tarz)</span>
-        <span class="legend-pill pill-p">🟧 P (Yer)</span>
-        <span class="legend-pill pill-t">🟥 T (Zaman)</span>
+        <span class="legend-pill pill-s" style="color:#f59e0b; border-color:rgba(245,158,11,0.4); background:rgba(245,158,11,0.15);">🟨 S (Özne)</span>
+        <span class="legend-pill pill-v" style="color:#38bdf8; border-color:rgba(56,189,248,0.4); background:rgba(56,189,248,0.15);">🟦 V (Fiil & Zaman)</span>
+        <span class="legend-pill pill-o" style="color:#34d399; border-color:rgba(52,211,153,0.4); background:rgba(16,185,129,0.15);">🟩 O (Nesne)</span>
+        <span class="legend-pill pill-m" style="color:#c084fc; border-color:rgba(192,132,252,0.4); background:rgba(168,85,247,0.15);">🟪 M (Durum/Tarz)</span>
+        <span class="legend-pill pill-p" style="color:#f472b6; border-color:rgba(244,114,182,0.4); background:rgba(236,72,153,0.15);">🟧 P (Yer)</span>
+        <span class="legend-pill pill-t" style="color:#fb7185; border-color:rgba(251,113,133,0.4); background:rgba(239,68,68,0.15);">🟥 T (Zaman)</span>
       </div>
 
       <!-- Controls Card (Sentence Form & Tense Selector) -->
@@ -191,7 +191,7 @@ class SentenceBuilder {
       </div>
 
       <!-- Live Sentence Display Box (Glowing Border) -->
-      <div class="sentence-result-box">
+      <div class="sentence-result-box" style="border: 2px solid #38bdf8; box-shadow: 0 0 25px rgba(56, 189, 248, 0.3);">
         <div class="result-header">
           <span class="result-type-tag" style="background:${this.selectedType === 'pos' ? 'var(--pos-bg)' : (this.selectedType === 'neg' ? 'var(--neg-bg)' : 'var(--que-bg)')}; color:${this.selectedType === 'pos' ? 'var(--pos-color)' : (this.selectedType === 'neg' ? 'var(--neg-color)' : 'var(--que-color)')};">
             ${this.selectedType === 'pos' ? 'OLUMLU CÜMLE (+)' : (this.selectedType === 'neg' ? 'OLUMSUZ CÜMLE (-)' : 'SORU CÜMLESİ (?)')}
@@ -366,6 +366,127 @@ class SentenceBuilder {
   /* =========================================================
      2. DYNAMIC CONJUGATION & TURKISH TRANSLATION ENGINE
      ========================================================= */
+  conjugateTurkishVerb(stem, tense, type, person) {
+    const endsWithVowel = /[aeıioöuü]$/i.test(stem);
+    const lastVowel = (stem.match(/[aeıioöuü]/gi) || ['a']).pop().toLowerCase();
+    const isFront = ['e', 'i', 'ö', 'ü'].includes(lastVowel); // ince ünlü
+    
+    const is1s = person === '1s';
+    const isPlural = person === '3p' || person === '1p';
+
+    // Present Simple (Geniş Zaman)
+    if (tense === 'present_simple') {
+      if (type === 'pos') {
+        const rSuffix = endsWithVowel ? 'r' : (isFront ? 'er' : 'ar');
+        const base = stem + rSuffix;
+        if (is1s) return isFront ? `${base}im` : `${base}ım`;
+        if (isPlural) return isFront ? `${base}ler` : `${base}lar`;
+        return base;
+      } else if (type === 'neg') {
+        const maz = isFront ? 'mez' : 'maz';
+        if (is1s) return isFront ? `${stem}mem` : `${stem}mam`;
+        if (isPlural) return `${stem}${maz}lar`;
+        return `${stem}${maz}`;
+      } else { // que
+        const rSuffix = endsWithVowel ? 'r' : (isFront ? 'er' : 'ar');
+        const base = stem + rSuffix;
+        const mi = isFront ? 'mi' : 'mı';
+        if (is1s) return isFront ? `${base} miyim?` : `${base} mıyım?`;
+        if (isPlural) return isFront ? `${base}ler mi?` : `${base}lar mı?`;
+        return `${base} ${mi}?`;
+      }
+    }
+
+    // Present Continuous (Şimdiki Zaman - yor)
+    if (tense === 'present_continuous') {
+      let yorStem = stem;
+      if (endsWithVowel) {
+        // oyna -> oynuyor, incele -> inceliyor, izle -> izliyor
+        yorStem = stem.slice(0, -1) + (isFront ? 'i' : 'u');
+      } else {
+        yorStem = stem + (isFront ? 'i' : 'u');
+      }
+      const base = yorStem + 'yor';
+      if (type === 'pos') {
+        if (is1s) return `${base}um`;
+        if (isPlural) return `${base}lar`;
+        return base;
+      } else if (type === 'neg') {
+        const negStem = stem + (isFront ? 'mi' : 'mı') + 'yor';
+        if (is1s) return `${negStem}um`;
+        if (isPlural) return `${negStem}lar`;
+        return negStem;
+      } else { // que
+        if (is1s) return `${base} muyum?`;
+        if (isPlural) return `${base}lar mı?`;
+        return `${base} mu?`;
+      }
+    }
+
+    // Past Simple (Geçmiş Zaman - di/dı)
+    if (tense === 'past_simple') {
+      const d = isFront ? 'di' : 'dı';
+      if (type === 'pos') {
+        if (is1s) return `${stem}${d}m`;
+        if (isPlural) return isFront ? `${stem}${d}ler` : `${stem}${d}lar`;
+        return `${stem}${d}`;
+      } else if (type === 'neg') {
+        const neg = isFront ? 'medi' : 'madı';
+        if (is1s) return `${stem}${neg}m`;
+        if (isPlural) return isFront ? `${stem}${neg}ler` : `${stem}${neg}lar`;
+        return `${stem}${neg}`;
+      } else { // que
+        const mi = isFront ? 'mi' : 'mı';
+        if (is1s) return isFront ? `${stem}${d}m mi?` : `${stem}${d}m mı?`;
+        if (isPlural) return isFront ? `${stem}${d}ler mi?` : `${stem}${d}lar mı?`;
+        return `${stem}${d} ${mi}?`;
+      }
+    }
+
+    // Future Simple (Gelecek Zaman - ecek/acak)
+    if (tense === 'future_will') {
+      const y = endsWithVowel ? 'y' : '';
+      const ecek = isFront ? `${y}ecek` : `${y}acak`;
+      if (type === 'pos') {
+        if (is1s) return isFront ? `${stem}${y}eceğim` : `${stem}${y}acağım`;
+        if (isPlural) return isFront ? `${stem}${ecek}ler` : `${stem}${ecek}lar`;
+        return `${stem}${ecek}`;
+      } else if (type === 'neg') {
+        const neg = isFront ? 'meyecek' : 'mayacak';
+        if (is1s) return isFront ? `${stem}meyeceğim` : `${stem}mayacağım`;
+        if (isPlural) return isFront ? `${stem}${neg}ler` : `${stem}${neg}lar`;
+        return `${stem}${neg}`;
+      } else { // que
+        if (is1s) return isFront ? `${stem}${ecek} miyim?` : `${stem}${ecek} mıyım?`;
+        if (isPlural) return isFront ? `${stem}${ecek}ler mi?` : `${stem}${ecek}lar mı?`;
+        return isFront ? `${stem}${ecek} mi?` : `${stem}${ecek} mı?`;
+      }
+    }
+
+    // Modals
+    if (tense === 'modal_can') {
+      const y = endsWithVowel ? 'y' : '';
+      const ebil = isFront ? `${y}ebilir` : `${y}abilir`;
+      if (type === 'pos') return `${stem}${ebil}`;
+      if (type === 'neg') return isFront ? `${stem}${y}emez` : `${stem}${y}amaz`;
+      return `${stem}${ebil} mi?`;
+    }
+    if (tense === 'modal_must') {
+      const meli = isFront ? 'meli' : 'malı';
+      if (type === 'pos') return `${stem}${meli}`;
+      if (type === 'neg') return isFront ? `${stem}memeli` : `${stem}mamalı`;
+      return `${stem}${meli} mi?`;
+    }
+    if (tense === 'modal_should') {
+      const meli = isFront ? 'meli' : 'malı';
+      if (type === 'pos') return `${stem}${meli} (tavsiye)`;
+      if (type === 'neg') return isFront ? `${stem}memeli (tavsiye)` : `${stem}mamalı (tavsiye)`;
+      return `${stem}${meli} mi?`;
+    }
+
+    return stem;
+  }
+
   generateSentenceData() {
     const subObj = this.subjects.find(s => s.en === this.selectedSubject) || this.subjects[0];
     const verbObj = this.verbs.find(v => v.key === this.selectedVerbKey) || this.verbs[0];
@@ -376,11 +497,9 @@ class SentenceBuilder {
 
     const is3rdSingular = subObj.person === '3s';
     const isFirstPerson = subObj.person === '1s';
-    const isPlural = subObj.person === '3p' || subObj.person === '1p';
 
     let enHtml = '';
     let rawEnText = '';
-    let trVerbConjugated = '';
 
     const S = this.selectedSubject;
     const V1 = verbObj.en;
@@ -397,138 +516,128 @@ class SentenceBuilder {
     const type = this.selectedType;
     const tense = this.selectedTense;
 
+    // Styles for SVOMPT Tokens
+    const styleS = 'color: #f59e0b; border-bottom: 3px solid #f59e0b; font-weight: 800; padding: 2px 6px; display: inline-block;';
+    const styleV = 'color: #38bdf8; border-bottom: 3px solid #38bdf8; font-weight: 800; padding: 2px 6px; display: inline-block;';
+    const styleO = 'color: #34d399; border-bottom: 3px solid #34d399; font-weight: 800; padding: 2px 6px; display: inline-block;';
+    const styleM = 'color: #c084fc; border-bottom: 3px solid #c084fc; font-weight: 800; padding: 2px 6px; display: inline-block;';
+    const styleP = 'color: #f472b6; border-bottom: 3px solid #f472b6; font-weight: 800; padding: 2px 6px; display: inline-block;';
+    const styleT = 'color: #fb7185; border-bottom: 3px solid #fb7185; font-weight: 800; padding: 2px 6px; display: inline-block;';
+
     // Auxiliary & Verb Assembly
     if (tense === 'present_simple') {
       if (type === 'pos') {
         const verbWord = is3rdSingular ? Vs : V1;
-        enHtml = `<span class="svompt-word word-s">${S}</span> <span class="svompt-word word-v">${verbWord}</span>`;
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">${verbWord}</span>`;
         rawEnText = `${S} ${verbWord}`;
-        trVerbConjugated = isFirstPerson ? `${stem}arım` : (isPlural ? `${stem}arlar` : `${stem}ar`);
       } else if (type === 'neg') {
         const aux = is3rdSingular ? "doesn't" : "don't";
-        enHtml = `<span class="svompt-word word-s">${S}</span> <span class="svompt-word word-v">${aux} ${V1}</span>`;
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">${aux} ${V1}</span>`;
         rawEnText = `${S} ${aux} ${V1}`;
-        trVerbConjugated = isFirstPerson ? `${stem}amam` : (isPlural ? `${stem}amazlar` : `${stem}amaz`);
       } else { // que
         const aux = is3rdSingular ? "Does" : "Do";
-        enHtml = `<span class="svompt-word word-v">${aux}</span> <span class="svompt-word word-s">${S.toLowerCase()}</span> <span class="svompt-word word-v">${V1}</span>`;
+        enHtml = `<span class="svompt-word word-v" style="${styleV}">${aux}</span> <span class="svompt-word word-s" style="${styleS}">${S.toLowerCase()}</span> <span class="svompt-word word-v" style="${styleV}">${V1}</span>`;
         rawEnText = `${aux} ${S.toLowerCase()} ${V1}`;
-        trVerbConjugated = isFirstPerson ? `${stem}ar mıyım?` : (isPlural ? `${stem}arlar mı?` : `${stem}ar mı?`);
       }
     } else if (tense === 'present_continuous') {
       const be = isFirstPerson ? 'am' : (is3rdSingular ? 'is' : 'are');
       if (type === 'pos') {
-        enHtml = `<span class="svompt-word word-s">${S}</span> <span class="svompt-word word-v">${be} ${Ving}</span>`;
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">${be} ${Ving}</span>`;
         rawEnText = `${S} ${be} ${Ving}`;
-        trVerbConjugated = isFirstPerson ? `${stem}uyorum` : (isPlural ? `${stem}uyorlar` : `${stem}uyor`);
       } else if (type === 'neg') {
         const negBe = isFirstPerson ? 'am not' : (is3rdSingular ? "isn't" : "aren't");
-        enHtml = `<span class="svompt-word word-s">${S}</span> <span class="svompt-word word-v">${negBe} ${Ving}</span>`;
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">${negBe} ${Ving}</span>`;
         rawEnText = `${S} ${negBe} ${Ving}`;
-        trVerbConjugated = isFirstPerson ? `${stem}amıyorum` : (isPlural ? `${stem}amıyorlar` : `${stem}amıyor`);
       } else { // que
         const capBe = be.charAt(0).toUpperCase() + be.slice(1);
-        enHtml = `<span class="svompt-word word-v">${capBe}</span> <span class="svompt-word word-s">${S.toLowerCase()}</span> <span class="svompt-word word-v">${Ving}</span>`;
+        enHtml = `<span class="svompt-word word-v" style="${styleV}">${capBe}</span> <span class="svompt-word word-s" style="${styleS}">${S.toLowerCase()}</span> <span class="svompt-word word-v" style="${styleV}">${Ving}</span>`;
         rawEnText = `${capBe} ${S.toLowerCase()} ${Ving}`;
-        trVerbConjugated = isFirstPerson ? `${stem}uyor muyum?` : (isPlural ? `${stem}uyorlar mı?` : `${stem}uyor mu?`);
       }
     } else if (tense === 'past_simple') {
       if (type === 'pos') {
-        enHtml = `<span class="svompt-word word-s">${S}</span> <span class="svompt-word word-v">${V2}</span>`;
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">${V2}</span>`;
         rawEnText = `${S} ${V2}`;
-        trVerbConjugated = isFirstPerson ? `${stem}adım` : (isPlural ? `${stem}adılar` : `${stem}adı`);
       } else if (type === 'neg') {
-        enHtml = `<span class="svompt-word word-s">${S}</span> <span class="svompt-word word-v">didn't ${V1}</span>`;
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">didn't ${V1}</span>`;
         rawEnText = `${S} didn't ${V1}`;
-        trVerbConjugated = isFirstPerson ? `${stem}amadım` : (isPlural ? `${stem}amadılar` : `${stem}amadı`);
       } else { // que
-        enHtml = `<span class="svompt-word word-v">Did</span> <span class="svompt-word word-s">${S.toLowerCase()}</span> <span class="svompt-word word-v">${V1}</span>`;
+        enHtml = `<span class="svompt-word word-v" style="${styleV}">Did</span> <span class="svompt-word word-s" style="${styleS}">${S.toLowerCase()}</span> <span class="svompt-word word-v" style="${styleV}">${V1}</span>`;
         rawEnText = `Did ${S.toLowerCase()} ${V1}`;
-        trVerbConjugated = isFirstPerson ? `${stem}adım mı?` : (isPlural ? `${stem}adılar mı?` : `${stem}adı mı?`);
       }
     } else if (tense === 'future_will') {
       if (type === 'pos') {
-        enHtml = `<span class="svompt-word word-s">${S}</span> <span class="svompt-word word-v">will ${V1}</span>`;
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">will ${V1}</span>`;
         rawEnText = `${S} will ${V1}`;
-        trVerbConjugated = isFirstPerson ? `${stem}ayacağım` : (isPlural ? `${stem}ayacaklar` : `${stem}ayacak`);
       } else if (type === 'neg') {
-        enHtml = `<span class="svompt-word word-s">${S}</span> <span class="svompt-word word-v">won't ${V1}</span>`;
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">won't ${V1}</span>`;
         rawEnText = `${S} won't ${V1}`;
-        trVerbConjugated = isFirstPerson ? `${stem}amayacağım` : (isPlural ? `${stem}amayacaklar` : `${stem}amayacak`);
       } else { // que
-        enHtml = `<span class="svompt-word word-v">Will</span> <span class="svompt-word word-s">${S.toLowerCase()}</span> <span class="svompt-word word-v">${V1}</span>`;
+        enHtml = `<span class="svompt-word word-v" style="${styleV}">Will</span> <span class="svompt-word word-s" style="${styleS}">${S.toLowerCase()}</span> <span class="svompt-word word-v" style="${styleV}">${V1}</span>`;
         rawEnText = `Will ${S.toLowerCase()} ${V1}`;
-        trVerbConjugated = isFirstPerson ? `${stem}ayacak mıyım?` : (isPlural ? `${stem}ayacaklar mı?` : `${stem}ayacak mı?`);
       }
     } else if (tense === 'modal_can') {
       if (type === 'pos') {
-        enHtml = `<span class="svompt-word word-s">${S}</span> <span class="svompt-word word-v">can ${V1}</span>`;
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">can ${V1}</span>`;
         rawEnText = `${S} can ${V1}`;
-        trVerbConjugated = `${stem}ayabilir`;
       } else if (type === 'neg') {
-        enHtml = `<span class="svompt-word word-s">${S}</span> <span class="svompt-word word-v">cannot ${V1}</span>`;
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">cannot ${V1}</span>`;
         rawEnText = `${S} cannot ${V1}`;
-        trVerbConjugated = `${stem}ayamaz`;
       } else { // que
-        enHtml = `<span class="svompt-word word-v">Can</span> <span class="svompt-word word-s">${S.toLowerCase()}</span> <span class="svompt-word word-v">${V1}</span>`;
+        enHtml = `<span class="svompt-word word-v" style="${styleV}">Can</span> <span class="svompt-word word-s" style="${styleS}">${S.toLowerCase()}</span> <span class="svompt-word word-v" style="${styleV}">${V1}</span>`;
         rawEnText = `Can ${S.toLowerCase()} ${V1}`;
-        trVerbConjugated = `${stem}ayabilir mi?`;
       }
     } else if (tense === 'modal_must') {
       if (type === 'pos') {
-        enHtml = `<span class="svompt-word word-s">${S}</span> <span class="svompt-word word-v">must ${V1}</span>`;
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">must ${V1}</span>`;
         rawEnText = `${S} must ${V1}`;
-        trVerbConjugated = `${stem}amalı`;
       } else if (type === 'neg') {
-        enHtml = `<span class="svompt-word word-s">${S}</span> <span class="svompt-word word-v">mustn't ${V1}</span>`;
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">mustn't ${V1}</span>`;
         rawEnText = `${S} mustn't ${V1}`;
-        trVerbConjugated = `${stem}amamalı`;
       } else { // que
-        enHtml = `<span class="svompt-word word-v">Must</span> <span class="svompt-word word-s">${S.toLowerCase()}</span> <span class="svompt-word word-v">${V1}</span>`;
+        enHtml = `<span class="svompt-word word-v" style="${styleV}">Must</span> <span class="svompt-word word-s" style="${styleS}">${S.toLowerCase()}</span> <span class="svompt-word word-v" style="${styleV}">${V1}</span>`;
         rawEnText = `Must ${S.toLowerCase()} ${V1}`;
-        trVerbConjugated = `${stem}amalı mı?`;
       }
     } else if (tense === 'modal_should') {
       if (type === 'pos') {
-        enHtml = `<span class="svompt-word word-s">${S}</span> <span class="svompt-word word-v">should ${V1}</span>`;
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">should ${V1}</span>`;
         rawEnText = `${S} should ${V1}`;
-        trVerbConjugated = `${stem}amalı (öneri)`;
       } else if (type === 'neg') {
-        enHtml = `<span class="svompt-word word-s">${S}</span> <span class="svompt-word word-v">shouldn't ${V1}</span>`;
+        enHtml = `<span class="svompt-word word-s" style="${styleS}">${S}</span> <span class="svompt-word word-v" style="${styleV}">shouldn't ${V1}</span>`;
         rawEnText = `${S} shouldn't ${V1}`;
-        trVerbConjugated = `${stem}amamalı (öneri)`;
       } else { // que
-        enHtml = `<span class="svompt-word word-v">Should</span> <span class="svompt-word word-s">${S.toLowerCase()}</span> <span class="svompt-word word-v">${V1}</span>`;
+        enHtml = `<span class="svompt-word word-v" style="${styleV}">Should</span> <span class="svompt-word word-s" style="${styleS}">${S.toLowerCase()}</span> <span class="svompt-word word-v" style="${styleV}">${V1}</span>`;
         rawEnText = `Should ${S.toLowerCase()} ${V1}`;
-        trVerbConjugated = `${stem}amalı mı?`;
       }
     }
 
     // Append O, M, P, T to English sentence
     if (O) {
-      enHtml += ` <span class="svompt-word word-o">${O}</span>`;
+      enHtml += ` <span class="svompt-word word-o" style="${styleO}">${O}</span>`;
       rawEnText += ` ${O}`;
     }
     if (M) {
-      enHtml += ` <span class="svompt-word word-m">${M}</span>`;
+      enHtml += ` <span class="svompt-word word-m" style="${styleM}">${M}</span>`;
       rawEnText += ` ${M}`;
     }
     if (P) {
-      enHtml += ` <span class="svompt-word word-p">${P}</span>`;
+      enHtml += ` <span class="svompt-word word-p" style="${styleP}">${P}</span>`;
       rawEnText += ` ${P}`;
     }
     if (T) {
-      enHtml += ` <span class="svompt-word word-t">${T}</span>`;
+      enHtml += ` <span class="svompt-word word-t" style="${styleT}">${T}</span>`;
       rawEnText += ` ${T}`;
     }
 
     if (type === 'que') {
-      enHtml += '?';
+      enHtml += '<span style="color:#ffffff; font-weight:800;">?</span>';
       rawEnText += '?';
     } else {
-      enHtml += '.';
+      enHtml += '<span style="color:#ffffff; font-weight:800;">.</span>';
       rawEnText += '.';
     }
+
+    // Turkish Conjugation
+    const trVerbConjugated = this.conjugateTurkishVerb(stem, tense, type, subObj.person);
 
     // Turkish Sentence Assembly: [Özne], [Zaman] [Yer] [Nesne] [Durum] [Yüklem]
     const trParts = [];
