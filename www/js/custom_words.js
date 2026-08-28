@@ -105,6 +105,24 @@ class CustomWordsManager {
   getAll() {
     return this.customWords;
   }
+
+  getAllVerbsCombined() {
+    const base = (window.APP_DATA && window.APP_DATA.verbs) ? [...window.APP_DATA.verbs] : [];
+    const custom = (this.customWords || []).map(cw => ({
+      id: cw.id,
+      verb: cw.wordEn,
+      meaning: cw.meaningTr,
+      level: 'Özel',
+      level_label: 'Kelime Defterim',
+      forms: { v1: cw.wordEn, v2: '-', v3: '-' },
+      sentences: {
+        positive: { en: `${cw.wordEn} (${cw.meaningTr})`, tr: cw.meaningTr },
+        negative: { en: '', tr: '' },
+        question: { en: '', tr: '' }
+      }
+    }));
+    return [...base, ...custom];
+  }
 }
 
 // Global instance

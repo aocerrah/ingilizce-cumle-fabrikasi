@@ -12,13 +12,18 @@ class QuizEngine {
     this.score = 0;
     this.totalQuestions = 10;
     this.answered = false;
+  getWordList() {
+    if (window.customWordsManager && typeof window.customWordsManager.getAllVerbsCombined === 'function') {
+      return window.customWordsManager.getAllVerbsCombined();
+    }
+    return (window.APP_DATA && window.APP_DATA.verbs) ? window.APP_DATA.verbs : [];
   }
 
   renderMenu() {
     const container = document.getElementById('quiz-content-area');
     if (!container) return;
 
-    const allWords = window.customWordsManager ? window.customWordsManager.getAllVerbsCombined() : (APP_DATA.verbs || []);
+    const allWords = this.getWordList();
     const dailyGoal = window.app ? window.app.getDailyGoalTarget() : 5;
     const dailyDone = window.app ? window.app.getDailyQuestionsAnswered() : 0;
     const dailyPercent = Math.min(100, Math.round((dailyDone / dailyGoal) * 100));
@@ -101,7 +106,7 @@ class QuizEngine {
   }
 
   generateQuestions(mode) {
-    const list = window.customWordsManager ? window.customWordsManager.getAllVerbsCombined() : (APP_DATA.verbs || []);
+    const list = this.getWordList();
     const questions = [];
     const shuffledList = [...list].sort(() => Math.random() - 0.5);
 
