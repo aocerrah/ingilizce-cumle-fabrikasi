@@ -1,10 +1,66 @@
 import json
 import os
-
-# Import original 80 A2 + 78 B1 verbs from generate_full_curriculum
 from generate_full_curriculum import A2_VERBS_RAW, B1_VERBS_RAW, get_forms
 
-# Complete Curated Adverbs (40 Zarflar)
+# 1. 25 Phrasal Verbs (Deyimsel Fiiller)
+PHRASAL_VERBS_DATA = [
+    ("give up", "pes etmek, bırakmak", "Vazgeçme & Alışkanlık", "Disciplined athletes never give up during tough championship games.", "Disiplinli sporcular zorlu şampiyona maçlarında asla pes etmezler.", "He didn't give up his healthy nutrition habits during vacation.", "Tatil sırasında sağlıklı beslenme alışkanlıklarını bırakmadı.", "Why did you give up practicing English grammar every morning?", "Her sabah İngilizce gramer pratiği yapmayı neden bıraktın?"),
+    ("find out", "öğrenmek, keşfetmek, bulmak", "Araştırma & Keşif", "Scientists conducted tests to find out the cause of muscle fatigue.", "Bilim insanları kas yorgunluğunun sebebini öğrenmek için testler yaptılar.", "She didn't find out about the scholarship results until Monday.", "Pazartesi gününe kadar burs sonuçlarını öğrenmedi.", "Did you find out how the new photocell timing gates operate?", "Yeni fotosel zamanlama kapılarının nasıl çalıştığını öğrendin mi?"),
+    ("carry out", "yürütmek, uygulamak, gerçekleştirmek", "Bilimsel & Akademik", "Researchers will carry out a comprehensive biomechanical study.", "Araştırmacılar kapsamlı bir biyomekanik çalışma yürütecekler.", "The team didn't carry out the tactical instructions properly.", "Takım taktik talimatları düzgün bir şekilde uygulamadı.", "Who will carry out the sensor calibration tests tomorrow?", "Yarın sensör kalibrasyon testlerini kim gerçekleştirecek?"),
+    ("look forward to", "dört gözle beklemek, iple çekmek", "Beklenti & İstek", "Ela looks forward to starting her academic research project.", "Ela akademik araştırma projesine başlamayı dört gözle bekliyor.", "He isn't looking forward to the long bus travel to Istanbul.", "İstanbul'a yapılacak uzun otobüs yolculuğunu iple çekmiyor.", "Are you looking forward to the international VR sports conference?", "Uluslararası VR spor konferansını dört gözle bekliyor musun?"),
+    ("set up", "kurmak, hazırlamak, oluşturmak", "Organizasyon & Donanım", "The technicians set up the high-speed motion tracking cameras.", "Teknisyenler yüksek hızlı hareket takip kameralarını kurdular.", "They didn't set up the optical sprint gates before the athletes arrived.", "Sporcular varmadan önce optik depar kapılarını kurmadılar.", "Can you help me set up the virtual reality test environment?", "Sanal gerçeklik test ortamını kurmama yardım edebilir misin?"),
+    ("figure out", "çözmek, anlamak, hesaplamak", "Zihinsel & Problem Çözme", "Smart students figure out complex mathematical solutions quickly.", "Zeki öğrenciler karmaşık matematiksel çözümleri çabucak çözerler/anlarlar.", "He couldn't figure out why the wireless sensor disconnected.", "Kablosuz sensörün neden bağlantısının kesildiğini çözemedi.", "Did you figure out how to calculate the acute-to-chronic workload ratio?", "Akut-kronik iş yükü oranının nasıl hesaplanacağını çözdün mü?"),
+    ("turn down", "reddetmek, kısmak (ses/ısı)", "Karar & Tercih", "The professor had to turn down the offer due to heavy workload.", "Profesör yoğun iş yükü nedeniyle teklifi reddetmek zorunda kaldı.", "He didn't turn down the invitation to the national team camp.", "Milli takım kampı davetini reddetmedi.", "Why did they turn down our research grant application?", "Araştırma hibesi başvurumuzu neden reddettiler?"),
+    ("run out of", "tükenmek, bitmek", "Kaynak & Durum", "Athletes can run out of energy if they skip recovery meals.", "Sporcular toparlanma öğünlerini atlarlarsa enerjileri tükenebilir.", "The laboratory didn't run out of testing supplies this semester.", "Laboratuvarın test malzemeleri bu dönem tükenmedi.", "Did the tracker run out of battery during the soccer match?", "Futbol maçı sırasında takip cihazının pili bitti mi?"),
+    ("keep up with", "ayak uydurmak, hızına yetişmek", "Süreç & Gelişim", "Students must keep up with daily lessons to achieve top grades.", "Öğrenciler en yüksek notları almak için günlük derslere ayak uydurmalıdır.", "He couldn't keep up with the fast pace of the counterattack.", "Hızlı kontra atağın temposuna ayak uyduramadı/yetişemedi.", "How do researchers keep up with rapid advancements in AI technology?", "Araştırmacılar yapay zeka teknolojisindeki hızlı gelişmelere nasıl ayak uyduruyor?"),
+    ("come up with", "ortaya atmak, fikir üretmek, bulmak", "Yaratıcılık & İnovasyon", "Young coders came up with an innovative mobile learning solution.", "Genç yazılımcılar yenilikçi bir mobil öğrenme çözümü ortaya attılar.", "The committee didn't come up with a realistic budget plan.", "Komite gerçekçi bir bütçe planı ortaya koyamadı/üretemedi.", "Did your team come up with a creative project idea for the science fair?", "Takımınız bilim fuarı için yaratıcı bir proje fikri buldu mu?"),
+    ("take care of", "ilgilenmek, göz kulak olmak, bakmak", "Sorumluluk & Sağlık", "Professional athletes take care of their physical and mental health.", "Profesyonel sporcular fiziksel ve zihinsel sağlıklarıyla ilgilenirler/bakarlar.", "He didn't take care of his sports passport before travel.", "Seyahat öncesinde spor pasaportuyla ilgilenmedi/korumadı.", "Who will take care of the sensitive optical sensors during transport?", "Taşıma sırasında hassas optik sensörlerle kim ilgilenecek?"),
+    ("point out", "işaret etmek, dikkat çekmek, belirtmek", "İletişim & Analiz", "The mentor pointed out several critical errors in our data chart.", "Danışman veri grafiğimizdeki birkaç kritik hataya dikkat çekti.", "She didn't point out the flaws in the competitor's tactical scheme.", "Rakibin taktik şemasındaki kusurlara dikkat çekmedi.", "Can you point out the main differences between Type 1 and Type 2 conditionals?", "Type 1 ve Type 2 şart cümleleri arasındaki temel farkları işaret edebilir misiniz?"),
+    ("bring up", "gündeme getirmek, bahsetmek, yetiştirmek", "Sosyal & İletişim", "The coach brought up the importance of sleep during the meeting.", "Antrenör toplantı sırasında uykunun önemini gündeme getirdi.", "He didn't bring up his injury concerns with the team doctor.", "Sakatlık endişelerini takım doktoruyla gündeme getirmedi.", "Why did you bring up that controversial topic during the conference?", "Konferans sırasında o tartışmalı konuyu neden gündeme getirdin?"),
+    ("turn into", "dönüşmek, dönüştürmek", "Değişim & Gelişim", "Hard work and consistency turn potential into world-class success.", "Sıkı çalışma ve tutarlılık potansiyeli dünya standartlarında başarıya dönüştürür.", "The minor software glitch didn't turn into a system failure.", "Küçük yazılım aksaklığı bir sistem arızasına dönüşmedi.", "How did this simple student project turn into a successful startup?", "Bu basit öğrenci projesi nasıl başarılı bir girişime dönüştü?"),
+    ("look after", "ilgilenmek, bakmak, korumak", "Sorumluluk & Özen", "Parents look after their children's education and well-being.", "Ebeveynler çocuklarının eğitimi ve esenliğiyle ilgilenirler/bakarlar.", "He didn't look after his sports gear and lost his kneepads.", "Spor eşyalarına iyi bakmadı ve dizliklerini kaybetti.", "Will the academy staff look after the visiting international delegates?", "Akademi personeli gelen uluslararası delegelerle ilgilenecek mi?"),
+    ("break down", "bozulmak, parçalara ayırmak, çökmek", "Sistem & Analiz", "Sports scientists break down complex sprint motion into phases.", "Spor bilimcileri karmaşık depar hareketini aşamalara ayırırlar.", "The biometric tracking server didn't break down during the test.", "Biyometrik takip sunucusu test sırasında bozulmadı.", "Why did the vehicle break down on the way to the tournament?", "Araç turnuva yolunda neden bozuldu?"),
+    ("put off", "ertelemek", "Zaman & Planlama", "Disciplined students don't put off their daily homework.", "Disiplinli öğrenciler günlük ödevlerini ertelemezler.", "The organizers didn't put off the outdoor match despite light rain.", "Organizatörler hafif yağmura rağmen açık hava maçını ertelemediler.", "Why do people often put off learning a new foreign language?", "İnsanlar yeni bir yabancı dil öğrenmeyi neden sık sık ertelerler?"),
+    ("call off", "iptal etmek", "Organizasyon & Karar", "The referee had to call off the soccer game due to heavy snow.", "Hakem yoğun kar yağışı nedeniyle futbol maçını iptal etmek zorunda kaldı.", "They didn't call off the scientific seminar despite the storm.", "Fırtınaya rağmen bilimsel semineri iptal etmediler.", "Why did the committee call off the annual awards ceremony?", "Komite yıllık ödül törenini neden iptal etti?"),
+    ("count on", "güvenmek, bel bağlamak", "Güven & Sosyal", "Great teammates count on each other during challenging match moments.", "Harika takım arkadaşları zorlu maç anlarında birbirlerine güvenirler.", "You cannot count on luck to pass high-level language examinations.", "Yüksek düzey dil sınavlarını geçmek için şansa bel bağlayamazsınız.", "Can the head coach count on your full concentration tomorrow?", "Başantrenör yarın tam konsantrasyonuna güvenebilir mi?"),
+    ("run into", "karşılaşmak (rastlantı), toslamak", "Sosyal & Hareket", "I ran into my old sports mentor at the university library.", "Üniversite kütüphanesinde eski spor danışmanımla karşılaştım.", "We didn't run into any unexpected technical glitches today.", "Bugün beklenmedik teknik aksaklıklarla karşılaşmadık.", "Did you run into any famous researchers during the symposium?", "Sempozyum sırasında hiç ünlü araştırmacıyla karşılaştın mı?"),
+    ("stand out", "öne çıkmak, göze çarpmak, fark yaratmak", "Başarı & Nitelik", "Her exceptional sprint speed makes her stand out among peers.", "Olağanüstü depar hızı onun akranları arasında öne çıkmasını sağlıyor.", "The draft presentation didn't stand out because of plain slides.", "Taslak sunum sade slaytlar nedeniyle öne çıkmadı/göze çarpmadı.", "What qualities make an athlete stand out in elite academies?", "Seçkin akademilerde bir sporcunun öne çıkmasını sağlayan nitelikler nelerdir?"),
+    ("rely on", "güvenmek, dayanmak, bağımlı olmak", "Güven & Bilimsel", "Researchers rely on validated data models for accurate predictions.", "Araştırmacılar doğru tahminler için doğrulanmış veri modellerine güvenirler.", "The department doesn't rely on uncalibrated optical equipment.", "Bölüm kalibre edilmemiş optik ekipmanlara güvenmez/dayanmaz.", "Do elite volleyball players rely on visual cues during blocks?", "Seçkin voleybolcular bloklar sırasında görsel ipuçlarına mı güvenirler?"),
+    ("deal with", "başa çıkmak, ele almak, ilgilenmek", "Yönetim & Stres", "Coaches must deal with high match stress calmly and strategically.", "Antrenörler yüksek maç stresiyle sakin ve stratejik bir şekilde başa çıkmalıdır.", "She didn't deal with the software bug before the demo.", "Demodan önce yazılım hatasıyla ilgilenmedi/çözmedi.", "How do young students deal with exam anxiety effectively?", "Genç öğrenciler sınav kaygısıyla nasıl etkili bir şekilde başa çıkarlar?"),
+    ("catch up", "yetişmek, arayı kapatmak", "Hız & Süreç", "He ran faster in the final straight to catch up with the leader.", "Lidere yetişmek/arayı kapatmak için son düzlükte daha hızlı koştu.", "She hasn't caught up with her missed homework assignments yet.", "Kaçırdığı ödevlerini henüz telafi etmedi/yetişemedi.", "How quickly can you catch up with the advanced grammar syllabus?", "İleri gramer müfredatına ne kadar hızlı yetişebilirsin?"),
+    ("cut down on", "azaltmak, kısmak", "Sağlık & Alışkanlık", "Athletes cut down on processed sugar before major tournaments.", "Sporcular büyük turnuvalardan önce işlenmiş şekeri azaltırlar.", "He didn't cut down on his late-night screen time.", "Gece geç saatlerdeki ekran süresini azaltmadı.", "Why should runners cut down on excessive caffeine intake?", "Koşucular aşırı kafein alımını neden azaltmalıdır?")
+]
+
+# 2. 25 Nouns (İsimler)
+NOUNS_DATA = [
+    ("technology", "teknoloji", "Akademik & Bilişim", "Modern technology accelerates language acquisition through interactive tools.", "Modern teknoloji etkileşimli araçlar sayesinde dil edinimini hızlandırır.", "Traditional coaching didn't utilize digital tracking technology.", "Geleneksel antrenörlük dijital takip teknolojisini kullanmadı.", "How does virtual reality technology transform tactical learning?", "Sanal gerçeklik teknolojisi taktiksel öğrenmeyi nasıl dönüştürür?"),
+    ("experiment", "deney", "Bilimsel & Araştırma", "The scientific experiment proved the positive effect of proper hydration.", "Bilimsel deney doğru sıvı alımının olumlu etkisini kanıtladı.", "She didn't finish the chemistry experiment before the bell rang.", "Zil çalmadan önce kimya deneyini bitirmedi.", "What was the primary hypothesis of your biomechanics experiment?", "Biyomekanik deneyinizin temel hipotezi neydi?"),
+    ("equipment", "ekipman, donanım, araç-gereç", "Spor & Teknoloji", "The sports facility provides modern equipment for all academy athletes.", "Spor tesisi tüm akademi sporcuları için modern ekipman sağlar.", "We don't have enough specialized testing equipment for the whole team.", "Tüm takım için yeterli özel test ekipmanımız yok.", "Did the university purchase new photocell sprint equipment?", "Üniversite yeni fotosel depar ekipmanı satın aldı mı?"),
+    ("opportunity", "fırsat, imkan", "Gelişim & Başarı", "Studying abroad provides a great opportunity to improve English fluency.", "Yurt dışında eğitim almak İngilizce akıcılığını geliştirmek için harika bir fırsat sunar.", "He didn't miss the opportunity to join the European sports camp.", "Avrupa spor kampına katılma fırsatını kaçırmadı.", "How can young students create their own career opportunities?", "Genç öğrenciler kendi kariyer fırsatlarını nasıl oluşturabilirler?"),
+    ("decision", "karar", "Yönetim & Zihinsel", "The head coach made a strategic decision in the final quarter.", "Başantrenör son periyotta stratejik bir karar verdi.", "She didn't regret her decision to study sports science.", "Spor bilimleri okuma kararından pişmanlık duymadı.", "Who will make the final decision regarding tournament participation?", "Turnuva katılımıyla ilgili nihai kararı kim verecek?"),
+    ("performance", "performans, verim", "Spor & Başarı", "Adequate sleep and nutrition maximize athletic performance.", "Yeterli uyku ve beslenme atletik performansı maksimize eder.", "The football squad didn't show satisfactory performance last week.", "Futbol takımı geçen hafta tatmin edici bir performans sergilemedi.", "How do analysts measure tactical performance during games?", "Analistler maçlar sırasında taktiksel performansı nasıl ölçerler?"),
+    ("hypothesis", "hipotez, varsayım", "Bilimsel & Araştırma", "The research team formulated a clear hypothesis before testing.", "Araştırma ekibi testten önce net bir hipotez oluşturdu.", "The experimental data didn't support our initial hypothesis.", "Deneysel veriler ilk hipotezimizi desteklemedi.", "Can you explain your project hypothesis in simple terms?", "Proje hipotezinizi basit terimlerle açıklayabilir misiniz?"),
+    ("strategy", "strateji, plan", "Yönetim & Taktik", "Our defense strategy prevented opponent counterattacks effectively.", "Savunma stratejimiz rakibin kontra ataklarını etkili bir şekilde engelledi.", "The club doesn't have a long-term youth development strategy.", "Kulübün uzun vadeli bir genç gelişim stratejisi yok.", "What is the best study strategy for mastering irregular verbs?", "Düzensiz fiillerde ustalaşmak için en iyi çalışma stratejisi nedir?"),
+    ("achievement", "başarı, kazanım", "Gelişim & Ödül", "Winning the national trophy was a historic achievement for the school.", "Ulusal kupayı kazanmak okul için tarihi bir başarıydı.", "She didn't consider academic honors her sole achievement.", "Akademik başarıları tek kazanımı olarak görmedi.", "What is your greatest personal achievement in language learning?", "Dil öğrenimindeki en büyük kişisel başarınız nedir?"),
+    ("habit", "alışkanlık", "Yaşam & Disiplin", "Daily vocabulary revision is the most powerful language habit.", "Günlük kelime tekrarı en güçlü dil alışkanlığıdır.", "He doesn't have the unhealthy habit of skipping breakfast.", "Kahvaltıyı atlamak gibi sağlıksız bir alışkanlığı yoktur.", "How long does it take to form a consistent study habit?", "Tutarlı bir çalışma alışkanlığı oluşturmak ne kadar sürer?"),
+    ("discovery", "keşif, buluş", "Bilimsel & Tarih", "The discovery of penicillin revolutionized modern medicine.", "Penisilinin keşfi modern tıpta devrim yarattı.", "The archaeological team didn't make any new discovery today.", "Arkeoloji ekibi bugün yeni bir keşif yapmadı.", "Where did Ela make the unexpected discovery in the story?", "Ela hikayede beklenmedik keşfi nerede yaptı?"),
+    ("environment", "çevre, ortam", "Yaşam & Bilim", "A positive learning environment motivates students to excel.", "Olumlu bir öğrenme ortamı öğrencileri mükemmelleşmeye motive eder.", "Loud music does not create a suitable environment for studying.", "Yüksek sesli müzik ders çalışmak için uygun bir ortam oluşturmaz.", "How can cities protect the natural environment from pollution?", "Şehirler doğal çevreyi kirlilikten nasıl koruyabilir?"),
+    ("education", "eğitim, öğretim", "Akademik & Toplum", "Quality education opens doors to international career opportunities.", "Kaliteli eğitim uluslararası kariyer fırsatlarına kapı açar.", "She didn't finish her formal education until age twenty-four.", "Yirmi dört yaşına kadar resmi eğitimini bitirmedi.", "Which high school education program does your daughter prefer?", "Kızınız hangi lise eğitim programını tercih ediyor?"),
+    ("knowledge", "bilgi, birikim", "Bilişsel & Zihinsel", "Knowledge of grammar rules gives students confidence in speaking.", "Gramer kuralları bilgisi öğrencilere konuşmada özgüven verir.", "He doesn't have sufficient knowledge of biomechanics software.", "Biyomekanik yazılımı hakkında yeterli bilgiye sahip değil.", "How do practical exercises deepen theoretical knowledge?", "Pratik egzersizler teorik bilgiyi nasıl derinleştirir?"),
+    ("development", "gelişim, kalkınma, ilerleme", "Süreç & Büyüme", "Regular feedback accelerates the athletic development of players.", "Düzenli geri bildirim oyuncuların atletik gelişimini hızlandırır.", "The economic crisis didn't stop software development.", "Ekonomik kriz yazılım gelişimini durdurmadı.", "What factors influence child language development most?", "Çocuk dil gelişimini en çok hangi faktörler etkiler?"),
+    ("challenge", "zorluk, meydan okuma, engel", "Süreç & Mücadele", "Learning advanced tenses was a tough challenge for beginners.", "İleri zamanları öğrenmek yeni başlayanlar için zorlu bir meydan okumaydı.", "She didn't shy away from any academic challenge.", "Hiçbir akademik zorluktan kaçınmadı.", "How do athletes overcome the challenge of intense training?", "Sporcular yoğun antrenmanın getirdiği zorluğun üstesinden nasıl gelirler?"),
+    ("solution", "çözüm, çare", "Problem Çözme", "Smart algorithms provide an optimal solution for tracking latency.", "Akıllı algoritmalar takip gecikmesi için en uygun çözümü sunar.", "We haven't found a viable solution for the data synchronization issue.", "Veri senkronizasyonu sorunu için uygulanabilir bir çözüm bulamadık.", "Can you suggest an innovative solution for this grammatical puzzle?", "Bu dilbilgisi bulmacası için yenilikçi bir çözüm önerebilir misiniz?"),
+    ("goal", "hedef, amaç, gol", "Başarı & Spor", "Setting clear weekly study goals increases learning productivity.", "Net haftalık çalışma hedefleri belirlemek öğrenme verimini artırır.", "The team didn't concede any goal in the championship match.", "Takım şampiyonluk maçında hiç gol yemedi.", "What is your primary goal in English for this semester?", "Bu dönem için İngilizcedeki temel hedefiniz nedir?"),
+    ("result", "sonuç, netice", "Bilimsel & Değerlendirme", "The test result showed significant gains in explosive leg strength.", "Test sonucu patlayıcı bacak kuvvetinde belirgin kazanımlar gösterdi.", "He didn't receive the medical test result until this afternoon.", "Bu öğleden sonraya kadar tıbbi test sonucunu almadı.", "What was the final result of the regional robotics tournament?", "Bölgesel robotik turnuvasının nihai sonucu ne oldu?"),
+    ("skill", "beceri, yetenek", "Gelişim & Uzmanlık", "Consistent practice turns basic vocabulary into fluent speaking skills.", "Tutarlı pratik temel kelimeleri akıcı konuşma becerilerine dönüştürür.", "He doesn't have the technical skill to operate the motion tracker.", "Hareket takip cihazını çalıştıracak teknik beceriye sahip değil.", "Which language skill is most difficult to master: reading or speaking?", "Hangi dil becerisinde ustalaşmak en zordur: okuma mı konuşma mı?"),
+    ("purpose", "amaç, gaye", "Zihinsel & Niyet", "The main purpose of this study app is to make grammar effortless.", "Bu çalışma uygulamasının temel amacı grameri zahmetsiz kılmaktır.", "He didn't explain the purpose of his sudden visit.", "Ani ziyaretinin amacını açıklamadı.", "For what purpose do coaches collect biometric sensor data?", "Antrenörler hangi amaçla biyometrik sensör verisi toplarlar?"),
+    ("method", "yöntem, metot", "Bilimsel & Öğrenme", "The SVOMPT sentence method simplifies English sentence construction.", "SVOMPT cümle yöntemi İngilizce cümle kurmayı basitleştirir.", "The traditional teaching method didn't encourage active speaking.", "Geleneksel öğretim yöntemi aktif konuşmayı teşvik etmedi.", "Which measurement method is most accurate for sprint timing?", "Depar zamanlaması için hangi ölçüm yöntemi en doğrudur?"),
+    ("evidence", "kanıt, delil", "Bilimsel & Hukuk", "Scientific evidence demonstrates that daily revision builds long-term memory.", "Bilimsel kanıtlar günlük tekrarın uzun vadeli hafıza inşa ettiğini gösterir.", "The analyst didn't find any evidence of referee bias.", "Analist hakem yanlılığına dair hiçbir kanıt bulamadı.", "What evidence supports your hypothesis on athletic load?", "Atletik yük hakkındaki hipotezinizi hangi kanıtlar destekliyor?"),
+    ("progress", "ilerleme, gelişim", "Süreç & Başarı", "Ela made steady progress in her English grammar comprehension.", "Ela İngilizce gramer kavrayışında istikrarlı bir ilerleme kaydetti.", "The construction work didn't show any progress this month.", "İnşaat çalışması bu ay hiçbir ilerleme göstermedi.", "How do you track your daily vocabulary progress in the app?", "Uygulamada günlük kelime ilerlemenizi nasıl takip ediyorsunuz?"),
+    ("community", "topluluk, camia", "Sosyal & Toplum", "Our sports science community shares innovative research findings openly.", "Spor bilimleri topluluğumuz yenilikçi araştırma bulgularını açıkça paylaşır.", "He didn't feel isolated because the student community was welcoming.", "Öğrenci topluluğu sıcak olduğu için kendini yalnız hissetmedi.", "How does this app foster a supportive learning community?", "Bu uygulama destekleyici bir öğrenme topluluğunu nasıl teşvik ediyor?")
+]
+
+# 3. 20 Adverbs (Zarflar)
 ADVERBS_DATA = [
     ("quickly", "hızlıca, çabucak", "Durum Zarfı (Manner)", "Athletes must react quickly to visual cues.", "Sporcular görsel işaretlere hızlıca tepki vermelidir.", "He didn't run quickly enough to win the sprint.", "Deparı kazanmak için yeterince hızlıca koşmadı.", "Why did you drive so quickly on the wet road?", "Islak yolda neden bu kadar hızlıca araba sürdün?"),
     ("carefully", "dikkatlice, özenle", "Durum Zarfı (Manner)", "She read the test instructions carefully.", "Sınav talimatlarını dikkatlice okudu.", "He didn't handle the delicate sensor carefully.", "Hassas sensörü dikkatlice tutmadı/kullanmadı.", "Did you check the biometric calibration carefully?", "Biyometrik kalibrasyonu dikkatlice kontrol ettin mi?"),
@@ -28,7 +84,7 @@ ADVERBS_DATA = [
     ("extremely", "son derece, aşırı derecede", "Derece Zarfı (Degree)", "The championship final match was extremely exciting.", "Şampiyona final maçı son derece heyecanlıydı.", "The weather wasn't extremely cold during the winter camp.", "Kış kampı sırasında hava aşırı derecede soğuk değildi.", "Why is this mathematical formula extremely difficult to solve?", "Bu matematiksel formülü çözmek neden son derece zor?")
 ]
 
-# Complete Curated Conjunctions (30 Bağlaçlar)
+# 4. 15 Conjunctions (Bağlaçlar)
 CONJUNCTIONS_DATA = [
     ("because", "çünkü, -dığı için", "Sebep-Sonuç (Cause & Effect)", "Ela studied grammar every day because she wanted to excel in English.", "Ela her gün gramer çalıştı çünkü İngilizcede mükemmelleşmek istiyordu.", "He didn't play in the match because he had a high fever.", "Yüksek ateşi olduğu için maçta oynamadı.", "Did they cancel the outdoor training session because of heavy rain?", "Şiddetli yağmur nedeniyle açık hava antrenmanını iptal ettiler mi?"),
     ("although", "rağmen, -e karşın", "Zıtlık Bağlacı (Contrast)", "Although the match was very tough, our team won the trophy.", "Maç çok zorlu olmasına rağmen, takımımız kupayı kazandı.", "Although he didn't practice all week, he performed well.", "Tüm hafta antrenman yapmamasına rağmen, iyi performans sergiledi.", "Why was he exhausted although he slept eight full hours?", "Sekiz tam saat uyumasına rağmen neden bitkindi?"),
@@ -47,7 +103,7 @@ CONJUNCTIONS_DATA = [
     ("either... or", "ya ... ya da ...", "Seçenek Bağlacı (Alternative)", "You can either choose morning practice or join the evening session.", "Ya sabah antrenmanını seçebilir ya da akşam seansına katılabilirsiniz.", "We cannot either accept late submissions or excuse unapproved absences.", "Ne geç teslimleri kabul edebiliriz ne de izinsiz devamsızlıkları mazur görebiliriz.", "Will you either study for the LGS exam or practice English today?", "Bugün ya LGS sınavına mı çalışacaksın yoksa İngilizce pratiği mi yapacaksın?")
 ]
 
-# Complete Curated Prepositions (20 Edatlar)
+# 5. 10 Prepositions (Edatlar)
 PREPOSITIONS_DATA = [
     ("in", "içinde, -de/-da", "Yer & Zaman Edatı (Place & Time)", "Students are studying quietly in the campus library.", "Öğrenciler kampüs kütüphanesinde sessizce ders çalışıyorlar.", "He wasn't in the locker room when the coach gave the team talk.", "Antrenör takım konuşmasını yaparken soyunma odasında değildi.", "Will the international tournament take place in June?", "Uluslararası turnuva haziran ayında mı gerçekleşecek?"),
     ("on", "üzerinde, -de/-da (günler/yüzeyler)", "Yer & Zaman Edatı (Place & Time)", "Please place the biometric sensor on the athlete's right shoe.", "Lütfen biyometrik sensörü sporcunun sağ ayakkabısının üzerine yerleştirin.", "We don't have tactical training sessions on Sunday mornings.", "Pazar sabahları taktik antrenman seanslarımız yok.", "Did you see the latest research notes on the digital whiteboard?", "Dijital beyaz tahtadaki son araştırma notlarını gördün mü?"),
@@ -61,7 +117,7 @@ PREPOSITIONS_DATA = [
     ("towards", "-e doğru (yön)", "Yön & Hareket Edatı (Direction)", "The striker is running fast towards the opponent's goal.", "Forvet rakibin kalesine doğru hızlıca koşuyor.", "The company didn't take any active steps towards environmental sustainability.", "Şirket çevresel sürdürülebilirliğe doğru hiçbir aktif adım atmadı.", "Why was the team bus moving slowly towards the stadium entrance?", "Takım otobüsü stadyum girişine doğru neden yavaş hareket ediyordu?")
 ]
 
-# Complete Curated Adjectives (20 Sıfatlar)
+# 6. 10 Adjectives (Sıfatlar)
 ADJECTIVES_DATA = [
     ("essential", "gerekli, hayati, temel", "Nitelik Sıfatı (Quality)", "Regular sleep is essential for optimal cognitive and physical recovery.", "Düzenli uyku, en uygun bilişsel ve fiziksel toparlanma için gereklidir/hayatidir.", "Expensive sports gear is not essential for learning English vocabulary.", "İngilizce kelime öğrenmek için pahalı spor ekipmanları şart/gerekli değildir.", "Which grammatical concepts are essential for the upcoming scholarship exam?", "Yaklaşan burs sınavı için hangi dilbilgisi kavramları hayati/gereklidir?"),
     ("crucial", "son derece önemli, kritik", "Değerlendirme Sıfatı (Evaluation)", "Proper hydration plays a crucial role during endurance events.", "Doğru sıvı alımı dayanıklılık etkinlikleri sırasında son derece önemli bir rol oynar.", "This minor parameter is not crucial for the overall research conclusion.", "Bu küçük parametre genel araştırma sonucu için kritik değildir.", "Why is daily sentence building crucial for language mastery?", "Dil ustalığı için günlük cümle kurma neden son derece önemlidir?"),
@@ -75,7 +131,21 @@ ADJECTIVES_DATA = [
     ("curious", "meraklı, araştırmacı", "Zihinsel & Kişilik (Cognitive)", "Curious students ask thought-provoking questions in science lectures.", "Meraklı öğrenciler fen derslerinde düşündürücü sorular sorarlar.", "He wasn't curious about foreign cultures until he traveled abroad.", "Yurt dışına seyahat edene kadar yabancı kültürleri merak etmiyordu.", "What makes young children so naturally curious about foreign languages?", "Küçük çocukları yabancı dillere karşı doğal olarak bu kadar meraklı kılan nedir?")
 ]
 
-def build_comprehensive_database():
+# 7. 10 Collocations & Idioms (Kalıp İfadeler & İdiyomlar)
+IDIOMS_DATA = [
+    ("in my opinion", "bence, benim fikrime göre", "Fikir Belirtme (Opinion)", "In my opinion, interactive flashcards accelerate vocabulary memorization.", "Bence/benim fikrime göre, etkileşimli flaş kartlar kelime ezberlemeyi hızlandırır.", "In my opinion, this simple test is not difficult for prepared students.", "Bence bu basit test hazırlıklı öğrenciler için zor değildir.", "In your opinion, which grammar tense is most challenging to learn?", "Sizin fikrinize göre, öğrenmesi en zor olan gramer zamanı hangisidir?"),
+    ("as a matter of fact", "aslına bakarsan, doğrusunu söylemek gerekirse", "Vurgu & Gerçek", "As a matter of fact, she completed all ten chapters in three days.", "Aslına bakarsan, on bölümün tamamını üç günde bitirdi.", "As a matter of fact, we don't need expensive equipment to study.", "Doğrusunu söylemek gerekirse, çalışmak için pahalı ekipmanlara ihtiyacımız yok.", "As a matter of fact, did you know that irregular verbs follow hidden patterns?", "Aslına bakarsan, düzensiz fiillerin gizli kalıplar izlediğini biliyor muydun?"),
+    ("take part in", "yer almak, katılmak, iştirak etmek", "Katılım & Sosyal", "Students love to take part in international robotics competitions.", "Öğrenciler uluslararası robotik yarışmalarında yer almayı/katılmayı çok severler.", "He didn't take part in the symposium due to a flight delay.", "Uçuş gecikmesi nedeniyle sempozyumda yer almadı.", "Will your daughter take part in the upcoming science fair?", "Kızınız yaklaşan bilim fuarında yer alacak mı?"),
+    ("pay attention to", "dikkat etmek, özen göstermek", "Dikkat & Odak", "You must pay attention to the SVOMPT word order rule.", "SVOMPT kelime dizilimi kuralına dikkat etmelisiniz.", "He didn't pay attention to the coach's tactical instructions.", "Antrenörün taktik talimatlarına dikkat etmedi.", "Why should language learners pay attention to natural pronunciation?", "Dil öğrenenler neden doğal telaffuza dikkat etmelidir?"),
+    ("make a decision", "karar vermek", "Karar & Eylem", "The committee will make a decision on the research grant tomorrow.", "Komite araştırma hibesi konusunda yarın karar verecek.", "She didn't make a hasty decision before reviewing all test scores.", "Tüm test puanlarını incelemeden önce aceleci bir karar vermedi.", "When will the school principal make a decision about the holiday?", "Okul müdürü tatil hakkında ne zaman karar verecek?"),
+    ("have an impact on", "üzerinde etki yaratmak, etkilemek", "Etki & Sonuç", "Quality sleep has a direct impact on athletic recovery and memory.", "Kaliteli uyku, atletik toparlanma ve hafıza üzerinde doğrudan bir etkiye sahiptir.", "This small parameter change doesn't have an impact on the final result.", "Bu küçük parametre değişikliği nihai sonuç üzerinde bir etki yaratmaz.", "How does daily sentence practice have an impact on speaking fluency?", "Günlük cümle pratiği konuşma akıcılığı üzerinde nasıl bir etki yaratır?"),
+    ("on the other hand", "diğer taraftan, öte yandan", "Zıtlık & Karşılaştırma", "Running builds endurance; on the other hand, sprinting develops explosive power.", "Koşu dayanıklılık inşa eder; öte yandan depar patlayıcı güç geliştirir.", "He wants to travel; on the other hand, he doesn't want to spend his savings.", "Seyahat etmek istiyor; öte yandan birikimlerini harcamak istemiyor.", "On the other hand, is virtual reality truly effective for tactical learning?", "Öte yandan, sanal gerçeklik taktiksel öğrenme için gerçekten etkili midir?"),
+    ("in the long run", "uzun vadede, uzun dönemde", "Zaman & Gelecek", "Consistent daily discipline always pays off in the long run.", "Tutarlı günlük disiplin uzun vadede her zaman karşılığını verir.", "Skipping warm-up drills won't help you in the long run.", "Isınma hareketlerini atlamak uzun vadede size yardımcı olmayacaktır.", "Will learning English grammar open global doors in the long run?", "İngilizce gramer öğrenmek uzun vadede küresel kapılar açacak mı?"),
+    ("step by step", "adım adım, aşama aşama", "Süreç & Yöntem", "The 4-step learning routine guides students step by step to success.", "4 aşamalı ders rutini öğrencileri başarıya adım adım yönlendirir.", "You cannot master advanced conditionals without progressing step by step.", "Adım adım ilerlemeden ileri düzey şart cümlelerinde ustalaşamazsınız.", "Can you explain the calibration procedure step by step?", "Kalibrasyon prosedürünü adım adım açıklayabilir misiniz?"),
+    ("from time to time", "zaman zaman, ara sıra", "Zaman & Sıklık", "Even elite athletes need complete rest periods from time to time.", "Seçkin sporcular bile zaman zaman tam dinlenme dönemlerine ihtiyaç duyarlar.", "She doesn't review old chapters from time to time; she reviews them daily.", "Eski bölümleri ara sıra tekrar etmez; onları her gün tekrar eder.", "Do you visit the university sports library from time to time?", "Üniversite spor kütüphanesini zaman zaman ziyaret eder misiniz?")
+]
+
+def build_master_encyclopedia():
     existing_json = "/Users/alionurcerrah/Desktop/İngilizce Kelime/data/curriculum.json"
     with open(existing_json, "r", encoding="utf-8") as f:
         data = json.load(f)
@@ -133,7 +203,55 @@ def build_comprehensive_database():
         })
         global_id += 1
 
-    # 3. Zarflar (Adverbs)
+    # 3. 25 Phrasal Verbs
+    for idx, (phr_en, phr_tr, sub_cat, pos_en, pos_tr, neg_en, neg_tr, que_en, que_tr) in enumerate(PHRASAL_VERBS_DATA, 1):
+        all_items.append({
+            "id": global_id,
+            "original_id": idx,
+            "unique_id": f"PHRASAL_{idx}",
+            "type": "phrasal_verb",
+            "type_label": "Deyimsel Fiil (Phrasal Verb)",
+            "type_icon": "⚡",
+            "word": phr_en,
+            "meaning": phr_tr,
+            "level": "B1-B2",
+            "level_label": "Deyimsel Fiil",
+            "category": sub_cat,
+            "forms": {"v1": phr_en, "v2": "-", "v3": "-"},
+            "detail_label": f"Kategori: {sub_cat}",
+            "sentences": {
+                "positive": {"en": pos_en, "tr": pos_tr},
+                "negative": {"en": neg_en, "tr": neg_tr},
+                "question": {"en": que_en, "tr": que_tr}
+            }
+        })
+        global_id += 1
+
+    # 4. 25 Nouns
+    for idx, (noun_en, noun_tr, sub_cat, pos_en, pos_tr, neg_en, neg_tr, que_en, que_tr) in enumerate(NOUNS_DATA, 1):
+        all_items.append({
+            "id": global_id,
+            "original_id": idx,
+            "unique_id": f"NOUN_{idx}",
+            "type": "noun",
+            "type_label": "İsim (Noun)",
+            "type_icon": "🔴",
+            "word": noun_en,
+            "meaning": noun_tr,
+            "level": "A2-B1",
+            "level_label": "İsim & Kavram",
+            "category": sub_cat,
+            "forms": {"v1": noun_en, "v2": "-", "v3": "-"},
+            "detail_label": f"Kategori: {sub_cat}",
+            "sentences": {
+                "positive": {"en": pos_en, "tr": pos_tr},
+                "negative": {"en": neg_en, "tr": neg_tr},
+                "question": {"en": que_en, "tr": que_tr}
+            }
+        })
+        global_id += 1
+
+    # 5. 20 Adverbs
     for idx, (adv_en, adv_tr, sub_cat, pos_en, pos_tr, neg_en, neg_tr, que_en, que_tr) in enumerate(ADVERBS_DATA, 1):
         all_items.append({
             "id": global_id,
@@ -157,7 +275,7 @@ def build_comprehensive_database():
         })
         global_id += 1
 
-    # 4. Bağlaçlar (Conjunctions)
+    # 6. 15 Conjunctions
     for idx, (conj_en, conj_tr, sub_cat, pos_en, pos_tr, neg_en, neg_tr, que_en, que_tr) in enumerate(CONJUNCTIONS_DATA, 1):
         all_items.append({
             "id": global_id,
@@ -181,7 +299,7 @@ def build_comprehensive_database():
         })
         global_id += 1
 
-    # 5. Edatlar (Prepositions)
+    # 7. 10 Prepositions
     for idx, (prep_en, prep_tr, sub_cat, pos_en, pos_tr, neg_en, neg_tr, que_en, que_tr) in enumerate(PREPOSITIONS_DATA, 1):
         all_items.append({
             "id": global_id,
@@ -205,7 +323,7 @@ def build_comprehensive_database():
         })
         global_id += 1
 
-    # 6. Sıfatlar (Adjectives)
+    # 8. 10 Adjectives
     for idx, (adj_en, adj_tr, sub_cat, pos_en, pos_tr, neg_en, neg_tr, que_en, que_tr) in enumerate(ADJECTIVES_DATA, 1):
         all_items.append({
             "id": global_id,
@@ -229,7 +347,31 @@ def build_comprehensive_database():
         })
         global_id += 1
 
-    # Map legacy verbs list for backwards compatibility
+    # 9. 10 Idioms & Collocations
+    for idx, (idm_en, idm_tr, sub_cat, pos_en, pos_tr, neg_en, neg_tr, que_en, que_tr) in enumerate(IDIOMS_DATA, 1):
+        all_items.append({
+            "id": global_id,
+            "original_id": idx,
+            "unique_id": f"IDIOM_{idx}",
+            "type": "idiom",
+            "type_label": "Kalıp İfade (Idiom)",
+            "type_icon": "💬",
+            "word": idm_en,
+            "meaning": idm_tr,
+            "level": "B1-B2",
+            "level_label": "Kalıp İfade",
+            "category": sub_cat,
+            "forms": {"v1": idm_en, "v2": "-", "v3": "-"},
+            "detail_label": f"Kategori: {sub_cat}",
+            "sentences": {
+                "positive": {"en": pos_en, "tr": pos_tr},
+                "negative": {"en": neg_en, "tr": neg_tr},
+                "question": {"en": que_en, "tr": que_tr}
+            }
+        })
+        global_id += 1
+
+    # Legacy verbs array
     legacy_verbs = [it for it in all_items if it["type"] == "verb"]
     for v in legacy_verbs:
         v["verb"] = v["word"]
@@ -239,10 +381,13 @@ def build_comprehensive_database():
     data["stats"] = {
         "total_items": len(all_items),
         "verbs_count": len(legacy_verbs),
+        "phrasal_verbs_count": len(PHRASAL_VERBS_DATA),
+        "nouns_count": len(NOUNS_DATA),
         "adverbs_count": len(ADVERBS_DATA),
         "conjunctions_count": len(CONJUNCTIONS_DATA),
         "prepositions_count": len(PREPOSITIONS_DATA),
-        "adjectives_count": len(ADJECTIVES_DATA)
+        "adjectives_count": len(ADJECTIVES_DATA),
+        "idioms_count": len(IDIOMS_DATA)
     }
 
     # Save to JSON
@@ -254,7 +399,7 @@ def build_comprehensive_database():
         out.write("const APP_DATA = " + json.dumps(data, ensure_ascii=False, indent=2) + ";\n")
         out.write("if (typeof module !== 'undefined' && module.exports) { module.exports = APP_DATA; }\n")
 
-    print(f"SUCCESS: Built {len(all_items)} total vocabulary items (Verbs: {len(legacy_verbs)}, Adverbs: {len(ADVERBS_DATA)}, Conjunctions: {len(CONJUNCTIONS_DATA)}, Prepositions: {len(PREPOSITIONS_DATA)}, Adjectives: {len(ADJECTIVES_DATA)})")
+    print(f"MASTER COMPLETE: Generated {len(all_items)} total dictionary items across 8 categories!")
 
 if __name__ == "__main__":
-    build_comprehensive_database()
+    build_master_encyclopedia()

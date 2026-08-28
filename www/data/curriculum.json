@@ -7504,12 +7504,15 @@
     ]
   },
   "stats": {
-    "total_items": 213,
+    "total_items": 273,
     "verbs_count": 158,
+    "phrasal_verbs_count": 25,
+    "nouns_count": 25,
     "adverbs_count": 20,
     "conjunctions_count": 15,
     "prepositions_count": 10,
-    "adjectives_count": 10
+    "adjectives_count": 10,
+    "idioms_count": 10
   },
   "all_words": [
     {
@@ -12887,6 +12890,1656 @@
     {
       "id": 159,
       "original_id": 1,
+      "unique_id": "PHRASAL_1",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "give up",
+      "meaning": "pes etmek, bırakmak",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Vazgeçme & Alışkanlık",
+      "forms": {
+        "v1": "give up",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Vazgeçme & Alışkanlık",
+      "sentences": {
+        "positive": {
+          "en": "Disciplined athletes never give up during tough championship games.",
+          "tr": "Disiplinli sporcular zorlu şampiyona maçlarında asla pes etmezler."
+        },
+        "negative": {
+          "en": "He didn't give up his healthy nutrition habits during vacation.",
+          "tr": "Tatil sırasında sağlıklı beslenme alışkanlıklarını bırakmadı."
+        },
+        "question": {
+          "en": "Why did you give up practicing English grammar every morning?",
+          "tr": "Her sabah İngilizce gramer pratiği yapmayı neden bıraktın?"
+        }
+      }
+    },
+    {
+      "id": 160,
+      "original_id": 2,
+      "unique_id": "PHRASAL_2",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "find out",
+      "meaning": "öğrenmek, keşfetmek, bulmak",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Araştırma & Keşif",
+      "forms": {
+        "v1": "find out",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Araştırma & Keşif",
+      "sentences": {
+        "positive": {
+          "en": "Scientists conducted tests to find out the cause of muscle fatigue.",
+          "tr": "Bilim insanları kas yorgunluğunun sebebini öğrenmek için testler yaptılar."
+        },
+        "negative": {
+          "en": "She didn't find out about the scholarship results until Monday.",
+          "tr": "Pazartesi gününe kadar burs sonuçlarını öğrenmedi."
+        },
+        "question": {
+          "en": "Did you find out how the new photocell timing gates operate?",
+          "tr": "Yeni fotosel zamanlama kapılarının nasıl çalıştığını öğrendin mi?"
+        }
+      }
+    },
+    {
+      "id": 161,
+      "original_id": 3,
+      "unique_id": "PHRASAL_3",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "carry out",
+      "meaning": "yürütmek, uygulamak, gerçekleştirmek",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Bilimsel & Akademik",
+      "forms": {
+        "v1": "carry out",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Bilimsel & Akademik",
+      "sentences": {
+        "positive": {
+          "en": "Researchers will carry out a comprehensive biomechanical study.",
+          "tr": "Araştırmacılar kapsamlı bir biyomekanik çalışma yürütecekler."
+        },
+        "negative": {
+          "en": "The team didn't carry out the tactical instructions properly.",
+          "tr": "Takım taktik talimatları düzgün bir şekilde uygulamadı."
+        },
+        "question": {
+          "en": "Who will carry out the sensor calibration tests tomorrow?",
+          "tr": "Yarın sensör kalibrasyon testlerini kim gerçekleştirecek?"
+        }
+      }
+    },
+    {
+      "id": 162,
+      "original_id": 4,
+      "unique_id": "PHRASAL_4",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "look forward to",
+      "meaning": "dört gözle beklemek, iple çekmek",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Beklenti & İstek",
+      "forms": {
+        "v1": "look forward to",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Beklenti & İstek",
+      "sentences": {
+        "positive": {
+          "en": "Ela looks forward to starting her academic research project.",
+          "tr": "Ela akademik araştırma projesine başlamayı dört gözle bekliyor."
+        },
+        "negative": {
+          "en": "He isn't looking forward to the long bus travel to Istanbul.",
+          "tr": "İstanbul'a yapılacak uzun otobüs yolculuğunu iple çekmiyor."
+        },
+        "question": {
+          "en": "Are you looking forward to the international VR sports conference?",
+          "tr": "Uluslararası VR spor konferansını dört gözle bekliyor musun?"
+        }
+      }
+    },
+    {
+      "id": 163,
+      "original_id": 5,
+      "unique_id": "PHRASAL_5",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "set up",
+      "meaning": "kurmak, hazırlamak, oluşturmak",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Organizasyon & Donanım",
+      "forms": {
+        "v1": "set up",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Organizasyon & Donanım",
+      "sentences": {
+        "positive": {
+          "en": "The technicians set up the high-speed motion tracking cameras.",
+          "tr": "Teknisyenler yüksek hızlı hareket takip kameralarını kurdular."
+        },
+        "negative": {
+          "en": "They didn't set up the optical sprint gates before the athletes arrived.",
+          "tr": "Sporcular varmadan önce optik depar kapılarını kurmadılar."
+        },
+        "question": {
+          "en": "Can you help me set up the virtual reality test environment?",
+          "tr": "Sanal gerçeklik test ortamını kurmama yardım edebilir misin?"
+        }
+      }
+    },
+    {
+      "id": 164,
+      "original_id": 6,
+      "unique_id": "PHRASAL_6",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "figure out",
+      "meaning": "çözmek, anlamak, hesaplamak",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Zihinsel & Problem Çözme",
+      "forms": {
+        "v1": "figure out",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Zihinsel & Problem Çözme",
+      "sentences": {
+        "positive": {
+          "en": "Smart students figure out complex mathematical solutions quickly.",
+          "tr": "Zeki öğrenciler karmaşık matematiksel çözümleri çabucak çözerler/anlarlar."
+        },
+        "negative": {
+          "en": "He couldn't figure out why the wireless sensor disconnected.",
+          "tr": "Kablosuz sensörün neden bağlantısının kesildiğini çözemedi."
+        },
+        "question": {
+          "en": "Did you figure out how to calculate the acute-to-chronic workload ratio?",
+          "tr": "Akut-kronik iş yükü oranının nasıl hesaplanacağını çözdün mü?"
+        }
+      }
+    },
+    {
+      "id": 165,
+      "original_id": 7,
+      "unique_id": "PHRASAL_7",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "turn down",
+      "meaning": "reddetmek, kısmak (ses/ısı)",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Karar & Tercih",
+      "forms": {
+        "v1": "turn down",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Karar & Tercih",
+      "sentences": {
+        "positive": {
+          "en": "The professor had to turn down the offer due to heavy workload.",
+          "tr": "Profesör yoğun iş yükü nedeniyle teklifi reddetmek zorunda kaldı."
+        },
+        "negative": {
+          "en": "He didn't turn down the invitation to the national team camp.",
+          "tr": "Milli takım kampı davetini reddetmedi."
+        },
+        "question": {
+          "en": "Why did they turn down our research grant application?",
+          "tr": "Araştırma hibesi başvurumuzu neden reddettiler?"
+        }
+      }
+    },
+    {
+      "id": 166,
+      "original_id": 8,
+      "unique_id": "PHRASAL_8",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "run out of",
+      "meaning": "tükenmek, bitmek",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Kaynak & Durum",
+      "forms": {
+        "v1": "run out of",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Kaynak & Durum",
+      "sentences": {
+        "positive": {
+          "en": "Athletes can run out of energy if they skip recovery meals.",
+          "tr": "Sporcular toparlanma öğünlerini atlarlarsa enerjileri tükenebilir."
+        },
+        "negative": {
+          "en": "The laboratory didn't run out of testing supplies this semester.",
+          "tr": "Laboratuvarın test malzemeleri bu dönem tükenmedi."
+        },
+        "question": {
+          "en": "Did the tracker run out of battery during the soccer match?",
+          "tr": "Futbol maçı sırasında takip cihazının pili bitti mi?"
+        }
+      }
+    },
+    {
+      "id": 167,
+      "original_id": 9,
+      "unique_id": "PHRASAL_9",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "keep up with",
+      "meaning": "ayak uydurmak, hızına yetişmek",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Süreç & Gelişim",
+      "forms": {
+        "v1": "keep up with",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Süreç & Gelişim",
+      "sentences": {
+        "positive": {
+          "en": "Students must keep up with daily lessons to achieve top grades.",
+          "tr": "Öğrenciler en yüksek notları almak için günlük derslere ayak uydurmalıdır."
+        },
+        "negative": {
+          "en": "He couldn't keep up with the fast pace of the counterattack.",
+          "tr": "Hızlı kontra atağın temposuna ayak uyduramadı/yetişemedi."
+        },
+        "question": {
+          "en": "How do researchers keep up with rapid advancements in AI technology?",
+          "tr": "Araştırmacılar yapay zeka teknolojisindeki hızlı gelişmelere nasıl ayak uyduruyor?"
+        }
+      }
+    },
+    {
+      "id": 168,
+      "original_id": 10,
+      "unique_id": "PHRASAL_10",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "come up with",
+      "meaning": "ortaya atmak, fikir üretmek, bulmak",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Yaratıcılık & İnovasyon",
+      "forms": {
+        "v1": "come up with",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Yaratıcılık & İnovasyon",
+      "sentences": {
+        "positive": {
+          "en": "Young coders came up with an innovative mobile learning solution.",
+          "tr": "Genç yazılımcılar yenilikçi bir mobil öğrenme çözümü ortaya attılar."
+        },
+        "negative": {
+          "en": "The committee didn't come up with a realistic budget plan.",
+          "tr": "Komite gerçekçi bir bütçe planı ortaya koyamadı/üretemedi."
+        },
+        "question": {
+          "en": "Did your team come up with a creative project idea for the science fair?",
+          "tr": "Takımınız bilim fuarı için yaratıcı bir proje fikri buldu mu?"
+        }
+      }
+    },
+    {
+      "id": 169,
+      "original_id": 11,
+      "unique_id": "PHRASAL_11",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "take care of",
+      "meaning": "ilgilenmek, göz kulak olmak, bakmak",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Sorumluluk & Sağlık",
+      "forms": {
+        "v1": "take care of",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Sorumluluk & Sağlık",
+      "sentences": {
+        "positive": {
+          "en": "Professional athletes take care of their physical and mental health.",
+          "tr": "Profesyonel sporcular fiziksel ve zihinsel sağlıklarıyla ilgilenirler/bakarlar."
+        },
+        "negative": {
+          "en": "He didn't take care of his sports passport before travel.",
+          "tr": "Seyahat öncesinde spor pasaportuyla ilgilenmedi/korumadı."
+        },
+        "question": {
+          "en": "Who will take care of the sensitive optical sensors during transport?",
+          "tr": "Taşıma sırasında hassas optik sensörlerle kim ilgilenecek?"
+        }
+      }
+    },
+    {
+      "id": 170,
+      "original_id": 12,
+      "unique_id": "PHRASAL_12",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "point out",
+      "meaning": "işaret etmek, dikkat çekmek, belirtmek",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "İletişim & Analiz",
+      "forms": {
+        "v1": "point out",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: İletişim & Analiz",
+      "sentences": {
+        "positive": {
+          "en": "The mentor pointed out several critical errors in our data chart.",
+          "tr": "Danışman veri grafiğimizdeki birkaç kritik hataya dikkat çekti."
+        },
+        "negative": {
+          "en": "She didn't point out the flaws in the competitor's tactical scheme.",
+          "tr": "Rakibin taktik şemasındaki kusurlara dikkat çekmedi."
+        },
+        "question": {
+          "en": "Can you point out the main differences between Type 1 and Type 2 conditionals?",
+          "tr": "Type 1 ve Type 2 şart cümleleri arasındaki temel farkları işaret edebilir misiniz?"
+        }
+      }
+    },
+    {
+      "id": 171,
+      "original_id": 13,
+      "unique_id": "PHRASAL_13",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "bring up",
+      "meaning": "gündeme getirmek, bahsetmek, yetiştirmek",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Sosyal & İletişim",
+      "forms": {
+        "v1": "bring up",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Sosyal & İletişim",
+      "sentences": {
+        "positive": {
+          "en": "The coach brought up the importance of sleep during the meeting.",
+          "tr": "Antrenör toplantı sırasında uykunun önemini gündeme getirdi."
+        },
+        "negative": {
+          "en": "He didn't bring up his injury concerns with the team doctor.",
+          "tr": "Sakatlık endişelerini takım doktoruyla gündeme getirmedi."
+        },
+        "question": {
+          "en": "Why did you bring up that controversial topic during the conference?",
+          "tr": "Konferans sırasında o tartışmalı konuyu neden gündeme getirdin?"
+        }
+      }
+    },
+    {
+      "id": 172,
+      "original_id": 14,
+      "unique_id": "PHRASAL_14",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "turn into",
+      "meaning": "dönüşmek, dönüştürmek",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Değişim & Gelişim",
+      "forms": {
+        "v1": "turn into",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Değişim & Gelişim",
+      "sentences": {
+        "positive": {
+          "en": "Hard work and consistency turn potential into world-class success.",
+          "tr": "Sıkı çalışma ve tutarlılık potansiyeli dünya standartlarında başarıya dönüştürür."
+        },
+        "negative": {
+          "en": "The minor software glitch didn't turn into a system failure.",
+          "tr": "Küçük yazılım aksaklığı bir sistem arızasına dönüşmedi."
+        },
+        "question": {
+          "en": "How did this simple student project turn into a successful startup?",
+          "tr": "Bu basit öğrenci projesi nasıl başarılı bir girişime dönüştü?"
+        }
+      }
+    },
+    {
+      "id": 173,
+      "original_id": 15,
+      "unique_id": "PHRASAL_15",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "look after",
+      "meaning": "ilgilenmek, bakmak, korumak",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Sorumluluk & Özen",
+      "forms": {
+        "v1": "look after",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Sorumluluk & Özen",
+      "sentences": {
+        "positive": {
+          "en": "Parents look after their children's education and well-being.",
+          "tr": "Ebeveynler çocuklarının eğitimi ve esenliğiyle ilgilenirler/bakarlar."
+        },
+        "negative": {
+          "en": "He didn't look after his sports gear and lost his kneepads.",
+          "tr": "Spor eşyalarına iyi bakmadı ve dizliklerini kaybetti."
+        },
+        "question": {
+          "en": "Will the academy staff look after the visiting international delegates?",
+          "tr": "Akademi personeli gelen uluslararası delegelerle ilgilenecek mi?"
+        }
+      }
+    },
+    {
+      "id": 174,
+      "original_id": 16,
+      "unique_id": "PHRASAL_16",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "break down",
+      "meaning": "bozulmak, parçalara ayırmak, çökmek",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Sistem & Analiz",
+      "forms": {
+        "v1": "break down",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Sistem & Analiz",
+      "sentences": {
+        "positive": {
+          "en": "Sports scientists break down complex sprint motion into phases.",
+          "tr": "Spor bilimcileri karmaşık depar hareketini aşamalara ayırırlar."
+        },
+        "negative": {
+          "en": "The biometric tracking server didn't break down during the test.",
+          "tr": "Biyometrik takip sunucusu test sırasında bozulmadı."
+        },
+        "question": {
+          "en": "Why did the vehicle break down on the way to the tournament?",
+          "tr": "Araç turnuva yolunda neden bozuldu?"
+        }
+      }
+    },
+    {
+      "id": 175,
+      "original_id": 17,
+      "unique_id": "PHRASAL_17",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "put off",
+      "meaning": "ertelemek",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Zaman & Planlama",
+      "forms": {
+        "v1": "put off",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Zaman & Planlama",
+      "sentences": {
+        "positive": {
+          "en": "Disciplined students don't put off their daily homework.",
+          "tr": "Disiplinli öğrenciler günlük ödevlerini ertelemezler."
+        },
+        "negative": {
+          "en": "The organizers didn't put off the outdoor match despite light rain.",
+          "tr": "Organizatörler hafif yağmura rağmen açık hava maçını ertelemediler."
+        },
+        "question": {
+          "en": "Why do people often put off learning a new foreign language?",
+          "tr": "İnsanlar yeni bir yabancı dil öğrenmeyi neden sık sık ertelerler?"
+        }
+      }
+    },
+    {
+      "id": 176,
+      "original_id": 18,
+      "unique_id": "PHRASAL_18",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "call off",
+      "meaning": "iptal etmek",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Organizasyon & Karar",
+      "forms": {
+        "v1": "call off",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Organizasyon & Karar",
+      "sentences": {
+        "positive": {
+          "en": "The referee had to call off the soccer game due to heavy snow.",
+          "tr": "Hakem yoğun kar yağışı nedeniyle futbol maçını iptal etmek zorunda kaldı."
+        },
+        "negative": {
+          "en": "They didn't call off the scientific seminar despite the storm.",
+          "tr": "Fırtınaya rağmen bilimsel semineri iptal etmediler."
+        },
+        "question": {
+          "en": "Why did the committee call off the annual awards ceremony?",
+          "tr": "Komite yıllık ödül törenini neden iptal etti?"
+        }
+      }
+    },
+    {
+      "id": 177,
+      "original_id": 19,
+      "unique_id": "PHRASAL_19",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "count on",
+      "meaning": "güvenmek, bel bağlamak",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Güven & Sosyal",
+      "forms": {
+        "v1": "count on",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Güven & Sosyal",
+      "sentences": {
+        "positive": {
+          "en": "Great teammates count on each other during challenging match moments.",
+          "tr": "Harika takım arkadaşları zorlu maç anlarında birbirlerine güvenirler."
+        },
+        "negative": {
+          "en": "You cannot count on luck to pass high-level language examinations.",
+          "tr": "Yüksek düzey dil sınavlarını geçmek için şansa bel bağlayamazsınız."
+        },
+        "question": {
+          "en": "Can the head coach count on your full concentration tomorrow?",
+          "tr": "Başantrenör yarın tam konsantrasyonuna güvenebilir mi?"
+        }
+      }
+    },
+    {
+      "id": 178,
+      "original_id": 20,
+      "unique_id": "PHRASAL_20",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "run into",
+      "meaning": "karşılaşmak (rastlantı), toslamak",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Sosyal & Hareket",
+      "forms": {
+        "v1": "run into",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Sosyal & Hareket",
+      "sentences": {
+        "positive": {
+          "en": "I ran into my old sports mentor at the university library.",
+          "tr": "Üniversite kütüphanesinde eski spor danışmanımla karşılaştım."
+        },
+        "negative": {
+          "en": "We didn't run into any unexpected technical glitches today.",
+          "tr": "Bugün beklenmedik teknik aksaklıklarla karşılaşmadık."
+        },
+        "question": {
+          "en": "Did you run into any famous researchers during the symposium?",
+          "tr": "Sempozyum sırasında hiç ünlü araştırmacıyla karşılaştın mı?"
+        }
+      }
+    },
+    {
+      "id": 179,
+      "original_id": 21,
+      "unique_id": "PHRASAL_21",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "stand out",
+      "meaning": "öne çıkmak, göze çarpmak, fark yaratmak",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Başarı & Nitelik",
+      "forms": {
+        "v1": "stand out",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Başarı & Nitelik",
+      "sentences": {
+        "positive": {
+          "en": "Her exceptional sprint speed makes her stand out among peers.",
+          "tr": "Olağanüstü depar hızı onun akranları arasında öne çıkmasını sağlıyor."
+        },
+        "negative": {
+          "en": "The draft presentation didn't stand out because of plain slides.",
+          "tr": "Taslak sunum sade slaytlar nedeniyle öne çıkmadı/göze çarpmadı."
+        },
+        "question": {
+          "en": "What qualities make an athlete stand out in elite academies?",
+          "tr": "Seçkin akademilerde bir sporcunun öne çıkmasını sağlayan nitelikler nelerdir?"
+        }
+      }
+    },
+    {
+      "id": 180,
+      "original_id": 22,
+      "unique_id": "PHRASAL_22",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "rely on",
+      "meaning": "güvenmek, dayanmak, bağımlı olmak",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Güven & Bilimsel",
+      "forms": {
+        "v1": "rely on",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Güven & Bilimsel",
+      "sentences": {
+        "positive": {
+          "en": "Researchers rely on validated data models for accurate predictions.",
+          "tr": "Araştırmacılar doğru tahminler için doğrulanmış veri modellerine güvenirler."
+        },
+        "negative": {
+          "en": "The department doesn't rely on uncalibrated optical equipment.",
+          "tr": "Bölüm kalibre edilmemiş optik ekipmanlara güvenmez/dayanmaz."
+        },
+        "question": {
+          "en": "Do elite volleyball players rely on visual cues during blocks?",
+          "tr": "Seçkin voleybolcular bloklar sırasında görsel ipuçlarına mı güvenirler?"
+        }
+      }
+    },
+    {
+      "id": 181,
+      "original_id": 23,
+      "unique_id": "PHRASAL_23",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "deal with",
+      "meaning": "başa çıkmak, ele almak, ilgilenmek",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Yönetim & Stres",
+      "forms": {
+        "v1": "deal with",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Yönetim & Stres",
+      "sentences": {
+        "positive": {
+          "en": "Coaches must deal with high match stress calmly and strategically.",
+          "tr": "Antrenörler yüksek maç stresiyle sakin ve stratejik bir şekilde başa çıkmalıdır."
+        },
+        "negative": {
+          "en": "She didn't deal with the software bug before the demo.",
+          "tr": "Demodan önce yazılım hatasıyla ilgilenmedi/çözmedi."
+        },
+        "question": {
+          "en": "How do young students deal with exam anxiety effectively?",
+          "tr": "Genç öğrenciler sınav kaygısıyla nasıl etkili bir şekilde başa çıkarlar?"
+        }
+      }
+    },
+    {
+      "id": 182,
+      "original_id": 24,
+      "unique_id": "PHRASAL_24",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "catch up",
+      "meaning": "yetişmek, arayı kapatmak",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Hız & Süreç",
+      "forms": {
+        "v1": "catch up",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Hız & Süreç",
+      "sentences": {
+        "positive": {
+          "en": "He ran faster in the final straight to catch up with the leader.",
+          "tr": "Lidere yetişmek/arayı kapatmak için son düzlükte daha hızlı koştu."
+        },
+        "negative": {
+          "en": "She hasn't caught up with her missed homework assignments yet.",
+          "tr": "Kaçırdığı ödevlerini henüz telafi etmedi/yetişemedi."
+        },
+        "question": {
+          "en": "How quickly can you catch up with the advanced grammar syllabus?",
+          "tr": "İleri gramer müfredatına ne kadar hızlı yetişebilirsin?"
+        }
+      }
+    },
+    {
+      "id": 183,
+      "original_id": 25,
+      "unique_id": "PHRASAL_25",
+      "type": "phrasal_verb",
+      "type_label": "Deyimsel Fiil (Phrasal Verb)",
+      "type_icon": "⚡",
+      "word": "cut down on",
+      "meaning": "azaltmak, kısmak",
+      "level": "B1-B2",
+      "level_label": "Deyimsel Fiil",
+      "category": "Sağlık & Alışkanlık",
+      "forms": {
+        "v1": "cut down on",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Sağlık & Alışkanlık",
+      "sentences": {
+        "positive": {
+          "en": "Athletes cut down on processed sugar before major tournaments.",
+          "tr": "Sporcular büyük turnuvalardan önce işlenmiş şekeri azaltırlar."
+        },
+        "negative": {
+          "en": "He didn't cut down on his late-night screen time.",
+          "tr": "Gece geç saatlerdeki ekran süresini azaltmadı."
+        },
+        "question": {
+          "en": "Why should runners cut down on excessive caffeine intake?",
+          "tr": "Koşucular aşırı kafein alımını neden azaltmalıdır?"
+        }
+      }
+    },
+    {
+      "id": 184,
+      "original_id": 1,
+      "unique_id": "NOUN_1",
+      "type": "noun",
+      "type_label": "İsim (Noun)",
+      "type_icon": "🔴",
+      "word": "technology",
+      "meaning": "teknoloji",
+      "level": "A2-B1",
+      "level_label": "İsim & Kavram",
+      "category": "Akademik & Bilişim",
+      "forms": {
+        "v1": "technology",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Akademik & Bilişim",
+      "sentences": {
+        "positive": {
+          "en": "Modern technology accelerates language acquisition through interactive tools.",
+          "tr": "Modern teknoloji etkileşimli araçlar sayesinde dil edinimini hızlandırır."
+        },
+        "negative": {
+          "en": "Traditional coaching didn't utilize digital tracking technology.",
+          "tr": "Geleneksel antrenörlük dijital takip teknolojisini kullanmadı."
+        },
+        "question": {
+          "en": "How does virtual reality technology transform tactical learning?",
+          "tr": "Sanal gerçeklik teknolojisi taktiksel öğrenmeyi nasıl dönüştürür?"
+        }
+      }
+    },
+    {
+      "id": 185,
+      "original_id": 2,
+      "unique_id": "NOUN_2",
+      "type": "noun",
+      "type_label": "İsim (Noun)",
+      "type_icon": "🔴",
+      "word": "experiment",
+      "meaning": "deney",
+      "level": "A2-B1",
+      "level_label": "İsim & Kavram",
+      "category": "Bilimsel & Araştırma",
+      "forms": {
+        "v1": "experiment",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Bilimsel & Araştırma",
+      "sentences": {
+        "positive": {
+          "en": "The scientific experiment proved the positive effect of proper hydration.",
+          "tr": "Bilimsel deney doğru sıvı alımının olumlu etkisini kanıtladı."
+        },
+        "negative": {
+          "en": "She didn't finish the chemistry experiment before the bell rang.",
+          "tr": "Zil çalmadan önce kimya deneyini bitirmedi."
+        },
+        "question": {
+          "en": "What was the primary hypothesis of your biomechanics experiment?",
+          "tr": "Biyomekanik deneyinizin temel hipotezi neydi?"
+        }
+      }
+    },
+    {
+      "id": 186,
+      "original_id": 3,
+      "unique_id": "NOUN_3",
+      "type": "noun",
+      "type_label": "İsim (Noun)",
+      "type_icon": "🔴",
+      "word": "equipment",
+      "meaning": "ekipman, donanım, araç-gereç",
+      "level": "A2-B1",
+      "level_label": "İsim & Kavram",
+      "category": "Spor & Teknoloji",
+      "forms": {
+        "v1": "equipment",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Spor & Teknoloji",
+      "sentences": {
+        "positive": {
+          "en": "The sports facility provides modern equipment for all academy athletes.",
+          "tr": "Spor tesisi tüm akademi sporcuları için modern ekipman sağlar."
+        },
+        "negative": {
+          "en": "We don't have enough specialized testing equipment for the whole team.",
+          "tr": "Tüm takım için yeterli özel test ekipmanımız yok."
+        },
+        "question": {
+          "en": "Did the university purchase new photocell sprint equipment?",
+          "tr": "Üniversite yeni fotosel depar ekipmanı satın aldı mı?"
+        }
+      }
+    },
+    {
+      "id": 187,
+      "original_id": 4,
+      "unique_id": "NOUN_4",
+      "type": "noun",
+      "type_label": "İsim (Noun)",
+      "type_icon": "🔴",
+      "word": "opportunity",
+      "meaning": "fırsat, imkan",
+      "level": "A2-B1",
+      "level_label": "İsim & Kavram",
+      "category": "Gelişim & Başarı",
+      "forms": {
+        "v1": "opportunity",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Gelişim & Başarı",
+      "sentences": {
+        "positive": {
+          "en": "Studying abroad provides a great opportunity to improve English fluency.",
+          "tr": "Yurt dışında eğitim almak İngilizce akıcılığını geliştirmek için harika bir fırsat sunar."
+        },
+        "negative": {
+          "en": "He didn't miss the opportunity to join the European sports camp.",
+          "tr": "Avrupa spor kampına katılma fırsatını kaçırmadı."
+        },
+        "question": {
+          "en": "How can young students create their own career opportunities?",
+          "tr": "Genç öğrenciler kendi kariyer fırsatlarını nasıl oluşturabilirler?"
+        }
+      }
+    },
+    {
+      "id": 188,
+      "original_id": 5,
+      "unique_id": "NOUN_5",
+      "type": "noun",
+      "type_label": "İsim (Noun)",
+      "type_icon": "🔴",
+      "word": "decision",
+      "meaning": "karar",
+      "level": "A2-B1",
+      "level_label": "İsim & Kavram",
+      "category": "Yönetim & Zihinsel",
+      "forms": {
+        "v1": "decision",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Yönetim & Zihinsel",
+      "sentences": {
+        "positive": {
+          "en": "The head coach made a strategic decision in the final quarter.",
+          "tr": "Başantrenör son periyotta stratejik bir karar verdi."
+        },
+        "negative": {
+          "en": "She didn't regret her decision to study sports science.",
+          "tr": "Spor bilimleri okuma kararından pişmanlık duymadı."
+        },
+        "question": {
+          "en": "Who will make the final decision regarding tournament participation?",
+          "tr": "Turnuva katılımıyla ilgili nihai kararı kim verecek?"
+        }
+      }
+    },
+    {
+      "id": 189,
+      "original_id": 6,
+      "unique_id": "NOUN_6",
+      "type": "noun",
+      "type_label": "İsim (Noun)",
+      "type_icon": "🔴",
+      "word": "performance",
+      "meaning": "performans, verim",
+      "level": "A2-B1",
+      "level_label": "İsim & Kavram",
+      "category": "Spor & Başarı",
+      "forms": {
+        "v1": "performance",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Spor & Başarı",
+      "sentences": {
+        "positive": {
+          "en": "Adequate sleep and nutrition maximize athletic performance.",
+          "tr": "Yeterli uyku ve beslenme atletik performansı maksimize eder."
+        },
+        "negative": {
+          "en": "The football squad didn't show satisfactory performance last week.",
+          "tr": "Futbol takımı geçen hafta tatmin edici bir performans sergilemedi."
+        },
+        "question": {
+          "en": "How do analysts measure tactical performance during games?",
+          "tr": "Analistler maçlar sırasında taktiksel performansı nasıl ölçerler?"
+        }
+      }
+    },
+    {
+      "id": 190,
+      "original_id": 7,
+      "unique_id": "NOUN_7",
+      "type": "noun",
+      "type_label": "İsim (Noun)",
+      "type_icon": "🔴",
+      "word": "hypothesis",
+      "meaning": "hipotez, varsayım",
+      "level": "A2-B1",
+      "level_label": "İsim & Kavram",
+      "category": "Bilimsel & Araştırma",
+      "forms": {
+        "v1": "hypothesis",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Bilimsel & Araştırma",
+      "sentences": {
+        "positive": {
+          "en": "The research team formulated a clear hypothesis before testing.",
+          "tr": "Araştırma ekibi testten önce net bir hipotez oluşturdu."
+        },
+        "negative": {
+          "en": "The experimental data didn't support our initial hypothesis.",
+          "tr": "Deneysel veriler ilk hipotezimizi desteklemedi."
+        },
+        "question": {
+          "en": "Can you explain your project hypothesis in simple terms?",
+          "tr": "Proje hipotezinizi basit terimlerle açıklayabilir misiniz?"
+        }
+      }
+    },
+    {
+      "id": 191,
+      "original_id": 8,
+      "unique_id": "NOUN_8",
+      "type": "noun",
+      "type_label": "İsim (Noun)",
+      "type_icon": "🔴",
+      "word": "strategy",
+      "meaning": "strateji, plan",
+      "level": "A2-B1",
+      "level_label": "İsim & Kavram",
+      "category": "Yönetim & Taktik",
+      "forms": {
+        "v1": "strategy",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Yönetim & Taktik",
+      "sentences": {
+        "positive": {
+          "en": "Our defense strategy prevented opponent counterattacks effectively.",
+          "tr": "Savunma stratejimiz rakibin kontra ataklarını etkili bir şekilde engelledi."
+        },
+        "negative": {
+          "en": "The club doesn't have a long-term youth development strategy.",
+          "tr": "Kulübün uzun vadeli bir genç gelişim stratejisi yok."
+        },
+        "question": {
+          "en": "What is the best study strategy for mastering irregular verbs?",
+          "tr": "Düzensiz fiillerde ustalaşmak için en iyi çalışma stratejisi nedir?"
+        }
+      }
+    },
+    {
+      "id": 192,
+      "original_id": 9,
+      "unique_id": "NOUN_9",
+      "type": "noun",
+      "type_label": "İsim (Noun)",
+      "type_icon": "🔴",
+      "word": "achievement",
+      "meaning": "başarı, kazanım",
+      "level": "A2-B1",
+      "level_label": "İsim & Kavram",
+      "category": "Gelişim & Ödül",
+      "forms": {
+        "v1": "achievement",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Gelişim & Ödül",
+      "sentences": {
+        "positive": {
+          "en": "Winning the national trophy was a historic achievement for the school.",
+          "tr": "Ulusal kupayı kazanmak okul için tarihi bir başarıydı."
+        },
+        "negative": {
+          "en": "She didn't consider academic honors her sole achievement.",
+          "tr": "Akademik başarıları tek kazanımı olarak görmedi."
+        },
+        "question": {
+          "en": "What is your greatest personal achievement in language learning?",
+          "tr": "Dil öğrenimindeki en büyük kişisel başarınız nedir?"
+        }
+      }
+    },
+    {
+      "id": 193,
+      "original_id": 10,
+      "unique_id": "NOUN_10",
+      "type": "noun",
+      "type_label": "İsim (Noun)",
+      "type_icon": "🔴",
+      "word": "habit",
+      "meaning": "alışkanlık",
+      "level": "A2-B1",
+      "level_label": "İsim & Kavram",
+      "category": "Yaşam & Disiplin",
+      "forms": {
+        "v1": "habit",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Yaşam & Disiplin",
+      "sentences": {
+        "positive": {
+          "en": "Daily vocabulary revision is the most powerful language habit.",
+          "tr": "Günlük kelime tekrarı en güçlü dil alışkanlığıdır."
+        },
+        "negative": {
+          "en": "He doesn't have the unhealthy habit of skipping breakfast.",
+          "tr": "Kahvaltıyı atlamak gibi sağlıksız bir alışkanlığı yoktur."
+        },
+        "question": {
+          "en": "How long does it take to form a consistent study habit?",
+          "tr": "Tutarlı bir çalışma alışkanlığı oluşturmak ne kadar sürer?"
+        }
+      }
+    },
+    {
+      "id": 194,
+      "original_id": 11,
+      "unique_id": "NOUN_11",
+      "type": "noun",
+      "type_label": "İsim (Noun)",
+      "type_icon": "🔴",
+      "word": "discovery",
+      "meaning": "keşif, buluş",
+      "level": "A2-B1",
+      "level_label": "İsim & Kavram",
+      "category": "Bilimsel & Tarih",
+      "forms": {
+        "v1": "discovery",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Bilimsel & Tarih",
+      "sentences": {
+        "positive": {
+          "en": "The discovery of penicillin revolutionized modern medicine.",
+          "tr": "Penisilinin keşfi modern tıpta devrim yarattı."
+        },
+        "negative": {
+          "en": "The archaeological team didn't make any new discovery today.",
+          "tr": "Arkeoloji ekibi bugün yeni bir keşif yapmadı."
+        },
+        "question": {
+          "en": "Where did Ela make the unexpected discovery in the story?",
+          "tr": "Ela hikayede beklenmedik keşfi nerede yaptı?"
+        }
+      }
+    },
+    {
+      "id": 195,
+      "original_id": 12,
+      "unique_id": "NOUN_12",
+      "type": "noun",
+      "type_label": "İsim (Noun)",
+      "type_icon": "🔴",
+      "word": "environment",
+      "meaning": "çevre, ortam",
+      "level": "A2-B1",
+      "level_label": "İsim & Kavram",
+      "category": "Yaşam & Bilim",
+      "forms": {
+        "v1": "environment",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Yaşam & Bilim",
+      "sentences": {
+        "positive": {
+          "en": "A positive learning environment motivates students to excel.",
+          "tr": "Olumlu bir öğrenme ortamı öğrencileri mükemmelleşmeye motive eder."
+        },
+        "negative": {
+          "en": "Loud music does not create a suitable environment for studying.",
+          "tr": "Yüksek sesli müzik ders çalışmak için uygun bir ortam oluşturmaz."
+        },
+        "question": {
+          "en": "How can cities protect the natural environment from pollution?",
+          "tr": "Şehirler doğal çevreyi kirlilikten nasıl koruyabilir?"
+        }
+      }
+    },
+    {
+      "id": 196,
+      "original_id": 13,
+      "unique_id": "NOUN_13",
+      "type": "noun",
+      "type_label": "İsim (Noun)",
+      "type_icon": "🔴",
+      "word": "education",
+      "meaning": "eğitim, öğretim",
+      "level": "A2-B1",
+      "level_label": "İsim & Kavram",
+      "category": "Akademik & Toplum",
+      "forms": {
+        "v1": "education",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Akademik & Toplum",
+      "sentences": {
+        "positive": {
+          "en": "Quality education opens doors to international career opportunities.",
+          "tr": "Kaliteli eğitim uluslararası kariyer fırsatlarına kapı açar."
+        },
+        "negative": {
+          "en": "She didn't finish her formal education until age twenty-four.",
+          "tr": "Yirmi dört yaşına kadar resmi eğitimini bitirmedi."
+        },
+        "question": {
+          "en": "Which high school education program does your daughter prefer?",
+          "tr": "Kızınız hangi lise eğitim programını tercih ediyor?"
+        }
+      }
+    },
+    {
+      "id": 197,
+      "original_id": 14,
+      "unique_id": "NOUN_14",
+      "type": "noun",
+      "type_label": "İsim (Noun)",
+      "type_icon": "🔴",
+      "word": "knowledge",
+      "meaning": "bilgi, birikim",
+      "level": "A2-B1",
+      "level_label": "İsim & Kavram",
+      "category": "Bilişsel & Zihinsel",
+      "forms": {
+        "v1": "knowledge",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Bilişsel & Zihinsel",
+      "sentences": {
+        "positive": {
+          "en": "Knowledge of grammar rules gives students confidence in speaking.",
+          "tr": "Gramer kuralları bilgisi öğrencilere konuşmada özgüven verir."
+        },
+        "negative": {
+          "en": "He doesn't have sufficient knowledge of biomechanics software.",
+          "tr": "Biyomekanik yazılımı hakkında yeterli bilgiye sahip değil."
+        },
+        "question": {
+          "en": "How do practical exercises deepen theoretical knowledge?",
+          "tr": "Pratik egzersizler teorik bilgiyi nasıl derinleştirir?"
+        }
+      }
+    },
+    {
+      "id": 198,
+      "original_id": 15,
+      "unique_id": "NOUN_15",
+      "type": "noun",
+      "type_label": "İsim (Noun)",
+      "type_icon": "🔴",
+      "word": "development",
+      "meaning": "gelişim, kalkınma, ilerleme",
+      "level": "A2-B1",
+      "level_label": "İsim & Kavram",
+      "category": "Süreç & Büyüme",
+      "forms": {
+        "v1": "development",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Süreç & Büyüme",
+      "sentences": {
+        "positive": {
+          "en": "Regular feedback accelerates the athletic development of players.",
+          "tr": "Düzenli geri bildirim oyuncuların atletik gelişimini hızlandırır."
+        },
+        "negative": {
+          "en": "The economic crisis didn't stop software development.",
+          "tr": "Ekonomik kriz yazılım gelişimini durdurmadı."
+        },
+        "question": {
+          "en": "What factors influence child language development most?",
+          "tr": "Çocuk dil gelişimini en çok hangi faktörler etkiler?"
+        }
+      }
+    },
+    {
+      "id": 199,
+      "original_id": 16,
+      "unique_id": "NOUN_16",
+      "type": "noun",
+      "type_label": "İsim (Noun)",
+      "type_icon": "🔴",
+      "word": "challenge",
+      "meaning": "zorluk, meydan okuma, engel",
+      "level": "A2-B1",
+      "level_label": "İsim & Kavram",
+      "category": "Süreç & Mücadele",
+      "forms": {
+        "v1": "challenge",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Süreç & Mücadele",
+      "sentences": {
+        "positive": {
+          "en": "Learning advanced tenses was a tough challenge for beginners.",
+          "tr": "İleri zamanları öğrenmek yeni başlayanlar için zorlu bir meydan okumaydı."
+        },
+        "negative": {
+          "en": "She didn't shy away from any academic challenge.",
+          "tr": "Hiçbir akademik zorluktan kaçınmadı."
+        },
+        "question": {
+          "en": "How do athletes overcome the challenge of intense training?",
+          "tr": "Sporcular yoğun antrenmanın getirdiği zorluğun üstesinden nasıl gelirler?"
+        }
+      }
+    },
+    {
+      "id": 200,
+      "original_id": 17,
+      "unique_id": "NOUN_17",
+      "type": "noun",
+      "type_label": "İsim (Noun)",
+      "type_icon": "🔴",
+      "word": "solution",
+      "meaning": "çözüm, çare",
+      "level": "A2-B1",
+      "level_label": "İsim & Kavram",
+      "category": "Problem Çözme",
+      "forms": {
+        "v1": "solution",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Problem Çözme",
+      "sentences": {
+        "positive": {
+          "en": "Smart algorithms provide an optimal solution for tracking latency.",
+          "tr": "Akıllı algoritmalar takip gecikmesi için en uygun çözümü sunar."
+        },
+        "negative": {
+          "en": "We haven't found a viable solution for the data synchronization issue.",
+          "tr": "Veri senkronizasyonu sorunu için uygulanabilir bir çözüm bulamadık."
+        },
+        "question": {
+          "en": "Can you suggest an innovative solution for this grammatical puzzle?",
+          "tr": "Bu dilbilgisi bulmacası için yenilikçi bir çözüm önerebilir misiniz?"
+        }
+      }
+    },
+    {
+      "id": 201,
+      "original_id": 18,
+      "unique_id": "NOUN_18",
+      "type": "noun",
+      "type_label": "İsim (Noun)",
+      "type_icon": "🔴",
+      "word": "goal",
+      "meaning": "hedef, amaç, gol",
+      "level": "A2-B1",
+      "level_label": "İsim & Kavram",
+      "category": "Başarı & Spor",
+      "forms": {
+        "v1": "goal",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Başarı & Spor",
+      "sentences": {
+        "positive": {
+          "en": "Setting clear weekly study goals increases learning productivity.",
+          "tr": "Net haftalık çalışma hedefleri belirlemek öğrenme verimini artırır."
+        },
+        "negative": {
+          "en": "The team didn't concede any goal in the championship match.",
+          "tr": "Takım şampiyonluk maçında hiç gol yemedi."
+        },
+        "question": {
+          "en": "What is your primary goal in English for this semester?",
+          "tr": "Bu dönem için İngilizcedeki temel hedefiniz nedir?"
+        }
+      }
+    },
+    {
+      "id": 202,
+      "original_id": 19,
+      "unique_id": "NOUN_19",
+      "type": "noun",
+      "type_label": "İsim (Noun)",
+      "type_icon": "🔴",
+      "word": "result",
+      "meaning": "sonuç, netice",
+      "level": "A2-B1",
+      "level_label": "İsim & Kavram",
+      "category": "Bilimsel & Değerlendirme",
+      "forms": {
+        "v1": "result",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Bilimsel & Değerlendirme",
+      "sentences": {
+        "positive": {
+          "en": "The test result showed significant gains in explosive leg strength.",
+          "tr": "Test sonucu patlayıcı bacak kuvvetinde belirgin kazanımlar gösterdi."
+        },
+        "negative": {
+          "en": "He didn't receive the medical test result until this afternoon.",
+          "tr": "Bu öğleden sonraya kadar tıbbi test sonucunu almadı."
+        },
+        "question": {
+          "en": "What was the final result of the regional robotics tournament?",
+          "tr": "Bölgesel robotik turnuvasının nihai sonucu ne oldu?"
+        }
+      }
+    },
+    {
+      "id": 203,
+      "original_id": 20,
+      "unique_id": "NOUN_20",
+      "type": "noun",
+      "type_label": "İsim (Noun)",
+      "type_icon": "🔴",
+      "word": "skill",
+      "meaning": "beceri, yetenek",
+      "level": "A2-B1",
+      "level_label": "İsim & Kavram",
+      "category": "Gelişim & Uzmanlık",
+      "forms": {
+        "v1": "skill",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Gelişim & Uzmanlık",
+      "sentences": {
+        "positive": {
+          "en": "Consistent practice turns basic vocabulary into fluent speaking skills.",
+          "tr": "Tutarlı pratik temel kelimeleri akıcı konuşma becerilerine dönüştürür."
+        },
+        "negative": {
+          "en": "He doesn't have the technical skill to operate the motion tracker.",
+          "tr": "Hareket takip cihazını çalıştıracak teknik beceriye sahip değil."
+        },
+        "question": {
+          "en": "Which language skill is most difficult to master: reading or speaking?",
+          "tr": "Hangi dil becerisinde ustalaşmak en zordur: okuma mı konuşma mı?"
+        }
+      }
+    },
+    {
+      "id": 204,
+      "original_id": 21,
+      "unique_id": "NOUN_21",
+      "type": "noun",
+      "type_label": "İsim (Noun)",
+      "type_icon": "🔴",
+      "word": "purpose",
+      "meaning": "amaç, gaye",
+      "level": "A2-B1",
+      "level_label": "İsim & Kavram",
+      "category": "Zihinsel & Niyet",
+      "forms": {
+        "v1": "purpose",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Zihinsel & Niyet",
+      "sentences": {
+        "positive": {
+          "en": "The main purpose of this study app is to make grammar effortless.",
+          "tr": "Bu çalışma uygulamasının temel amacı grameri zahmetsiz kılmaktır."
+        },
+        "negative": {
+          "en": "He didn't explain the purpose of his sudden visit.",
+          "tr": "Ani ziyaretinin amacını açıklamadı."
+        },
+        "question": {
+          "en": "For what purpose do coaches collect biometric sensor data?",
+          "tr": "Antrenörler hangi amaçla biyometrik sensör verisi toplarlar?"
+        }
+      }
+    },
+    {
+      "id": 205,
+      "original_id": 22,
+      "unique_id": "NOUN_22",
+      "type": "noun",
+      "type_label": "İsim (Noun)",
+      "type_icon": "🔴",
+      "word": "method",
+      "meaning": "yöntem, metot",
+      "level": "A2-B1",
+      "level_label": "İsim & Kavram",
+      "category": "Bilimsel & Öğrenme",
+      "forms": {
+        "v1": "method",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Bilimsel & Öğrenme",
+      "sentences": {
+        "positive": {
+          "en": "The SVOMPT sentence method simplifies English sentence construction.",
+          "tr": "SVOMPT cümle yöntemi İngilizce cümle kurmayı basitleştirir."
+        },
+        "negative": {
+          "en": "The traditional teaching method didn't encourage active speaking.",
+          "tr": "Geleneksel öğretim yöntemi aktif konuşmayı teşvik etmedi."
+        },
+        "question": {
+          "en": "Which measurement method is most accurate for sprint timing?",
+          "tr": "Depar zamanlaması için hangi ölçüm yöntemi en doğrudur?"
+        }
+      }
+    },
+    {
+      "id": 206,
+      "original_id": 23,
+      "unique_id": "NOUN_23",
+      "type": "noun",
+      "type_label": "İsim (Noun)",
+      "type_icon": "🔴",
+      "word": "evidence",
+      "meaning": "kanıt, delil",
+      "level": "A2-B1",
+      "level_label": "İsim & Kavram",
+      "category": "Bilimsel & Hukuk",
+      "forms": {
+        "v1": "evidence",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Bilimsel & Hukuk",
+      "sentences": {
+        "positive": {
+          "en": "Scientific evidence demonstrates that daily revision builds long-term memory.",
+          "tr": "Bilimsel kanıtlar günlük tekrarın uzun vadeli hafıza inşa ettiğini gösterir."
+        },
+        "negative": {
+          "en": "The analyst didn't find any evidence of referee bias.",
+          "tr": "Analist hakem yanlılığına dair hiçbir kanıt bulamadı."
+        },
+        "question": {
+          "en": "What evidence supports your hypothesis on athletic load?",
+          "tr": "Atletik yük hakkındaki hipotezinizi hangi kanıtlar destekliyor?"
+        }
+      }
+    },
+    {
+      "id": 207,
+      "original_id": 24,
+      "unique_id": "NOUN_24",
+      "type": "noun",
+      "type_label": "İsim (Noun)",
+      "type_icon": "🔴",
+      "word": "progress",
+      "meaning": "ilerleme, gelişim",
+      "level": "A2-B1",
+      "level_label": "İsim & Kavram",
+      "category": "Süreç & Başarı",
+      "forms": {
+        "v1": "progress",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Süreç & Başarı",
+      "sentences": {
+        "positive": {
+          "en": "Ela made steady progress in her English grammar comprehension.",
+          "tr": "Ela İngilizce gramer kavrayışında istikrarlı bir ilerleme kaydetti."
+        },
+        "negative": {
+          "en": "The construction work didn't show any progress this month.",
+          "tr": "İnşaat çalışması bu ay hiçbir ilerleme göstermedi."
+        },
+        "question": {
+          "en": "How do you track your daily vocabulary progress in the app?",
+          "tr": "Uygulamada günlük kelime ilerlemenizi nasıl takip ediyorsunuz?"
+        }
+      }
+    },
+    {
+      "id": 208,
+      "original_id": 25,
+      "unique_id": "NOUN_25",
+      "type": "noun",
+      "type_label": "İsim (Noun)",
+      "type_icon": "🔴",
+      "word": "community",
+      "meaning": "topluluk, camia",
+      "level": "A2-B1",
+      "level_label": "İsim & Kavram",
+      "category": "Sosyal & Toplum",
+      "forms": {
+        "v1": "community",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Sosyal & Toplum",
+      "sentences": {
+        "positive": {
+          "en": "Our sports science community shares innovative research findings openly.",
+          "tr": "Spor bilimleri topluluğumuz yenilikçi araştırma bulgularını açıkça paylaşır."
+        },
+        "negative": {
+          "en": "He didn't feel isolated because the student community was welcoming.",
+          "tr": "Öğrenci topluluğu sıcak olduğu için kendini yalnız hissetmedi."
+        },
+        "question": {
+          "en": "How does this app foster a supportive learning community?",
+          "tr": "Bu uygulama destekleyici bir öğrenme topluluğunu nasıl teşvik ediyor?"
+        }
+      }
+    },
+    {
+      "id": 209,
+      "original_id": 1,
       "unique_id": "ADV_1",
       "type": "adverb",
       "type_label": "Zarf (Adverb)",
@@ -12918,7 +14571,7 @@
       }
     },
     {
-      "id": 160,
+      "id": 210,
       "original_id": 2,
       "unique_id": "ADV_2",
       "type": "adverb",
@@ -12951,7 +14604,7 @@
       }
     },
     {
-      "id": 161,
+      "id": 211,
       "original_id": 3,
       "unique_id": "ADV_3",
       "type": "adverb",
@@ -12984,7 +14637,7 @@
       }
     },
     {
-      "id": 162,
+      "id": 212,
       "original_id": 4,
       "unique_id": "ADV_4",
       "type": "adverb",
@@ -13017,7 +14670,7 @@
       }
     },
     {
-      "id": 163,
+      "id": 213,
       "original_id": 5,
       "unique_id": "ADV_5",
       "type": "adverb",
@@ -13050,7 +14703,7 @@
       }
     },
     {
-      "id": 164,
+      "id": 214,
       "original_id": 6,
       "unique_id": "ADV_6",
       "type": "adverb",
@@ -13083,7 +14736,7 @@
       }
     },
     {
-      "id": 165,
+      "id": 215,
       "original_id": 7,
       "unique_id": "ADV_7",
       "type": "adverb",
@@ -13116,7 +14769,7 @@
       }
     },
     {
-      "id": 166,
+      "id": 216,
       "original_id": 8,
       "unique_id": "ADV_8",
       "type": "adverb",
@@ -13149,7 +14802,7 @@
       }
     },
     {
-      "id": 167,
+      "id": 217,
       "original_id": 9,
       "unique_id": "ADV_9",
       "type": "adverb",
@@ -13182,7 +14835,7 @@
       }
     },
     {
-      "id": 168,
+      "id": 218,
       "original_id": 10,
       "unique_id": "ADV_10",
       "type": "adverb",
@@ -13215,7 +14868,7 @@
       }
     },
     {
-      "id": 169,
+      "id": 219,
       "original_id": 11,
       "unique_id": "ADV_11",
       "type": "adverb",
@@ -13248,7 +14901,7 @@
       }
     },
     {
-      "id": 170,
+      "id": 220,
       "original_id": 12,
       "unique_id": "ADV_12",
       "type": "adverb",
@@ -13281,7 +14934,7 @@
       }
     },
     {
-      "id": 171,
+      "id": 221,
       "original_id": 13,
       "unique_id": "ADV_13",
       "type": "adverb",
@@ -13314,7 +14967,7 @@
       }
     },
     {
-      "id": 172,
+      "id": 222,
       "original_id": 14,
       "unique_id": "ADV_14",
       "type": "adverb",
@@ -13347,7 +15000,7 @@
       }
     },
     {
-      "id": 173,
+      "id": 223,
       "original_id": 15,
       "unique_id": "ADV_15",
       "type": "adverb",
@@ -13380,7 +15033,7 @@
       }
     },
     {
-      "id": 174,
+      "id": 224,
       "original_id": 16,
       "unique_id": "ADV_16",
       "type": "adverb",
@@ -13413,7 +15066,7 @@
       }
     },
     {
-      "id": 175,
+      "id": 225,
       "original_id": 17,
       "unique_id": "ADV_17",
       "type": "adverb",
@@ -13446,7 +15099,7 @@
       }
     },
     {
-      "id": 176,
+      "id": 226,
       "original_id": 18,
       "unique_id": "ADV_18",
       "type": "adverb",
@@ -13479,7 +15132,7 @@
       }
     },
     {
-      "id": 177,
+      "id": 227,
       "original_id": 19,
       "unique_id": "ADV_19",
       "type": "adverb",
@@ -13512,7 +15165,7 @@
       }
     },
     {
-      "id": 178,
+      "id": 228,
       "original_id": 20,
       "unique_id": "ADV_20",
       "type": "adverb",
@@ -13545,7 +15198,7 @@
       }
     },
     {
-      "id": 179,
+      "id": 229,
       "original_id": 1,
       "unique_id": "CONJ_1",
       "type": "conjunction",
@@ -13578,7 +15231,7 @@
       }
     },
     {
-      "id": 180,
+      "id": 230,
       "original_id": 2,
       "unique_id": "CONJ_2",
       "type": "conjunction",
@@ -13611,7 +15264,7 @@
       }
     },
     {
-      "id": 181,
+      "id": 231,
       "original_id": 3,
       "unique_id": "CONJ_3",
       "type": "conjunction",
@@ -13644,7 +15297,7 @@
       }
     },
     {
-      "id": 182,
+      "id": 232,
       "original_id": 4,
       "unique_id": "CONJ_4",
       "type": "conjunction",
@@ -13677,7 +15330,7 @@
       }
     },
     {
-      "id": 183,
+      "id": 233,
       "original_id": 5,
       "unique_id": "CONJ_5",
       "type": "conjunction",
@@ -13710,7 +15363,7 @@
       }
     },
     {
-      "id": 184,
+      "id": 234,
       "original_id": 6,
       "unique_id": "CONJ_6",
       "type": "conjunction",
@@ -13743,7 +15396,7 @@
       }
     },
     {
-      "id": 185,
+      "id": 235,
       "original_id": 7,
       "unique_id": "CONJ_7",
       "type": "conjunction",
@@ -13776,7 +15429,7 @@
       }
     },
     {
-      "id": 186,
+      "id": 236,
       "original_id": 8,
       "unique_id": "CONJ_8",
       "type": "conjunction",
@@ -13809,7 +15462,7 @@
       }
     },
     {
-      "id": 187,
+      "id": 237,
       "original_id": 9,
       "unique_id": "CONJ_9",
       "type": "conjunction",
@@ -13842,7 +15495,7 @@
       }
     },
     {
-      "id": 188,
+      "id": 238,
       "original_id": 10,
       "unique_id": "CONJ_10",
       "type": "conjunction",
@@ -13875,7 +15528,7 @@
       }
     },
     {
-      "id": 189,
+      "id": 239,
       "original_id": 11,
       "unique_id": "CONJ_11",
       "type": "conjunction",
@@ -13908,7 +15561,7 @@
       }
     },
     {
-      "id": 190,
+      "id": 240,
       "original_id": 12,
       "unique_id": "CONJ_12",
       "type": "conjunction",
@@ -13941,7 +15594,7 @@
       }
     },
     {
-      "id": 191,
+      "id": 241,
       "original_id": 13,
       "unique_id": "CONJ_13",
       "type": "conjunction",
@@ -13974,7 +15627,7 @@
       }
     },
     {
-      "id": 192,
+      "id": 242,
       "original_id": 14,
       "unique_id": "CONJ_14",
       "type": "conjunction",
@@ -14007,7 +15660,7 @@
       }
     },
     {
-      "id": 193,
+      "id": 243,
       "original_id": 15,
       "unique_id": "CONJ_15",
       "type": "conjunction",
@@ -14040,7 +15693,7 @@
       }
     },
     {
-      "id": 194,
+      "id": 244,
       "original_id": 1,
       "unique_id": "PREP_1",
       "type": "preposition",
@@ -14073,7 +15726,7 @@
       }
     },
     {
-      "id": 195,
+      "id": 245,
       "original_id": 2,
       "unique_id": "PREP_2",
       "type": "preposition",
@@ -14106,7 +15759,7 @@
       }
     },
     {
-      "id": 196,
+      "id": 246,
       "original_id": 3,
       "unique_id": "PREP_3",
       "type": "preposition",
@@ -14139,7 +15792,7 @@
       }
     },
     {
-      "id": 197,
+      "id": 247,
       "original_id": 4,
       "unique_id": "PREP_4",
       "type": "preposition",
@@ -14172,7 +15825,7 @@
       }
     },
     {
-      "id": 198,
+      "id": 248,
       "original_id": 5,
       "unique_id": "PREP_5",
       "type": "preposition",
@@ -14205,7 +15858,7 @@
       }
     },
     {
-      "id": 199,
+      "id": 249,
       "original_id": 6,
       "unique_id": "PREP_6",
       "type": "preposition",
@@ -14238,7 +15891,7 @@
       }
     },
     {
-      "id": 200,
+      "id": 250,
       "original_id": 7,
       "unique_id": "PREP_7",
       "type": "preposition",
@@ -14271,7 +15924,7 @@
       }
     },
     {
-      "id": 201,
+      "id": 251,
       "original_id": 8,
       "unique_id": "PREP_8",
       "type": "preposition",
@@ -14304,7 +15957,7 @@
       }
     },
     {
-      "id": 202,
+      "id": 252,
       "original_id": 9,
       "unique_id": "PREP_9",
       "type": "preposition",
@@ -14337,7 +15990,7 @@
       }
     },
     {
-      "id": 203,
+      "id": 253,
       "original_id": 10,
       "unique_id": "PREP_10",
       "type": "preposition",
@@ -14370,7 +16023,7 @@
       }
     },
     {
-      "id": 204,
+      "id": 254,
       "original_id": 1,
       "unique_id": "ADJ_1",
       "type": "adjective",
@@ -14403,7 +16056,7 @@
       }
     },
     {
-      "id": 205,
+      "id": 255,
       "original_id": 2,
       "unique_id": "ADJ_2",
       "type": "adjective",
@@ -14436,7 +16089,7 @@
       }
     },
     {
-      "id": 206,
+      "id": 256,
       "original_id": 3,
       "unique_id": "ADJ_3",
       "type": "adjective",
@@ -14469,7 +16122,7 @@
       }
     },
     {
-      "id": 207,
+      "id": 257,
       "original_id": 4,
       "unique_id": "ADJ_4",
       "type": "adjective",
@@ -14502,7 +16155,7 @@
       }
     },
     {
-      "id": 208,
+      "id": 258,
       "original_id": 5,
       "unique_id": "ADJ_5",
       "type": "adjective",
@@ -14535,7 +16188,7 @@
       }
     },
     {
-      "id": 209,
+      "id": 259,
       "original_id": 6,
       "unique_id": "ADJ_6",
       "type": "adjective",
@@ -14568,7 +16221,7 @@
       }
     },
     {
-      "id": 210,
+      "id": 260,
       "original_id": 7,
       "unique_id": "ADJ_7",
       "type": "adjective",
@@ -14601,7 +16254,7 @@
       }
     },
     {
-      "id": 211,
+      "id": 261,
       "original_id": 8,
       "unique_id": "ADJ_8",
       "type": "adjective",
@@ -14634,7 +16287,7 @@
       }
     },
     {
-      "id": 212,
+      "id": 262,
       "original_id": 9,
       "unique_id": "ADJ_9",
       "type": "adjective",
@@ -14667,7 +16320,7 @@
       }
     },
     {
-      "id": 213,
+      "id": 263,
       "original_id": 10,
       "unique_id": "ADJ_10",
       "type": "adjective",
@@ -14696,6 +16349,336 @@
         "question": {
           "en": "What makes young children so naturally curious about foreign languages?",
           "tr": "Küçük çocukları yabancı dillere karşı doğal olarak bu kadar meraklı kılan nedir?"
+        }
+      }
+    },
+    {
+      "id": 264,
+      "original_id": 1,
+      "unique_id": "IDIOM_1",
+      "type": "idiom",
+      "type_label": "Kalıp İfade (Idiom)",
+      "type_icon": "💬",
+      "word": "in my opinion",
+      "meaning": "bence, benim fikrime göre",
+      "level": "B1-B2",
+      "level_label": "Kalıp İfade",
+      "category": "Fikir Belirtme (Opinion)",
+      "forms": {
+        "v1": "in my opinion",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Fikir Belirtme (Opinion)",
+      "sentences": {
+        "positive": {
+          "en": "In my opinion, interactive flashcards accelerate vocabulary memorization.",
+          "tr": "Bence/benim fikrime göre, etkileşimli flaş kartlar kelime ezberlemeyi hızlandırır."
+        },
+        "negative": {
+          "en": "In my opinion, this simple test is not difficult for prepared students.",
+          "tr": "Bence bu basit test hazırlıklı öğrenciler için zor değildir."
+        },
+        "question": {
+          "en": "In your opinion, which grammar tense is most challenging to learn?",
+          "tr": "Sizin fikrinize göre, öğrenmesi en zor olan gramer zamanı hangisidir?"
+        }
+      }
+    },
+    {
+      "id": 265,
+      "original_id": 2,
+      "unique_id": "IDIOM_2",
+      "type": "idiom",
+      "type_label": "Kalıp İfade (Idiom)",
+      "type_icon": "💬",
+      "word": "as a matter of fact",
+      "meaning": "aslına bakarsan, doğrusunu söylemek gerekirse",
+      "level": "B1-B2",
+      "level_label": "Kalıp İfade",
+      "category": "Vurgu & Gerçek",
+      "forms": {
+        "v1": "as a matter of fact",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Vurgu & Gerçek",
+      "sentences": {
+        "positive": {
+          "en": "As a matter of fact, she completed all ten chapters in three days.",
+          "tr": "Aslına bakarsan, on bölümün tamamını üç günde bitirdi."
+        },
+        "negative": {
+          "en": "As a matter of fact, we don't need expensive equipment to study.",
+          "tr": "Doğrusunu söylemek gerekirse, çalışmak için pahalı ekipmanlara ihtiyacımız yok."
+        },
+        "question": {
+          "en": "As a matter of fact, did you know that irregular verbs follow hidden patterns?",
+          "tr": "Aslına bakarsan, düzensiz fiillerin gizli kalıplar izlediğini biliyor muydun?"
+        }
+      }
+    },
+    {
+      "id": 266,
+      "original_id": 3,
+      "unique_id": "IDIOM_3",
+      "type": "idiom",
+      "type_label": "Kalıp İfade (Idiom)",
+      "type_icon": "💬",
+      "word": "take part in",
+      "meaning": "yer almak, katılmak, iştirak etmek",
+      "level": "B1-B2",
+      "level_label": "Kalıp İfade",
+      "category": "Katılım & Sosyal",
+      "forms": {
+        "v1": "take part in",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Katılım & Sosyal",
+      "sentences": {
+        "positive": {
+          "en": "Students love to take part in international robotics competitions.",
+          "tr": "Öğrenciler uluslararası robotik yarışmalarında yer almayı/katılmayı çok severler."
+        },
+        "negative": {
+          "en": "He didn't take part in the symposium due to a flight delay.",
+          "tr": "Uçuş gecikmesi nedeniyle sempozyumda yer almadı."
+        },
+        "question": {
+          "en": "Will your daughter take part in the upcoming science fair?",
+          "tr": "Kızınız yaklaşan bilim fuarında yer alacak mı?"
+        }
+      }
+    },
+    {
+      "id": 267,
+      "original_id": 4,
+      "unique_id": "IDIOM_4",
+      "type": "idiom",
+      "type_label": "Kalıp İfade (Idiom)",
+      "type_icon": "💬",
+      "word": "pay attention to",
+      "meaning": "dikkat etmek, özen göstermek",
+      "level": "B1-B2",
+      "level_label": "Kalıp İfade",
+      "category": "Dikkat & Odak",
+      "forms": {
+        "v1": "pay attention to",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Dikkat & Odak",
+      "sentences": {
+        "positive": {
+          "en": "You must pay attention to the SVOMPT word order rule.",
+          "tr": "SVOMPT kelime dizilimi kuralına dikkat etmelisiniz."
+        },
+        "negative": {
+          "en": "He didn't pay attention to the coach's tactical instructions.",
+          "tr": "Antrenörün taktik talimatlarına dikkat etmedi."
+        },
+        "question": {
+          "en": "Why should language learners pay attention to natural pronunciation?",
+          "tr": "Dil öğrenenler neden doğal telaffuza dikkat etmelidir?"
+        }
+      }
+    },
+    {
+      "id": 268,
+      "original_id": 5,
+      "unique_id": "IDIOM_5",
+      "type": "idiom",
+      "type_label": "Kalıp İfade (Idiom)",
+      "type_icon": "💬",
+      "word": "make a decision",
+      "meaning": "karar vermek",
+      "level": "B1-B2",
+      "level_label": "Kalıp İfade",
+      "category": "Karar & Eylem",
+      "forms": {
+        "v1": "make a decision",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Karar & Eylem",
+      "sentences": {
+        "positive": {
+          "en": "The committee will make a decision on the research grant tomorrow.",
+          "tr": "Komite araştırma hibesi konusunda yarın karar verecek."
+        },
+        "negative": {
+          "en": "She didn't make a hasty decision before reviewing all test scores.",
+          "tr": "Tüm test puanlarını incelemeden önce aceleci bir karar vermedi."
+        },
+        "question": {
+          "en": "When will the school principal make a decision about the holiday?",
+          "tr": "Okul müdürü tatil hakkında ne zaman karar verecek?"
+        }
+      }
+    },
+    {
+      "id": 269,
+      "original_id": 6,
+      "unique_id": "IDIOM_6",
+      "type": "idiom",
+      "type_label": "Kalıp İfade (Idiom)",
+      "type_icon": "💬",
+      "word": "have an impact on",
+      "meaning": "üzerinde etki yaratmak, etkilemek",
+      "level": "B1-B2",
+      "level_label": "Kalıp İfade",
+      "category": "Etki & Sonuç",
+      "forms": {
+        "v1": "have an impact on",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Etki & Sonuç",
+      "sentences": {
+        "positive": {
+          "en": "Quality sleep has a direct impact on athletic recovery and memory.",
+          "tr": "Kaliteli uyku, atletik toparlanma ve hafıza üzerinde doğrudan bir etkiye sahiptir."
+        },
+        "negative": {
+          "en": "This small parameter change doesn't have an impact on the final result.",
+          "tr": "Bu küçük parametre değişikliği nihai sonuç üzerinde bir etki yaratmaz."
+        },
+        "question": {
+          "en": "How does daily sentence practice have an impact on speaking fluency?",
+          "tr": "Günlük cümle pratiği konuşma akıcılığı üzerinde nasıl bir etki yaratır?"
+        }
+      }
+    },
+    {
+      "id": 270,
+      "original_id": 7,
+      "unique_id": "IDIOM_7",
+      "type": "idiom",
+      "type_label": "Kalıp İfade (Idiom)",
+      "type_icon": "💬",
+      "word": "on the other hand",
+      "meaning": "diğer taraftan, öte yandan",
+      "level": "B1-B2",
+      "level_label": "Kalıp İfade",
+      "category": "Zıtlık & Karşılaştırma",
+      "forms": {
+        "v1": "on the other hand",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Zıtlık & Karşılaştırma",
+      "sentences": {
+        "positive": {
+          "en": "Running builds endurance; on the other hand, sprinting develops explosive power.",
+          "tr": "Koşu dayanıklılık inşa eder; öte yandan depar patlayıcı güç geliştirir."
+        },
+        "negative": {
+          "en": "He wants to travel; on the other hand, he doesn't want to spend his savings.",
+          "tr": "Seyahat etmek istiyor; öte yandan birikimlerini harcamak istemiyor."
+        },
+        "question": {
+          "en": "On the other hand, is virtual reality truly effective for tactical learning?",
+          "tr": "Öte yandan, sanal gerçeklik taktiksel öğrenme için gerçekten etkili midir?"
+        }
+      }
+    },
+    {
+      "id": 271,
+      "original_id": 8,
+      "unique_id": "IDIOM_8",
+      "type": "idiom",
+      "type_label": "Kalıp İfade (Idiom)",
+      "type_icon": "💬",
+      "word": "in the long run",
+      "meaning": "uzun vadede, uzun dönemde",
+      "level": "B1-B2",
+      "level_label": "Kalıp İfade",
+      "category": "Zaman & Gelecek",
+      "forms": {
+        "v1": "in the long run",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Zaman & Gelecek",
+      "sentences": {
+        "positive": {
+          "en": "Consistent daily discipline always pays off in the long run.",
+          "tr": "Tutarlı günlük disiplin uzun vadede her zaman karşılığını verir."
+        },
+        "negative": {
+          "en": "Skipping warm-up drills won't help you in the long run.",
+          "tr": "Isınma hareketlerini atlamak uzun vadede size yardımcı olmayacaktır."
+        },
+        "question": {
+          "en": "Will learning English grammar open global doors in the long run?",
+          "tr": "İngilizce gramer öğrenmek uzun vadede küresel kapılar açacak mı?"
+        }
+      }
+    },
+    {
+      "id": 272,
+      "original_id": 9,
+      "unique_id": "IDIOM_9",
+      "type": "idiom",
+      "type_label": "Kalıp İfade (Idiom)",
+      "type_icon": "💬",
+      "word": "step by step",
+      "meaning": "adım adım, aşama aşama",
+      "level": "B1-B2",
+      "level_label": "Kalıp İfade",
+      "category": "Süreç & Yöntem",
+      "forms": {
+        "v1": "step by step",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Süreç & Yöntem",
+      "sentences": {
+        "positive": {
+          "en": "The 4-step learning routine guides students step by step to success.",
+          "tr": "4 aşamalı ders rutini öğrencileri başarıya adım adım yönlendirir."
+        },
+        "negative": {
+          "en": "You cannot master advanced conditionals without progressing step by step.",
+          "tr": "Adım adım ilerlemeden ileri düzey şart cümlelerinde ustalaşamazsınız."
+        },
+        "question": {
+          "en": "Can you explain the calibration procedure step by step?",
+          "tr": "Kalibrasyon prosedürünü adım adım açıklayabilir misiniz?"
+        }
+      }
+    },
+    {
+      "id": 273,
+      "original_id": 10,
+      "unique_id": "IDIOM_10",
+      "type": "idiom",
+      "type_label": "Kalıp İfade (Idiom)",
+      "type_icon": "💬",
+      "word": "from time to time",
+      "meaning": "zaman zaman, ara sıra",
+      "level": "B1-B2",
+      "level_label": "Kalıp İfade",
+      "category": "Zaman & Sıklık",
+      "forms": {
+        "v1": "from time to time",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Zaman & Sıklık",
+      "sentences": {
+        "positive": {
+          "en": "Even elite athletes need complete rest periods from time to time.",
+          "tr": "Seçkin sporcular bile zaman zaman tam dinlenme dönemlerine ihtiyaç duyarlar."
+        },
+        "negative": {
+          "en": "She doesn't review old chapters from time to time; she reviews them daily.",
+          "tr": "Eski bölümleri ara sıra tekrar etmez; onları her gün tekrar eder."
+        },
+        "question": {
+          "en": "Do you visit the university sports library from time to time?",
+          "tr": "Üniversite spor kütüphanesini zaman zaman ziyaret eder misiniz?"
         }
       }
     }

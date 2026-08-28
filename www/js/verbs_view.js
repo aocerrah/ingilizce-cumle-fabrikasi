@@ -1,12 +1,13 @@
 /**
- * Kapsamlı İngilizce Kelime & Gramer Kartlığı (Verbs, Adverbs, Conjunctions, Prepositions, Adjectives)
- * 213+ Kelime Kartı: Fiiller, Zarflar, Bağlaçlar, Edatlar, Sıfatlar + V1/V2/V3 + Olumlu/Olumsuz/Soru Cümleleri
+ * Kapsamlı İngilizce Kelime & Gramer Ansiklopedisi (Master English Vocabulary Library)
+ * 273+ Kelime Kartı: Fiiller, Phrasal Verbs, İsimler, Zarflar, Bağlaçlar, Edatlar, Sıfatlar, Kalıplar
+ * V1/V2/V3 + Olumlu/Olumsuz/Soru Cümleleri + Doğal Sesli Telaffuz + Cümle Fabrikası Entegrasyonu
  */
 
 class VerbsView {
   constructor() {
     this.searchTerm = '';
-    this.selectedCategory = 'all'; // 'all', 'verb', 'adverb', 'conjunction', 'preposition', 'adjective', 'A2', 'B1', 'fav', 'mastered'
+    this.selectedCategory = 'all'; // 'all', 'verb', 'phrasal_verb', 'noun', 'adverb', 'conjunction', 'preposition', 'adjective', 'idiom', 'A2', 'B1', 'fav', 'mastered'
     this.isFlashcardMode = false;
   }
 
@@ -30,18 +31,24 @@ class VerbsView {
     const customCount = window.customWordsManager ? window.customWordsManager.getAll().length : 0;
 
     const verbsCount = allItems.filter(i => i.type === 'verb').length;
+    const phrCount = allItems.filter(i => i.type === 'phrasal_verb').length;
+    const nounCount = allItems.filter(i => i.type === 'noun').length;
     const advCount = allItems.filter(i => i.type === 'adverb').length;
     const conjCount = allItems.filter(i => i.type === 'conjunction').length;
     const prepCount = allItems.filter(i => i.type === 'preposition').length;
     const adjCount = allItems.filter(i => i.type === 'adjective').length;
+    const idmCount = allItems.filter(i => i.type === 'idiom').length;
 
     const filterTabs = [
       { id: 'all', label: `✨ Tümü (${allItems.length})` },
       { id: 'verb', label: `🔵 Fiiller (${verbsCount})` },
+      { id: 'phrasal_verb', label: `⚡ Phrasal Verbs (${phrCount})` },
+      { id: 'noun', label: `🔴 İsimler (${nounCount})` },
       { id: 'adverb', label: `🟣 Zarflar (${advCount})` },
       { id: 'conjunction', label: `🟠 Bağlaçlar (${conjCount})` },
       { id: 'preposition', label: `🟢 Edatlar (${prepCount})` },
       { id: 'adjective', label: `🟡 Sıfatlar (${adjCount})` },
+      { id: 'idiom', label: `💬 Kalıplar (${idmCount})` },
       { id: 'A2', label: `🟢 A2 Temel` },
       { id: 'B1', label: `🔵 B1 İleri` },
       { id: 'fav', label: `⭐ Favoriler` },
@@ -54,11 +61,11 @@ class VerbsView {
       <!-- Action Bar & Custom Vocab Book Shortcut -->
       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
         <div>
-          <span style="font-size:1rem; font-weight:900; color:var(--text-primary);">
-            📚 Kapsamlı Kelime, Zarf & Bağlaç Kartlığı
+          <span style="font-size:1.05rem; font-weight:900; color:var(--text-primary);">
+            📚 273+ İngilizce Kelime & Gramer Ansiklopedisi
           </span>
           <p style="font-size:0.78rem; color:var(--text-secondary); margin-top:2px;">
-            Fiiller, Zarflar, Bağlaçlar, Edatlar, Sıfatlar • Sesli Telaffuz ve Cümle Örnekleri
+            Fiiller, Phrasal Verbs, İsimler, Zarflar, Bağlaçlar, Edatlar, Sıfatlar • Sesli & Örnek Cümleli
           </p>
         </div>
         
@@ -73,7 +80,7 @@ class VerbsView {
       </div>
 
       <!-- Type & Category Filter Chips (Horizontal Scrollable) -->
-      <div style="display:flex; overflow-x:auto; gap:6px; margin-bottom:12px; scrollbar-width:none; padding-bottom:4px;">
+      <div style="display:flex; overflow-x:auto; gap:6px; margin-bottom:12px; scrollbar-width:none; padding-bottom:6px;">
         ${filterTabs.map(tab => `
           <button class="cat-chip ${this.selectedCategory === tab.id ? 'active' : ''}"
                   style="font-size:0.8rem; padding:7px 12px; white-space:nowrap; font-weight:700;"
@@ -88,7 +95,7 @@ class VerbsView {
         <div class="search-input-wrapper">
           <span class="search-icon">🔍</span>
           <input type="text" class="search-input" id="verb-search-input" 
-                 placeholder="Kelime, zarf, bağlaç veya Türkçe anlam ara (örn: quickly, because, although, be, solve)..." 
+                 placeholder="Kelime, zarf, bağlaç, phrasal verb veya Türkçe anlam ara (örn: give up, technology, because, quickly)..." 
                  value="${this.searchTerm}" 
                  oninput="verbsView.setSearch(this.value)">
         </div>
@@ -129,7 +136,15 @@ class VerbsView {
     let badgeBg = 'rgba(56, 189, 248, 0.15)';
     let borderTop = '3px solid var(--primary)';
 
-    if (item.type === 'adverb') {
+    if (item.type === 'phrasal_verb') {
+      badgeColor = '#e879f9';
+      badgeBg = 'rgba(232, 121, 249, 0.15)';
+      borderTop = '3px solid #e879f9';
+    } else if (item.type === 'noun') {
+      badgeColor = '#f87171';
+      badgeBg = 'rgba(248, 113, 113, 0.15)';
+      borderTop = '3px solid #f87171';
+    } else if (item.type === 'adverb') {
       badgeColor = '#c084fc';
       badgeBg = 'rgba(192, 132, 252, 0.15)';
       borderTop = '3px solid #c084fc';
@@ -145,6 +160,10 @@ class VerbsView {
       badgeColor = '#facc15';
       badgeBg = 'rgba(250, 204, 21, 0.15)';
       borderTop = '3px solid #facc15';
+    } else if (item.type === 'idiom') {
+      badgeColor = '#38bdf8';
+      badgeBg = 'rgba(56, 189, 248, 0.15)';
+      borderTop = '3px solid #38bdf8';
     } else if (item.level === 'B1') {
       badgeColor = 'var(--accent)';
       badgeBg = 'rgba(129, 140, 248, 0.15)';
@@ -247,6 +266,10 @@ class VerbsView {
     // Category / Level Filter
     if (this.selectedCategory === 'verb') {
       list = list.filter(i => i.type === 'verb');
+    } else if (this.selectedCategory === 'phrasal_verb') {
+      list = list.filter(i => i.type === 'phrasal_verb');
+    } else if (this.selectedCategory === 'noun') {
+      list = list.filter(i => i.type === 'noun');
     } else if (this.selectedCategory === 'adverb') {
       list = list.filter(i => i.type === 'adverb');
     } else if (this.selectedCategory === 'conjunction') {
@@ -255,6 +278,8 @@ class VerbsView {
       list = list.filter(i => i.type === 'preposition');
     } else if (this.selectedCategory === 'adjective') {
       list = list.filter(i => i.type === 'adjective');
+    } else if (this.selectedCategory === 'idiom') {
+      list = list.filter(i => i.type === 'idiom');
     } else if (this.selectedCategory === 'A2') {
       list = list.filter(i => i.level && i.level.includes('A2'));
     } else if (this.selectedCategory === 'B1') {
