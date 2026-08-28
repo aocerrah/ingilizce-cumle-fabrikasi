@@ -177,7 +177,13 @@ class SentenceBuilder {
         </div>
 
         <div class="form-row" style="margin-top:8px;">
-          <label>ZAMAN / KİP YAPISI (20+ TENSES, ASPECTS & MODALS)</label>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; flex-wrap:wrap; gap:4px;">
+            <label style="margin:0;">ZAMAN / KİP YAPISI (20+ TENSES, ASPECTS & MODALS)</label>
+            <button class="cat-chip" style="font-size:0.75rem; border-color:#ef4444; color:#ef4444; background:rgba(239,68,68,0.15); cursor:pointer; display:inline-flex; align-items:center; gap:4px; padding:3px 8px; font-weight:700;" 
+                    onclick="sentenceBuilder.watchTenseVideo()">
+              🎥 Bu Konunun Video Dersini İzle (+25 XP)
+            </button>
+          </div>
           <select class="select-input" id="builder-tense-select" onchange="sentenceBuilder.setTense(this.value)" style="font-weight:600;">
             <optgroup label="--- 📅 GÜNCEL ZAMANLAR (PRESENT TENSES) ---">
               <option value="present_simple" ${this.selectedTense === 'present_simple' ? 'selected' : ''}>Simple Present (Geniş Zaman / Rutinler - V1/Vs)</option>
@@ -1246,6 +1252,15 @@ class SentenceBuilder {
   nextScramble() {
     this.initScramble();
     this.renderScramble();
+  }
+
+  watchTenseVideo() {
+    if (window.grammarView) {
+      const vid = window.grammarView.getVideoForTense(this.selectedTense);
+      if (vid) {
+        window.grammarView.openVideoModal(vid.video_id, vid.title);
+      }
+    }
   }
 }
 

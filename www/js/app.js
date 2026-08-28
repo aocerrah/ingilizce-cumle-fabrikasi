@@ -181,22 +181,22 @@ class AppController {
       <div class="hero-card" style="background: linear-gradient(135deg, #1e1b4b, #1e293b); border: 2px solid #818cf8; box-shadow: 0 0 25px rgba(129, 140, 248, 0.3);">
         <div style="display:flex; justify-content:space-between; align-items:flex-start;">
           <span class="hero-badge" style="background: rgba(129, 140, 248, 0.2); color: #818cf8; border-color: #818cf8;">
-            🔥 GÜN ${this.streak} ZORUNLU GÖREVİ
+            🔥 GÜN ${this.streak} ZORUNLU DERS YOLU
           </span>
           <span class="stat-chip streak" style="font-size:0.75rem;">10 Dakika</span>
         </div>
 
         <h3 style="font-size:1.35rem; font-weight:900; color:#ffffff; margin-top:8px;">
-          Bugünkü Akıllı Ders Rutini Hazır!
+          Bugünkü 4 Aşamalı Ders Rutini Hazır!
         </h3>
         <p style="font-size:0.85rem; color:#cbd5e1; margin-top:4px;">
-          Sistem senin için <strong>5 karışık kelime, SVOMPT cümle kurma ve mini sınav</strong> hazırladı. Ne çalışacağını düşünmene gerek yok!
+          Sıralı Öğrenme Yolu: <strong>1. YouTube Video Dersi ➔ 2. Günün 5 Fiili ➔ 3. SVOMPT Cümle Fabrikası ➔ 4. Mini Sınav</strong>
         </p>
 
         <div style="margin-top:14px;">
-          <button class="btn-primary" style="width:100%; justify-content:center; padding:12px; font-size:1.05rem; background: linear-gradient(90deg, #6366f1, #38bdf8);" 
+          <button class="btn-primary" style="width:100%; justify-content:center; padding:12px; font-size:1.05rem; background: linear-gradient(90deg, #ef4444, #6366f1, #38bdf8);" 
                   onclick="dailyRoutine.startRoutine()">
-            ⚡ Dersi Başlat (1. Kelimeler ➔ 2. Cümle ➔ 3. Sınav)
+            🚀 Dersi Başlat (1. Video ➔ 2. Kelimeler ➔ 3. Cümle ➔ 4. Sınav)
           </button>
         </div>
       </div>
