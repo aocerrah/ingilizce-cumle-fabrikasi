@@ -12,6 +12,8 @@ class QuizEngine {
     this.score = 0;
     this.totalQuestions = 10;
     this.answered = false;
+  }
+
   getWordList() {
     if (window.customWordsManager && typeof window.customWordsManager.getAllVerbsCombined === 'function') {
       return window.customWordsManager.getAllVerbsCombined();
