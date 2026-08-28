@@ -1262,6 +1262,33 @@ class SentenceBuilder {
       }
     }
   }
+
+  loadPresetWord(wordText, wordType) {
+    if (wordType === 'adverb') {
+      this.selectedTokens.m = { en: wordText, tr: wordText };
+      this.activeCategory = 'm';
+    } else if (wordType === 'conjunction') {
+      this.selectedTokens.t = { en: wordText, tr: wordText };
+      this.activeCategory = 't';
+    } else if (wordType === 'preposition') {
+      this.selectedTokens.p = { en: wordText, tr: wordText };
+      this.activeCategory = 'p';
+    } else if (wordType === 'adjective') {
+      this.selectedTokens.o = { en: wordText, tr: wordText };
+      this.activeCategory = 'o';
+    } else {
+      // Verb
+      const allVerbs = (APP_DATA && APP_DATA.verbs) ? APP_DATA.verbs : [];
+      const found = allVerbs.find(v => (v.verb || v.word).toLowerCase() === wordText.toLowerCase());
+      if (found) {
+        this.selectedTokens.v = found;
+      } else {
+        this.selectedTokens.v = { verb: wordText, meaning: wordText, forms: { v1: wordText, v2: wordText, v3: wordText } };
+      }
+      this.activeCategory = 'v';
+    }
+    this.renderStudio();
+  }
 }
 
 // Global instance
