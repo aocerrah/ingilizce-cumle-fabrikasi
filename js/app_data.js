@@ -7504,12 +7504,12 @@ const APP_DATA = {
     ]
   },
   "stats": {
-    "total_items": 308,
+    "total_items": 350,
     "verbs_count": 158,
     "phrasal_verbs_count": 60,
     "nouns_count": 25,
-    "adverbs_count": 20,
-    "conjunctions_count": 15,
+    "adverbs_count": 38,
+    "conjunctions_count": 39,
     "prepositions_count": 10,
     "adjectives_count": 10,
     "idioms_count": 10
@@ -15963,6 +15963,237 @@ const APP_DATA = {
       "type": "adverb",
       "type_label": "Zarf (Adverb)",
       "type_icon": "🟣",
+      "word": "slowly",
+      "meaning": "yavaşça, sakince",
+      "level": "A2-B1",
+      "level_label": "Zarf / Belirteç",
+      "category": "Durum Zarfı (Manner)",
+      "forms": {
+        "v1": "slowly",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Durum Zarfı (Manner)",
+      "sentences": {
+        "positive": {
+          "en": "The marathon runner paced herself slowly at the beginning.",
+          "tr": "Maraton koşucusu başlangıçta kendini yavaşça ayarladı."
+        },
+        "negative": {
+          "en": "He didn't speak slowly during the presentation.",
+          "tr": "Sunum sırasında yavaşça konuşmadı."
+        },
+        "question": {
+          "en": "Why did the vehicle move slowly through the stadium gate?",
+          "tr": "Araç stadyum kapısından neden yavaşça geçti?"
+        }
+      }
+    },
+    {
+      "id": 253,
+      "original_id": 10,
+      "unique_id": "ADV_10",
+      "type": "adverb",
+      "type_label": "Zarf (Adverb)",
+      "type_icon": "🟣",
+      "word": "quietly",
+      "meaning": "sessizce",
+      "level": "A2-B1",
+      "level_label": "Zarf / Belirteç",
+      "category": "Durum Zarfı (Manner)",
+      "forms": {
+        "v1": "quietly",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Durum Zarfı (Manner)",
+      "sentences": {
+        "positive": {
+          "en": "Students study quietly in the university library reading room.",
+          "tr": "Öğrenciler üniversite kütüphanesi okuma salonunda sessizce ders çalışırlar."
+        },
+        "negative": {
+          "en": "He didn't close the laboratory door quietly.",
+          "tr": "Laboratuvar kapısını sessizce kapatmadı."
+        },
+        "question": {
+          "en": "Can you sit quietly while the coach explains the tactical board?",
+          "tr": "Antrenör taktik tahtasını açıklarken sessizce oturabilir misin?"
+        }
+      }
+    },
+    {
+      "id": 254,
+      "original_id": 11,
+      "unique_id": "ADV_11",
+      "type": "adverb",
+      "type_label": "Zarf (Adverb)",
+      "type_icon": "🟣",
+      "word": "loudly",
+      "meaning": "yüksek sesle",
+      "level": "A2-B1",
+      "level_label": "Zarf / Belirteç",
+      "category": "Durum Zarfı (Manner)",
+      "forms": {
+        "v1": "loudly",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Durum Zarfı (Manner)",
+      "sentences": {
+        "positive": {
+          "en": "The fans cheered loudly when the team scored the winning goal.",
+          "tr": "Takım galibiyet golünü attığında taraftarlar yüksek sesle tezahürat yaptı."
+        },
+        "negative": {
+          "en": "Please don't talk loudly in the experimental testing chamber.",
+          "tr": "Deneysel test odasında lütfen yüksek sesle konuşmayın."
+        },
+        "question": {
+          "en": "Why did the referee blow the whistle so loudly?",
+          "tr": "Hakem düdüğü neden bu kadar yüksek sesle çaldı?"
+        }
+      }
+    },
+    {
+      "id": 255,
+      "original_id": 12,
+      "unique_id": "ADV_12",
+      "type": "adverb",
+      "type_label": "Zarf (Adverb)",
+      "type_icon": "🟣",
+      "word": "politely",
+      "meaning": "kibarca, nazikçe",
+      "level": "A2-B1",
+      "level_label": "Zarf / Belirteç",
+      "category": "Durum Zarfı (Manner)",
+      "forms": {
+        "v1": "politely",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Durum Zarfı (Manner)",
+      "sentences": {
+        "positive": {
+          "en": "Ela asked the international instructor politely for clarification.",
+          "tr": "Ela uluslararası eğitmenden kibarca açıklama istedi."
+        },
+        "negative": {
+          "en": "He didn't decline the invitation politely.",
+          "tr": "Daveti kibarca reddetmedi."
+        },
+        "question": {
+          "en": "How do students politely ask questions during online lectures?",
+          "tr": "Öğrenciler çevrimiçi dersler sırasında nasıl kibarca soru sorarlar?"
+        }
+      }
+    },
+    {
+      "id": 256,
+      "original_id": 13,
+      "unique_id": "ADV_13",
+      "type": "adverb",
+      "type_label": "Zarf (Adverb)",
+      "type_icon": "🟣",
+      "word": "honestly",
+      "meaning": "dürüstçe, samimiyetle",
+      "level": "A2-B1",
+      "level_label": "Zarf / Belirteç",
+      "category": "Durum Zarfı (Manner)",
+      "forms": {
+        "v1": "honestly",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Durum Zarfı (Manner)",
+      "sentences": {
+        "positive": {
+          "en": "The athlete answered the doping control officer honestly.",
+          "tr": "Sporcu doping kontrol görevlisini dürüstçe cevapladı."
+        },
+        "negative": {
+          "en": "She didn't speak honestly about her knee pain to the doctor.",
+          "tr": "Doktora diz ağrısı hakkında dürüstçe konuşmadı."
+        },
+        "question": {
+          "en": "Can you honestly evaluate your weekly grammar revision consistency?",
+          "tr": "Haftalık gramer tekrarı tutarlılığınızı dürüstçe değerlendirebilir misiniz?"
+        }
+      }
+    },
+    {
+      "id": 257,
+      "original_id": 14,
+      "unique_id": "ADV_14",
+      "type": "adverb",
+      "type_label": "Zarf (Adverb)",
+      "type_icon": "🟣",
+      "word": "bravely",
+      "meaning": "cesurca",
+      "level": "A2-B1",
+      "level_label": "Zarf / Belirteç",
+      "category": "Durum Zarfı (Manner)",
+      "forms": {
+        "v1": "bravely",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Durum Zarfı (Manner)",
+      "sentences": {
+        "positive": {
+          "en": "The young goalkeeper bravely blocked the penalty shot.",
+          "tr": "Genç kaleci penaltı atışını cesurca engelledi."
+        },
+        "negative": {
+          "en": "He didn't step forward bravely during the difficult crisis.",
+          "tr": "Zorlu kriz sırasında cesurca öne çıkmadı."
+        },
+        "question": {
+          "en": "Why did Ela bravely explore the mysterious academy cellar?",
+          "tr": "Ela gizemli akademi bodrumunu neden cesurca keşfetti?"
+        }
+      }
+    },
+    {
+      "id": 258,
+      "original_id": 15,
+      "unique_id": "ADV_15",
+      "type": "adverb",
+      "type_label": "Zarf (Adverb)",
+      "type_icon": "🟣",
+      "word": "happily",
+      "meaning": "mutlulukla, sevinçle",
+      "level": "A2-B1",
+      "level_label": "Zarf / Belirteç",
+      "category": "Durum Zarfı (Manner)",
+      "forms": {
+        "v1": "happily",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Durum Zarfı (Manner)",
+      "sentences": {
+        "positive": {
+          "en": "The students happily celebrated their scholarship achievements.",
+          "tr": "Öğrenciler burs başarılarını mutlulukla kutladılar."
+        },
+        "negative": {
+          "en": "He didn't accept the reserve bench role happily.",
+          "tr": "Yedek kulübesi rolünü mutlulukla kabul etmedi."
+        },
+        "question": {
+          "en": "Did the team happily receive the regional championship trophy?",
+          "tr": "Takım bölgesel şampiyonluk kupasını mutlulukla teslim aldı mı?"
+        }
+      }
+    },
+    {
+      "id": 259,
+      "original_id": 16,
+      "unique_id": "ADV_16",
+      "type": "adverb",
+      "type_label": "Zarf (Adverb)",
+      "type_icon": "🟣",
       "word": "always",
       "meaning": "her zaman, daima",
       "level": "A2-B1",
@@ -15990,9 +16221,9 @@ const APP_DATA = {
       }
     },
     {
-      "id": 253,
-      "original_id": 10,
-      "unique_id": "ADV_10",
+      "id": 260,
+      "original_id": 17,
+      "unique_id": "ADV_17",
       "type": "adverb",
       "type_label": "Zarf (Adverb)",
       "type_icon": "🟣",
@@ -16023,9 +16254,9 @@ const APP_DATA = {
       }
     },
     {
-      "id": 254,
-      "original_id": 11,
-      "unique_id": "ADV_11",
+      "id": 261,
+      "original_id": 18,
+      "unique_id": "ADV_18",
       "type": "adverb",
       "type_label": "Zarf (Adverb)",
       "type_icon": "🟣",
@@ -16056,9 +16287,42 @@ const APP_DATA = {
       }
     },
     {
-      "id": 255,
-      "original_id": 12,
-      "unique_id": "ADV_12",
+      "id": 262,
+      "original_id": 19,
+      "unique_id": "ADV_19",
+      "type": "adverb",
+      "type_label": "Zarf (Adverb)",
+      "type_icon": "🟣",
+      "word": "frequently",
+      "meaning": "sıkça, sıklıkla",
+      "level": "A2-B1",
+      "level_label": "Zarf / Belirteç",
+      "category": "Sıklık Zarfı (Frequency)",
+      "forms": {
+        "v1": "frequently",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Sıklık Zarfı (Frequency)",
+      "sentences": {
+        "positive": {
+          "en": "Sports scientists frequently calibrate optical measurement tools.",
+          "tr": "Spor bilimcileri optik ölçüm araçlarını sıklıkla kalibre ederler."
+        },
+        "negative": {
+          "en": "She doesn't frequently skip her morning breakfast routine.",
+          "tr": "Sabah kahvaltısı rutinini sıklıkla atlamaz."
+        },
+        "question": {
+          "en": "Why do elite athletes frequently consult sports psychologists?",
+          "tr": "Seçkin sporcular neden sıklıkla spor psikologlarına danışırlar?"
+        }
+      }
+    },
+    {
+      "id": 263,
+      "original_id": 20,
+      "unique_id": "ADV_20",
       "type": "adverb",
       "type_label": "Zarf (Adverb)",
       "type_icon": "🟣",
@@ -16089,9 +16353,42 @@ const APP_DATA = {
       }
     },
     {
-      "id": 256,
-      "original_id": 13,
-      "unique_id": "ADV_13",
+      "id": 264,
+      "original_id": 21,
+      "unique_id": "ADV_21",
+      "type": "adverb",
+      "type_label": "Zarf (Adverb)",
+      "type_icon": "🟣",
+      "word": "occasionally",
+      "meaning": "ara sıra, bazen",
+      "level": "A2-B1",
+      "level_label": "Zarf / Belirteç",
+      "category": "Sıklık Zarfı (Frequency)",
+      "forms": {
+        "v1": "occasionally",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Sıklık Zarfı (Frequency)",
+      "sentences": {
+        "positive": {
+          "en": "We occasionally play friendly matches against foreign academies.",
+          "tr": "Yabancı akademilere karşı ara sıra dostluk maçları yaparız."
+        },
+        "negative": {
+          "en": "He doesn't occasionally check his telemetry; he monitors it continuously.",
+          "tr": "Telemetrisini ara sıra kontrol etmez; sürekli izler."
+        },
+        "question": {
+          "en": "Do you occasionally test your sprint speed on natural grass?",
+          "tr": "Doğal çimde depar hızınızı ara sıra test eder misiniz?"
+        }
+      }
+    },
+    {
+      "id": 265,
+      "original_id": 22,
+      "unique_id": "ADV_22",
       "type": "adverb",
       "type_label": "Zarf (Adverb)",
       "type_icon": "🟣",
@@ -16122,9 +16419,75 @@ const APP_DATA = {
       }
     },
     {
-      "id": 257,
-      "original_id": 14,
-      "unique_id": "ADV_14",
+      "id": 266,
+      "original_id": 23,
+      "unique_id": "ADV_23",
+      "type": "adverb",
+      "type_label": "Zarf (Adverb)",
+      "type_icon": "🟣",
+      "word": "seldom",
+      "meaning": "pek nadir, nadiren",
+      "level": "A2-B1",
+      "level_label": "Zarf / Belirteç",
+      "category": "Sıklık Zarfı (Frequency)",
+      "forms": {
+        "v1": "seldom",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Sıklık Zarfı (Frequency)",
+      "sentences": {
+        "positive": {
+          "en": "Elite gymnasts seldom make mistakes in their dismount routine.",
+          "tr": "Seçkin jimnastikçiler aletten iniş rutinlerinde pek nadir hata yaparlar."
+        },
+        "negative": {
+          "en": "She seldom complaints about intense training loads.",
+          "tr": "Yoğun antrenman yükleri hakkında pek nadir şikayet eder."
+        },
+        "question": {
+          "en": "How seldom do professional teams lose home matches?",
+          "tr": "Profesyonel takımlar iç saha maçlarını ne kadar nadir kaybeder?"
+        }
+      }
+    },
+    {
+      "id": 267,
+      "original_id": 24,
+      "unique_id": "ADV_24",
+      "type": "adverb",
+      "type_label": "Zarf (Adverb)",
+      "type_icon": "🟣",
+      "word": "hardly ever",
+      "meaning": "neredeyse hiç",
+      "level": "A2-B1",
+      "level_label": "Zarf / Belirteç",
+      "category": "Sıklık Zarfı (Frequency)",
+      "forms": {
+        "v1": "hardly ever",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Sıklık Zarfı (Frequency)",
+      "sentences": {
+        "positive": {
+          "en": "Disciplined learners hardly ever forget new vocabulary words.",
+          "tr": "Disiplinli öğrenciler yeni kelimeleri neredeyse hiç unutmazlar."
+        },
+        "negative": {
+          "en": "He hardly ever eats junk food before competitive games.",
+          "tr": "Müsabaka maçlarından önce neredeyse hiç abur cubur yemez."
+        },
+        "question": {
+          "en": "Why does your team hardly ever concede goals from set pieces?",
+          "tr": "Takımınız duran toplardan neden neredeyse hiç gol yemiyor?"
+        }
+      }
+    },
+    {
+      "id": 268,
+      "original_id": 25,
+      "unique_id": "ADV_25",
       "type": "adverb",
       "type_label": "Zarf (Adverb)",
       "type_icon": "🟣",
@@ -16155,9 +16518,9 @@ const APP_DATA = {
       }
     },
     {
-      "id": 258,
-      "original_id": 15,
-      "unique_id": "ADV_15",
+      "id": 269,
+      "original_id": 26,
+      "unique_id": "ADV_26",
       "type": "adverb",
       "type_label": "Zarf (Adverb)",
       "type_icon": "🟣",
@@ -16188,9 +16551,9 @@ const APP_DATA = {
       }
     },
     {
-      "id": 259,
-      "original_id": 16,
-      "unique_id": "ADV_16",
+      "id": 270,
+      "original_id": 27,
+      "unique_id": "ADV_27",
       "type": "adverb",
       "type_label": "Zarf (Adverb)",
       "type_icon": "🟣",
@@ -16221,9 +16584,9 @@ const APP_DATA = {
       }
     },
     {
-      "id": 260,
-      "original_id": 17,
-      "unique_id": "ADV_17",
+      "id": 271,
+      "original_id": 28,
+      "unique_id": "ADV_28",
       "type": "adverb",
       "type_label": "Zarf (Adverb)",
       "type_icon": "🟣",
@@ -16254,9 +16617,9 @@ const APP_DATA = {
       }
     },
     {
-      "id": 261,
-      "original_id": 18,
-      "unique_id": "ADV_18",
+      "id": 272,
+      "original_id": 29,
+      "unique_id": "ADV_29",
       "type": "adverb",
       "type_label": "Zarf (Adverb)",
       "type_icon": "🟣",
@@ -16287,9 +16650,9 @@ const APP_DATA = {
       }
     },
     {
-      "id": 262,
-      "original_id": 19,
-      "unique_id": "ADV_19",
+      "id": 273,
+      "original_id": 30,
+      "unique_id": "ADV_30",
       "type": "adverb",
       "type_label": "Zarf (Adverb)",
       "type_icon": "🟣",
@@ -16320,9 +16683,240 @@ const APP_DATA = {
       }
     },
     {
-      "id": 263,
-      "original_id": 20,
-      "unique_id": "ADV_20",
+      "id": 274,
+      "original_id": 31,
+      "unique_id": "ADV_31",
+      "type": "adverb",
+      "type_label": "Zarf (Adverb)",
+      "type_icon": "🟣",
+      "word": "soon",
+      "meaning": "yakında, birazdan",
+      "level": "A2-B1",
+      "level_label": "Zarf / Belirteç",
+      "category": "Zaman Zarfı (Time)",
+      "forms": {
+        "v1": "soon",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Zaman Zarfı (Time)",
+      "sentences": {
+        "positive": {
+          "en": "The scientific committee will release the conference results soon.",
+          "tr": "Bilim kurulu konferans sonuçlarını yakında açıklayacak."
+        },
+        "negative": {
+          "en": "The tournament won't conclude soon; it lasts two full weeks.",
+          "tr": "Turnuva yakında sonuçlanmayacak; iki tam hafta sürüyor."
+        },
+        "question": {
+          "en": "How soon can we start the virtual reality soccer simulation?",
+          "tr": "Sanal gerçeklik futbol simülasyonuna ne kadar yakında başlayabiliriz?"
+        }
+      }
+    },
+    {
+      "id": 275,
+      "original_id": 32,
+      "unique_id": "ADV_32",
+      "type": "adverb",
+      "type_label": "Zarf (Adverb)",
+      "type_icon": "🟣",
+      "word": "already",
+      "meaning": "zaten, çoktan",
+      "level": "A2-B1",
+      "level_label": "Zarf / Belirteç",
+      "category": "Zaman Zarfı (Time)",
+      "forms": {
+        "v1": "already",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Zaman Zarfı (Time)",
+      "sentences": {
+        "positive": {
+          "en": "Ela has already completed all twenty grammar video lessons.",
+          "tr": "Ela yirmi gramer video dersinin tamamını çoktan bitirdi."
+        },
+        "negative": {
+          "en": "They haven't already finished the laboratory calibration.",
+          "tr": "Laboratuvar kalibrasyonunu henüz çoktan bitirmiş değiller."
+        },
+        "question": {
+          "en": "Have you already mastered the third conditional sentence rule?",
+          "tr": "Üçüncü şart cümlesi kuralında çoktan ustalaştın mı?"
+        }
+      }
+    },
+    {
+      "id": 276,
+      "original_id": 33,
+      "unique_id": "ADV_33",
+      "type": "adverb",
+      "type_label": "Zarf (Adverb)",
+      "type_icon": "🟣",
+      "word": "still",
+      "meaning": "hâlâ, henüz",
+      "level": "A2-B1",
+      "level_label": "Zarf / Belirteç",
+      "category": "Zaman Zarfı (Time)",
+      "forms": {
+        "v1": "still",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Zaman Zarfı (Time)",
+      "sentences": {
+        "positive": {
+          "en": "The researchers are still analyzing the multi-joint movement angles.",
+          "tr": "Araştırmacılar çoklu eklem hareket açılarını hâlâ analiz ediyorlar."
+        },
+        "negative": {
+          "en": "He still hasn't recovered from his shoulder surgery.",
+          "tr": "Omuz ameliyatından sonra hâlâ toparlanamadı."
+        },
+        "question": {
+          "en": "Are you still practicing irregular verbs with flashcards?",
+          "tr": "Flaş kartlarla hâlâ düzensiz fiil pratiği yapıyor musun?"
+        }
+      }
+    },
+    {
+      "id": 277,
+      "original_id": 34,
+      "unique_id": "ADV_34",
+      "type": "adverb",
+      "type_label": "Zarf (Adverb)",
+      "type_icon": "🟣",
+      "word": "suddenly",
+      "meaning": "aniden, birdenbire",
+      "level": "A2-B1",
+      "level_label": "Zarf / Belirteç",
+      "category": "Zaman Zarfı (Time)",
+      "forms": {
+        "v1": "suddenly",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Zaman Zarfı (Time)",
+      "sentences": {
+        "positive": {
+          "en": "The electrical power went out suddenly during the experiment.",
+          "tr": "Deney sırasında elektrik aniden kesildi."
+        },
+        "negative": {
+          "en": "The weather didn't change suddenly; the forecast warned us.",
+          "tr": "Hava aniden değişmedi; hava durumu tahmini bizi uyarmıştı."
+        },
+        "question": {
+          "en": "Why did the athlete suddenly stop running in the middle of the pitch?",
+          "tr": "Sporcu sahanın ortasında neden aniden koşmayı bıraktı?"
+        }
+      }
+    },
+    {
+      "id": 278,
+      "original_id": 35,
+      "unique_id": "ADV_35",
+      "type": "adverb",
+      "type_label": "Zarf (Adverb)",
+      "type_icon": "🟣",
+      "word": "gradually",
+      "meaning": "kademeli olarak, yavaş yavaş",
+      "level": "A2-B1",
+      "level_label": "Zarf / Belirteç",
+      "category": "Zaman & Süreç",
+      "forms": {
+        "v1": "gradually",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Zaman & Süreç",
+      "sentences": {
+        "positive": {
+          "en": "Running endurance increases gradually through weekly long runs.",
+          "tr": "Koşu dayanıklılığı haftalık uzun koşularla kademeli olarak artar."
+        },
+        "negative": {
+          "en": "The swelling didn't decrease gradually until ice was applied.",
+          "tr": "Buz uygulanana kadar şişlik kademeli olarak azalmadı."
+        },
+        "question": {
+          "en": "How does language comprehension improve gradually over time?",
+          "tr": "Dil kavrayışı zaman içinde nasıl kademeli olarak gelişir?"
+        }
+      }
+    },
+    {
+      "id": 279,
+      "original_id": 36,
+      "unique_id": "ADV_36",
+      "type": "adverb",
+      "type_label": "Zarf (Adverb)",
+      "type_icon": "🟣",
+      "word": "eventually",
+      "meaning": "eninde sonunda, nihayetinde",
+      "level": "A2-B1",
+      "level_label": "Zarf / Belirteç",
+      "category": "Zaman & Sonuç",
+      "forms": {
+        "v1": "eventually",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Zaman & Sonuç",
+      "sentences": {
+        "positive": {
+          "en": "Consistent hard work will eventually yield championship gold medals.",
+          "tr": "Tutarlı sıkı çalışma eninde sonunda şampiyonluk altın madalyaları getirecektir."
+        },
+        "negative": {
+          "en": "He didn't give up and eventually solved the mathematical riddle.",
+          "tr": "Pes etmedi ve eninde sonunda matematiksel bilmeceyi çözdü."
+        },
+        "question": {
+          "en": "Will artificial intelligence eventually replace human refereeing?",
+          "tr": "Yapay zeka eninde sonunda insan hakemliğinin yerini alacak mı?"
+        }
+      }
+    },
+    {
+      "id": 280,
+      "original_id": 37,
+      "unique_id": "ADV_37",
+      "type": "adverb",
+      "type_label": "Zarf (Adverb)",
+      "type_icon": "🟣",
+      "word": "finally",
+      "meaning": "sonunda, nihayet",
+      "level": "A2-B1",
+      "level_label": "Zarf / Belirteç",
+      "category": "Zaman & Sonuç",
+      "forms": {
+        "v1": "finally",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Zaman & Sonuç",
+      "sentences": {
+        "positive": {
+          "en": "The technical team finally resolved the wireless sensor latency.",
+          "tr": "Teknik ekip kablosuz sensör gecikmesini sonunda çözdü."
+        },
+        "negative": {
+          "en": "She didn't finally submit her research proposal until midnight.",
+          "tr": "Araştırma önerisini gece yarısına kadar nihayet teslim etmedi."
+        },
+        "question": {
+          "en": "Have you finally memorized all one hundred fifty-eight core verbs?",
+          "tr": "Yüz elli sekiz temel fiilin tamamını sonunda ezberledin mi?"
+        }
+      }
+    },
+    {
+      "id": 281,
+      "original_id": 38,
+      "unique_id": "ADV_38",
       "type": "adverb",
       "type_label": "Zarf (Adverb)",
       "type_icon": "🟣",
@@ -16353,7 +16947,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 264,
+      "id": 282,
       "original_id": 1,
       "unique_id": "CONJ_1",
       "type": "conjunction",
@@ -16361,7 +16955,7 @@ const APP_DATA = {
       "type_icon": "🟠",
       "word": "because",
       "meaning": "çünkü, -dığı için",
-      "level": "B1",
+      "level": "B1-B2",
       "level_label": "Bağlaç & Geçiş",
       "category": "Sebep-Sonuç (Cause & Effect)",
       "forms": {
@@ -16386,7 +16980,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 265,
+      "id": 283,
       "original_id": 2,
       "unique_id": "CONJ_2",
       "type": "conjunction",
@@ -16394,7 +16988,7 @@ const APP_DATA = {
       "type_icon": "🟠",
       "word": "although",
       "meaning": "rağmen, -e karşın",
-      "level": "B1",
+      "level": "B1-B2",
       "level_label": "Bağlaç & Geçiş",
       "category": "Zıtlık Bağlacı (Contrast)",
       "forms": {
@@ -16419,7 +17013,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 266,
+      "id": 284,
       "original_id": 3,
       "unique_id": "CONJ_3",
       "type": "conjunction",
@@ -16427,7 +17021,7 @@ const APP_DATA = {
       "type_icon": "🟠",
       "word": "even though",
       "meaning": "olsa bile, -e rağmen",
-      "level": "B1",
+      "level": "B1-B2",
       "level_label": "Bağlaç & Geçiş",
       "category": "Güçlü Zıtlık (Strong Contrast)",
       "forms": {
@@ -16452,7 +17046,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 267,
+      "id": 285,
       "original_id": 4,
       "unique_id": "CONJ_4",
       "type": "conjunction",
@@ -16460,7 +17054,7 @@ const APP_DATA = {
       "type_icon": "🟠",
       "word": "however",
       "meaning": "ancak, yine de, oysa",
-      "level": "B1",
+      "level": "B1-B2",
       "level_label": "Bağlaç & Geçiş",
       "category": "Geçiş Bağlacı (Transition)",
       "forms": {
@@ -16485,7 +17079,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 268,
+      "id": 286,
       "original_id": 5,
       "unique_id": "CONJ_5",
       "type": "conjunction",
@@ -16493,7 +17087,7 @@ const APP_DATA = {
       "type_icon": "🟠",
       "word": "therefore",
       "meaning": "bu nedenle, bu yüzden, dolayısıyla",
-      "level": "B1",
+      "level": "B1-B2",
       "level_label": "Bağlaç & Geçiş",
       "category": "Sonuç Bağlacı (Result)",
       "forms": {
@@ -16518,7 +17112,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 269,
+      "id": 287,
       "original_id": 6,
       "unique_id": "CONJ_6",
       "type": "conjunction",
@@ -16526,7 +17120,7 @@ const APP_DATA = {
       "type_icon": "🟠",
       "word": "so that",
       "meaning": "-sın diye, amacıyla",
-      "level": "B1",
+      "level": "B1-B2",
       "level_label": "Bağlaç & Geçiş",
       "category": "Amaç Bağlacı (Purpose)",
       "forms": {
@@ -16551,7 +17145,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 270,
+      "id": 288,
       "original_id": 7,
       "unique_id": "CONJ_7",
       "type": "conjunction",
@@ -16559,7 +17153,7 @@ const APP_DATA = {
       "type_icon": "🟠",
       "word": "in order to",
       "meaning": "-mek için, amacıyla",
-      "level": "B1",
+      "level": "B1-B2",
       "level_label": "Bağlaç & Geçiş",
       "category": "Amaç Kalıbı (Purpose Infinitive)",
       "forms": {
@@ -16584,15 +17178,48 @@ const APP_DATA = {
       }
     },
     {
-      "id": 271,
+      "id": 289,
       "original_id": 8,
       "unique_id": "CONJ_8",
       "type": "conjunction",
       "type_label": "Bağlaç (Conjunction)",
       "type_icon": "🟠",
+      "word": "in order that",
+      "meaning": "-sın diye, amacıyla",
+      "level": "B1-B2",
+      "level_label": "Bağlaç & Geçiş",
+      "category": "Amaç Bağlacı (Purpose Clause)",
+      "forms": {
+        "v1": "in order that",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Amaç Bağlacı (Purpose Clause)",
+      "sentences": {
+        "positive": {
+          "en": "The coach gave clear signals in order that players could position themselves.",
+          "tr": "Antrenör oyuncular kendilerini konumlandırabilsin diye net işaretler verdi."
+        },
+        "negative": {
+          "en": "We didn't alter the protocol in order that the data would remain valid.",
+          "tr": "Veriler geçerli kalsın diye protokolü değiştirmedik."
+        },
+        "question": {
+          "en": "Did you set daily reminders in order that your daughter would study grammar?",
+          "tr": "Kızınız gramer çalışsın diye günlük hatırlatıcılar kurdunuz mu?"
+        }
+      }
+    },
+    {
+      "id": 290,
+      "original_id": 9,
+      "unique_id": "CONJ_9",
+      "type": "conjunction",
+      "type_label": "Bağlaç (Conjunction)",
+      "type_icon": "🟠",
       "word": "while",
       "meaning": "iken, o sırada, oysa",
-      "level": "B1",
+      "level": "B1-B2",
       "level_label": "Bağlaç & Geçiş",
       "category": "Zaman & Zıtlık (Time & Contrast)",
       "forms": {
@@ -16617,15 +17244,15 @@ const APP_DATA = {
       }
     },
     {
-      "id": 272,
-      "original_id": 9,
-      "unique_id": "CONJ_9",
+      "id": 291,
+      "original_id": 10,
+      "unique_id": "CONJ_10",
       "type": "conjunction",
       "type_label": "Bağlaç (Conjunction)",
       "type_icon": "🟠",
       "word": "since",
       "meaning": "-den beri, -dığı için",
-      "level": "B1",
+      "level": "B1-B2",
       "level_label": "Bağlaç & Geçiş",
       "category": "Zaman & Sebep (Time & Cause)",
       "forms": {
@@ -16650,15 +17277,15 @@ const APP_DATA = {
       }
     },
     {
-      "id": 273,
-      "original_id": 10,
-      "unique_id": "CONJ_10",
+      "id": 292,
+      "original_id": 11,
+      "unique_id": "CONJ_11",
       "type": "conjunction",
       "type_label": "Bağlaç (Conjunction)",
       "type_icon": "🟠",
       "word": "unless",
       "meaning": "-medikçe, -mezse (if not)",
-      "level": "B1",
+      "level": "B1-B2",
       "level_label": "Bağlaç & Geçiş",
       "category": "Koşul Bağlacı (Condition)",
       "forms": {
@@ -16683,15 +17310,15 @@ const APP_DATA = {
       }
     },
     {
-      "id": 274,
-      "original_id": 11,
-      "unique_id": "CONJ_11",
+      "id": 293,
+      "original_id": 12,
+      "unique_id": "CONJ_12",
       "type": "conjunction",
       "type_label": "Bağlaç (Conjunction)",
       "type_icon": "🟠",
       "word": "as soon as",
       "meaning": "yapar yapmaz, -er -mez",
-      "level": "B1",
+      "level": "B1-B2",
       "level_label": "Bağlaç & Geçiş",
       "category": "Zaman Bağlacı (Time)",
       "forms": {
@@ -16716,15 +17343,15 @@ const APP_DATA = {
       }
     },
     {
-      "id": 275,
-      "original_id": 12,
-      "unique_id": "CONJ_12",
+      "id": 294,
+      "original_id": 13,
+      "unique_id": "CONJ_13",
       "type": "conjunction",
       "type_label": "Bağlaç (Conjunction)",
       "type_icon": "🟠",
       "word": "whereas",
       "meaning": "oysa, halbuki, buna karşın",
-      "level": "B1",
+      "level": "B1-B2",
       "level_label": "Bağlaç & Geçiş",
       "category": "Doğrudan Zıtlık (Direct Contrast)",
       "forms": {
@@ -16749,15 +17376,15 @@ const APP_DATA = {
       }
     },
     {
-      "id": 276,
-      "original_id": 13,
-      "unique_id": "CONJ_13",
+      "id": 295,
+      "original_id": 14,
+      "unique_id": "CONJ_14",
       "type": "conjunction",
       "type_label": "Bağlaç (Conjunction)",
       "type_icon": "🟠",
       "word": "as well as",
       "meaning": "yanı sıra, ek olarak",
-      "level": "B1",
+      "level": "B1-B2",
       "level_label": "Bağlaç & Geçiş",
       "category": "Ek Bağlacı (Addition)",
       "forms": {
@@ -16782,15 +17409,15 @@ const APP_DATA = {
       }
     },
     {
-      "id": 277,
-      "original_id": 14,
-      "unique_id": "CONJ_14",
+      "id": 296,
+      "original_id": 15,
+      "unique_id": "CONJ_15",
       "type": "conjunction",
       "type_label": "Bağlaç (Conjunction)",
       "type_icon": "🟠",
       "word": "not only... but also",
       "meaning": "sadece ... değil, aynı zamanda ...",
-      "level": "B1",
+      "level": "B1-B2",
       "level_label": "Bağlaç & Geçiş",
       "category": "Vurgulu Ek (Correlative)",
       "forms": {
@@ -16815,15 +17442,15 @@ const APP_DATA = {
       }
     },
     {
-      "id": 278,
-      "original_id": 15,
-      "unique_id": "CONJ_15",
+      "id": 297,
+      "original_id": 16,
+      "unique_id": "CONJ_16",
       "type": "conjunction",
       "type_label": "Bağlaç (Conjunction)",
       "type_icon": "🟠",
       "word": "either... or",
       "meaning": "ya ... ya da ...",
-      "level": "B1",
+      "level": "B1-B2",
       "level_label": "Bağlaç & Geçiş",
       "category": "Seçenek Bağlacı (Alternative)",
       "forms": {
@@ -16848,7 +17475,766 @@ const APP_DATA = {
       }
     },
     {
-      "id": 279,
+      "id": 298,
+      "original_id": 17,
+      "unique_id": "CONJ_17",
+      "type": "conjunction",
+      "type_label": "Bağlaç (Conjunction)",
+      "type_icon": "🟠",
+      "word": "neither... nor",
+      "meaning": "ne ... ne de ...",
+      "level": "B1-B2",
+      "level_label": "Bağlaç & Geçiş",
+      "category": "Olumsuz Seçenek (Correlative Negative)",
+      "forms": {
+        "v1": "neither... nor",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Olumsuz Seçenek (Correlative Negative)",
+      "sentences": {
+        "positive": {
+          "en": "Neither the players nor the coaching staff were satisfied with the draw.",
+          "tr": "Ne oyuncular ne de antrenör heyeti beraberlikten memnun kaldı."
+        },
+        "negative": {
+          "en": "He could neither attend the morning training nor contact the team doctor.",
+          "tr": "Ne sabah antrenmanına katılabildi ne de takım doktoruyla iletişime geçebildi."
+        },
+        "question": {
+          "en": "Is neither the sensor battery nor the wireless connection functioning?",
+          "tr": "Ne sensör pili ne de kablosuz bağlantı mı çalışmıyor?"
+        }
+      }
+    },
+    {
+      "id": 299,
+      "original_id": 18,
+      "unique_id": "CONJ_18",
+      "type": "conjunction",
+      "type_label": "Bağlaç (Conjunction)",
+      "type_icon": "🟠",
+      "word": "both... and",
+      "meaning": "hem ... hem de ...",
+      "level": "B1-B2",
+      "level_label": "Bağlaç & Geçiş",
+      "category": "Birliktelik Bağlacı (Correlative)",
+      "forms": {
+        "v1": "both... and",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Birliktelik Bağlacı (Correlative)",
+      "sentences": {
+        "positive": {
+          "en": "Both tactical intelligence and physical speed are essential in volleyball.",
+          "tr": "Voleybolda hem taktiksel zeka hem de fiziksel hız gereklidir."
+        },
+        "negative": {
+          "en": "The trial wasn't both cost-effective and scientifically reliable.",
+          "tr": "Deneme hem maliyet açısından uygun hem de bilimsel olarak güvenilir değildi."
+        },
+        "question": {
+          "en": "Did both the professors and the students support the new VR project?",
+          "tr": "Yeni VR projesini hem profesörler hem de öğrenciler destekledi mi?"
+        }
+      }
+    },
+    {
+      "id": 300,
+      "original_id": 19,
+      "unique_id": "CONJ_19",
+      "type": "conjunction",
+      "type_label": "Bağlaç (Conjunction)",
+      "type_icon": "🟠",
+      "word": "whether... or",
+      "meaning": "ister ... ister, olup olmadığı",
+      "level": "B1-B2",
+      "level_label": "Bağlaç & Geçiş",
+      "category": "Seçenek & İkilem",
+      "forms": {
+        "v1": "whether... or",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Seçenek & İkilem",
+      "sentences": {
+        "positive": {
+          "en": "Whether you train indoors or outdoors, you must stay hydrated.",
+          "tr": "İster içeride ister dışarıda antrenman yapın, vücut su dengenizi korumalısınız."
+        },
+        "negative": {
+          "en": "We don't know whether the tournament will take place on Saturday or Sunday.",
+          "tr": "Turnuvanın cumartesi mi yoksa pazar mı yapılacağını bilmiyoruz."
+        },
+        "question": {
+          "en": "Can you tell whether the sensor is calibrated or uncalibrated?",
+          "tr": "Sensörün kalibre edilmiş mi yoksa kalibre edilmemiş mi olduğunu söyleyebilir misiniz?"
+        }
+      }
+    },
+    {
+      "id": 301,
+      "original_id": 20,
+      "unique_id": "CONJ_20",
+      "type": "conjunction",
+      "type_label": "Bağlaç (Conjunction)",
+      "type_icon": "🟠",
+      "word": "moreover",
+      "meaning": "dahası, ayrıca, dahası",
+      "level": "B1-B2",
+      "level_label": "Bağlaç & Geçiş",
+      "category": "Ek Bilgi (Addition Transition)",
+      "forms": {
+        "v1": "moreover",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Ek Bilgi (Addition Transition)",
+      "sentences": {
+        "positive": {
+          "en": "Regular exercise improves heart health; moreover, it sharpens memory.",
+          "tr": "Düzenli egzersiz kalp sağlığını iyileştirir; dahası, hafızayı keskinleştirir."
+        },
+        "negative": {
+          "en": "He didn't arrive on time; moreover, he forgot his sports passport.",
+          "tr": "Zamanında gelmedi; dahası, spor pasaportunu unuttu."
+        },
+        "question": {
+          "en": "Does the application track flashcards; moreover, does it assess speaking?",
+          "tr": "Uygulama flaş kartları takip ediyor mu; dahası, konuşmayı da değerlendiriyor mu?"
+        }
+      }
+    },
+    {
+      "id": 302,
+      "original_id": 21,
+      "unique_id": "CONJ_21",
+      "type": "conjunction",
+      "type_label": "Bağlaç (Conjunction)",
+      "type_icon": "🟠",
+      "word": "furthermore",
+      "meaning": "üstelik, bundan başka, dahası",
+      "level": "B1-B2",
+      "level_label": "Bağlaç & Geçiş",
+      "category": "Ek Bilgi (Formal Addition)",
+      "forms": {
+        "v1": "furthermore",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Ek Bilgi (Formal Addition)",
+      "sentences": {
+        "positive": {
+          "en": "The VR headset provides immersion; furthermore, it captures eye gaze.",
+          "tr": "VR başlığı derinlik hissi sağlar; üstelik göz bakışını da yakalar."
+        },
+        "negative": {
+          "en": "The candidate didn't meet the height criteria; furthermore, he lacked experience.",
+          "tr": "Aday boy kriterini karşılamadı; üstelik deneyimi de yoktu."
+        },
+        "question": {
+          "en": "Is the software free; furthermore, does it include full Turkish video lectures?",
+          "tr": "Yazılım ücretsiz mi; üstelik Türkçe video derslerin tamamını içeriyor mu?"
+        }
+      }
+    },
+    {
+      "id": 303,
+      "original_id": 22,
+      "unique_id": "CONJ_22",
+      "type": "conjunction",
+      "type_label": "Bağlaç (Conjunction)",
+      "type_icon": "🟠",
+      "word": "in addition",
+      "meaning": "buna ek olarak, ayrıca",
+      "level": "B1-B2",
+      "level_label": "Bağlaç & Geçiş",
+      "category": "Ek Bilgi (Addition)",
+      "forms": {
+        "v1": "in addition",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Ek Bilgi (Addition)",
+      "sentences": {
+        "positive": {
+          "en": "Ela solves math puzzles; in addition, she reads English classic novels.",
+          "tr": "Ela matematik bulmacaları çözer; buna ek olarak İngilizce klasik romanlar okur."
+        },
+        "negative": {
+          "en": "The lab didn't replace old computers; in addition, it cut software budgets.",
+          "tr": "Laboratuvar eski bilgisayarları yenilemedi; buna ek olarak yazılım bütçelerini kıstı."
+        },
+        "question": {
+          "en": "In addition to vocabulary drills, will the daily routine include quizzes?",
+          "tr": "Kelime alıştırmalarına ek olarak günlük rutin sınavları da içerecek mi?"
+        }
+      }
+    },
+    {
+      "id": 304,
+      "original_id": 23,
+      "unique_id": "CONJ_23",
+      "type": "conjunction",
+      "type_label": "Bağlaç (Conjunction)",
+      "type_icon": "🟠",
+      "word": "besides",
+      "meaning": "ayrıca, bundan başka",
+      "level": "B1-B2",
+      "level_label": "Bağlaç & Geçiş",
+      "category": "Ek Bilgi (Addition)",
+      "forms": {
+        "v1": "besides",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Ek Bilgi (Addition)",
+      "sentences": {
+        "positive": {
+          "en": "I love volleyball; besides, playing sports keeps my mind energetic.",
+          "tr": "Voleybolu seviyorum; ayrıca spor yapmak zihnimi enerjik tutuyor."
+        },
+        "negative": {
+          "en": "He doesn't have the time; besides, he cannot afford the travel expenses.",
+          "tr": "Zamanı yok; ayrıca seyahat masraflarını karşılayamaz."
+        },
+        "question": {
+          "en": "Who else attended the biomechanics seminar besides your research team?",
+          "tr": "Araştırma ekibinizden başka biyomekanik seminerine başka kimler katıldı?"
+        }
+      }
+    },
+    {
+      "id": 305,
+      "original_id": 24,
+      "unique_id": "CONJ_24",
+      "type": "conjunction",
+      "type_label": "Bağlaç (Conjunction)",
+      "type_icon": "🟠",
+      "word": "as a result",
+      "meaning": "sonuç olarak, bunun sonucu olarak",
+      "level": "B1-B2",
+      "level_label": "Bağlaç & Geçiş",
+      "category": "Sonuç (Result Transition)",
+      "forms": {
+        "v1": "as a result",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Sonuç (Result Transition)",
+      "sentences": {
+        "positive": {
+          "en": "The team trained rigorously all winter; as a result, they won the gold.",
+          "tr": "Takım tüm kış sıkı çalıştı; sonuç olarak altın madalyayı kazandılar."
+        },
+        "negative": {
+          "en": "He skipped recovery meals; as a result, he didn't perform well.",
+          "tr": "Toparlanma öğünlerini atladı; sonuç olarak iyi performans gösteremedi."
+        },
+        "question": {
+          "en": "As a result of this grammar system, how much did student scores increase?",
+          "tr": "Bu gramer sisteminin bir sonucu olarak öğrenci puanları ne kadar arttı?"
+        }
+      }
+    },
+    {
+      "id": 306,
+      "original_id": 25,
+      "unique_id": "CONJ_25",
+      "type": "conjunction",
+      "type_label": "Bağlaç (Conjunction)",
+      "type_icon": "🟠",
+      "word": "consequently",
+      "meaning": "sonuç olarak, dolayısıyla",
+      "level": "B1-B2",
+      "level_label": "Bağlaç & Geçiş",
+      "category": "Sonuç (Formal Result)",
+      "forms": {
+        "v1": "consequently",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Sonuç (Formal Result)",
+      "sentences": {
+        "positive": {
+          "en": "The athlete suffered an ankle sprain; consequently, she sat out the game.",
+          "tr": "Sporcu ayak bileği burkulması yaşadı; dolayısıyla maçı kenardan izledi."
+        },
+        "negative": {
+          "en": "The server wasn't properly maintained; consequently, it couldn't handle load.",
+          "tr": "Sunucuya düzgün bakım yapılmadı; dolayısıyla yükü kaldıramadı."
+        },
+        "question": {
+          "en": "Did the experiment fail; consequently, must we reformulate our hypothesis?",
+          "tr": "Deney başarısız mı oldu; dolayısıyla hipotezimizi yeniden mi formüle etmeliyiz?"
+        }
+      }
+    },
+    {
+      "id": 307,
+      "original_id": 26,
+      "unique_id": "CONJ_26",
+      "type": "conjunction",
+      "type_label": "Bağlaç (Conjunction)",
+      "type_icon": "🟠",
+      "word": "as long as",
+      "meaning": "-dığı sürece, şartıyla",
+      "level": "B1-B2",
+      "level_label": "Bağlaç & Geçiş",
+      "category": "Koşul Bağlacı (Condition)",
+      "forms": {
+        "v1": "as long as",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Koşul Bağlacı (Condition)",
+      "sentences": {
+        "positive": {
+          "en": "You will make steady progress as long as you practice fifteen minutes daily.",
+          "tr": "Her gün on beş dakika pratik yaptığınız sürece istikrarlı ilerleme kaydedersiniz."
+        },
+        "negative": {
+          "en": "Athletes won't burn out as long as they don't overtrain recklessly.",
+          "tr": "Sporcular pervasızca aşırı antrenman yapmadıkları sürece tükenmişlik yaşamazlar."
+        },
+        "question": {
+          "en": "Can we access the cloud vocabulary dictionary as long as we have internet?",
+          "tr": "İnternetimiz olduğu sürece bulut kelime sözlüğüne erişebilir miyiz?"
+        }
+      }
+    },
+    {
+      "id": 308,
+      "original_id": 27,
+      "unique_id": "CONJ_27",
+      "type": "conjunction",
+      "type_label": "Bağlaç (Conjunction)",
+      "type_icon": "🟠",
+      "word": "provided that",
+      "meaning": "şartıyla, koşuluyla",
+      "level": "B1-B2",
+      "level_label": "Bağlaç & Geçiş",
+      "category": "Koşul Bağlacı (Formal Condition)",
+      "forms": {
+        "v1": "provided that",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Koşul Bağlacı (Formal Condition)",
+      "sentences": {
+        "positive": {
+          "en": "You may borrow the VR equipment provided that you return it undamaged.",
+          "tr": "Hasarsız iade etmeniz şartıyla VR ekipmanını ödünç alabilirsiniz."
+        },
+        "negative": {
+          "en": "The committee won't approve the grant provided that the budget is unverified.",
+          "tr": "Bütçe doğrulanmadığı takdirde komite hibeyi onaylamayacaktır."
+        },
+        "question": {
+          "en": "Can young athletes join advanced drills provided that they pass screenings?",
+          "tr": "Taramaları geçmeleri şartıyla genç sporcular ileri düzey çalışmalara katılabilir mi?"
+        }
+      }
+    },
+    {
+      "id": 309,
+      "original_id": 28,
+      "unique_id": "CONJ_28",
+      "type": "conjunction",
+      "type_label": "Bağlaç (Conjunction)",
+      "type_icon": "🟠",
+      "word": "in case",
+      "meaning": "durumunda, ihtimaline karşı",
+      "level": "B1-B2",
+      "level_label": "Bağlaç & Geçiş",
+      "category": "Önlem Bağlacı (Precaution)",
+      "forms": {
+        "v1": "in case",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Önlem Bağlacı (Precaution)",
+      "sentences": {
+        "positive": {
+          "en": "Take an extra sensor battery in case the primary unit runs out of power.",
+          "tr": "Ana ünitenin şarjı biter ihtimaline karşı yanınıza ekstra bir sensör pili alın."
+        },
+        "negative": {
+          "en": "Don't leave the laboratory unlocked in case unauthorized people enter.",
+          "tr": "Yetkisiz kişiler girer ihtimaline karşı laboratuvarı kilitsiz bırakmayın."
+        },
+        "question": {
+          "en": "Did you pack sports tape in case an athlete twists an ankle?",
+          "tr": "Bir sporcunun bileği burkulur ihtimaline karşı spor bandı aldınız mı?"
+        }
+      }
+    },
+    {
+      "id": 310,
+      "original_id": 29,
+      "unique_id": "CONJ_29",
+      "type": "conjunction",
+      "type_label": "Bağlaç (Conjunction)",
+      "type_icon": "🟠",
+      "word": "as if",
+      "meaning": "-mış gibi, sanki",
+      "level": "B1-B2",
+      "level_label": "Bağlaç & Geçiş",
+      "category": "Benzetme & Durum (Manner Clause)",
+      "forms": {
+        "v1": "as if",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Benzetme & Durum (Manner Clause)",
+      "sentences": {
+        "positive": {
+          "en": "The young sprinter ran as if Olympic gold were on the line.",
+          "tr": "Genç depar koşucusu sanki ortada Olimpik altın varmış gibi koştu."
+        },
+        "negative": {
+          "en": "He didn't act as if he were surprised by the tactical outcome.",
+          "tr": "Taktiksel sonuç karşısında şaşırmış gibi davranmadı."
+        },
+        "question": {
+          "en": "Why does the virtual reality environment feel as if it were real life?",
+          "tr": "Sanal gerçeklik ortamı neden sanki gerçek hayatmış gibi hissettiriyor?"
+        }
+      }
+    },
+    {
+      "id": 311,
+      "original_id": 30,
+      "unique_id": "CONJ_30",
+      "type": "conjunction",
+      "type_label": "Bağlaç (Conjunction)",
+      "type_icon": "🟠",
+      "word": "so ... that",
+      "meaning": "öyle ... ki",
+      "level": "B1-B2",
+      "level_label": "Bağlaç & Geçiş",
+      "category": "Derece & Sonuç (Degree Result)",
+      "forms": {
+        "v1": "so ... that",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Derece & Sonuç (Degree Result)",
+      "sentences": {
+        "positive": {
+          "en": "The match was so intense that all spectators stood on their feet.",
+          "tr": "Maç öyle yoğun/heyecanlıydı ki tüm seyirciler ayakta izledi."
+        },
+        "negative": {
+          "en": "The formula wasn't so complex that middle school students couldn't learn it.",
+          "tr": "Formül ortaokul öğrencilerinin öğrenemeyeceği kadar karmaşık değildi."
+        },
+        "question": {
+          "en": "Was the VR simulation so realistic that players felt real pitch pressure?",
+          "tr": "VR simülasyonu oyuncuların gerçek saha baskısını hissedeceği kadar gerçekçi miydi?"
+        }
+      }
+    },
+    {
+      "id": 312,
+      "original_id": 31,
+      "unique_id": "CONJ_31",
+      "type": "conjunction",
+      "type_label": "Bağlaç (Conjunction)",
+      "type_icon": "🟠",
+      "word": "such ... that",
+      "meaning": "öylesine bir ... ki",
+      "level": "B1-B2",
+      "level_label": "Bağlaç & Geçiş",
+      "category": "Nitelik & Sonuç (Quality Result)",
+      "forms": {
+        "v1": "such ... that",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Nitelik & Sonuç (Quality Result)",
+      "sentences": {
+        "positive": {
+          "en": "It was such an innovative app that thousands of students downloaded it.",
+          "tr": "Öylesine yenilikçi bir uygulamaydı ki binlerce öğrenci indirdi."
+        },
+        "negative": {
+          "en": "She didn't show such great reluctance that the coach dropped her.",
+          "tr": "Antrenörün onu kadro dışı bırakacağı kadar büyük bir isteksizlik göstermedi."
+        },
+        "question": {
+          "en": "Was it such a difficult match that both teams were completely exhausted?",
+          "tr": "Her iki takımın da tamamen tükeneceği kadar zorlu bir maç mıydı?"
+        }
+      }
+    },
+    {
+      "id": 313,
+      "original_id": 32,
+      "unique_id": "CONJ_32",
+      "type": "conjunction",
+      "type_label": "Bağlaç (Conjunction)",
+      "type_icon": "🟠",
+      "word": "by the time",
+      "meaning": "-ıncaya kadar, o vakte kadar",
+      "level": "B1-B2",
+      "level_label": "Bağlaç & Geçiş",
+      "category": "Zaman Bağlacı (Time Limit)",
+      "forms": {
+        "v1": "by the time",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Zaman Bağlacı (Time Limit)",
+      "sentences": {
+        "positive": {
+          "en": "By the time the championship started, our team had prepared tactically.",
+          "tr": "Şampiyona başlayıncaya kadar takımımız taktiksel olarak hazırlanmıştı."
+        },
+        "negative": {
+          "en": "By the time he arrived, the tactical briefing hadn't finished yet.",
+          "tr": "O varıncaya kadar taktik bilgilendirme henüz bitmemişti."
+        },
+        "question": {
+          "en": "Will you have memorized all fifty adverbs by the time the quiz begins?",
+          "tr": "Sınav başlayıncaya kadar elli zarfın tamamını ezberlemiş olacak mısın?"
+        }
+      }
+    },
+    {
+      "id": 314,
+      "original_id": 33,
+      "unique_id": "CONJ_33",
+      "type": "conjunction",
+      "type_label": "Bağlaç (Conjunction)",
+      "type_icon": "🟠",
+      "word": "until",
+      "meaning": "-e kadar (sürekli durum)",
+      "level": "B1-B2",
+      "level_label": "Bağlaç & Geçiş",
+      "category": "Zaman Bağlacı (Time Continuity)",
+      "forms": {
+        "v1": "until",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Zaman Bağlacı (Time Continuity)",
+      "sentences": {
+        "positive": {
+          "en": "Please remain seated until the final test score is announced.",
+          "tr": "Nihai test puanı açıklanıncaya kadar lütfen yerinizde oturun."
+        },
+        "negative": {
+          "en": "The athlete didn't leave the rehabilitation clinic until he was fully healed.",
+          "tr": "Sporcu tamamen iyileşinceye kadar rehabilitasyon kliniğinden ayrılmadı."
+        },
+        "question": {
+          "en": "Can you continue vocabulary revision until the daily routine completes?",
+          "tr": "Günlük rutin tamamlanıncaya kadar kelime tekrarına devam edebilir misin?"
+        }
+      }
+    },
+    {
+      "id": 315,
+      "original_id": 34,
+      "unique_id": "CONJ_34",
+      "type": "conjunction",
+      "type_label": "Bağlaç (Conjunction)",
+      "type_icon": "🟠",
+      "word": "once",
+      "meaning": "-dığında, bir kez ... yapınca",
+      "level": "B1-B2",
+      "level_label": "Bağlaç & Geçiş",
+      "category": "Zaman & Koşul (Immediate Time)",
+      "forms": {
+        "v1": "once",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Zaman & Koşul (Immediate Time)",
+      "sentences": {
+        "positive": {
+          "en": "Once you master the SVOMPT formula, sentence building becomes effortless.",
+          "tr": "SVOMPT formülünde bir kez ustalaştığınızda cümle kurmak zahmetsiz hale gelir."
+        },
+        "negative": {
+          "en": "Once he started the sprint, he didn't look back.",
+          "tr": "Depara bir kez başladığında arkasına bakmadı."
+        },
+        "question": {
+          "en": "Can we begin the tactical scrimmage once the sensor calibration completes?",
+          "tr": "Sensör kalibrasyonu bir kez tamamlandığında taktik çift kale maça başlayabilir miyiz?"
+        }
+      }
+    },
+    {
+      "id": 316,
+      "original_id": 35,
+      "unique_id": "CONJ_35",
+      "type": "conjunction",
+      "type_label": "Bağlaç (Conjunction)",
+      "type_icon": "🟠",
+      "word": "even if",
+      "meaning": "-se bile, olsa dahi",
+      "level": "B1-B2",
+      "level_label": "Bağlaç & Geçiş",
+      "category": "Varsayım & Zıtlık (Hypothetical)",
+      "forms": {
+        "v1": "even if",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Varsayım & Zıtlık (Hypothetical)",
+      "sentences": {
+        "positive": {
+          "en": "Even if it rains heavily, the indoor volleyball tournament will proceed.",
+          "tr": "Şiddetli yağmur yağsa bile kapalı salon voleybol turnuvası devam edecek."
+        },
+        "negative": {
+          "en": "He won't give up his goals even if he faces difficult academic hurdles.",
+          "tr": "Zorlu akademik engellerle karşılaşsa bile hedeflerinden vazgeçmeyecektir."
+        },
+        "question": {
+          "en": "Will you practice five English sentences every day even if you feel tired?",
+          "tr": "Yorgun hissetsen bile her gün beş İngilizce cümle pratiği yapacak mısın?"
+        }
+      }
+    },
+    {
+      "id": 317,
+      "original_id": 36,
+      "unique_id": "CONJ_36",
+      "type": "conjunction",
+      "type_label": "Bağlaç (Conjunction)",
+      "type_icon": "🟠",
+      "word": "nevertheless",
+      "meaning": "yine de, buna rağmen",
+      "level": "B1-B2",
+      "level_label": "Bağlaç & Geçiş",
+      "category": "Zıtlık (Formal Transition)",
+      "forms": {
+        "v1": "nevertheless",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Zıtlık (Formal Transition)",
+      "sentences": {
+        "positive": {
+          "en": "The team was fatigued; nevertheless, they played with great determination.",
+          "tr": "Takım yorgundu; yine de büyük bir kararlılıkla oynadılar."
+        },
+        "negative": {
+          "en": "He lacked formal training; nevertheless, he didn't fail the practical test.",
+          "tr": "Resmi eğitimi yoktu; yine de pratik testte başarısız olmadı."
+        },
+        "question": {
+          "en": "The budget was limited; nevertheless, did the lab produce innovative results?",
+          "tr": "Bütçe kısıtlıydı; yine de laboratuvar yenilikçi sonuçlar üretti mi?"
+        }
+      }
+    },
+    {
+      "id": 318,
+      "original_id": 37,
+      "unique_id": "CONJ_37",
+      "type": "conjunction",
+      "type_label": "Bağlaç (Conjunction)",
+      "type_icon": "🟠",
+      "word": "nonetheless",
+      "meaning": "buna rağmen, yine de",
+      "level": "B1-B2",
+      "level_label": "Bağlaç & Geçiş",
+      "category": "Zıtlık (Transition)",
+      "forms": {
+        "v1": "nonetheless",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Zıtlık (Transition)",
+      "sentences": {
+        "positive": {
+          "en": "The weather was humid; nonetheless, the runner set a personal sprint record.",
+          "tr": "Hava nemliydi; buna rağmen koşucu kişisel depar rekorunu kırdı."
+        },
+        "negative": {
+          "en": "She was nervous; nonetheless, she didn't make any pronunciation mistakes.",
+          "tr": "Gergindi; buna rağmen hiçbir telaffuz hatası yapmadı."
+        },
+        "question": {
+          "en": "The competition was fierce; nonetheless, did your team win the fair-play cup?",
+          "tr": "Rekabet kıyasıyaydı; buna rağmen takımınız centilmenlik kupasını kazandı mı?"
+        }
+      }
+    },
+    {
+      "id": 319,
+      "original_id": 38,
+      "unique_id": "CONJ_38",
+      "type": "conjunction",
+      "type_label": "Bağlaç (Conjunction)",
+      "type_icon": "🟠",
+      "word": "despite the fact that",
+      "meaning": "-dığı gerçeğine rağmen",
+      "level": "B1-B2",
+      "level_label": "Bağlaç & Geçiş",
+      "category": "Zıtlık Cümleciği (Contrast Clause)",
+      "forms": {
+        "v1": "despite the fact that",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Zıtlık Cümleciği (Contrast Clause)",
+      "sentences": {
+        "positive": {
+          "en": "He won the match despite the fact that he had a sprained thumb.",
+          "tr": "Başparmağı burkulmuş olduğu gerçeğine rağmen maçı kazandı."
+        },
+        "negative": {
+          "en": "She didn't give up despite the fact that she was the youngest in the league.",
+          "tr": "Ligdeki en genç oyuncu olduğu gerçeğine rağmen pes etmedi."
+        },
+        "question": {
+          "en": "Did you finish the project despite the fact that the server was offline?",
+          "tr": "Sunucu çevrimdışı olduğu gerçeğine rağmen projeyi bitirdiniz mi?"
+        }
+      }
+    },
+    {
+      "id": 320,
+      "original_id": 39,
+      "unique_id": "CONJ_39",
+      "type": "conjunction",
+      "type_label": "Bağlaç (Conjunction)",
+      "type_icon": "🟠",
+      "word": "on condition that",
+      "meaning": "şartıyla, kaydıyla",
+      "level": "B1-B2",
+      "level_label": "Bağlaç & Geçiş",
+      "category": "Koşul Bağlacı (Condition Clause)",
+      "forms": {
+        "v1": "on condition that",
+        "v2": "-",
+        "v3": "-"
+      },
+      "detail_label": "Kategori: Koşul Bağlacı (Condition Clause)",
+      "sentences": {
+        "positive": {
+          "en": "The coach allowed him to play on condition that he stayed within his zone.",
+          "tr": "Antrenör bölgesinde kalması şartıyla oynamasına izin verdi."
+        },
+        "negative": {
+          "en": "We won't deploy the software on condition that unit tests fail.",
+          "tr": "Birim testleri başarısız olursa yazılımı dağıtıma çıkarmayacağız."
+        },
+        "question": {
+          "en": "Can we reschedule the exam on condition that all students agree?",
+          "tr": "Tüm öğrencilerin kabul etmesi şartıyla sınavı yeniden planlayabilir miyiz?"
+        }
+      }
+    },
+    {
+      "id": 321,
       "original_id": 1,
       "unique_id": "PREP_1",
       "type": "preposition",
@@ -16881,7 +18267,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 280,
+      "id": 322,
       "original_id": 2,
       "unique_id": "PREP_2",
       "type": "preposition",
@@ -16914,7 +18300,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 281,
+      "id": 323,
       "original_id": 3,
       "unique_id": "PREP_3",
       "type": "preposition",
@@ -16947,7 +18333,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 282,
+      "id": 324,
       "original_id": 4,
       "unique_id": "PREP_4",
       "type": "preposition",
@@ -16980,7 +18366,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 283,
+      "id": 325,
       "original_id": 5,
       "unique_id": "PREP_5",
       "type": "preposition",
@@ -17013,7 +18399,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 284,
+      "id": 326,
       "original_id": 6,
       "unique_id": "PREP_6",
       "type": "preposition",
@@ -17046,7 +18432,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 285,
+      "id": 327,
       "original_id": 7,
       "unique_id": "PREP_7",
       "type": "preposition",
@@ -17079,7 +18465,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 286,
+      "id": 328,
       "original_id": 8,
       "unique_id": "PREP_8",
       "type": "preposition",
@@ -17112,7 +18498,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 287,
+      "id": 329,
       "original_id": 9,
       "unique_id": "PREP_9",
       "type": "preposition",
@@ -17145,7 +18531,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 288,
+      "id": 330,
       "original_id": 10,
       "unique_id": "PREP_10",
       "type": "preposition",
@@ -17178,7 +18564,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 289,
+      "id": 331,
       "original_id": 1,
       "unique_id": "ADJ_1",
       "type": "adjective",
@@ -17211,7 +18597,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 290,
+      "id": 332,
       "original_id": 2,
       "unique_id": "ADJ_2",
       "type": "adjective",
@@ -17244,7 +18630,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 291,
+      "id": 333,
       "original_id": 3,
       "unique_id": "ADJ_3",
       "type": "adjective",
@@ -17277,7 +18663,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 292,
+      "id": 334,
       "original_id": 4,
       "unique_id": "ADJ_4",
       "type": "adjective",
@@ -17310,7 +18696,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 293,
+      "id": 335,
       "original_id": 5,
       "unique_id": "ADJ_5",
       "type": "adjective",
@@ -17343,7 +18729,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 294,
+      "id": 336,
       "original_id": 6,
       "unique_id": "ADJ_6",
       "type": "adjective",
@@ -17376,7 +18762,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 295,
+      "id": 337,
       "original_id": 7,
       "unique_id": "ADJ_7",
       "type": "adjective",
@@ -17409,7 +18795,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 296,
+      "id": 338,
       "original_id": 8,
       "unique_id": "ADJ_8",
       "type": "adjective",
@@ -17442,7 +18828,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 297,
+      "id": 339,
       "original_id": 9,
       "unique_id": "ADJ_9",
       "type": "adjective",
@@ -17475,7 +18861,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 298,
+      "id": 340,
       "original_id": 10,
       "unique_id": "ADJ_10",
       "type": "adjective",
@@ -17508,7 +18894,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 299,
+      "id": 341,
       "original_id": 1,
       "unique_id": "IDIOM_1",
       "type": "idiom",
@@ -17541,7 +18927,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 300,
+      "id": 342,
       "original_id": 2,
       "unique_id": "IDIOM_2",
       "type": "idiom",
@@ -17574,7 +18960,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 301,
+      "id": 343,
       "original_id": 3,
       "unique_id": "IDIOM_3",
       "type": "idiom",
@@ -17607,7 +18993,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 302,
+      "id": 344,
       "original_id": 4,
       "unique_id": "IDIOM_4",
       "type": "idiom",
@@ -17640,7 +19026,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 303,
+      "id": 345,
       "original_id": 5,
       "unique_id": "IDIOM_5",
       "type": "idiom",
@@ -17673,7 +19059,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 304,
+      "id": 346,
       "original_id": 6,
       "unique_id": "IDIOM_6",
       "type": "idiom",
@@ -17706,7 +19092,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 305,
+      "id": 347,
       "original_id": 7,
       "unique_id": "IDIOM_7",
       "type": "idiom",
@@ -17739,7 +19125,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 306,
+      "id": 348,
       "original_id": 8,
       "unique_id": "IDIOM_8",
       "type": "idiom",
@@ -17772,7 +19158,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 307,
+      "id": 349,
       "original_id": 9,
       "unique_id": "IDIOM_9",
       "type": "idiom",
@@ -17805,7 +19191,7 @@ const APP_DATA = {
       }
     },
     {
-      "id": 308,
+      "id": 350,
       "original_id": 10,
       "unique_id": "IDIOM_10",
       "type": "idiom",
