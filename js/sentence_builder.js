@@ -241,8 +241,8 @@ class SentenceBuilder {
         </div>
 
         <div class="sentence-actions-bar">
-          <span style="font-size:0.75rem; color:var(--text-muted);">
-            SVOMPT Cümle Dizilimi Kuralına Uygun Üretildi
+          <span style="font-size:0.78rem; color:var(--primary); display:inline-flex; align-items:center; gap:4px; font-weight:600;">
+            💡 <em>İpucu: Bilmediğin herhangi bir kelimeye dokunarak anlamını & türünü görebilir, defterine ekleyebilirsin!</em>
           </span>
           <button class="btn-secondary" style="font-size:0.8rem; padding:6px 12px;" onclick="sentenceBuilder.randomizeSentence()">
             🎲 Rastgele Cümle Kur
@@ -1023,8 +1023,12 @@ class SentenceBuilder {
 
     this.currentRawSentence = rawEnText;
 
+    const interactiveEnHtml = (window.wordLookup && typeof window.wordLookup.wrap === 'function') 
+      ? window.wordLookup.wrap(enHtml) 
+      : enHtml;
+
     return {
-      enHtml,
+      enHtml: interactiveEnHtml,
       rawEnText,
       tr: fullTr
     };
@@ -1137,8 +1141,8 @@ class SentenceBuilder {
               <div style="font-weight:900; font-size:1.05rem; color:var(--success);">🎉 MÜKEMMEL! DOĞRU CÜMLE KURULDU (+3 XP)</div>
               <button class="play-voice-btn" onclick="speechEngine.speak('${rawTarget.replace(/'/g, "\\'")}')">🔊 Dinle</button>
             </div>
-            <div style="font-size:0.9rem; color:#ffffff; margin-top:6px; font-weight:700;">
-              🇬🇧 "${rawTarget}"
+            <div style="font-size:0.95rem; color:#ffffff; margin-top:6px; font-weight:700;">
+              🇬🇧 "${window.wordLookup ? window.wordLookup.wrap(rawTarget) : rawTarget}"
             </div>
             ${svomptBreakdown}
           </div>

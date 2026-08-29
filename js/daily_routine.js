@@ -233,7 +233,7 @@ class DailyRoutineEngine {
               <span>✅ Günlük Kullanım Örneği</span>
               <button class="play-voice-btn" onclick="speechEngine.speak('${w.sentences.positive.en.replace(/'/g, "\\'")}')">🔊</button>
             </div>
-            <div class="sentence-text-en">${w.sentences.positive.en}</div>
+            <div class="sentence-text-en">${window.wordLookup ? window.wordLookup.wrap(w.sentences.positive.en) : w.sentences.positive.en}</div>
             <div class="sentence-text-tr">🇹🇷 ${w.sentences.positive.tr}</div>
           </div>
         </div>
@@ -360,8 +360,8 @@ class DailyRoutineEngine {
               <div style="font-weight:900; font-size:1.05rem; color:var(--success);">🎉 MÜKEMMEL! CÜMLE DOĞRU KURULDU (+3 XP)</div>
               <button class="play-voice-btn" onclick="speechEngine.speak('${rawTarget.replace(/'/g, "\\'")}')">🔊 Dinle</button>
             </div>
-            <div style="font-size:0.9rem; color:#ffffff; margin-top:6px; font-weight:700;">
-              🇬🇧 "${rawTarget}"
+            <div style="font-size:0.95rem; color:#ffffff; margin-top:6px; font-weight:700;">
+              🇬🇧 "${window.wordLookup ? window.wordLookup.wrap(rawTarget) : rawTarget}"
             </div>
             ${svomptExplanation}
           </div>

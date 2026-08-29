@@ -1513,3 +1513,60 @@ body {
   }
 }
 
+/* ==========================================================================
+   Interactive Word Lookup & Dictionary Modal Styles
+   ========================================================================== */
+.interactive-word {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0 2px;
+  margin: 0 1px;
+  border-radius: 4px;
+  border-bottom: 1.5px dashed rgba(56, 189, 248, 0.45);
+  transition: all 0.15s ease-in-out;
+  position: relative;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(56, 189, 248, 0.2);
+}
+
+.interactive-word:hover,
+.interactive-word:active {
+  background: rgba(56, 189, 248, 0.2);
+  color: #38bdf8 !important;
+  transform: translateY(-1px);
+  border-bottom-color: #38bdf8;
+}
+
+.word-lookup-card {
+  max-width: 440px;
+  width: 92%;
+  border: 2px solid #38bdf8;
+  box-shadow: 0 0 35px rgba(56, 189, 248, 0.35);
+  animation: scaleUp 0.22s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes scaleUp {
+  0% { transform: scale(0.92); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.word-lemma-badge {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.word-lemma-badge strong {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.word-type-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+

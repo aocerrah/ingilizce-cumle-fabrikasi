@@ -218,7 +218,7 @@ class VerbsView {
               <span>✅ Olumlu Cümle (+)</span>
               <button class="play-voice-btn" onclick="speechEngine.speak('${item.sentences.positive.en.replace(/'/g, "\\'")}')">🔊</button>
             </div>
-            <div class="sentence-text-en">${item.sentences.positive.en}</div>
+            <div class="sentence-text-en">${window.wordLookup ? window.wordLookup.wrap(item.sentences.positive.en) : item.sentences.positive.en}</div>
             <div class="sentence-text-tr">🇹🇷 ${item.sentences.positive.tr}</div>
           </div>
 
@@ -228,7 +228,7 @@ class VerbsView {
               <span>❌ Olumsuz Cümle (-)</span>
               <button class="play-voice-btn" onclick="speechEngine.speak('${item.sentences.negative.en.replace(/'/g, "\\'")}')">🔊</button>
             </div>
-            <div class="sentence-text-en">${item.sentences.negative.en}</div>
+            <div class="sentence-text-en">${window.wordLookup ? window.wordLookup.wrap(item.sentences.negative.en) : item.sentences.negative.en}</div>
             <div class="sentence-text-tr">🇹🇷 ${item.sentences.negative.tr}</div>
           </div>
 
@@ -238,7 +238,7 @@ class VerbsView {
               <span>❓ Soru Cümlesi (?)</span>
               <button class="play-voice-btn" onclick="speechEngine.speak('${item.sentences.question.en.replace(/'/g, "\\'")}')">🔊</button>
             </div>
-            <div class="sentence-text-en">${item.sentences.question.en}</div>
+            <div class="sentence-text-en">${window.wordLookup ? window.wordLookup.wrap(item.sentences.question.en) : item.sentences.question.en}</div>
             <div class="sentence-text-tr">🇹🇷 ${item.sentences.question.tr}</div>
           </div>
         </div>

@@ -88,7 +88,11 @@ class StoryView {
 
   highlightVerbs(text) {
     if (!text) return '';
-    // Highlight target verbs with bold & color
+    // Wrap all words interactively for 1-click lookup & addition to custom notebook
+    if (window.wordLookup && typeof window.wordLookup.wrap === 'function') {
+      return window.wordLookup.wrap(text);
+    }
+
     const targetVerbs = ["achieve", "wakes up", "eats", "walks", "noticed", "seemed", "belonged", "decided", "open", "found", "written", "contain", "called", "loves", "discovered", "came", "looked", "solve", "develop", "impress", "prepare", "start", "agreed", "promised", "support", "complete", "described", "built", "change", "whispered", "realized", "begun"];
     
     let formatted = text;

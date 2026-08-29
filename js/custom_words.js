@@ -58,16 +58,35 @@ class CustomWordsManager {
     if (window.app) window.app.renderHome();
   }
 
-  addWord(wordEn, meaningTr) {
+  hasWord(wordEn) {
+    if (!wordEn) return false;
+    const clean = wordEn.trim().toLowerCase();
+    return this.customWords.some(w => w.wordEn.toLowerCase() === clean);
+  }
+
+  addWord(wordEn, meaningTr, typeLabel = 'Bilinmeyen Kelime') {
     if (!wordEn || !meaningTr) return false;
 
     const cleanEn = wordEn.trim().charAt(0).toUpperCase() + wordEn.trim().slice(1);
     const cleanTr = meaningTr.trim();
 
+    // Check if word already exists
+    const existingIndex = this.customWords.findIndex(w => w.wordEn.toLowerCase() === cleanEn.toLowerCase());
+    if (existingIndex >= 0) {
+      // Update existing word to top with new meaning if provided
+      const existing = this.customWords.splice(existingIndex, 1)[0];
+      existing.meaningTr = cleanTr || existing.meaningTr;
+      existing.typeLabel = typeLabel || existing.typeLabel || 'Bilinmeyen Kelime';
+      this.customWords.unshift(existing);
+      this.save();
+      return existing;
+    }
+
     const newWord = {
       id: Date.now(),
       wordEn: cleanEn,
       meaningTr: cleanTr,
+      typeLabel: typeLabel,
       mastered: false,
       favorite: false,
       date: new Date().toLocaleDateString('tr-TR')
