@@ -66,22 +66,30 @@ class WordLookupEngine {
       return { wordEn: '', tr: '', type_label: 'Kelime', icon: '📖' };
     }
 
-    // 1. Direct Local Dictionary / Master Dictionary match
-    if (this.localDict[w]) {
-      return { ...this.localDict[w], wordEn: w, original: cleanWord };
+    // Helper: lookup entry in localDict, MASTER_DICTIONARY, or cache
+    const findInDict = (key) => {
+      if (!key) return null;
+      const k = key.toLowerCase();
+      if (this.localDict && this.localDict[k] && this.localDict[k].tr && this.localDict[k].tr !== 'Kelime') {
+        return this.localDict[k];
+      }
+      if (window.MASTER_DICTIONARY && window.MASTER_DICTIONARY[k] && window.MASTER_DICTIONARY[k].tr && window.MASTER_DICTIONARY[k].tr !== 'Kelime') {
+        this.localDict[k] = window.MASTER_DICTIONARY[k];
+        return window.MASTER_DICTIONARY[k];
+      }
+      if (this.cache && this.cache[k] && this.cache[k].tr && this.cache[k].tr !== 'Kelime') {
+        return this.cache[k];
+      }
+      return null;
+    };
+
+    // 1. Direct match
+    const direct = findInDict(w);
+    if (direct) {
+      return { ...direct, wordEn: w, original: cleanWord };
     }
 
-    if (window.MASTER_DICTIONARY && window.MASTER_DICTIONARY[w]) {
-      this.localDict[w] = window.MASTER_DICTIONARY[w];
-      return { ...window.MASTER_DICTIONARY[w], wordEn: w, original: cleanWord };
-    }
-
-    // 2. Cache match
-    if (this.cache[w]) {
-      return { ...this.cache[w], wordEn: w, original: cleanWord };
-    }
-
-    // 3. School Mode 9th Grade Curriculum match & Notebook match
+    // 2. School Mode Curriculum match & Notebook match
     if (window.schoolMode) {
       if (window.schoolMode.schoolData && window.schoolMode.schoolData.units) {
         for (const u of window.schoolMode.schoolData.units) {
@@ -115,10 +123,10 @@ class WordLookupEngine {
       }
     }
 
-    // 4. Contractions mapping
+    // 3. Contractions mapping
     const contractionMap = {
       "don't": { root: "do", tr: "yapma(mak) / olumsuz geniş zaman", type_label: "Olumsuz Yardımcı Fiil" },
-      "doesn't": { root: "does", tr: "yapma(mak) / olumsuz geniş zaman", type_label: "Olumsuz Yardımcı Fiil" },
+      "doesn't": { root: "does", tr: "yapmaz / olumsuz geniş zaman", type_label: "Olumsuz Yardımcı Fiil" },
       "didn't": { root: "did", tr: "yapmadı / olumsuz geçmiş zaman", type_label: "Olumsuz Geçmiş Fiil" },
       "can't": { root: "can", tr: "yapamaz / yeteneksizlik", type_label: "Olumsuz Modal (Kip)" },
       "couldn't": { root: "could", tr: "yapamadı / geçmiş yeteneksizlik", type_label: "Olumsuz Modal (Kip)" },
@@ -163,6 +171,88 @@ class WordLookupEngine {
       };
     }
 
+    // 4. Irregular Forms Mapping (Verbs, Plurals, Comparatives)
+    const irregularMap = {
+      // Irregular Verbs
+      "am": "be", "is": "be", "are": "be", "was": "be", "were": "be", "been": "be", "being": "be",
+      "has": "have", "had": "have", "having": "have",
+      "does": "do", "did": "do", "done": "do", "doing": "do",
+      "goes": "go", "went": "go", "gone": "go", "going": "go",
+      "says": "say", "said": "say", "saying": "say",
+      "gets": "get", "got": "get", "gotten": "get", "getting": "get",
+      "makes": "make", "made": "make", "making": "make",
+      "knows": "know", "knew": "know", "known": "know", "knowing": "know",
+      "thinks": "think", "thought": "think", "thinking": "think",
+      "takes": "take", "took": "take", "taken": "take", "taking": "take",
+      "sees": "see", "saw": "see", "seen": "see", "seeing": "see",
+      "comes": "come", "came": "come", "coming": "come",
+      "finds": "find", "found": "find", "finding": "find",
+      "gives": "give", "gave": "give", "given": "give", "giving": "give",
+      "tells": "tell", "told": "tell", "telling": "tell",
+      "feels": "feel", "felt": "feel", "feeling": "feel",
+      "becomes": "become", "became": "become", "becoming": "become",
+      "leaves": "leave", "left": "leave", "leaving": "leave",
+      "puts": "put", "putting": "put",
+      "means": "mean", "meant": "mean", "meaning": "mean",
+      "keeps": "keep", "kept": "keep", "keeping": "keep",
+      "begins": "begin", "began": "begin", "begun": "begin", "beginning": "begin",
+      "shows": "show", "showed": "show", "shown": "show", "showing": "show",
+      "hears": "hear", "heard": "hear", "hearing": "hear",
+      "runs": "run", "ran": "run", "running": "run",
+      "writes": "write", "wrote": "write", "written": "write", "writing": "write",
+      "sits": "sit", "sat": "sit", "sitting": "sit",
+      "stands": "stand", "stood": "stand", "standing": "stand",
+      "loses": "lose", "lost": "lose", "losing": "lose",
+      "pays": "pay", "paid": "pay", "paying": "pay",
+      "meets": "meet", "met": "meet", "meeting": "meet",
+      "sets": "set", "setting": "set",
+      "learns": "learn", "learnt": "learn", "learned": "learn", "learning": "learn",
+      "leads": "lead", "led": "lead", "leading": "lead",
+      "understands": "understand", "understood": "understand", "understanding": "understand",
+      "speaks": "speak", "spoke": "speak", "spoken": "speak", "speaking": "speak",
+      "reads": "read", "reading": "read",
+      "spends": "spend", "spent": "spend", "spending": "spend",
+      "grows": "grow", "grew": "grow", "grown": "grow", "growing": "grow",
+      "wins": "win", "won": "win", "winning": "win",
+      "buys": "buy", "bought": "buy", "buying": "buy",
+      "sends": "send", "sent": "send", "sending": "send",
+      "builds": "build", "built": "build", "building": "build",
+      "falls": "fall", "fell": "fall", "fallen": "fall", "falling": "fall",
+      "breaks": "break", "broke": "break", "broken": "break", "breaking": "break",
+      "eats": "eat", "ate": "eat", "eaten": "eat", "eating": "eat",
+      "drinks": "drink", "drank": "drink", "drunk": "drink", "drinking": "drink",
+      "sleeps": "sleep", "slept": "sleep", "sleeping": "sleep",
+      "wakes": "wake", "woke": "wake", "woken": "wake", "waking": "wake",
+      "drives": "drive", "drove": "drive", "driven": "drive", "driving": "drive",
+      "flies": "fly", "flew": "fly", "flown": "fly", "flying": "fly",
+      "teaches": "teach", "taught": "teach", "teaching": "teach",
+      "catches": "catch", "caught": "catch", "catching": "catch",
+      "chooses": "choose", "chose": "choose", "chosen": "choose", "choosing": "choose",
+      // Irregular Plurals
+      "children": "child", "people": "person", "men": "man", "women": "woman",
+      "feet": "foot", "teeth": "tooth", "mice": "mouse", "geese": "goose",
+      "lives": "life", "knives": "knife", "wives": "wife", "leaves": "leaf",
+      "halves": "half", "shelves": "shelf", "calves": "calf", "wolves": "wolf",
+      // Common comparatives / superlatives
+      "better": "good", "best": "good", "worse": "bad", "worst": "bad",
+      "farther": "far", "further": "far", "farthest": "far", "furthest": "far"
+    };
+
+    if (irregularMap[w]) {
+      const rootWord = irregularMap[w];
+      const entry = findInDict(rootWord);
+      if (entry) {
+        return {
+          ...entry,
+          wordEn: w,
+          root: rootWord,
+          tr: entry.tr,
+          type_label: `${entry.type_label || entry.type || 'Kelime'} (${rootWord})`,
+          original: cleanWord
+        };
+      }
+    }
+
     // 5. Morphological Stemming Rules
     const candidates = [];
 
@@ -192,7 +282,7 @@ class WordLookupEngine {
       }
     }
 
-    // Rule: Plural or 3rd Person Singular -s, -es, -ies (books -> book, watches -> watch, flies -> fly)
+    // Rule: Plural or 3rd Person Singular -s, -es, -ies (weekends -> weekend, books -> book, watches -> watch, flies -> fly)
     if (w.endsWith('ies') && w.length > 4) {
       candidates.push({ stem: w.slice(0, -3) + 'y', rule: 'plural_ies' });
     } else if (w.endsWith('es') && w.length > 3) {
@@ -225,32 +315,32 @@ class WordLookupEngine {
       if (w.endsWith('ier')) candidates.push({ stem: w.slice(0, -3) + 'y', rule: 'comparative' });
     }
 
-    // Check if any candidate stem exists in the local dictionary
+    // Check if any candidate stem exists in dictionary
     for (const c of candidates) {
-      const entry = this.localDict[c.stem] || (window.MASTER_DICTIONARY && window.MASTER_DICTIONARY[c.stem]);
+      const entry = findInDict(c.stem);
       if (entry) {
         let suffixDesc = "";
         let finalType = entry.type_label || entry.type;
 
         if (c.rule === 'verb_ing') {
-          suffixDesc = " (Şimdiki Zaman / -ing Hali)";
+          suffixDesc = " (Şimdiki Zaman / -ing)";
           finalType = "Şimdiki Zaman / Fiil (V-ing)";
         } else if (c.rule === 'verb_ed') {
-          suffixDesc = " (Geçmiş Zaman / -ed Hali)";
+          suffixDesc = " (Geçmiş Zaman / -ed)";
           finalType = "Geçmiş Zaman / Fiil (V2/V3)";
         } else if (c.rule.startsWith('plural')) {
           suffixDesc = " (Çoğul / 3. Tekil)";
-          finalType = entry.type === 'noun' || (entry.type_label && entry.type_label.includes('İsim')) 
-            ? "Çoğul İsim (Plural Noun)" 
+          finalType = (entry.type && entry.type.includes('noun')) || (entry.type_label && entry.type_label.includes('İsim')) 
+            ? "Çoğul İsim (Plural)" 
             : "Geniş Zaman Fiil (3. Tekil)";
         } else if (c.rule === 'adverb_ly') {
           suffixDesc = " (Zarf Hali)";
           finalType = "Durum Zarfı (Adverb)";
         } else if (c.rule === 'comparative') {
-          suffixDesc = " (Daha ... Karşılaştırma Hali)";
+          suffixDesc = " (Daha ...)";
           finalType = "Karşılaştırma Sıfatı (Comparative)";
         } else if (c.rule === 'superlative') {
-          suffixDesc = " (En ... Üstünlük Hali)";
+          suffixDesc = " (En ...)";
           finalType = "Üstünlük Sıfatı (Superlative)";
         }
 
@@ -315,7 +405,9 @@ class WordLookupEngine {
         const safePos = pos.replace(/"/g, '&quot;');
         const safeTooltip = tooltipTitle.replace(/"/g, '&quot;');
 
-        return `<span class="interactive-word" onclick="wordLookup.openWord('${clean.replace(/'/g, "\\'")}', event)" onmouseenter="wordLookup.handleWordHover(this, '${clean.replace(/'/g, "\\'")}')" data-word="${clean.toLowerCase()}" data-meaning="${safeMeaning}" data-pos="${safePos}" title="${safeTooltip}" data-tooltip="${safeTooltip}">${match}</span>`;
+        // IMPORTANT: We omit native title attribute to prevent ugly OS gray boxes.
+        // CSS hover balloons use data-meaning to display sleek glowing tooltips.
+        return `<span class="interactive-word" onclick="wordLookup.openWord('${clean.replace(/'/g, "\\'")}', event)" onmouseenter="wordLookup.handleWordHover(this, '${clean.replace(/'/g, "\\'")}')" data-word="${clean.toLowerCase()}" data-meaning="${safeMeaning}" data-pos="${safePos}" data-tooltip="${safeTooltip}">${match}</span>`;
       });
     }).join('');
   }
@@ -330,7 +422,6 @@ class WordLookupEngine {
         const tr = info.tr.replace(/🇹🇷/g, '').trim();
         spanEl.setAttribute('data-meaning', tr);
         spanEl.setAttribute('data-pos', info.type_label || 'Kelime');
-        spanEl.setAttribute('title', `${clean} ➔ ${tr} (${info.type_label || 'Kelime'})`);
         spanEl.setAttribute('data-tooltip', `${clean} ➔ ${tr} (${info.type_label || 'Kelime'})`);
       } else {
         this.fetchWordMeaningQuietly(clean, spanEl);
@@ -343,7 +434,6 @@ class WordLookupEngine {
       const tr = this.cache[cleanWord].tr;
       if (spanEl && tr) {
         spanEl.setAttribute('data-meaning', tr);
-        spanEl.setAttribute('title', `${cleanWord} ➔ ${tr}`);
         spanEl.setAttribute('data-tooltip', `${cleanWord} ➔ ${tr}`);
       }
       return;
@@ -364,7 +454,6 @@ class WordLookupEngine {
           this.saveCache();
           if (spanEl) {
             spanEl.setAttribute('data-meaning', turkish);
-            spanEl.setAttribute('title', `${cleanWord} ➔ ${turkish}`);
             spanEl.setAttribute('data-tooltip', `${cleanWord} ➔ ${turkish}`);
           }
         }
