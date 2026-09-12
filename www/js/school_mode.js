@@ -71,6 +71,22 @@ class SchoolModeManager {
     }
   }
 
+  openUnit(unitId) {
+    if (typeof this.closeGrammarDetailModal === 'function') {
+      this.closeGrammarDetailModal();
+    }
+    if (window.app && window.app.appMode !== 'school') {
+      window.app.switchAppMode('school');
+    }
+    const targetUnit = (this.curriculum && this.curriculum.units)
+      ? this.curriculum.units.find(u => u.id === unitId || u.code === unitId || `fh_unit_${u.number}` === unitId)
+      : null;
+    const finalUnitId = targetUnit ? targetUnit.id : (unitId || 'fh_unit_1');
+
+    this.switchSubTab('units', finalUnitId);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
   openGrammarDetailModal(unitId) {
     const unit = (this.curriculum.units || []).find(u => u.id === unitId) || this.curriculum.units[0];
     if (!unit || !unit.grammar_details) {
