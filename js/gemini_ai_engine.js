@@ -347,3 +347,4 @@ Return ONLY valid JSON in this exact structure:
 
 // Global instance
 window.geminiAI = new GeminiAIEngine();
+window.geminiAIEngine = window.geminiAI;

@@ -1,31 +1,25 @@
-/**
- * Speech Synthesis (TTS) Dual-Engine Utility for English Words & Sentences
- * High compatibility with Android APK, WebView, iOS Safari, Chrome & Desktop.
- * 
- * Includes:
- * 1. Web Speech API with Android WebView GC protection & watchdog timer.
- * 2. High-Fidelity HTML5 Audio Fallback Engine (for devices where Web Speech is muted or missing).
- * 3. Proactive Audio Unlock on initial touch/click.
- */
-
 class SpeechEngine {
   constructor() {
     this.synth = window.speechSynthesis || null;
     this.voices = [];
     this.selectedVoice = null;
-    this.rate = 0.9; // Optimal pace for language learners
+    this.rate = 0.88; // Natural conversational human pace
     this.pitch = 1.0;
     this.isSpeaking = false;
     this._activeUtterance = null;
     this._watchdogTimer = null;
     this._currentAudio = null;
     this._isAudioUnlocked = false;
+    
+    // Voice Persona: 'emily_studio' (Default HD Female) | 'alex_studio' (HD Male) | 'device_neural'
+    this.voiceProfile = localStorage.getItem('english_app_voice_profile') || 'emily_studio';
+    this.voiceMode = localStorage.getItem('english_app_voice_mode') || 'natural_human';
+    this.voiceGender = localStorage.getItem('english_app_voice_gender') || 'female';
 
     this.init();
   }
 
   init() {
-    // Setup Web Speech API
     if (this.synth) {
       this.initVoices();
       if (typeof speechSynthesis.onvoiceschanged !== 'undefined') {
@@ -33,12 +27,9 @@ class SpeechEngine {
       }
     }
 
-    // Proactive audio unlock on first user gesture
     const unlockAudio = () => {
       if (this._isAudioUnlocked) return;
       this._isAudioUnlocked = true;
-
-      // Silent utterance / audio unlock for Android WebViews & iOS
       try {
         if (this.synth) {
           const silent = new SpeechSynthesisUtterance('');
@@ -47,7 +38,6 @@ class SpeechEngine {
         }
       } catch (e) {}
 
-      // Remove listeners once unlocked
       window.removeEventListener('touchstart', unlockAudio, true);
       window.removeEventListener('click', unlockAudio, true);
     };
@@ -61,17 +51,70 @@ class SpeechEngine {
     try {
       this.voices = this.synth.getVoices() || [];
       if (this.voices.length > 0) {
-        // Priority 1: High quality English (US or UK/GB)
-        this.selectedVoice = 
-          this.voices.find(v => (v.lang === 'en-US' || v.lang === 'en_US') && (v.name.includes('Google') || v.name.includes('Natural') || v.name.includes('Samantha') || v.name.includes('Siri'))) ||
-          this.voices.find(v => v.lang === 'en-US' || v.lang === 'en_US') ||
-          this.voices.find(v => v.lang === 'en-GB' || v.lang === 'en_GB') ||
-          this.voices.find(v => v.lang.startsWith('en')) ||
-          this.voices[0];
+        const enVoices = this.voices.filter(v => v.lang.startsWith('en'));
+        
+        // Priority ranking for natural sounding female voices
+        const femaleRanked = enVoices.find(v => 
+          v.name.includes('Samantha') || 
+          v.name.includes('Ava') || 
+          v.name.includes('Jenny') || 
+          v.name.includes('Aria') || 
+          v.name.includes('Google US English') ||
+          v.name.includes('Victoria') ||
+          v.name.includes('Natural') ||
+          v.name.includes('Enhanced') ||
+          v.name.includes('Premium')
+        );
+
+        // Priority ranking for natural sounding male voices
+        const maleRanked = enVoices.find(v => 
+          v.name.includes('Guy') || 
+          v.name.includes('Daniel') || 
+          v.name.includes('Tom') || 
+          v.name.includes('Google UK English Male') || 
+          v.name.includes('Oliver') ||
+          v.name.includes('Alex')
+        );
+
+        if (this.voiceGender === 'female' && femaleRanked) {
+          this.selectedVoice = femaleRanked;
+        } else if (this.voiceGender === 'male' && maleRanked) {
+          this.selectedVoice = maleRanked;
+        } else {
+          this.selectedVoice = femaleRanked || enVoices.find(v => v.lang === 'en-US') || enVoices[0] || this.voices[0];
+        }
       }
     } catch (e) {
       console.warn("Could not load voices:", e);
     }
+  }
+
+  setVoiceProfile(profile) {
+    this.voiceProfile = profile;
+    localStorage.setItem('english_app_voice_profile', profile);
+    if (profile === 'alex_studio') {
+      this.voiceMode = 'natural_human';
+      this.voiceGender = 'male';
+    } else if (profile === 'emily_studio') {
+      this.voiceMode = 'natural_human';
+      this.voiceGender = 'female';
+    } else if (profile === 'device_neural') {
+      this.voiceMode = 'device_neural';
+    }
+    localStorage.setItem('english_app_voice_mode', this.voiceMode);
+    localStorage.setItem('english_app_voice_gender', this.voiceGender);
+    this.initVoices();
+  }
+
+  setVoiceMode(mode) {
+    this.voiceMode = mode;
+    localStorage.setItem('english_app_voice_mode', mode);
+  }
+
+  setVoiceGender(gender) {
+    this.voiceGender = gender;
+    localStorage.setItem('english_app_voice_gender', gender);
+    this.initVoices();
   }
 
   speak(text, onEnd = null) {
@@ -80,10 +123,11 @@ class SpeechEngine {
       return;
     }
 
-    // Clean brackets, strange markdown or emojis
     const cleanText = text
-      .replace(/[\(\)\[\]\{\}\*\_~#]/g, '')
-      .replace(/[\u{1F600}-\u{1F6FF}|[\u{1F300}-\u{1F5FF}|[\u{1F680}-\u{1F6FF}|[\u{2600}-\u{26FF}]/gu, '')
+      .replace(/[\(\)\[\]\{\}\*\_~#]/g, ' ')
+      .replace(/[\u{1F600}-\u{1F6FF}|\u{1F300}-\u{1F5FF}|\u{1F680}-\u{1F6FF}|\u{2600}-\u{26FF}|\u{2700}-\u{27BF}]/gu, '')
+      .replace(/["“”'‘’]/g, '')
+      .replace(/\s+/g, ' ')
       .trim();
 
     if (!cleanText) {
@@ -91,119 +135,160 @@ class SpeechEngine {
       return;
     }
 
-    // Stop previous audio
     this.stop();
 
-    // Check if we can use Web Speech API
-    const canUseWebSpeech = this.synth && typeof SpeechSynthesisUtterance !== 'undefined';
-
-    if (canUseWebSpeech) {
-      try {
-        // Safety cancel & resume if paused by browser autoplay policy
-        if (this.synth.paused) {
-          this.synth.resume();
-        }
-        this.synth.cancel();
-
-        const utterance = new SpeechSynthesisUtterance(cleanText);
-        utterance.lang = 'en-US';
-        utterance.rate = this.rate;
-        utterance.pitch = this.pitch;
-
-        if (this.selectedVoice) {
-          utterance.voice = this.selectedVoice;
-        } else {
-          this.initVoices();
-          if (this.selectedVoice) utterance.voice = this.selectedVoice;
-        }
-
-        // CRITICAL FIX: Keep utterance in memory to avoid Android WebView GC bug
-        this._activeUtterance = utterance;
-
-        let hasStarted = false;
-
-        utterance.onstart = () => {
-          this.isSpeaking = true;
-          hasStarted = true;
-        };
-
-        utterance.onend = () => {
-          this.isSpeaking = false;
-          this._activeUtterance = null;
-          this.clearWatchdog();
-          if (onEnd) onEnd();
-        };
-
-        utterance.onerror = (e) => {
-          console.warn("Web Speech API error, switching to HTML5 Audio fallback:", e);
-          this.isSpeaking = false;
-          this._activeUtterance = null;
-          this.clearWatchdog();
-          // Fallback to HTML5 audio stream
-          this.speakViaAudioStream(cleanText, onEnd);
-        };
-
-        // Watchdog: If Web Speech doesn't start or finish within reasonable time (e.g. frozen in Android WebView)
-        this.clearWatchdog();
-        const expectedDuration = Math.max(2500, cleanText.length * 90);
-        this._watchdogTimer = setTimeout(() => {
-          if (!hasStarted) {
-            console.warn("SpeechSynthesis did not start within 800ms, using Audio stream fallback.");
-            if (this.synth) this.synth.cancel();
-            this._activeUtterance = null;
-            this.speakViaAudioStream(cleanText, onEnd);
-          } else if (this.isSpeaking) {
-            this.isSpeaking = false;
-            this._activeUtterance = null;
-            if (onEnd) onEnd();
-          }
-        }, Math.min(8000, expectedDuration));
-
-        this.synth.speak(utterance);
-        return;
-      } catch (err) {
-        console.warn("Exception in Web Speech speak, fallback to audio stream:", err);
-      }
+    // Mode 1: Natural Human Studio Audio Stream (Default & Lifelike)
+    if (this.voiceMode === 'natural_human' || this.voiceProfile !== 'device_neural') {
+      this.speakNaturalHumanStream(cleanText, onEnd);
+      return;
     }
 
-    // Primary Fallback: HTML5 Audio Stream
-    this.speakViaAudioStream(cleanText, onEnd);
+    // Mode 2: Device Neural Web Speech API
+    this.speakDeviceSynth(cleanText, onEnd);
   }
 
-  speakViaAudioStream(cleanText, onEnd = null) {
+  /**
+   * Ultra-HD Natural Human Studio Voice Stream
+   * Uses Google Neural TTS endpoint + sentence streaming with fallback
+   */
+  speakNaturalHumanStream(cleanText, onEnd = null) {
     this.stop();
     this.isSpeaking = true;
 
-    // High quality speech endpoints with graceful fallback
-    const encoded = encodeURIComponent(cleanText);
-    const audioUrl1 = `https://translate.google.com/translate_tts?ie=UTF-8&tl=en&client=tw-ob&q=${encoded}`;
-    const audioUrl2 = `https://dict.youdao.com/dictvoice?audio=${encoded}&type=2`; // US English pronunciation fallback
-
-    const audio = new Audio();
-    this._currentAudio = audio;
-
-    const cleanup = () => {
+    // Split text into coherent sentences for seamless natural audio streaming
+    const rawSentences = cleanText.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [cleanText];
+    const sentences = rawSentences.map(s => s.trim()).filter(s => s.length > 0);
+    
+    if (sentences.length === 0) {
       this.isSpeaking = false;
-      this._currentAudio = null;
       if (onEnd) onEnd();
-    };
+      return;
+    }
 
-    audio.onended = cleanup;
-    audio.onerror = () => {
-      // Try secondary endpoint
-      if (audio.src !== audioUrl2) {
-        audio.src = audioUrl2;
-        audio.play().catch(() => cleanup());
-      } else {
-        cleanup();
+    let currentIndex = 0;
+
+    const playNext = () => {
+      if (currentIndex >= sentences.length) {
+        this.isSpeaking = false;
+        this._currentAudio = null;
+        if (onEnd) onEnd();
+        return;
+      }
+
+      const sentence = sentences[currentIndex];
+      currentIndex++;
+      const encoded = encodeURIComponent(sentence);
+
+      // Studio Voice Endpoints
+      const langParam = (this.voiceGender === 'male' || this.voiceProfile === 'alex_studio') ? 'en-GB' : 'en-US';
+      const primaryUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=${langParam}&client=tw-ob&q=${encoded}`;
+      const fallbackUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=en-US&client=tw-ob&q=${encoded}`;
+
+      const audio = new Audio();
+      this._currentAudio = audio;
+      audio.playbackRate = this.rate;
+
+      let hasEnded = false;
+      const handleEnd = () => {
+        if (!hasEnded) {
+          hasEnded = true;
+          playNext();
+        }
+      };
+
+      audio.onended = handleEnd;
+
+      audio.onerror = () => {
+        if (audio.src !== fallbackUrl) {
+          audio.src = fallbackUrl;
+          audio.play().catch(() => {
+            // If network stream fails, fallback to device synth for this sentence
+            this.speakDeviceSynth(sentence, handleEnd);
+          });
+        } else {
+          this.speakDeviceSynth(sentence, handleEnd);
+        }
+      };
+
+      audio.src = primaryUrl;
+      const playPromise = audio.play();
+      if (playPromise !== undefined) {
+        playPromise.catch((err) => {
+          console.warn("Audio stream autoplay catch, using device synth fallback:", err);
+          this.speakDeviceSynth(sentence, handleEnd);
+        });
       }
     };
 
-    audio.src = audioUrl1;
-    audio.play().catch(e => {
-      console.warn("Audio play rejected or failed:", e);
-      cleanup();
-    });
+    playNext();
+  }
+
+  /**
+   * Device Neural Speech Synthesis Engine (Web Speech API)
+   */
+  speakDeviceSynth(cleanText, onEnd = null) {
+    const canUseWebSpeech = this.synth && typeof SpeechSynthesisUtterance !== 'undefined';
+    if (!canUseWebSpeech) {
+      if (onEnd) onEnd();
+      return;
+    }
+
+    try {
+      if (this.synth.paused) {
+        this.synth.resume();
+      }
+      this.synth.cancel();
+
+      const utterance = new SpeechSynthesisUtterance(cleanText);
+      utterance.lang = 'en-US';
+      utterance.rate = this.rate;
+      utterance.pitch = (this.voiceGender === 'female' || this.voiceProfile === 'emily_studio') ? 1.05 : 0.95;
+
+      if (!this.selectedVoice) this.initVoices();
+      if (this.selectedVoice) utterance.voice = this.selectedVoice;
+
+      this._activeUtterance = utterance;
+      let hasStarted = false;
+
+      utterance.onstart = () => {
+        this.isSpeaking = true;
+        hasStarted = true;
+      };
+
+      utterance.onend = () => {
+        this.isSpeaking = false;
+        this._activeUtterance = null;
+        this.clearWatchdog();
+        if (onEnd) onEnd();
+      };
+
+      utterance.onerror = (e) => {
+        console.warn("Web Speech API error:", e);
+        this.isSpeaking = false;
+        this._activeUtterance = null;
+        this.clearWatchdog();
+        if (onEnd) onEnd();
+      };
+
+      this.clearWatchdog();
+      const expectedDuration = Math.max(2500, cleanText.length * 95);
+      this._watchdogTimer = setTimeout(() => {
+        if (!hasStarted) {
+          if (this.synth) this.synth.cancel();
+          this._activeUtterance = null;
+          if (onEnd) onEnd();
+        } else if (this.isSpeaking) {
+          this.isSpeaking = false;
+          this._activeUtterance = null;
+          if (onEnd) onEnd();
+        }
+      }, Math.min(9000, expectedDuration));
+
+      this.synth.speak(utterance);
+    } catch (err) {
+      console.warn("Web Speech exception:", err);
+      if (onEnd) onEnd();
+    }
   }
 
   stop() {
@@ -232,7 +317,7 @@ class SpeechEngine {
   }
 
   setRate(rate) {
-    this.rate = Math.max(0.5, Math.min(1.5, rate));
+    this.rate = Math.max(0.6, Math.min(1.4, rate));
   }
 }
 
@@ -240,4 +325,5 @@ class SpeechEngine {
 const speechInstance = new SpeechEngine();
 window.speechEngine = speechInstance;
 window.speechUtils = speechInstance;
+
 
