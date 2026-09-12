@@ -265,7 +265,7 @@ class WordLookupEngine {
 
     return {
       wordEn: w,
-      tr: "Anlam aranıyor...",
+      tr: "Kelime",
       type: "unknown",
       type_label: guessedType,
       icon: guessedIcon,

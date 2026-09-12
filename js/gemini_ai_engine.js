@@ -164,7 +164,7 @@ Return strictly JSON with the following structure:
             </div>
           </div>
 
-          <div class="form-row" style="margin-bottom:16px;">
+          <div class="form-row" style="margin-bottom:12px;">
             <label style="font-size:0.82rem; font-weight:700; color:#ffffff; margin-bottom:6px; display:block;">
               🔑 Google Gemini API Anahtarınız (AIzaSy...):
             </label>
@@ -172,6 +172,8 @@ Return strictly JSON with the following structure:
                    placeholder="AIzaSy..." value="${currentKey}" 
                    style="width:100%; font-family:monospace; font-size:0.9rem;">
           </div>
+
+          <div id="gemini-modal-status-msg" style="font-size:0.82rem; margin-bottom:14px; min-height:20px;"></div>
 
           <div style="display:flex; justify-content:space-between; align-items:center; gap:8px;">
             ${currentKey ? `
@@ -184,8 +186,8 @@ Return strictly JSON with the following structure:
               <button class="btn-secondary" onclick="document.getElementById('gemini-config-modal').remove()">
                 Kapat
               </button>
-              <button class="btn-primary" style="background:linear-gradient(135deg, #6366f1, #38bdf8);" onclick="geminiAI.saveKeyFromModal()">
-                💾 Kaydet & Etkinleştir
+              <button class="btn-primary" id="gemini-save-btn" style="background:linear-gradient(135deg, #6366f1, #38bdf8);" onclick="geminiAI.saveKeyFromModal()">
+                💾 Test Et & Etkinleştir
               </button>
             </div>
           </div>
@@ -197,32 +199,74 @@ Return strictly JSON with the following structure:
     this._onSuccessCallback = onSuccessCallback;
   }
 
-  saveKeyFromModal() {
+  async saveKeyFromModal() {
     const input = document.getElementById('gemini-api-key-input');
     const key = input ? input.value.trim() : '';
+    const statusMsgEl = document.getElementById('gemini-modal-status-msg');
+    const saveBtn = document.getElementById('gemini-save-btn');
+
     if (!key) {
-      if (window.app) window.app.showToast('Lütfen geçerli bir Gemini API anahtarı girin.');
+      if (statusMsgEl) {
+        statusMsgEl.innerHTML = `<span style="color:#f87171;">⚠️ Lütfen geçerli bir Gemini API anahtarı girin.</span>`;
+      }
       return;
     }
 
-    this.setApiKey(key);
-    const modal = document.getElementById('gemini-config-modal');
-    if (modal) modal.remove();
-
-    if (window.app) {
-      window.app.showToast('✅ Google Gemini AI Anahtarı Başarıyla Kaydedildi!');
+    if (saveBtn) {
+      saveBtn.disabled = true;
+      saveBtn.innerHTML = '🔄 Doğrulanıyor...';
+    }
+    if (statusMsgEl) {
+      statusMsgEl.innerHTML = `<span style="color:#38bdf8;">🔄 Google Gemini API bağlantısı test ediliyor...</span>`;
     }
 
-    // Refresh scanner UI to show active status
-    const btnStatus = document.getElementById('btn-gemini-status');
-    if (btnStatus) {
-      btnStatus.innerHTML = '<span>🤖</span><span>Gemini AI: Aktif</span>';
-      btnStatus.style.borderColor = '#38bdf8';
-    }
+    try {
+      const testUrl = `https://generativelanguage.googleapis.com/v1beta/models/${this.model}:generateContent?key=${key}`;
+      const res = await fetch(testUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [{ role: 'user', parts: [{ text: 'Respond with OK.' }] }]
+        })
+      });
 
-    if (this._onSuccessCallback && typeof this._onSuccessCallback === 'function') {
-      this._onSuccessCallback();
-      this._onSuccessCallback = null;
+      if (!res.ok) {
+        const errJson = await res.json().catch(() => ({}));
+        const errDetail = errJson.error?.message || `HTTP ${res.status}`;
+        throw new Error(`API Hatası: ${errDetail}`);
+      }
+
+      this.setApiKey(key);
+      if (statusMsgEl) {
+        statusMsgEl.innerHTML = `<span style="color:#4ade80;">✅ Başarılı! Gemini 1.5 Flash bağlandı.</span>`;
+      }
+
+      setTimeout(() => {
+        const modal = document.getElementById('gemini-config-modal');
+        if (modal) modal.remove();
+        if (window.app) {
+          window.app.showToast('✅ Google Gemini AI Başarıyla Bağlandı! (+20 XP)');
+        }
+        const btnStatus = document.getElementById('btn-gemini-status');
+        if (btnStatus) {
+          btnStatus.innerHTML = '<span>🤖</span><span>Gemini AI: Aktif ✅</span>';
+          btnStatus.style.borderColor = '#38bdf8';
+          btnStatus.style.background = 'rgba(56,189,248,0.2)';
+        }
+        if (this._onSuccessCallback && typeof this._onSuccessCallback === 'function') {
+          this._onSuccessCallback();
+          this._onSuccessCallback = null;
+        }
+      }, 700);
+
+    } catch (err) {
+      if (saveBtn) {
+        saveBtn.disabled = false;
+        saveBtn.innerHTML = '💾 Test Et & Etkinleştir';
+      }
+      if (statusMsgEl) {
+        statusMsgEl.innerHTML = `<span style="color:#f87171;">❌ ${err.message}</span>`;
+      }
     }
   }
 
@@ -235,8 +279,9 @@ Return strictly JSON with the following structure:
     }
     const btnStatus = document.getElementById('btn-gemini-status');
     if (btnStatus) {
-      btnStatus.innerHTML = '<span>🤖</span><span>Gemini AI: Bağla</span>';
+      btnStatus.innerHTML = '<span>🤖</span><span>Gemini AI: API Bağla 🔑</span>';
       btnStatus.style.borderColor = 'rgba(255,255,255,0.2)';
+      btnStatus.style.background = 'rgba(255,255,255,0.05)';
     }
   }
 }
