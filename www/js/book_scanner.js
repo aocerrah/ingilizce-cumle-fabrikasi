@@ -90,6 +90,62 @@ class BookScannerEngine {
     return this.analyzeText(rawText, pageTitle);
   }
 
+  /**
+   * Google Gemini AI ile Derin Sayfa Analizi, OCR Hata Düzeltme & Zengin Gramer Çıkarma
+   */
+  async scanTextWithGemini(rawText, pageTitle = "Gemini AI Sayfa Analizi") {
+    if (!window.geminiAI || !window.geminiAI.hasApiKey()) {
+      throw new Error('NO_API_KEY');
+    }
+
+    const geminiData = await window.geminiAI.analyzePage(rawText);
+    
+    // Map Gemini words to our format
+    const extractedWords = (geminiData.words || []).map(w => {
+      let lookup = window.wordLookup ? window.wordLookup.lemmatize(w.en) : null;
+      return {
+        en: w.en,
+        tr: w.tr || (lookup ? lookup.tr : 'Kelime'),
+        pos: w.pos || w.type_label || (lookup ? lookup.type_label : 'Kelime'),
+        count: w.count || 1,
+        isStopWord: false
+      };
+    });
+
+    // Map Gemini grammar points to our format
+    const grammarMatches = (geminiData.grammar_points || []).map(gp => ({
+      key: 'gemini_grammar',
+      structure: gp.structure || 'Gramer Konusu',
+      rule: gp.rule || 'Kural açıklaması',
+      sentence: gp.sentence || '',
+      unit_id: 'fh_unit_1',
+      unit_code: gp.unit_code || '9. Sınıf',
+      subtopic_index: 0
+    }));
+
+    const result = {
+      id: "scan_gemini_" + Date.now(),
+      title: pageTitle,
+      date: new Date().toLocaleDateString('tr-TR') + ' ' + new Date().toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' }),
+      rawText: rawText,
+      cleanedText: geminiData.cleaned_text || rawText,
+      summaryTr: geminiData.summary_tr || '',
+      cefrLevel: geminiData.cefr_level || 'A2/B1',
+      isGemini: true,
+      tokenCount: (geminiData.cleaned_text || rawText).split(/\s+/).length,
+      uniqueWordCount: extractedWords.length,
+      grammarMatches: grammarMatches,
+      extractedWords: extractedWords
+    };
+
+    this.currentAnalysis = result;
+    this.scannedHistory.unshift(result);
+    if (this.scannedHistory.length > 20) this.scannedHistory.pop();
+    this.saveHistory();
+
+    return result;
+  }
+
   analyzeText(rawText, pageTitle = "Fly Higher Ders Sayfası", unitId = "fh_unit_1") {
     if (!rawText || typeof rawText !== 'string' || rawText.trim().length === 0) {
       return {
@@ -175,23 +231,23 @@ class BookScannerEngine {
     if (this.scannedHistory.length > 20) this.scannedHistory.pop();
     this.saveHistory();
 
-    // Auto-enrich any unknown words in background
+    // Auto-enrich any unknown words in background with parallel fetch
     setTimeout(() => {
       this.enrichUnknownWords(result.extractedWords);
-    }, 150);
+    }, 50);
 
     return result;
   }
 
   /**
-   * Bilinmeyen kelimelerin Türkçe karşılıklarını arka planda çevirip kartları anında günceller
+   * Bilinmeyen kelimelerin Türkçe karşılıklarını paralel hızlı çeviriyle anında getirir
    */
   async enrichUnknownWords(wordList) {
     if (!wordList || !Array.isArray(wordList)) return;
-    const unknownItems = wordList.filter(w => !w.tr || w.tr.includes('aranıyor') || w.tr === 'Sözlükte anlamı aranabilir');
+    const unknownItems = wordList.filter(w => !w.tr || w.tr.includes('aranıyor') || w.tr === 'Sözlükte anlamı aranabilir' || w.tr === 'Kelime');
     if (unknownItems.length === 0) return;
 
-    for (const item of unknownItems.slice(0, 20)) {
+    const translatePromises = unknownItems.slice(0, 30).map(async (item) => {
       try {
         const res = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=tr&dt=t&q=${encodeURIComponent(item.en)}`);
         if (res.ok) {
@@ -217,8 +273,10 @@ class BookScannerEngine {
             });
           }
         }
-      } catch(e) {}
-    }
+      } catch (e) {}
+    });
+
+    await Promise.allSettled(translatePromises);
   }
 
   /**

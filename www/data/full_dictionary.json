@@ -6936,6 +6936,2393 @@
     "icon": "❌",
     "wordEn": "wrong"
   },
+  "people": {
+    "tr": "insanlar, halk",
+    "type": "çoğul i̇sim",
+    "type_label": "Çoğul İsim",
+    "icon": "👥",
+    "wordEn": "people"
+  },
+  "history": {
+    "tr": "tarih, geçmiş",
+    "type": "i̇sim (subject)",
+    "type_label": "İsim (Subject)",
+    "icon": "📜",
+    "wordEn": "history"
+  },
+  "world": {
+    "tr": "dünya, alem",
+    "type": "i̇sim (geography)",
+    "type_label": "İsim (Geography)",
+    "icon": "🌍",
+    "wordEn": "world"
+  },
+  "information": {
+    "tr": "bilgi, enformasyon",
+    "type": "i̇sim (noun)",
+    "type_label": "İsim (Noun)",
+    "icon": "ℹ️",
+    "wordEn": "information"
+  },
+  "map": {
+    "tr": "harita / haritasını çıkarmak",
+    "type": "i̇sim / fiil",
+    "type_label": "İsim / Fiil",
+    "icon": "🗺️",
+    "wordEn": "map"
+  },
+  "family": {
+    "tr": "aile, hane",
+    "type": "i̇sim (society)",
+    "type_label": "İsim (Society)",
+    "icon": "👨‍👩‍👧‍👦",
+    "wordEn": "family"
+  },
+  "government": {
+    "tr": "hükümet, yönetim",
+    "type": "i̇sim (politics)",
+    "type_label": "İsim (Politics)",
+    "icon": "🏛️",
+    "wordEn": "government"
+  },
+  "system": {
+    "tr": "sistem, düzenek",
+    "type": "i̇sim (technology)",
+    "type_label": "İsim (Technology)",
+    "icon": "⚙️",
+    "wordEn": "system"
+  },
+  "computer": {
+    "tr": "bilgisayar",
+    "type": "i̇sim (technology)",
+    "type_label": "İsim (Technology)",
+    "icon": "💻",
+    "wordEn": "computer"
+  },
+  "theory": {
+    "tr": "teori, kuram",
+    "type": "i̇sim (science)",
+    "type_label": "İsim (Science)",
+    "icon": "🔬",
+    "wordEn": "theory"
+  },
+  "law": {
+    "tr": "kanun, yasa, hukuk",
+    "type": "i̇sim (law)",
+    "type_label": "İsim (Law)",
+    "icon": "⚖️",
+    "wordEn": "law"
+  },
+  "bird": {
+    "tr": "kuş",
+    "type": "i̇sim (animal)",
+    "type_label": "İsim (Animal)",
+    "icon": "🐦",
+    "wordEn": "bird"
+  },
+  "literature": {
+    "tr": "edebiyat, yazın",
+    "type": "i̇sim (art)",
+    "type_label": "İsim (Art)",
+    "icon": "📚",
+    "wordEn": "literature"
+  },
+  "problem": {
+    "tr": "problem, sorun",
+    "type": "i̇sim (noun)",
+    "type_label": "İsim (Noun)",
+    "icon": "⚠️",
+    "wordEn": "problem"
+  },
+  "software": {
+    "tr": "yazılım, program",
+    "type": "i̇sim (technology)",
+    "type_label": "İsim (Technology)",
+    "icon": "💾",
+    "wordEn": "software"
+  },
+  "control": {
+    "tr": "kontrol etmek / denetim",
+    "type": "fiil / i̇sim",
+    "type_label": "Fiil / İsim",
+    "icon": "🎛️",
+    "wordEn": "control"
+  },
+  "economics": {
+    "tr": "ekonomi, iktisat",
+    "type": "i̇sim (subject)",
+    "type_label": "İsim (Subject)",
+    "icon": "📊",
+    "wordEn": "economics"
+  },
+  "internet": {
+    "tr": "internet, genel ağ",
+    "type": "i̇sim (technology)",
+    "type_label": "İsim (Technology)",
+    "icon": "🌐",
+    "wordEn": "internet"
+  },
+  "library": {
+    "tr": "kütüphane",
+    "type": "i̇sim (school)",
+    "type_label": "İsim (School)",
+    "icon": "🏛️",
+    "wordEn": "library"
+  },
+  "fact": {
+    "tr": "gerçek, olgu",
+    "type": "i̇sim (noun)",
+    "type_label": "İsim (Noun)",
+    "icon": "📌",
+    "wordEn": "fact"
+  },
+  "product": {
+    "tr": "ürün, mahsul",
+    "type": "i̇sim (business)",
+    "type_label": "İsim (Business)",
+    "icon": "📦",
+    "wordEn": "product"
+  },
+  "idea": {
+    "tr": "fikir, düşünce",
+    "type": "i̇sim (noun)",
+    "type_label": "İsim (Noun)",
+    "icon": "💡",
+    "wordEn": "idea"
+  },
+  "temperature": {
+    "tr": "sıcaklık, derece",
+    "type": "i̇sim (science)",
+    "type_label": "İsim (Science)",
+    "icon": "🌡️",
+    "wordEn": "temperature"
+  },
+  "investment": {
+    "tr": "yatırım",
+    "type": "i̇sim (finance)",
+    "type_label": "İsim (Finance)",
+    "icon": "💰",
+    "wordEn": "investment"
+  },
+  "area": {
+    "tr": "alan, bölge, saha",
+    "type": "i̇sim (noun)",
+    "type_label": "İsim (Noun)",
+    "icon": "📐",
+    "wordEn": "area"
+  },
+  "activity": {
+    "tr": "aktivite, etkinlik",
+    "type": "i̇sim (noun)",
+    "type_label": "İsim (Noun)",
+    "icon": "🏃",
+    "wordEn": "activity"
+  },
+  "story": {
+    "tr": "hikaye, öykü",
+    "type": "i̇sim (literature)",
+    "type_label": "İsim (Literature)",
+    "icon": "📖",
+    "wordEn": "story"
+  },
+  "industry": {
+    "tr": "endüstri, sanayi",
+    "type": "i̇sim (business)",
+    "type_label": "İsim (Business)",
+    "icon": "🏭",
+    "wordEn": "industry"
+  },
+  "media": {
+    "tr": "medya, basın",
+    "type": "i̇sim (media)",
+    "type_label": "İsim (Media)",
+    "icon": "📺",
+    "wordEn": "media"
+  },
+  "thing": {
+    "tr": "şey, nesne",
+    "type": "i̇sim (noun)",
+    "type_label": "İsim (Noun)",
+    "icon": "📦",
+    "wordEn": "thing"
+  },
+  "oven": {
+    "tr": "fırın",
+    "type": "i̇sim (home)",
+    "type_label": "İsim (Home)",
+    "icon": "🍳",
+    "wordEn": "oven"
+  },
+  "safety": {
+    "tr": "güvenlik, emniyet",
+    "type": "i̇sim (noun)",
+    "type_label": "İsim (Noun)",
+    "icon": "🛡️",
+    "wordEn": "safety"
+  },
+  "quality": {
+    "tr": "kalite, nitelik",
+    "type": "i̇sim (noun)",
+    "type_label": "İsim (Noun)",
+    "icon": "✨",
+    "wordEn": "quality"
+  },
+  "language": {
+    "tr": "dil, lisan",
+    "type": "i̇sim (language)",
+    "type_label": "İsim (Language)",
+    "icon": "🗣️",
+    "wordEn": "language"
+  },
+  "management": {
+    "tr": "yönetim, idare",
+    "type": "i̇sim (business)",
+    "type_label": "İsim (Business)",
+    "icon": "👔",
+    "wordEn": "management"
+  },
+  "player": {
+    "tr": "oyuncu, sporcu",
+    "type": "i̇sim (sports)",
+    "type_label": "İsim (Sports)",
+    "icon": "⚽",
+    "wordEn": "player"
+  },
+  "variety": {
+    "tr": "çeşitlilik, tür",
+    "type": "i̇sim (noun)",
+    "type_label": "İsim (Noun)",
+    "icon": "🎨",
+    "wordEn": "variety"
+  },
+  "video": {
+    "tr": "video, görüntü",
+    "type": "i̇sim (media)",
+    "type_label": "İsim (Media)",
+    "icon": "📹",
+    "wordEn": "video"
+  },
+  "week": {
+    "tr": "hafta",
+    "type": "i̇sim (time)",
+    "type_label": "İsim (Time)",
+    "icon": "📅",
+    "wordEn": "week"
+  },
+  "security": {
+    "tr": "güvenlik, asayiş",
+    "type": "i̇sim (security)",
+    "type_label": "İsim (Security)",
+    "icon": "🔒",
+    "wordEn": "security"
+  },
+  "country": {
+    "tr": "ülke, memleket",
+    "type": "i̇sim (geography)",
+    "type_label": "İsim (Geography)",
+    "icon": "🇹🇷",
+    "wordEn": "country"
+  },
+  "exam": {
+    "tr": "sınav, imtihan",
+    "type": "i̇sim (school)",
+    "type_label": "İsim (School)",
+    "icon": "📝",
+    "wordEn": "exam"
+  },
+  "organization": {
+    "tr": "organizasyon, kuruluş",
+    "type": "i̇sim (business)",
+    "type_label": "İsim (Business)",
+    "icon": "🏢",
+    "wordEn": "organization"
+  },
+  "physics": {
+    "tr": "fizik (bilimi)",
+    "type": "i̇sim (school)",
+    "type_label": "İsim (School)",
+    "icon": "⚛️",
+    "wordEn": "physics"
+  },
+  "chemistry": {
+    "tr": "kimya",
+    "type": "i̇sim (school)",
+    "type_label": "İsim (School)",
+    "icon": "🧪",
+    "wordEn": "chemistry"
+  },
+  "biology": {
+    "tr": "biyoloji",
+    "type": "i̇sim (school)",
+    "type_label": "İsim (School)",
+    "icon": "🧬",
+    "wordEn": "biology"
+  },
+  "mathematics": {
+    "tr": "matematik",
+    "type": "i̇sim (school)",
+    "type_label": "İsim (School)",
+    "icon": "📐",
+    "wordEn": "mathematics"
+  },
+  "math": {
+    "tr": "matematik",
+    "type": "i̇sim (school)",
+    "type_label": "İsim (School)",
+    "icon": "📐",
+    "wordEn": "math"
+  },
+  "science": {
+    "tr": "bilim, fen",
+    "type": "i̇sim (science)",
+    "type_label": "İsim (Science)",
+    "icon": "🔬",
+    "wordEn": "science"
+  },
+  "scientist": {
+    "tr": "bilim insanı",
+    "type": "i̇sim (people)",
+    "type_label": "İsim (People)",
+    "icon": "🔬",
+    "wordEn": "scientist"
+  },
+  "student": {
+    "tr": "öğrenci",
+    "type": "i̇sim (school)",
+    "type_label": "İsim (School)",
+    "icon": "🎒",
+    "wordEn": "student"
+  },
+  "teacher": {
+    "tr": "öğretmen",
+    "type": "i̇sim (school)",
+    "type_label": "İsim (School)",
+    "icon": "👨‍🏫",
+    "wordEn": "teacher"
+  },
+  "school": {
+    "tr": "okul",
+    "type": "i̇sim (school)",
+    "type_label": "İsim (School)",
+    "icon": "🏫",
+    "wordEn": "school"
+  },
+  "university": {
+    "tr": "üniversite",
+    "type": "i̇sim (school)",
+    "type_label": "İsim (School)",
+    "icon": "🏛️",
+    "wordEn": "university"
+  },
+  "classroom": {
+    "tr": "sınıf, derslik",
+    "type": "i̇sim (school)",
+    "type_label": "İsim (School)",
+    "icon": "🚪",
+    "wordEn": "classroom"
+  },
+  "book": {
+    "tr": "kitap / rezervasyon yapmak",
+    "type": "i̇sim / fiil",
+    "type_label": "İsim / Fiil",
+    "icon": "📚",
+    "wordEn": "book"
+  },
+  "notebook": {
+    "tr": "defter",
+    "type": "i̇sim (school)",
+    "type_label": "İsim (School)",
+    "icon": "📓",
+    "wordEn": "notebook"
+  },
+  "page": {
+    "tr": "sayfa",
+    "type": "i̇sim (book)",
+    "type_label": "İsim (Book)",
+    "icon": "📄",
+    "wordEn": "page"
+  },
+  "chapter": {
+    "tr": "bölüm, kısım",
+    "type": "i̇sim (book)",
+    "type_label": "İsim (Book)",
+    "icon": "📖",
+    "wordEn": "chapter"
+  },
+  "question": {
+    "tr": "soru / sorgulamak",
+    "type": "i̇sim / fiil",
+    "type_label": "İsim / Fiil",
+    "icon": "❓",
+    "wordEn": "question"
+  },
+  "test": {
+    "tr": "test, deneme / test etmek",
+    "type": "i̇sim / fiil",
+    "type_label": "İsim / Fiil",
+    "icon": "📋",
+    "wordEn": "test"
+  },
+  "grade": {
+    "tr": "not, derece, sınıf seviyesi",
+    "type": "i̇sim (school)",
+    "type_label": "İsim (School)",
+    "icon": "🎯",
+    "wordEn": "grade"
+  },
+  "score": {
+    "tr": "puan, skor / gol atmak",
+    "type": "i̇sim / fiil",
+    "type_label": "İsim / Fiil",
+    "icon": "🏆",
+    "wordEn": "score"
+  },
+  "point": {
+    "tr": "puan, nokta / işaret etmek",
+    "type": "i̇sim / fiil",
+    "type_label": "İsim / Fiil",
+    "icon": "📍",
+    "wordEn": "point"
+  },
+  "team": {
+    "tr": "takım, ekip",
+    "type": "i̇sim (sports)",
+    "type_label": "İsim (Sports)",
+    "icon": "🤝",
+    "wordEn": "team"
+  },
+  "match": {
+    "tr": "maç, karşılaşma / eşleştirmek",
+    "type": "i̇sim / fiil",
+    "type_label": "İsim / Fiil",
+    "icon": "⚽",
+    "wordEn": "match"
+  },
+  "game": {
+    "tr": "oyun, maç",
+    "type": "i̇sim (sports)",
+    "type_label": "İsim (Sports)",
+    "icon": "🎮",
+    "wordEn": "game"
+  },
+  "sport": {
+    "tr": "spor",
+    "type": "i̇sim (sports)",
+    "type_label": "İsim (Sports)",
+    "icon": "🏅",
+    "wordEn": "sport"
+  },
+  "training": {
+    "tr": "antrenman, eğitim",
+    "type": "i̇sim (sports)",
+    "type_label": "İsim (Sports)",
+    "icon": "🏋️",
+    "wordEn": "training"
+  },
+  "coach": {
+    "tr": "antrenör, koç",
+    "type": "i̇sim (sports)",
+    "type_label": "İsim (Sports)",
+    "icon": "🧢",
+    "wordEn": "coach"
+  },
+  "stadium": {
+    "tr": "stadyum",
+    "type": "i̇sim (sports)",
+    "type_label": "İsim (Sports)",
+    "icon": "🏟️",
+    "wordEn": "stadium"
+  },
+  "court": {
+    "tr": "kort, saha / mahkeme",
+    "type": "i̇sim (sports/law)",
+    "type_label": "İsim (Sports/Law)",
+    "icon": "🎾",
+    "wordEn": "court"
+  },
+  "pitch": {
+    "tr": "futbol sahası / fırlatmak",
+    "type": "i̇sim (sports)",
+    "type_label": "İsim (Sports)",
+    "icon": "⚽",
+    "wordEn": "pitch"
+  },
+  "ball": {
+    "tr": "top / balo",
+    "type": "i̇sim (sports)",
+    "type_label": "İsim (Sports)",
+    "icon": "⚽",
+    "wordEn": "ball"
+  },
+  "speed": {
+    "tr": "hız, sürat",
+    "type": "i̇sim (physics)",
+    "type_label": "İsim (Physics)",
+    "icon": "⚡",
+    "wordEn": "speed"
+  },
+  "fast": {
+    "tr": "hızlı / oruç tutmak",
+    "type": "sıfat / fiil",
+    "type_label": "Sıfat / Fiil",
+    "icon": "⚡",
+    "wordEn": "fast"
+  },
+  "slow": {
+    "tr": "yavaş / yavaşlatmak",
+    "type": "sıfat / fiil",
+    "type_label": "Sıfat / Fiil",
+    "icon": "🐢",
+    "wordEn": "slow"
+  },
+  "strong": {
+    "tr": "güçlü, kuvvetli",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "💪",
+    "wordEn": "strong"
+  },
+  "weak": {
+    "tr": "zayıf, güçsüz",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "🥀",
+    "wordEn": "weak"
+  },
+  "high": {
+    "tr": "yüksek / zirve",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "🏔️",
+    "wordEn": "high"
+  },
+  "low": {
+    "tr": "düşük, alçak",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "📉",
+    "wordEn": "low"
+  },
+  "easy": {
+    "tr": "kolay, zahmetsiz",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "✨",
+    "wordEn": "easy"
+  },
+  "hard": {
+    "tr": "zor / sert, sıkı",
+    "type": "sıfat / zarf",
+    "type_label": "Sıfat / Zarf",
+    "icon": "💎",
+    "wordEn": "hard"
+  },
+  "difficult": {
+    "tr": "zor, çetin, güç",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "🧗",
+    "wordEn": "difficult"
+  },
+  "important": {
+    "tr": "önemli, mühim",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "⭐",
+    "wordEn": "important"
+  },
+  "interesting": {
+    "tr": "ilginç, ilgi çekici",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "🧐",
+    "wordEn": "interesting"
+  },
+  "exciting": {
+    "tr": "heyecan verici",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "🎉",
+    "wordEn": "exciting"
+  },
+  "boring": {
+    "tr": "sıkıcı",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "🥱",
+    "wordEn": "boring"
+  },
+  "good": {
+    "tr": "iyi, güzel",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "👍",
+    "wordEn": "good"
+  },
+  "better": {
+    "tr": "daha iyi",
+    "type": "karşılaştırma sıfatı",
+    "type_label": "Karşılaştırma Sıfatı",
+    "icon": "🌟",
+    "wordEn": "better"
+  },
+  "best": {
+    "tr": "en iyi",
+    "type": "üstünlük sıfatı",
+    "type_label": "Üstünlük Sıfatı",
+    "icon": "👑",
+    "wordEn": "best"
+  },
+  "bad": {
+    "tr": "kötü, fena",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "👎",
+    "wordEn": "bad"
+  },
+  "worse": {
+    "tr": "daha kötü",
+    "type": "karşılaştırma sıfatı",
+    "type_label": "Karşılaştırma Sıfatı",
+    "icon": "📉",
+    "wordEn": "worse"
+  },
+  "worst": {
+    "tr": "en kötü",
+    "type": "üstünlük sıfatı",
+    "type_label": "Üstünlük Sıfatı",
+    "icon": "💔",
+    "wordEn": "worst"
+  },
+  "big": {
+    "tr": "büyük, iri",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "🐘",
+    "wordEn": "big"
+  },
+  "bigger": {
+    "tr": "daha büyük",
+    "type": "karşılaştırma sıfatı",
+    "type_label": "Karşılaştırma Sıfatı",
+    "icon": "🐘",
+    "wordEn": "bigger"
+  },
+  "biggest": {
+    "tr": "en büyük",
+    "type": "üstünlük sıfatı",
+    "type_label": "Üstünlük Sıfatı",
+    "icon": "🐘",
+    "wordEn": "biggest"
+  },
+  "small": {
+    "tr": "küçük, ufak",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "🐭",
+    "wordEn": "small"
+  },
+  "smaller": {
+    "tr": "daha küçük",
+    "type": "karşılaştırma sıfatı",
+    "type_label": "Karşılaştırma Sıfatı",
+    "icon": "🐭",
+    "wordEn": "smaller"
+  },
+  "smallest": {
+    "tr": "en küçük",
+    "type": "üstünlük sıfatı",
+    "type_label": "Üstünlük Sıfatı",
+    "icon": "🐭",
+    "wordEn": "smallest"
+  },
+  "long": {
+    "tr": "uzun / özlemek",
+    "type": "sıfat / fiil",
+    "type_label": "Sıfat / Fiil",
+    "icon": "📏",
+    "wordEn": "long"
+  },
+  "short": {
+    "tr": "kısa, özet",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "📏",
+    "wordEn": "short"
+  },
+  "new": {
+    "tr": "yeni",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "✨",
+    "wordEn": "new"
+  },
+  "old": {
+    "tr": "eski, yaşlı",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "🏛️",
+    "wordEn": "old"
+  },
+  "young": {
+    "tr": "genç",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "🌱",
+    "wordEn": "young"
+  },
+  "great": {
+    "tr": "harika, mükemmel, ulu",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "🌟",
+    "wordEn": "great"
+  },
+  "fine": {
+    "tr": "iyi, güzel / para cezası",
+    "type": "sıfat / i̇sim",
+    "type_label": "Sıfat / İsim",
+    "icon": "👌",
+    "wordEn": "fine"
+  },
+  "safe": {
+    "tr": "güvenli / kasa",
+    "type": "sıfat / i̇sim",
+    "type_label": "Sıfat / İsim",
+    "icon": "🛡️",
+    "wordEn": "safe"
+  },
+  "quiet": {
+    "tr": "sessiz, sakin",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "🤫",
+    "wordEn": "quiet"
+  },
+  "loud": {
+    "tr": "yüksek sesli, gürültülü",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "📢",
+    "wordEn": "loud"
+  },
+  "happy": {
+    "tr": "mutlu, sevinçli",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "😊",
+    "wordEn": "happy"
+  },
+  "sad": {
+    "tr": "üzgün, kederli",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "😢",
+    "wordEn": "sad"
+  },
+  "tired": {
+    "tr": "yorgun, bitkin",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "😴",
+    "wordEn": "tired"
+  },
+  "busy": {
+    "tr": "meşgul, yoğun",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "💼",
+    "wordEn": "busy"
+  },
+  "ready": {
+    "tr": "hazır / hazırlamak",
+    "type": "sıfat / fiil",
+    "type_label": "Sıfat / Fiil",
+    "icon": "✅",
+    "wordEn": "ready"
+  },
+  "sure": {
+    "tr": "emin, kesin",
+    "type": "sıfat / zarf",
+    "type_label": "Sıfat / Zarf",
+    "icon": "💯",
+    "wordEn": "sure"
+  },
+  "true": {
+    "tr": "doğru, gerçek, hakiki",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "✅",
+    "wordEn": "true"
+  },
+  "false": {
+    "tr": "yanlış, sahte",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "❌",
+    "wordEn": "false"
+  },
+  "full": {
+    "tr": "dolu, tam / doymuş",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "🌕",
+    "wordEn": "full"
+  },
+  "empty": {
+    "tr": "boş / boşaltmak",
+    "type": "sıfat / fiil",
+    "type_label": "Sıfat / Fiil",
+    "icon": "📭",
+    "wordEn": "empty"
+  },
+  "dark": {
+    "tr": "karanlık, koyu",
+    "type": "sıfat / i̇sim",
+    "type_label": "Sıfat / İsim",
+    "icon": "🌑",
+    "wordEn": "dark"
+  },
+  "light": {
+    "tr": "ışık / hafif / aydınlık",
+    "type": "i̇sim / sıfat",
+    "type_label": "İsim / Sıfat",
+    "icon": "💡",
+    "wordEn": "light"
+  },
+  "clear": {
+    "tr": "açık, net / temizlemek",
+    "type": "sıfat / fiil",
+    "type_label": "Sıfat / Fiil",
+    "icon": "🔍",
+    "wordEn": "clear"
+  },
+  "smart": {
+    "tr": "akıllı, zeki, şık",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "🧠",
+    "wordEn": "smart"
+  },
+  "clever": {
+    "tr": "zeki, kurnaz",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "💡",
+    "wordEn": "clever"
+  },
+  "brave": {
+    "tr": "cesur, yiğit",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "🦁",
+    "wordEn": "brave"
+  },
+  "polite": {
+    "tr": "kibar, nazik",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "🎩",
+    "wordEn": "polite"
+  },
+  "rude": {
+    "tr": "kaba, nezaketsiz",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "😠",
+    "wordEn": "rude"
+  },
+  "kind": {
+    "tr": "nazik, kibar / tür, çeşit",
+    "type": "sıfat / i̇sim",
+    "type_label": "Sıfat / İsim",
+    "icon": "🤝",
+    "wordEn": "kind"
+  },
+  "honest": {
+    "tr": "dürüst, doğrucu",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "⚖️",
+    "wordEn": "honest"
+  },
+  "famous": {
+    "tr": "ünlü, meşhur",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "🌟",
+    "wordEn": "famous"
+  },
+  "popular": {
+    "tr": "popüler, sevilen",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "🔥",
+    "wordEn": "popular"
+  },
+  "rich": {
+    "tr": "zengin, varlıklı",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "💎",
+    "wordEn": "rich"
+  },
+  "poor": {
+    "tr": "fakir, yoksul / zavallı",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "🤲",
+    "wordEn": "poor"
+  },
+  "cheap": {
+    "tr": "ucuz",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "🏷️",
+    "wordEn": "cheap"
+  },
+  "expensive": {
+    "tr": "pahalı, masraflı",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "💎",
+    "wordEn": "expensive"
+  },
+  "heavy": {
+    "tr": "ağır, yoğun",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "🏋️",
+    "wordEn": "heavy"
+  },
+  "fresh": {
+    "tr": "taze, ferah",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "🍃",
+    "wordEn": "fresh"
+  },
+  "daily": {
+    "tr": "günlük / her gün",
+    "type": "sıfat / zarf",
+    "type_label": "Sıfat / Zarf",
+    "icon": "📅",
+    "wordEn": "daily"
+  },
+  "weekly": {
+    "tr": "haftalık",
+    "type": "sıfat / zarf",
+    "type_label": "Sıfat / Zarf",
+    "icon": "📅",
+    "wordEn": "weekly"
+  },
+  "monthly": {
+    "tr": "aylık",
+    "type": "sıfat / zarf",
+    "type_label": "Sıfat / Zarf",
+    "icon": "📅",
+    "wordEn": "monthly"
+  },
+  "yearly": {
+    "tr": "yıllık",
+    "type": "sıfat / zarf",
+    "type_label": "Sıfat / Zarf",
+    "icon": "📅",
+    "wordEn": "yearly"
+  },
+  "annual": {
+    "tr": "yıllık, senelik",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "📅",
+    "wordEn": "annual"
+  },
+  "modern": {
+    "tr": "modern, çağdaş",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "🚀",
+    "wordEn": "modern"
+  },
+  "ancient": {
+    "tr": "antik, çok eski",
+    "type": "sıfat (adjective)",
+    "type_label": "Sıfat (Adjective)",
+    "icon": "🏛️",
+    "wordEn": "ancient"
+  },
+  "now": {
+    "tr": "şimdi, şu an",
+    "type": "zaman zarfı",
+    "type_label": "Zaman Zarfı",
+    "icon": "⏰",
+    "wordEn": "now"
+  },
+  "then": {
+    "tr": "o zaman / daha sonra, ardından",
+    "type": "zaman zarfı",
+    "type_label": "Zaman Zarfı",
+    "icon": "➡️",
+    "wordEn": "then"
+  },
+  "today": {
+    "tr": "bugün",
+    "type": "zaman zarfı / i̇sim",
+    "type_label": "Zaman Zarfı / İsim",
+    "icon": "📅",
+    "wordEn": "today"
+  },
+  "yesterday": {
+    "tr": "dün",
+    "type": "zaman zarfı / i̇sim",
+    "type_label": "Zaman Zarfı / İsim",
+    "icon": "📅",
+    "wordEn": "yesterday"
+  },
+  "tomorrow": {
+    "tr": "yarın",
+    "type": "zaman zarfı / i̇sim",
+    "type_label": "Zaman Zarfı / İsim",
+    "icon": "📅",
+    "wordEn": "tomorrow"
+  },
+  "tonight": {
+    "tr": "bu gece",
+    "type": "zaman zarfı / i̇sim",
+    "type_label": "Zaman Zarfı / İsim",
+    "icon": "🌙",
+    "wordEn": "tonight"
+  },
+  "morning": {
+    "tr": "sabah",
+    "type": "i̇sim (time)",
+    "type_label": "İsim (Time)",
+    "icon": "🌅",
+    "wordEn": "morning"
+  },
+  "afternoon": {
+    "tr": "öğleden sonra",
+    "type": "i̇sim (time)",
+    "type_label": "İsim (Time)",
+    "icon": "☀️",
+    "wordEn": "afternoon"
+  },
+  "evening": {
+    "tr": "akşam",
+    "type": "i̇sim (time)",
+    "type_label": "İsim (Time)",
+    "icon": "🌆",
+    "wordEn": "evening"
+  },
+  "night": {
+    "tr": "gece",
+    "type": "i̇sim (time)",
+    "type_label": "İsim (Time)",
+    "icon": "🌙",
+    "wordEn": "night"
+  },
+  "time": {
+    "tr": "zaman, vakit / defa, kez",
+    "type": "i̇sim (time)",
+    "type_label": "İsim (Time)",
+    "icon": "⏰",
+    "wordEn": "time"
+  },
+  "times": {
+    "tr": "zamanlar / defalarca",
+    "type": "çoğul i̇sim",
+    "type_label": "Çoğul İsim",
+    "icon": "⏰",
+    "wordEn": "times"
+  },
+  "hour": {
+    "tr": "saat (süre)",
+    "type": "i̇sim (time)",
+    "type_label": "İsim (Time)",
+    "icon": "⏳",
+    "wordEn": "hour"
+  },
+  "minute": {
+    "tr": "dakika / küçücük",
+    "type": "i̇sim / sıfat",
+    "type_label": "İsim / Sıfat",
+    "icon": "⏱️",
+    "wordEn": "minute"
+  },
+  "second": {
+    "tr": "saniye / ikinci",
+    "type": "i̇sim / sıfat",
+    "type_label": "İsim / Sıfat",
+    "icon": "🥈",
+    "wordEn": "second"
+  },
+  "day": {
+    "tr": "gün",
+    "type": "i̇sim (time)",
+    "type_label": "İsim (Time)",
+    "icon": "☀️",
+    "wordEn": "day"
+  },
+  "days": {
+    "tr": "günler",
+    "type": "çoğul i̇sim",
+    "type_label": "Çoğul İsim",
+    "icon": "☀️",
+    "wordEn": "days"
+  },
+  "month": {
+    "tr": "ay (takvim)",
+    "type": "i̇sim (time)",
+    "type_label": "İsim (Time)",
+    "icon": "📅",
+    "wordEn": "month"
+  },
+  "year": {
+    "tr": "yıl, sene",
+    "type": "i̇sim (time)",
+    "type_label": "İsim (Time)",
+    "icon": "📅",
+    "wordEn": "year"
+  },
+  "years": {
+    "tr": "yıllar",
+    "type": "çoğul i̇sim",
+    "type_label": "Çoğul İsim",
+    "icon": "📅",
+    "wordEn": "years"
+  },
+  "century": {
+    "tr": "yüzyıl, asır",
+    "type": "i̇sim (time)",
+    "type_label": "İsim (Time)",
+    "icon": "📜",
+    "wordEn": "century"
+  },
+  "summer": {
+    "tr": "yaz (mevsim)",
+    "type": "i̇sim (season)",
+    "type_label": "İsim (Season)",
+    "icon": "🏖️",
+    "wordEn": "summer"
+  },
+  "winter": {
+    "tr": "kış (mevsim)",
+    "type": "i̇sim (season)",
+    "type_label": "İsim (Season)",
+    "icon": "❄️",
+    "wordEn": "winter"
+  },
+  "spring": {
+    "tr": "ilkbahar / yay / sıçramak",
+    "type": "i̇sim / fiil",
+    "type_label": "İsim / Fiil",
+    "icon": "🌸",
+    "wordEn": "spring"
+  },
+  "autumn": {
+    "tr": "sonbahar, güz",
+    "type": "i̇sim (season)",
+    "type_label": "İsim (Season)",
+    "icon": "🍂",
+    "wordEn": "autumn"
+  },
+  "fall": {
+    "tr": "sonbahar / düşmek",
+    "type": "i̇sim / fiil",
+    "type_label": "İsim / Fiil",
+    "icon": "🍂",
+    "wordEn": "fall"
+  },
+  "weather": {
+    "tr": "hava durumu",
+    "type": "i̇sim (nature)",
+    "type_label": "İsim (Nature)",
+    "icon": "⛅",
+    "wordEn": "weather"
+  },
+  "sun": {
+    "tr": "güneş",
+    "type": "i̇sim (nature)",
+    "type_label": "İsim (Nature)",
+    "icon": "☀️",
+    "wordEn": "sun"
+  },
+  "rain": {
+    "tr": "yağmur / yağmur yağmak",
+    "type": "i̇sim / fiil",
+    "type_label": "İsim / Fiil",
+    "icon": "🌧️",
+    "wordEn": "rain"
+  },
+  "snow": {
+    "tr": "kar / kar yağmak",
+    "type": "i̇sim / fiil",
+    "type_label": "İsim / Fiil",
+    "icon": "❄️",
+    "wordEn": "snow"
+  },
+  "wind": {
+    "tr": "rüzgar",
+    "type": "i̇sim (nature)",
+    "type_label": "İsim (Nature)",
+    "icon": "💨",
+    "wordEn": "wind"
+  },
+  "cloud": {
+    "tr": "bulut",
+    "type": "i̇sim (nature)",
+    "type_label": "İsim (Nature)",
+    "icon": "☁️",
+    "wordEn": "cloud"
+  },
+  "sky": {
+    "tr": "gökyüzü, sema",
+    "type": "i̇sim (nature)",
+    "type_label": "İsim (Nature)",
+    "icon": "🌌",
+    "wordEn": "sky"
+  },
+  "sea": {
+    "tr": "deniz",
+    "type": "i̇sim (geography)",
+    "type_label": "İsim (Geography)",
+    "icon": "🌊",
+    "wordEn": "sea"
+  },
+  "ocean": {
+    "tr": "okyanus",
+    "type": "i̇sim (geography)",
+    "type_label": "İsim (Geography)",
+    "icon": "🌊",
+    "wordEn": "ocean"
+  },
+  "river": {
+    "tr": "nehir, ırmak",
+    "type": "i̇sim (geography)",
+    "type_label": "İsim (Geography)",
+    "icon": "🏞️",
+    "wordEn": "river"
+  },
+  "lake": {
+    "tr": "göl",
+    "type": "i̇sim (geography)",
+    "type_label": "İsim (Geography)",
+    "icon": "🏞️",
+    "wordEn": "lake"
+  },
+  "mountain": {
+    "tr": "dağ",
+    "type": "i̇sim (geography)",
+    "type_label": "İsim (Geography)",
+    "icon": "🏔️",
+    "wordEn": "mountain"
+  },
+  "forest": {
+    "tr": "orman",
+    "type": "i̇sim (geography)",
+    "type_label": "İsim (Geography)",
+    "icon": "🌲",
+    "wordEn": "forest"
+  },
+  "tree": {
+    "tr": "ağaç",
+    "type": "i̇sim (nature)",
+    "type_label": "İsim (Nature)",
+    "icon": "🌳",
+    "wordEn": "tree"
+  },
+  "flower": {
+    "tr": "çiçek",
+    "type": "i̇sim (nature)",
+    "type_label": "İsim (Nature)",
+    "icon": "🌸",
+    "wordEn": "flower"
+  },
+  "animal": {
+    "tr": "hayvan",
+    "type": "i̇sim (biology)",
+    "type_label": "İsim (Biology)",
+    "icon": "🐾",
+    "wordEn": "animal"
+  },
+  "city": {
+    "tr": "şehir, kent",
+    "type": "i̇sim (geography)",
+    "type_label": "İsim (Geography)",
+    "icon": "🏙️",
+    "wordEn": "city"
+  },
+  "town": {
+    "tr": "kasaba, ilçe",
+    "type": "i̇sim (geography)",
+    "type_label": "İsim (Geography)",
+    "icon": "🏘️",
+    "wordEn": "town"
+  },
+  "village": {
+    "tr": "köy",
+    "type": "i̇sim (geography)",
+    "type_label": "İsim (Geography)",
+    "icon": "🏡",
+    "wordEn": "village"
+  },
+  "house": {
+    "tr": "ev, konut",
+    "type": "i̇sim (home)",
+    "type_label": "İsim (Home)",
+    "icon": "🏠",
+    "wordEn": "house"
+  },
+  "home": {
+    "tr": "ev, yuva",
+    "type": "i̇sim (home)",
+    "type_label": "İsim (Home)",
+    "icon": "🏡",
+    "wordEn": "home"
+  },
+  "room": {
+    "tr": "oda / yer, alan",
+    "type": "i̇sim (home)",
+    "type_label": "İsim (Home)",
+    "icon": "🚪",
+    "wordEn": "room"
+  },
+  "door": {
+    "tr": "kapı",
+    "type": "i̇sim (home)",
+    "type_label": "İsim (Home)",
+    "icon": "🚪",
+    "wordEn": "door"
+  },
+  "window": {
+    "tr": "pencere",
+    "type": "i̇sim (home)",
+    "type_label": "İsim (Home)",
+    "icon": "🪟",
+    "wordEn": "window"
+  },
+  "floor": {
+    "tr": "zemin, yer / kat",
+    "type": "i̇sim (home)",
+    "type_label": "İsim (Home)",
+    "icon": "🏢",
+    "wordEn": "floor"
+  },
+  "wall": {
+    "tr": "duvar",
+    "type": "i̇sim (home)",
+    "type_label": "İsim (Home)",
+    "icon": "🧱",
+    "wordEn": "wall"
+  },
+  "table": {
+    "tr": "masa / tablo, çizelge",
+    "type": "i̇sim (home)",
+    "type_label": "İsim (Home)",
+    "icon": "🪑",
+    "wordEn": "table"
+  },
+  "chair": {
+    "tr": "sandalye / başkanlık etmek",
+    "type": "i̇sim / fiil",
+    "type_label": "İsim / Fiil",
+    "icon": "🪑",
+    "wordEn": "chair"
+  },
+  "bed": {
+    "tr": "yatak",
+    "type": "i̇sim (home)",
+    "type_label": "İsim (Home)",
+    "icon": "🛏️",
+    "wordEn": "bed"
+  },
+  "car": {
+    "tr": "araba, otomobil",
+    "type": "i̇sim (vehicle)",
+    "type_label": "İsim (Vehicle)",
+    "icon": "🚗",
+    "wordEn": "car"
+  },
+  "bus": {
+    "tr": "otobüs",
+    "type": "i̇sim (vehicle)",
+    "type_label": "İsim (Vehicle)",
+    "icon": "🚌",
+    "wordEn": "bus"
+  },
+  "train": {
+    "tr": "tren / eğitmek, antrenman yapmak",
+    "type": "i̇sim / fiil",
+    "type_label": "İsim / Fiil",
+    "icon": "🚆",
+    "wordEn": "train"
+  },
+  "plane": {
+    "tr": "uçak / düzlem",
+    "type": "i̇sim (vehicle)",
+    "type_label": "İsim (Vehicle)",
+    "icon": "✈️",
+    "wordEn": "plane"
+  },
+  "airport": {
+    "tr": "havaalanı, havalimanı",
+    "type": "i̇sim (travel)",
+    "type_label": "İsim (Travel)",
+    "icon": "🛫",
+    "wordEn": "airport"
+  },
+  "station": {
+    "tr": "istasyon, gar",
+    "type": "i̇sim (travel)",
+    "type_label": "İsim (Travel)",
+    "icon": "🚉",
+    "wordEn": "station"
+  },
+  "ticket": {
+    "tr": "bilet / ceza yazmak",
+    "type": "i̇sim / fiil",
+    "type_label": "İsim / Fiil",
+    "icon": "🎫",
+    "wordEn": "ticket"
+  },
+  "passport": {
+    "tr": "pasaport",
+    "type": "i̇sim (travel)",
+    "type_label": "İsim (Travel)",
+    "icon": "🛂",
+    "wordEn": "passport"
+  },
+  "hotel": {
+    "tr": "otel",
+    "type": "i̇sim (travel)",
+    "type_label": "İsim (Travel)",
+    "icon": "🏨",
+    "wordEn": "hotel"
+  },
+  "restaurant": {
+    "tr": "restoran, lokanta",
+    "type": "i̇sim (food)",
+    "type_label": "İsim (Food)",
+    "icon": "🍽️",
+    "wordEn": "restaurant"
+  },
+  "cafe": {
+    "tr": "kafe",
+    "type": "i̇sim (food)",
+    "type_label": "İsim (Food)",
+    "icon": "☕",
+    "wordEn": "cafe"
+  },
+  "food": {
+    "tr": "yiyecek, gıda, besin",
+    "type": "i̇sim (food)",
+    "type_label": "İsim (Food)",
+    "icon": "🍲",
+    "wordEn": "food"
+  },
+  "water": {
+    "tr": "su / sulamak",
+    "type": "i̇sim / fiil",
+    "type_label": "İsim / Fiil",
+    "icon": "💧",
+    "wordEn": "water"
+  },
+  "bread": {
+    "tr": "ekmek",
+    "type": "i̇sim (food)",
+    "type_label": "İsim (Food)",
+    "icon": "🍞",
+    "wordEn": "bread"
+  },
+  "cheese": {
+    "tr": "peynir",
+    "type": "i̇sim (food)",
+    "type_label": "İsim (Food)",
+    "icon": "🧀",
+    "wordEn": "cheese"
+  },
+  "meat": {
+    "tr": "et",
+    "type": "i̇sim (food)",
+    "type_label": "İsim (Food)",
+    "icon": "🥩",
+    "wordEn": "meat"
+  },
+  "fruit": {
+    "tr": "meyve",
+    "type": "i̇sim (food)",
+    "type_label": "İsim (Food)",
+    "icon": "🍎",
+    "wordEn": "fruit"
+  },
+  "vegetable": {
+    "tr": "sebze",
+    "type": "i̇sim (food)",
+    "type_label": "İsim (Food)",
+    "icon": "🥦",
+    "wordEn": "vegetable"
+  },
+  "tea": {
+    "tr": "çay",
+    "type": "i̇sim (drink)",
+    "type_label": "İsim (Drink)",
+    "icon": "🍵",
+    "wordEn": "tea"
+  },
+  "coffee": {
+    "tr": "kahve",
+    "type": "i̇sim (drink)",
+    "type_label": "İsim (Drink)",
+    "icon": "☕",
+    "wordEn": "coffee"
+  },
+  "milk": {
+    "tr": "süt / sağmak",
+    "type": "i̇sim / fiil",
+    "type_label": "İsim / Fiil",
+    "icon": "🥛",
+    "wordEn": "milk"
+  },
+  "juice": {
+    "tr": "meyve suyu",
+    "type": "i̇sim (drink)",
+    "type_label": "İsim (Drink)",
+    "icon": "🧃",
+    "wordEn": "juice"
+  },
+  "money": {
+    "tr": "para, nakit",
+    "type": "i̇sim (economy)",
+    "type_label": "İsim (Economy)",
+    "icon": "💵",
+    "wordEn": "money"
+  },
+  "price": {
+    "tr": "fiyat, bedel",
+    "type": "i̇sim (economy)",
+    "type_label": "İsim (Economy)",
+    "icon": "🏷️",
+    "wordEn": "price"
+  },
+  "market": {
+    "tr": "pazar, piyasa / pazarlamak",
+    "type": "i̇sim / fiil",
+    "type_label": "İsim / Fiil",
+    "icon": "🛒",
+    "wordEn": "market"
+  },
+  "shop": {
+    "tr": "mağaza, dükkan / alışveriş yapmak",
+    "type": "i̇sim / fiil",
+    "type_label": "İsim / Fiil",
+    "icon": "🛍️",
+    "wordEn": "shop"
+  },
+  "store": {
+    "tr": "mağaza, depo / depolamak",
+    "type": "i̇sim / fiil",
+    "type_label": "İsim / Fiil",
+    "icon": "🏬",
+    "wordEn": "store"
+  },
+  "bank": {
+    "tr": "banka / nehir kenarı",
+    "type": "i̇sim (economy)",
+    "type_label": "İsim (Economy)",
+    "icon": "🏦",
+    "wordEn": "bank"
+  },
+  "card": {
+    "tr": "kart (kredi/kimlik)",
+    "type": "i̇sim (item)",
+    "type_label": "İsim (Item)",
+    "icon": "💳",
+    "wordEn": "card"
+  },
+  "friend": {
+    "tr": "arkadaş, dost",
+    "type": "i̇sim (people)",
+    "type_label": "İsim (People)",
+    "icon": "🤝",
+    "wordEn": "friend"
+  },
+  "friends": {
+    "tr": "arkadaşlar, dostlar",
+    "type": "çoğul i̇sim",
+    "type_label": "Çoğul İsim",
+    "icon": "🤝",
+    "wordEn": "friends"
+  },
+  "parent": {
+    "tr": "ebeveyn (anne veya baba)",
+    "type": "i̇sim (family)",
+    "type_label": "İsim (Family)",
+    "icon": "👨‍👩‍👦",
+    "wordEn": "parent"
+  },
+  "parents": {
+    "tr": "ebeveynler (anne ve baba)",
+    "type": "çoğul i̇sim",
+    "type_label": "Çoğul İsim",
+    "icon": "👨‍👩‍👦",
+    "wordEn": "parents"
+  },
+  "mother": {
+    "tr": "anne",
+    "type": "i̇sim (family)",
+    "type_label": "İsim (Family)",
+    "icon": "👩",
+    "wordEn": "mother"
+  },
+  "father": {
+    "tr": "baba",
+    "type": "i̇sim (family)",
+    "type_label": "İsim (Family)",
+    "icon": "👨",
+    "wordEn": "father"
+  },
+  "sister": {
+    "tr": "kız kardeş, abla",
+    "type": "i̇sim (family)",
+    "type_label": "İsim (Family)",
+    "icon": "👧",
+    "wordEn": "sister"
+  },
+  "brother": {
+    "tr": "erkek kardeş, abi",
+    "type": "i̇sim (family)",
+    "type_label": "İsim (Family)",
+    "icon": "👦",
+    "wordEn": "brother"
+  },
+  "son": {
+    "tr": "erkek evlat, oğul",
+    "type": "i̇sim (family)",
+    "type_label": "İsim (Family)",
+    "icon": "👦",
+    "wordEn": "son"
+  },
+  "daughter": {
+    "tr": "kız evlat",
+    "type": "i̇sim (family)",
+    "type_label": "İsim (Family)",
+    "icon": "👧",
+    "wordEn": "daughter"
+  },
+  "child": {
+    "tr": "çocuk",
+    "type": "tekil i̇sim",
+    "type_label": "Tekil İsim",
+    "icon": "🧒",
+    "wordEn": "child"
+  },
+  "children": {
+    "tr": "çocuklar",
+    "type": "çoğul i̇sim",
+    "type_label": "Çoğul İsim",
+    "icon": "🧒",
+    "wordEn": "children"
+  },
+  "boy": {
+    "tr": "erkek çocuk",
+    "type": "i̇sim (people)",
+    "type_label": "İsim (People)",
+    "icon": "👦",
+    "wordEn": "boy"
+  },
+  "girl": {
+    "tr": "kız çocuk",
+    "type": "i̇sim (people)",
+    "type_label": "İsim (People)",
+    "icon": "👧",
+    "wordEn": "girl"
+  },
+  "man": {
+    "tr": "adam, erkek",
+    "type": "tekil i̇sim",
+    "type_label": "Tekil İsim",
+    "icon": "👨",
+    "wordEn": "man"
+  },
+  "men": {
+    "tr": "adamlar, erkekler",
+    "type": "çoğul i̇sim",
+    "type_label": "Çoğul İsim",
+    "icon": "👨",
+    "wordEn": "men"
+  },
+  "woman": {
+    "tr": "kadın",
+    "type": "tekil i̇sim",
+    "type_label": "Tekil İsim",
+    "icon": "👩",
+    "wordEn": "woman"
+  },
+  "women": {
+    "tr": "kadınlar",
+    "type": "çoğul i̇sim",
+    "type_label": "Çoğul İsim",
+    "icon": "👩",
+    "wordEn": "women"
+  },
+  "person": {
+    "tr": "kişi, şahıs, insan",
+    "type": "tekil i̇sim",
+    "type_label": "Tekil İsim",
+    "icon": "👤",
+    "wordEn": "person"
+  },
+  "hand": {
+    "tr": "el / uzatmak, vermek",
+    "type": "i̇sim / fiil",
+    "type_label": "İsim / Fiil",
+    "icon": "✋",
+    "wordEn": "hand"
+  },
+  "hands": {
+    "tr": "eller",
+    "type": "çoğul i̇sim",
+    "type_label": "Çoğul İsim",
+    "icon": "✋",
+    "wordEn": "hands"
+  },
+  "eye": {
+    "tr": "göz / bakmak",
+    "type": "i̇sim / fiil",
+    "type_label": "İsim / Fiil",
+    "icon": "👁️",
+    "wordEn": "eye"
+  },
+  "eyes": {
+    "tr": "gözler",
+    "type": "çoğul i̇sim",
+    "type_label": "Çoğul İsim",
+    "icon": "👁️",
+    "wordEn": "eyes"
+  },
+  "ear": {
+    "tr": "kulak",
+    "type": "i̇sim (body)",
+    "type_label": "İsim (Body)",
+    "icon": "👂",
+    "wordEn": "ear"
+  },
+  "ears": {
+    "tr": "kulaklar",
+    "type": "çoğul i̇sim",
+    "type_label": "Çoğul İsim",
+    "icon": "👂",
+    "wordEn": "ears"
+  },
+  "head": {
+    "tr": "baş, kafa / yönetmek",
+    "type": "i̇sim / fiil",
+    "type_label": "İsim / Fiil",
+    "icon": "🗣️",
+    "wordEn": "head"
+  },
+  "face": {
+    "tr": "yüz, çehre / yüzleşmek",
+    "type": "i̇sim / fiil",
+    "type_label": "İsim / Fiil",
+    "icon": "😊",
+    "wordEn": "face"
+  },
+  "leg": {
+    "tr": "bacak",
+    "type": "i̇sim (body)",
+    "type_label": "İsim (Body)",
+    "icon": "🦵",
+    "wordEn": "leg"
+  },
+  "legs": {
+    "tr": "bacaklar",
+    "type": "çoğul i̇sim",
+    "type_label": "Çoğul İsim",
+    "icon": "🦵",
+    "wordEn": "legs"
+  },
+  "foot": {
+    "tr": "ayak / fit (ölçü)",
+    "type": "tekil i̇sim",
+    "type_label": "Tekil İsim",
+    "icon": "🦶",
+    "wordEn": "foot"
+  },
+  "feet": {
+    "tr": "ayaklar",
+    "type": "çoğul i̇sim",
+    "type_label": "Çoğul İsim",
+    "icon": "🦶",
+    "wordEn": "feet"
+  },
+  "arm": {
+    "tr": "kol / silahlandırmak",
+    "type": "i̇sim / fiil",
+    "type_label": "İsim / Fiil",
+    "icon": "💪",
+    "wordEn": "arm"
+  },
+  "arms": {
+    "tr": "kollar / silahlar",
+    "type": "çoğul i̇sim",
+    "type_label": "Çoğul İsim",
+    "icon": "💪",
+    "wordEn": "arms"
+  },
+  "heart": {
+    "tr": "kalp, yürek",
+    "type": "i̇sim (body)",
+    "type_label": "İsim (Body)",
+    "icon": "❤️",
+    "wordEn": "heart"
+  },
+  "blood": {
+    "tr": "kan",
+    "type": "i̇sim (body)",
+    "type_label": "İsim (Body)",
+    "icon": "🩸",
+    "wordEn": "blood"
+  },
+  "doctor": {
+    "tr": "doktor, hekim",
+    "type": "i̇sim (job)",
+    "type_label": "İsim (Job)",
+    "icon": "👨‍⚕️",
+    "wordEn": "doctor"
+  },
+  "hospital": {
+    "tr": "hastane",
+    "type": "i̇sim (health)",
+    "type_label": "İsim (Health)",
+    "icon": "🏥",
+    "wordEn": "hospital"
+  },
+  "medicine": {
+    "tr": "ilaç / tıp bilimi",
+    "type": "i̇sim (health)",
+    "type_label": "İsim (Health)",
+    "icon": "💊",
+    "wordEn": "medicine"
+  },
+  "pain": {
+    "tr": "ağrı, sızı, acı",
+    "type": "i̇sim (health)",
+    "type_label": "İsim (Health)",
+    "icon": "🩹",
+    "wordEn": "pain"
+  },
+  "phone": {
+    "tr": "telefon / telefon etmek",
+    "type": "i̇sim / fiil",
+    "type_label": "İsim / Fiil",
+    "icon": "📱",
+    "wordEn": "phone"
+  },
+  "screen": {
+    "tr": "ekran / taramak, incelemek",
+    "type": "i̇sim / fiil",
+    "type_label": "İsim / Fiil",
+    "icon": "🖥️",
+    "wordEn": "screen"
+  },
+  "camera": {
+    "tr": "kamera, fotoğraf makinesi",
+    "type": "i̇sim (tech)",
+    "type_label": "İsim (Tech)",
+    "icon": "📷",
+    "wordEn": "camera"
+  },
+  "app": {
+    "tr": "uygulama (yazılım)",
+    "type": "i̇sim (tech)",
+    "type_label": "İsim (Tech)",
+    "icon": "📱",
+    "wordEn": "app"
+  },
+  "application": {
+    "tr": "uygulama / başvuru",
+    "type": "i̇sim (tech)",
+    "type_label": "İsim (Tech)",
+    "icon": "📱",
+    "wordEn": "application"
+  },
+  "devices": {
+    "tr": "cihazlar, aygıtlar",
+    "type": "çoğul i̇sim",
+    "type_label": "Çoğul İsim",
+    "icon": "📟",
+    "wordEn": "devices"
+  },
+  "message": {
+    "tr": "mesaj, ileti",
+    "type": "i̇sim (tech)",
+    "type_label": "İsim (Tech)",
+    "icon": "✉️",
+    "wordEn": "message"
+  },
+  "email": {
+    "tr": "e-posta / e-posta göndermek",
+    "type": "i̇sim / fiil",
+    "type_label": "İsim / Fiil",
+    "icon": "📧",
+    "wordEn": "email"
+  },
+  "online": {
+    "tr": "çevrimiçi, internete bağlı",
+    "type": "sıfat / zarf",
+    "type_label": "Sıfat / Zarf",
+    "icon": "🟢",
+    "wordEn": "online"
+  },
+  "offline": {
+    "tr": "çevrimdışı, internetsiz",
+    "type": "sıfat / zarf",
+    "type_label": "Sıfat / Zarf",
+    "icon": "⚪",
+    "wordEn": "offline"
+  },
+  "website": {
+    "tr": "web sitesi, internet sitesi",
+    "type": "i̇sim (tech)",
+    "type_label": "İsim (Tech)",
+    "icon": "🌐",
+    "wordEn": "website"
+  },
+  "link": {
+    "tr": "bağlantı / bağlamak",
+    "type": "i̇sim / fiil",
+    "type_label": "İsim / Fiil",
+    "icon": "🔗",
+    "wordEn": "link"
+  },
+  "click": {
+    "tr": "tıklamak / tık sesi",
+    "type": "fiil / i̇sim",
+    "type_label": "Fiil / İsim",
+    "icon": "🖱️",
+    "wordEn": "click"
+  },
+  "file": {
+    "tr": "dosya / dosyalamak",
+    "type": "i̇sim / fiil",
+    "type_label": "İsim / Fiil",
+    "icon": "📁",
+    "wordEn": "file"
+  },
+  "folder": {
+    "tr": "klasör",
+    "type": "i̇sim (tech)",
+    "type_label": "İsim (Tech)",
+    "icon": "📂",
+    "wordEn": "folder"
+  },
+  "image": {
+    "tr": "resim, görüntü, imaj",
+    "type": "i̇sim (tech)",
+    "type_label": "İsim (Tech)",
+    "icon": "🖼️",
+    "wordEn": "image"
+  },
+  "photo": {
+    "tr": "fotoğraf",
+    "type": "i̇sim (media)",
+    "type_label": "İsim (Media)",
+    "icon": "📸",
+    "wordEn": "photo"
+  },
+  "scan": {
+    "tr": "taramak / tarama",
+    "type": "fiil / i̇sim",
+    "type_label": "Fiil / İsim",
+    "icon": "📸",
+    "wordEn": "scan"
+  },
+  "scanned": {
+    "tr": "taranmış / taradı",
+    "type": "sıfat / fiil (v2/v3)",
+    "type_label": "Sıfat / Fiil (V2/V3)",
+    "icon": "📸",
+    "wordEn": "scanned"
+  },
+  "scanner": {
+    "tr": "tarayıcı",
+    "type": "i̇sim (tech)",
+    "type_label": "İsim (Tech)",
+    "icon": "📠",
+    "wordEn": "scanner"
+  },
+  "ocr": {
+    "tr": "optik karakter tanıma",
+    "type": "i̇sim (tech)",
+    "type_label": "İsim (Tech)",
+    "icon": "🔍",
+    "wordEn": "ocr"
+  },
+  "text": {
+    "tr": "metin, yazı / mesaj atmak",
+    "type": "i̇sim / fiil",
+    "type_label": "İsim / Fiil",
+    "icon": "📄",
+    "wordEn": "text"
+  },
+  "word": {
+    "tr": "kelime, sözcük",
+    "type": "i̇sim (language)",
+    "type_label": "İsim (Language)",
+    "icon": "🔤",
+    "wordEn": "word"
+  },
+  "words": {
+    "tr": "kelimeler, sözcükler",
+    "type": "çoğul i̇sim",
+    "type_label": "Çoğul İsim",
+    "icon": "🔤",
+    "wordEn": "words"
+  },
+  "letter": {
+    "tr": "harf / mektup",
+    "type": "i̇sim (language)",
+    "type_label": "İsim (Language)",
+    "icon": "✉️",
+    "wordEn": "letter"
+  },
+  "letters": {
+    "tr": "harfler / mektuplar",
+    "type": "çoğul i̇sim",
+    "type_label": "Çoğul İsim",
+    "icon": "✉️",
+    "wordEn": "letters"
+  },
+  "benefit": {
+    "tr": "fayda, yarar / faydalanmak",
+    "type": "i̇sim / fiil",
+    "type_label": "İsim / Fiil",
+    "icon": "💡",
+    "wordEn": "benefit"
+  },
+  "benefits": {
+    "tr": "faydalar, yararlar, avantajlar",
+    "type": "çoğul i̇sim",
+    "type_label": "Çoğul İsim",
+    "icon": "💡",
+    "wordEn": "benefits"
+  },
+  "master": {
+    "tr": "ustalaşmak, hakim olmak / usta",
+    "type": "fiil / i̇sim",
+    "type_label": "Fiil / İsim",
+    "icon": "🏆",
+    "wordEn": "master"
+  },
+  "mastering": {
+    "tr": "ustalaşma, tam hakimiyet kazanma",
+    "type": "i̇sim (gerund)",
+    "type_label": "İsim (Gerund)",
+    "icon": "🏆",
+    "wordEn": "mastering"
+  },
+  "mastery": {
+    "tr": "ustalık, tam hakimiyet, uzmanlık",
+    "type": "i̇sim (academic)",
+    "type_label": "İsim (Academic)",
+    "icon": "🏆",
+    "wordEn": "mastery"
+  },
+  "gain": {
+    "tr": "kazanmak, elde etmek, artmak",
+    "type": "fiil (academic)",
+    "type_label": "Fiil (Academic)",
+    "icon": "📈",
+    "wordEn": "gain"
+  },
+  "gaining": {
+    "tr": "kazanma, elde etme",
+    "type": "i̇sim / fiil (-ing)",
+    "type_label": "İsim / Fiil (-ing)",
+    "icon": "📈",
+    "wordEn": "gaining"
+  },
+  "learner": {
+    "tr": "öğrenen, öğrenci",
+    "type": "i̇sim (education)",
+    "type_label": "İsim (Education)",
+    "icon": "🧑‍🎓",
+    "wordEn": "learner"
+  },
+  "learners": {
+    "tr": "öğrenenler, öğrenciler",
+    "type": "çoğul i̇sim",
+    "type_label": "Çoğul İsim",
+    "icon": "🧑‍🎓",
+    "wordEn": "learners"
+  },
+  "communication": {
+    "tr": "iletişim, haberleşme",
+    "type": "i̇sim (academic)",
+    "type_label": "İsim (Academic)",
+    "icon": "💬",
+    "wordEn": "communication"
+  },
+  "instruction": {
+    "tr": "yönerge, talimat, öğretim",
+    "type": "i̇sim (education)",
+    "type_label": "İsim (Education)",
+    "icon": "📋",
+    "wordEn": "instruction"
+  },
+  "instructions": {
+    "tr": "yönergeler, talimatlar, dersler",
+    "type": "çoğul i̇sim",
+    "type_label": "Çoğul İsim",
+    "icon": "📋",
+    "wordEn": "instructions"
+  },
+  "participate": {
+    "tr": "katılmak, iştirak etmek, yer almak",
+    "type": "fiil (academic)",
+    "type_label": "Fiil (Academic)",
+    "icon": "🤝",
+    "wordEn": "participate"
+  },
+  "participation": {
+    "tr": "katılım, iştirak",
+    "type": "i̇sim (academic)",
+    "type_label": "İsim (Academic)",
+    "icon": "🤝",
+    "wordEn": "participation"
+  },
+  "interactions": {
+    "tr": "etkileşimler, sosyal temaslar",
+    "type": "çoğul i̇sim",
+    "type_label": "Çoğul İsim",
+    "icon": "👥",
+    "wordEn": "interactions"
+  },
+  "ease": {
+    "tr": "kolaylık, rahatlık / hafifletmek",
+    "type": "i̇sim / fiil",
+    "type_label": "İsim / Fiil",
+    "icon": "🧘",
+    "wordEn": "ease"
+  },
+  "foundation": {
+    "tr": "temel, altyapı, kuruluş, vakıf",
+    "type": "i̇sim (academic)",
+    "type_label": "İsim (Academic)",
+    "icon": "🏛️",
+    "wordEn": "foundation"
+  },
+  "prapares": {
+    "tr": "hazırlar (prepares yazım düzeltmesi)",
+    "type": "fiil (3. tekil)",
+    "type_label": "Fiil (3. Tekil)",
+    "icon": "📝",
+    "wordEn": "prapares"
+  },
+  "advanced": {
+    "tr": "ileri düzey, gelişmiş, ileri seviye",
+    "type": "sıfat (level)",
+    "type_label": "Sıfat (Level)",
+    "icon": "🚀",
+    "wordEn": "advanced"
+  },
+  "increasing": {
+    "tr": "artan, artırma, yükselen",
+    "type": "sıfat / fiil (-ing)",
+    "type_label": "Sıfat / Fiil (-ing)",
+    "icon": "📈",
+    "wordEn": "increasing"
+  },
+  "motivation": {
+    "tr": "motivasyon, istek, güdülenme",
+    "type": "i̇sim (psychology)",
+    "type_label": "İsim (Psychology)",
+    "icon": "🔥",
+    "wordEn": "motivation"
+  },
+  "motwation": {
+    "tr": "motivasyon (motivation yazım düzeltmesi)",
+    "type": "i̇sim",
+    "type_label": "İsim",
+    "icon": "🔥",
+    "wordEn": "motwation"
+  },
+  "proficient": {
+    "tr": "yetkin, becerikli, uzman",
+    "type": "sıfat (language)",
+    "type_label": "Sıfat (Language)",
+    "icon": "⭐",
+    "wordEn": "proficient"
+  },
+  "proficiency": {
+    "tr": "yetkinlik, yeterlilik, dil becerisi",
+    "type": "i̇sim (language)",
+    "type_label": "İsim (Language)",
+    "icon": "⭐",
+    "wordEn": "proficiency"
+  },
+  "conclusion": {
+    "tr": "sonuç, netice, son bölüm, özet",
+    "type": "i̇sim (academic)",
+    "type_label": "İsim (Academic)",
+    "icon": "🏁",
+    "wordEn": "conclusion"
+  },
+  "reference": {
+    "tr": "referans, kaynak, başvuru, kaynakça",
+    "type": "i̇sim (academic)",
+    "type_label": "İsim (Academic)",
+    "icon": "📑",
+    "wordEn": "reference"
+  },
+  "document": {
+    "tr": "belge, doküman / belgelemek",
+    "type": "i̇sim / fiil",
+    "type_label": "İsim / Fiil",
+    "icon": "📄",
+    "wordEn": "document"
+  },
+  "intermediate": {
+    "tr": "orta seviye",
+    "type": "sıfat (level)",
+    "type_label": "Sıfat (Level)",
+    "icon": "⚖️",
+    "wordEn": "intermediate"
+  },
+  "pre-intermediate": {
+    "tr": "orta seviye öncesi (A2+)",
+    "type": "sıfat (level)",
+    "type_label": "Sıfat (Level)",
+    "icon": "⚖️",
+    "wordEn": "pre-intermediate"
+  },
+  "social": {
+    "tr": "sosyal, toplumsal, arkadaş canlısı",
+    "type": "sıfat (social)",
+    "type_label": "Sıfat (Social)",
+    "icon": "👥",
+    "wordEn": "social"
+  },
+  "greater": {
+    "tr": "daha büyük, daha fazla, daha üstün",
+    "type": "karşılaştırma sıfatı",
+    "type_label": "Karşılaştırma Sıfatı",
+    "icon": "⭐",
+    "wordEn": "greater"
+  },
+  "this": {
+    "tr": "bu",
+    "type": "i̇şaret sıfatı / zamiri",
+    "type_label": "İşaret Sıfatı / Zamiri",
+    "icon": "👉",
+    "wordEn": "this"
+  },
+  "that": {
+    "tr": "şu, o",
+    "type": "i̇şaret sıfatı / zamiri",
+    "type_label": "İşaret Sıfatı / Zamiri",
+    "icon": "👉",
+    "wordEn": "that"
+  },
+  "section": {
+    "tr": "kısım, bölüm, kesit",
+    "type": "i̇sim (book)",
+    "type_label": "İsim (Book)",
+    "icon": "📑",
+    "wordEn": "section"
+  },
+  "workbook": {
+    "tr": "çalışma kitabı",
+    "type": "i̇sim (school)",
+    "type_label": "İsim (School)",
+    "icon": "📘",
+    "wordEn": "workbook"
+  },
+  "coursebook": {
+    "tr": "ders kitabı",
+    "type": "i̇sim (school)",
+    "type_label": "İsim (School)",
+    "icon": "📕",
+    "wordEn": "coursebook"
+  },
+  "textbook": {
+    "tr": "ders kitabı",
+    "type": "i̇sim (school)",
+    "type_label": "İsim (School)",
+    "icon": "📗",
+    "wordEn": "textbook"
+  },
+  "quiz": {
+    "tr": "kısa sınav, test",
+    "type": "i̇sim (school)",
+    "type_label": "İsim (School)",
+    "icon": "❓",
+    "wordEn": "quiz"
+  },
+  "formula": {
+    "tr": "formül, kural kalıbı",
+    "type": "i̇sim",
+    "type_label": "İsim",
+    "icon": "🧪",
+    "wordEn": "formula"
+  },
+  "example": {
+    "tr": "örnek, misal",
+    "type": "i̇sim",
+    "type_label": "İsim",
+    "icon": "🔍",
+    "wordEn": "example"
+  },
+  "examples": {
+    "tr": "örnekler",
+    "type": "çoğul i̇sim",
+    "type_label": "Çoğul İsim",
+    "icon": "🔍",
+    "wordEn": "examples"
+  },
+  "flashcard": {
+    "tr": "çift taraflı ezber kartı",
+    "type": "i̇sim (learning)",
+    "type_label": "İsim (Learning)",
+    "icon": "🃏",
+    "wordEn": "flashcard"
+  },
+  "audio": {
+    "tr": "sesli telaffuz, ses",
+    "type": "i̇sim (tech)",
+    "type_label": "İsim (Tech)",
+    "icon": "🔊",
+    "wordEn": "audio"
+  },
+  "reading": {
+    "tr": "okuma parçası / okuma",
+    "type": "i̇sim (skill)",
+    "type_label": "İsim (Skill)",
+    "icon": "📖",
+    "wordEn": "reading"
+  },
+  "writing": {
+    "tr": "yazma, kompozisyon",
+    "type": "i̇sim (skill)",
+    "type_label": "İsim (Skill)",
+    "icon": "✍️",
+    "wordEn": "writing"
+  },
+  "listening": {
+    "tr": "dinleme etkinliği",
+    "type": "i̇sim (skill)",
+    "type_label": "İsim (Skill)",
+    "icon": "🎧",
+    "wordEn": "listening"
+  },
+  "speaking": {
+    "tr": "konuşma becerisi",
+    "type": "i̇sim (skill)",
+    "type_label": "İsim (Skill)",
+    "icon": "🗣️",
+    "wordEn": "speaking"
+  },
   "bes": {
     "tr": "olmak (Geniş Zaman / 3. Tekil)",
     "type": "geniş zaman fiil (3. tekil)",
@@ -6949,13 +9336,6 @@
     "type_label": "Şimdiki Zaman Fiil (V-ing)",
     "icon": "🔵",
     "wordEn": "bing"
-  },
-  "bed": {
-    "tr": "olmak (Geçmiş Zaman / -ed)",
-    "type": "geçmiş zaman fiil (v2/v3)",
-    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
-    "icon": "🔵",
-    "wordEn": "bed"
   },
   "wases": {
     "tr": "olmak (Geçmiş Zaman / V2) (Geniş Zaman / 3. Tekil)",
@@ -7510,13 +9890,6 @@
     "icon": "🔵",
     "wordEn": "hearded"
   },
-  "listening": {
-    "tr": "dinlemek (Şimdiki Zaman / -ing)",
-    "type": "şimdiki zaman fiil (v-ing)",
-    "type_label": "Şimdiki Zaman Fiil (V-ing)",
-    "icon": "🔵",
-    "wordEn": "listening"
-  },
   "listeneds": {
     "tr": "dinlemek (Geçmiş Zaman / V2) (Geniş Zaman / 3. Tekil)",
     "type": "geniş zaman fiil (3. tekil)",
@@ -7537,13 +9910,6 @@
     "type_label": "Geçmiş Zaman Fiil (V2/V3)",
     "icon": "🔵",
     "wordEn": "listeneded"
-  },
-  "speaking": {
-    "tr": "konuşmak (Şimdiki Zaman / -ing)",
-    "type": "şimdiki zaman fiil (v-ing)",
-    "type_label": "Şimdiki Zaman Fiil (V-ing)",
-    "icon": "🔵",
-    "wordEn": "speaking"
   },
   "speaked": {
     "tr": "konuşmak (Geçmiş Zaman / -ed)",
@@ -7909,26 +10275,12 @@
     "icon": "🔵",
     "wordEn": "studieded"
   },
-  "reading": {
-    "tr": "okumak (Şimdiki Zaman / -ing)",
-    "type": "şimdiki zaman fiil (v-ing)",
-    "type_label": "Şimdiki Zaman Fiil (V-ing)",
-    "icon": "🔵",
-    "wordEn": "reading"
-  },
   "readed": {
     "tr": "okumak (Geçmiş Zaman / -ed)",
     "type": "geçmiş zaman fiil (v2/v3)",
     "type_label": "Geçmiş Zaman Fiil (V2/V3)",
     "icon": "🔵",
     "wordEn": "readed"
-  },
-  "writing": {
-    "tr": "yazmak (Şimdiki Zaman / -ing)",
-    "type": "şimdiki zaman fiil (v-ing)",
-    "type_label": "Şimdiki Zaman Fiil (V-ing)",
-    "icon": "🔵",
-    "wordEn": "writing"
   },
   "writed": {
     "tr": "yazmak (Geçmiş Zaman / -ed)",
@@ -9560,13 +11912,6 @@
     "type_label": "Geçmiş Zaman Fiil (V2/V3)",
     "icon": "🔵",
     "wordEn": "improveded"
-  },
-  "increasing": {
-    "tr": "artırmak (Şimdiki Zaman / -ing)",
-    "type": "şimdiki zaman fiil (v-ing)",
-    "type_label": "Şimdiki Zaman Fiil (V-ing)",
-    "icon": "🔵",
-    "wordEn": "increasing"
   },
   "increaseds": {
     "tr": "artırmak (Geçmiş Zaman / V2) (Geniş Zaman / 3. Tekil)",
@@ -17750,5 +20095,1545 @@
     "type_label": "Durum Zarfı (Adverb)",
     "icon": "🟣",
     "wordEn": "wrongly"
+  },
+  "informations": {
+    "tr": "bilgi, enformasyon (Çoğul)",
+    "type": "çoğul i̇sim (plural)",
+    "type_label": "Çoğul İsim (Plural)",
+    "icon": "🔴",
+    "wordEn": "informations"
+  },
+  "maps": {
+    "tr": "harita / haritasını çıkarmak (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "maps"
+  },
+  "maping": {
+    "tr": "harita / haritasını çıkarmak (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "maping"
+  },
+  "maped": {
+    "tr": "harita / haritasını çıkarmak (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "maped"
+  },
+  "problems": {
+    "tr": "problem, sorun (Çoğul)",
+    "type": "çoğul i̇sim (plural)",
+    "type_label": "Çoğul İsim (Plural)",
+    "icon": "🔴",
+    "wordEn": "problems"
+  },
+  "controls": {
+    "tr": "kontrol etmek / denetim (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "controls"
+  },
+  "controling": {
+    "tr": "kontrol etmek / denetim (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "controling"
+  },
+  "controled": {
+    "tr": "kontrol etmek / denetim (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "controled"
+  },
+  "facts": {
+    "tr": "gerçek, olgu (Çoğul)",
+    "type": "çoğul i̇sim (plural)",
+    "type_label": "Çoğul İsim (Plural)",
+    "icon": "🔴",
+    "wordEn": "facts"
+  },
+  "ideas": {
+    "tr": "fikir, düşünce (Çoğul)",
+    "type": "çoğul i̇sim (plural)",
+    "type_label": "Çoğul İsim (Plural)",
+    "icon": "🔴",
+    "wordEn": "ideas"
+  },
+  "areas": {
+    "tr": "alan, bölge, saha (Çoğul)",
+    "type": "çoğul i̇sim (plural)",
+    "type_label": "Çoğul İsim (Plural)",
+    "icon": "🔴",
+    "wordEn": "areas"
+  },
+  "activities": {
+    "tr": "aktivite, etkinlik (Çoğul)",
+    "type": "çoğul i̇sim (plural)",
+    "type_label": "Çoğul İsim (Plural)",
+    "icon": "🔴",
+    "wordEn": "activities"
+  },
+  "things": {
+    "tr": "şey, nesne (Çoğul)",
+    "type": "çoğul i̇sim (plural)",
+    "type_label": "Çoğul İsim (Plural)",
+    "icon": "🔴",
+    "wordEn": "things"
+  },
+  "safeties": {
+    "tr": "güvenlik, emniyet (Çoğul)",
+    "type": "çoğul i̇sim (plural)",
+    "type_label": "Çoğul İsim (Plural)",
+    "icon": "🔴",
+    "wordEn": "safeties"
+  },
+  "qualities": {
+    "tr": "kalite, nitelik (Çoğul)",
+    "type": "çoğul i̇sim (plural)",
+    "type_label": "Çoğul İsim (Plural)",
+    "icon": "🔴",
+    "wordEn": "qualities"
+  },
+  "varieties": {
+    "tr": "çeşitlilik, tür (Çoğul)",
+    "type": "çoğul i̇sim (plural)",
+    "type_label": "Çoğul İsim (Plural)",
+    "icon": "🔴",
+    "wordEn": "varieties"
+  },
+  "books": {
+    "tr": "kitap / rezervasyon yapmak (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "books"
+  },
+  "booking": {
+    "tr": "kitap / rezervasyon yapmak (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "booking"
+  },
+  "booked": {
+    "tr": "kitap / rezervasyon yapmak (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "booked"
+  },
+  "questions": {
+    "tr": "soru / sorgulamak (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "questions"
+  },
+  "questioning": {
+    "tr": "soru / sorgulamak (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "questioning"
+  },
+  "questioned": {
+    "tr": "soru / sorgulamak (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "questioned"
+  },
+  "tests": {
+    "tr": "test, deneme / test etmek (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "tests"
+  },
+  "testing": {
+    "tr": "test, deneme / test etmek (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "testing"
+  },
+  "tested": {
+    "tr": "test, deneme / test etmek (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "tested"
+  },
+  "scores": {
+    "tr": "puan, skor / gol atmak (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "scores"
+  },
+  "scoring": {
+    "tr": "puan, skor / gol atmak (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "scoring"
+  },
+  "scored": {
+    "tr": "puan, skor / gol atmak (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "scored"
+  },
+  "points": {
+    "tr": "puan, nokta / işaret etmek (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "points"
+  },
+  "pointing": {
+    "tr": "puan, nokta / işaret etmek (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "pointing"
+  },
+  "pointed": {
+    "tr": "puan, nokta / işaret etmek (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "pointed"
+  },
+  "matches": {
+    "tr": "maç, karşılaşma / eşleştirmek (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "matches"
+  },
+  "matching": {
+    "tr": "maç, karşılaşma / eşleştirmek (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "matching"
+  },
+  "matched": {
+    "tr": "maç, karşılaşma / eşleştirmek (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "matched"
+  },
+  "fastly": {
+    "tr": "hızlı bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "fastly"
+  },
+  "fasts": {
+    "tr": "hızlı / oruç tutmak (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "fasts"
+  },
+  "fasting": {
+    "tr": "hızlı / oruç tutmak (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "fasting"
+  },
+  "fasted": {
+    "tr": "hızlı / oruç tutmak (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "fasted"
+  },
+  "slows": {
+    "tr": "yavaş / yavaşlatmak (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "slows"
+  },
+  "slowing": {
+    "tr": "yavaş / yavaşlatmak (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "slowing"
+  },
+  "slowed": {
+    "tr": "yavaş / yavaşlatmak (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "slowed"
+  },
+  "strongly": {
+    "tr": "güçlü bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "strongly"
+  },
+  "weakly": {
+    "tr": "zayıf bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "weakly"
+  },
+  "highly": {
+    "tr": "yüksek bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "highly"
+  },
+  "lowly": {
+    "tr": "düşük bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "lowly"
+  },
+  "hardly": {
+    "tr": "zor bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "hardly"
+  },
+  "difficultly": {
+    "tr": "zor bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "difficultly"
+  },
+  "importantly": {
+    "tr": "önemli bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "importantly"
+  },
+  "interestingly": {
+    "tr": "ilginç bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "interestingly"
+  },
+  "excitingly": {
+    "tr": "heyecan verici bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "excitingly"
+  },
+  "boringly": {
+    "tr": "sıkıcı bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "boringly"
+  },
+  "goodly": {
+    "tr": "iyi bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "goodly"
+  },
+  "betterly": {
+    "tr": "daha iyi bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "betterly"
+  },
+  "bestly": {
+    "tr": "en iyi bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "bestly"
+  },
+  "badly": {
+    "tr": "kötü bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "badly"
+  },
+  "worsely": {
+    "tr": "daha kötü bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "worsely"
+  },
+  "worstly": {
+    "tr": "en kötü bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "worstly"
+  },
+  "bigly": {
+    "tr": "büyük bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "bigly"
+  },
+  "biggerly": {
+    "tr": "daha büyük bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "biggerly"
+  },
+  "biggestly": {
+    "tr": "en büyük bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "biggestly"
+  },
+  "smallly": {
+    "tr": "küçük bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "smallly"
+  },
+  "smallerly": {
+    "tr": "daha küçük bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "smallerly"
+  },
+  "smallestly": {
+    "tr": "en küçük bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "smallestly"
+  },
+  "longly": {
+    "tr": "uzun bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "longly"
+  },
+  "longs": {
+    "tr": "uzun / özlemek (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "longs"
+  },
+  "longing": {
+    "tr": "uzun / özlemek (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "longing"
+  },
+  "longed": {
+    "tr": "uzun / özlemek (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "longed"
+  },
+  "shortly": {
+    "tr": "kısa bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "shortly"
+  },
+  "newly": {
+    "tr": "yeni bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "newly"
+  },
+  "oldly": {
+    "tr": "eski bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "oldly"
+  },
+  "youngly": {
+    "tr": "genç bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "youngly"
+  },
+  "greatly": {
+    "tr": "harika bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "greatly"
+  },
+  "finely": {
+    "tr": "iyi bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "finely"
+  },
+  "sadly": {
+    "tr": "üzgün bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "sadly"
+  },
+  "tiredly": {
+    "tr": "yorgun bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "tiredly"
+  },
+  "busily": {
+    "tr": "meşgul bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "busily"
+  },
+  "readily": {
+    "tr": "hazır bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "readily"
+  },
+  "readies": {
+    "tr": "hazır / hazırlamak (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "readies"
+  },
+  "readying": {
+    "tr": "hazır / hazırlamak (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "readying"
+  },
+  "readied": {
+    "tr": "hazır / hazırlamak (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "readied"
+  },
+  "surely": {
+    "tr": "emin bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "surely"
+  },
+  "truely": {
+    "tr": "doğru bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "truely"
+  },
+  "falsely": {
+    "tr": "yanlış bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "falsely"
+  },
+  "fullly": {
+    "tr": "dolu bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "fullly"
+  },
+  "emptily": {
+    "tr": "boş bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "emptily"
+  },
+  "empties": {
+    "tr": "boş / boşaltmak (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "empties"
+  },
+  "emptying": {
+    "tr": "boş / boşaltmak (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "emptying"
+  },
+  "emptied": {
+    "tr": "boş / boşaltmak (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "emptied"
+  },
+  "darkly": {
+    "tr": "karanlık bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "darkly"
+  },
+  "lightly": {
+    "tr": "ışık bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "lightly"
+  },
+  "clears": {
+    "tr": "açık, net / temizlemek (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "clears"
+  },
+  "clearing": {
+    "tr": "açık, net / temizlemek (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "clearing"
+  },
+  "cleared": {
+    "tr": "açık, net / temizlemek (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "cleared"
+  },
+  "smartly": {
+    "tr": "akıllı bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "smartly"
+  },
+  "cleverly": {
+    "tr": "zeki bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "cleverly"
+  },
+  "rudely": {
+    "tr": "kaba bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "rudely"
+  },
+  "kindly": {
+    "tr": "nazik bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "kindly"
+  },
+  "famously": {
+    "tr": "ünlü bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "famously"
+  },
+  "popularly": {
+    "tr": "popüler bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "popularly"
+  },
+  "richly": {
+    "tr": "zengin bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "richly"
+  },
+  "poorly": {
+    "tr": "fakir bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "poorly"
+  },
+  "cheaply": {
+    "tr": "ucuz bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "cheaply"
+  },
+  "expensively": {
+    "tr": "pahalı bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "expensively"
+  },
+  "heavily": {
+    "tr": "ağır bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "heavily"
+  },
+  "freshly": {
+    "tr": "taze bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "freshly"
+  },
+  "annually": {
+    "tr": "yıllık bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "annually"
+  },
+  "modernly": {
+    "tr": "modern bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "modernly"
+  },
+  "anciently": {
+    "tr": "antik bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "anciently"
+  },
+  "minutely": {
+    "tr": "dakika bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "minutely"
+  },
+  "secondly": {
+    "tr": "saniye bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "secondly"
+  },
+  "springs": {
+    "tr": "ilkbahar / yay / sıçramak (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "springs"
+  },
+  "springing": {
+    "tr": "ilkbahar / yay / sıçramak (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "springing"
+  },
+  "springed": {
+    "tr": "ilkbahar / yay / sıçramak (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "springed"
+  },
+  "falls": {
+    "tr": "sonbahar / düşmek (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "falls"
+  },
+  "falling": {
+    "tr": "sonbahar / düşmek (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "falling"
+  },
+  "falled": {
+    "tr": "sonbahar / düşmek (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "falled"
+  },
+  "rains": {
+    "tr": "yağmur / yağmur yağmak (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "rains"
+  },
+  "raining": {
+    "tr": "yağmur / yağmur yağmak (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "raining"
+  },
+  "rained": {
+    "tr": "yağmur / yağmur yağmak (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "rained"
+  },
+  "snows": {
+    "tr": "kar / kar yağmak (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "snows"
+  },
+  "snowing": {
+    "tr": "kar / kar yağmak (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "snowing"
+  },
+  "snowed": {
+    "tr": "kar / kar yağmak (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "snowed"
+  },
+  "chairs": {
+    "tr": "sandalye / başkanlık etmek (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "chairs"
+  },
+  "chairing": {
+    "tr": "sandalye / başkanlık etmek (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "chairing"
+  },
+  "chaired": {
+    "tr": "sandalye / başkanlık etmek (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "chaired"
+  },
+  "trains": {
+    "tr": "tren / eğitmek, antrenman yapmak (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "trains"
+  },
+  "trained": {
+    "tr": "tren / eğitmek, antrenman yapmak (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "trained"
+  },
+  "tickets": {
+    "tr": "bilet / ceza yazmak (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "tickets"
+  },
+  "ticketing": {
+    "tr": "bilet / ceza yazmak (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "ticketing"
+  },
+  "ticketed": {
+    "tr": "bilet / ceza yazmak (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "ticketed"
+  },
+  "waters": {
+    "tr": "su / sulamak (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "waters"
+  },
+  "watering": {
+    "tr": "su / sulamak (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "watering"
+  },
+  "watered": {
+    "tr": "su / sulamak (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "watered"
+  },
+  "milks": {
+    "tr": "süt / sağmak (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "milks"
+  },
+  "milking": {
+    "tr": "süt / sağmak (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "milking"
+  },
+  "milked": {
+    "tr": "süt / sağmak (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "milked"
+  },
+  "markets": {
+    "tr": "pazar, piyasa / pazarlamak (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "markets"
+  },
+  "marketing": {
+    "tr": "pazar, piyasa / pazarlamak (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "marketing"
+  },
+  "marketed": {
+    "tr": "pazar, piyasa / pazarlamak (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "marketed"
+  },
+  "shops": {
+    "tr": "mağaza, dükkan / alışveriş yapmak (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "shops"
+  },
+  "shoping": {
+    "tr": "mağaza, dükkan / alışveriş yapmak (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "shoping"
+  },
+  "shoped": {
+    "tr": "mağaza, dükkan / alışveriş yapmak (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "shoped"
+  },
+  "stores": {
+    "tr": "mağaza, depo / depolamak (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "stores"
+  },
+  "storing": {
+    "tr": "mağaza, depo / depolamak (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "storing"
+  },
+  "stored": {
+    "tr": "mağaza, depo / depolamak (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "stored"
+  },
+  "handing": {
+    "tr": "el / uzatmak, vermek (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "handing"
+  },
+  "handed": {
+    "tr": "el / uzatmak, vermek (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "handed"
+  },
+  "eyeing": {
+    "tr": "göz / bakmak (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "eyeing"
+  },
+  "eyed": {
+    "tr": "göz / bakmak (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "eyed"
+  },
+  "heads": {
+    "tr": "baş, kafa / yönetmek (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "heads"
+  },
+  "heading": {
+    "tr": "baş, kafa / yönetmek (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "heading"
+  },
+  "headed": {
+    "tr": "baş, kafa / yönetmek (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "headed"
+  },
+  "faces": {
+    "tr": "yüz, çehre / yüzleşmek (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "faces"
+  },
+  "facing": {
+    "tr": "yüz, çehre / yüzleşmek (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "facing"
+  },
+  "faced": {
+    "tr": "yüz, çehre / yüzleşmek (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "faced"
+  },
+  "arming": {
+    "tr": "kol / silahlandırmak (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "arming"
+  },
+  "armed": {
+    "tr": "kol / silahlandırmak (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "armed"
+  },
+  "phones": {
+    "tr": "telefon / telefon etmek (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "phones"
+  },
+  "phoning": {
+    "tr": "telefon / telefon etmek (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "phoning"
+  },
+  "phoned": {
+    "tr": "telefon / telefon etmek (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "phoned"
+  },
+  "screens": {
+    "tr": "ekran / taramak, incelemek (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "screens"
+  },
+  "screening": {
+    "tr": "ekran / taramak, incelemek (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "screening"
+  },
+  "screened": {
+    "tr": "ekran / taramak, incelemek (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "screened"
+  },
+  "emails": {
+    "tr": "e-posta / e-posta göndermek (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "emails"
+  },
+  "emailing": {
+    "tr": "e-posta / e-posta göndermek (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "emailing"
+  },
+  "emailed": {
+    "tr": "e-posta / e-posta göndermek (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "emailed"
+  },
+  "onlinely": {
+    "tr": "çevrimiçi bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "onlinely"
+  },
+  "offlinely": {
+    "tr": "çevrimdışı bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "offlinely"
+  },
+  "links": {
+    "tr": "bağlantı / bağlamak (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "links"
+  },
+  "linking": {
+    "tr": "bağlantı / bağlamak (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "linking"
+  },
+  "linked": {
+    "tr": "bağlantı / bağlamak (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "linked"
+  },
+  "clicks": {
+    "tr": "tıklamak / tık sesi (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "clicks"
+  },
+  "clicking": {
+    "tr": "tıklamak / tık sesi (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "clicking"
+  },
+  "clicked": {
+    "tr": "tıklamak / tık sesi (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "clicked"
+  },
+  "files": {
+    "tr": "dosya / dosyalamak (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "files"
+  },
+  "filing": {
+    "tr": "dosya / dosyalamak (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "filing"
+  },
+  "filed": {
+    "tr": "dosya / dosyalamak (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "filed"
+  },
+  "scans": {
+    "tr": "taramak / tarama (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "scans"
+  },
+  "scaning": {
+    "tr": "taramak / tarama (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "scaning"
+  },
+  "scaned": {
+    "tr": "taramak / tarama (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "scaned"
+  },
+  "scannedly": {
+    "tr": "taranmış bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "scannedly"
+  },
+  "scanneds": {
+    "tr": "taranmış / taradı (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "scanneds"
+  },
+  "scanneding": {
+    "tr": "taranmış / taradı (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "scanneding"
+  },
+  "scanneded": {
+    "tr": "taranmış / taradı (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "scanneded"
+  },
+  "texts": {
+    "tr": "metin, yazı / mesaj atmak (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "texts"
+  },
+  "texting": {
+    "tr": "metin, yazı / mesaj atmak (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "texting"
+  },
+  "texted": {
+    "tr": "metin, yazı / mesaj atmak (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "texted"
+  },
+  "benefiting": {
+    "tr": "fayda, yarar / faydalanmak (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "benefiting"
+  },
+  "benefited": {
+    "tr": "fayda, yarar / faydalanmak (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "benefited"
+  },
+  "masters": {
+    "tr": "ustalaşmak, hakim olmak / usta (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "masters"
+  },
+  "mastered": {
+    "tr": "ustalaşmak, hakim olmak / usta (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "mastered"
+  },
+  "gains": {
+    "tr": "kazanmak, elde etmek, artmak (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "gains"
+  },
+  "gained": {
+    "tr": "kazanmak, elde etmek, artmak (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "gained"
+  },
+  "gainings": {
+    "tr": "kazanma, elde etme (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "gainings"
+  },
+  "gaininging": {
+    "tr": "kazanma, elde etme (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "gaininging"
+  },
+  "gaininged": {
+    "tr": "kazanma, elde etme (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "gaininged"
+  },
+  "participates": {
+    "tr": "katılmak, iştirak etmek, yer almak (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "participates"
+  },
+  "participating": {
+    "tr": "katılmak, iştirak etmek, yer almak (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "participating"
+  },
+  "participated": {
+    "tr": "katılmak, iştirak etmek, yer almak (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "participated"
+  },
+  "eases": {
+    "tr": "kolaylık, rahatlık / hafifletmek (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "eases"
+  },
+  "easing": {
+    "tr": "kolaylık, rahatlık / hafifletmek (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "easing"
+  },
+  "eased": {
+    "tr": "kolaylık, rahatlık / hafifletmek (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "eased"
+  },
+  "prapareses": {
+    "tr": "hazırlar (prepares yazım düzeltmesi) (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "prapareses"
+  },
+  "praparesing": {
+    "tr": "hazırlar (prepares yazım düzeltmesi) (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "praparesing"
+  },
+  "praparesed": {
+    "tr": "hazırlar (prepares yazım düzeltmesi) (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "praparesed"
+  },
+  "advancedly": {
+    "tr": "ileri düzey bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "advancedly"
+  },
+  "increasingly": {
+    "tr": "artan bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "increasingly"
+  },
+  "increasings": {
+    "tr": "artan, artırma, yükselen (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "increasings"
+  },
+  "increasinging": {
+    "tr": "artan, artırma, yükselen (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "increasinging"
+  },
+  "increasinged": {
+    "tr": "artan, artırma, yükselen (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "increasinged"
+  },
+  "proficiently": {
+    "tr": "yetkin bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "proficiently"
+  },
+  "documents": {
+    "tr": "belge, doküman / belgelemek (Geniş Zaman / 3. Tekil)",
+    "type": "geniş zaman fiil (3. tekil)",
+    "type_label": "Geniş Zaman Fiil (3. Tekil)",
+    "icon": "🔵",
+    "wordEn": "documents"
+  },
+  "documenting": {
+    "tr": "belge, doküman / belgelemek (Şimdiki Zaman / -ing)",
+    "type": "şimdiki zaman fiil (v-ing)",
+    "type_label": "Şimdiki Zaman Fiil (V-ing)",
+    "icon": "🔵",
+    "wordEn": "documenting"
+  },
+  "documented": {
+    "tr": "belge, doküman / belgelemek (Geçmiş Zaman / -ed)",
+    "type": "geçmiş zaman fiil (v2/v3)",
+    "type_label": "Geçmiş Zaman Fiil (V2/V3)",
+    "icon": "🔵",
+    "wordEn": "documented"
+  },
+  "intermediately": {
+    "tr": "orta seviye bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "intermediately"
+  },
+  "pre-intermediately": {
+    "tr": "orta seviye öncesi (A2+) bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "pre-intermediately"
+  },
+  "socially": {
+    "tr": "sosyal bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "socially"
+  },
+  "greaterly": {
+    "tr": "daha büyük bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "greaterly"
+  },
+  "thisly": {
+    "tr": "bu bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "thisly"
+  },
+  "thatly": {
+    "tr": "şu bir şekilde",
+    "type": "durum zarfı (adverb)",
+    "type_label": "Durum Zarfı (Adverb)",
+    "icon": "🟣",
+    "wordEn": "thatly"
   }
 }

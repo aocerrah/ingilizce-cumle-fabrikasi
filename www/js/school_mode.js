@@ -1147,12 +1147,21 @@ class SchoolModeManager {
    * 4. SMART BOOK & HOMEWORK SCANNER VIEW
    * ---------------------------------------------------- */
   renderScannerView(container) {
+    const hasGemini = window.geminiAI && window.geminiAI.hasApiKey();
+
     container.innerHTML = `
       <div class="school-scanner-module">
-        <div class="school-section-header">
+        <div class="school-section-header" style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:10px;">
           <div>
             <h3>📷 Akıllı Kitap & Ödev Sayfa Tarayıcısı</h3>
             <p>Richmond Fly Higher ders kitabı veya ödev kağıdınızın fotoğrafını yükleyin ya da metnini yapıştırın. Sistem tüm kelimeleri ve gramer yapılarını saniyeler içinde analiz eder.</p>
+          </div>
+
+          <div style="display:flex; align-items:center; gap:8px;">
+            <button id="btn-gemini-status" class="btn-secondary sm" style="display:inline-flex; align-items:center; gap:6px; border:1px solid ${hasGemini ? '#38bdf8' : 'rgba(255,255,255,0.2)'}; background:${hasGemini ? 'rgba(56,189,248,0.15)' : 'rgba(255,255,255,0.05)'}; font-weight:700;" onclick="window.geminiAI.openConfigModal(() => schoolMode.renderScannerView(document.getElementById('school-tab-content')))">
+              <span>🤖</span>
+              <span>${hasGemini ? 'Gemini AI: Aktif ✅' : 'Gemini AI: API Bağla 🔑'}</span>
+            </button>
           </div>
         </div>
 
@@ -1190,11 +1199,16 @@ class SchoolModeManager {
             <h4 style="margin-bottom:10px;">✍️ 2. Analiz Edilecek Metin</h4>
             <textarea id="scanner-text-input" class="scanner-textarea" placeholder="Kitap veya ödev metnini buraya yapıştırın veya sol taraftan fotoğraf yükleyin..."></textarea>
             
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
-              <span style="font-size:0.75rem; color:var(--text-secondary);">AI Destekli Kelime ve Cümle Analizi</span>
-              <button class="btn-primary" onclick="schoolMode.runTextScan()">
-                🔍 Sayfayı Analiz Et (+15 XP)
-              </button>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:12px; gap:8px; flex-wrap:wrap;">
+              <span style="font-size:0.75rem; color:var(--text-secondary);">⚡ 3.091+ kelimelik çevrimdışı sözlük & Gemini AI</span>
+              <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                <button class="btn-secondary" onclick="schoolMode.runTextScan()" title="Yerel sözlük ve hızlı çeviri ile analiz et">
+                  🔍 Standart Analiz (+15 XP)
+                </button>
+                <button class="btn-primary" style="background:linear-gradient(135deg, #6366f1, #38bdf8); font-weight:800;" onclick="schoolMode.runGeminiScan()" title="Gemini 1.5 Flash ile yazım hatalarını düzeltip derin analiz yap">
+                  🤖 Gemini AI ile Akıllı Analiz (+20 XP)
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -1236,65 +1250,114 @@ Exercise 4: She has already completed her science experiment.`;
     const dropZone = document.querySelector('.scanner-drop-zone');
     if (dropZone) {
       dropZone.innerHTML = `
-        <div style="font-size:2rem; margin-bottom:6px;">📸</div>
-        <strong>${file.name}</strong>
-        <p style="font-size:0.75rem; color:#38bdf8; margin-top:4px;" id="ocr-status-text">
-          🔄 Optik Karakter Tanıma (OCR) Başlatılıyor...
-        </p>
-        <div style="width:100%; max-width:240px; height:6px; background:rgba(255,255,255,0.1); border-radius:10px; overflow:hidden; margin:8px auto 0;">
-          <div id="ocr-progress-bar" style="width:15%; height:100%; background:linear-gradient(90deg, #38bdf8, #818cf8); transition:width 0.2s ease;"></div>
+        <div style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+          <div style="font-size:2rem;">📸</div>
+          <strong style="color:var(--text-primary); font-size:0.88rem;">${file.name}</strong>
+          <div id="ocr-progress-box" style="font-size:0.78rem; color:var(--primary); font-weight:700;">
+            🔄 Metin Çıkarılıyor: %0
+          </div>
+          <div class="quiz-progress-bar" style="width:180px; height:6px;">
+            <div id="ocr-progress-bar" class="quiz-progress-fill" style="width: 5%;"></div>
+          </div>
         </div>
       `;
     }
 
     if (resultsArea) {
       resultsArea.innerHTML = `
-        <div class="school-card-panel" style="text-align:center; padding:30px;">
+        <div style="text-align:center; padding:30px;">
           <div class="spinner" style="margin:0 auto 12px;"></div>
-          <h4 style="color:#38bdf8;">📷 Fotoğraftaki Tüm Yazılar Taranıyor...</h4>
-          <p style="font-size:0.82rem; color:var(--text-secondary); margin-top:4px;" id="ocr-live-subtext">
-            Tüm sayfa satır satır analiz ediliyor. Lütfen birkaç saniye bekleyin.
-          </p>
+          <h4>Fotoğraf Taranıyor... Tesseract OCR yazıları okuyor.</h4>
+          <p style="font-size:0.8rem; color:var(--text-secondary); margin-top:4px;">Bu işlem fotoğrafın çözünürlüğüne bağlı olarak 3-6 saniye sürebilir.</p>
         </div>
       `;
     }
 
-    if (window.app) window.app.showToast(`📸 "${file.name}" taranıyor...`);
-
     try {
       if (window.bookScanner && typeof window.bookScanner.recognizeImageWithOCR === 'function') {
         const extractedText = await window.bookScanner.recognizeImageWithOCR(file, (m) => {
-          const percent = Math.round((m.progress || 0) * 100);
-          const statusText = m.status === 'recognizing text' ? `Metin Çıkarılıyor: %${percent}` : `Hazırlanıyor: ${m.status}`;
-          
-          const statusEl = document.getElementById('ocr-status-text');
-          const progressEl = document.getElementById('ocr-progress-bar');
-          const liveSub = document.getElementById('ocr-live-subtext');
-
-          if (statusEl) statusEl.textContent = `🔄 ${statusText}`;
-          if (progressEl) progressEl.style.width = `${Math.max(15, percent)}%`;
-          if (liveSub) liveSub.textContent = `Durum: ${statusText} • Sayfadaki kelimeler okunuyor...`;
+          const progressBox = document.getElementById('ocr-progress-box');
+          const progressBar = document.getElementById('ocr-progress-bar');
+          if (m && m.status === 'recognizing text') {
+            const pct = Math.round((m.progress || 0) * 100);
+            if (progressBox) progressBox.textContent = `🔄 Metin Çıkarılıyor: %${pct}`;
+            if (progressBar) progressBar.style.width = `${pct}%`;
+          }
         });
 
-        if (textarea && extractedText && extractedText.length > 5) {
-          textarea.value = extractedText;
-          if (window.app) window.app.showToast(`✨ Fotoğraftaki tüm metin başarıyla çıkarıldı!`);
+        if (textarea) textarea.value = extractedText;
+
+        // Auto run scan on extracted text
+        if (window.geminiAI && window.geminiAI.hasApiKey()) {
+          this.runGeminiScan();
+        } else {
           this.runTextScan();
-          return;
         }
       }
-    } catch (ocrErr) {
-      console.warn('OCR error or offline, fallbacking:', ocrErr);
-      if (window.app) window.app.showToast(`ℹ️ Görsel doğrudan okunamadı, lütfen metni yapıştırarak analiz edin.`);
+    } catch (err) {
+      console.error(err);
+      if (resultsArea) {
+        resultsArea.innerHTML = `
+          <div class="school-card-panel" style="border-color:#ef4444; color:#fca5a5;">
+            <strong>OCR Tarama Hatası:</strong> ${err.message}<br>
+            <span style="font-size:0.8rem; color:var(--text-secondary);">Fotoğraf çok bulanık olabilir veya metin doğrudan metin kutusuna yapıştırılabilir.</span>
+          </div>
+        `;
+      }
+    } finally {
+      if (dropZone) {
+        dropZone.innerHTML = `
+          <input type="file" id="scanner-file-input" accept="image/*" style="display:none;" onchange="schoolMode.handleScannerFileUpload(this)">
+          <div style="font-size:2.5rem; margin-bottom:8px;">📤</div>
+          <strong>Başka Bir Sayfa Fotoğrafı Seçin</strong>
+          <p style="font-size:0.75rem; color:var(--text-secondary); margin-top:4px;">PNG, JPG veya Kamera</p>
+        `;
+      }
+    }
+  }
+
+  async runGeminiScan() {
+    const textarea = document.getElementById('scanner-text-input');
+    const resultsArea = document.getElementById('scanner-results-area');
+    if (!textarea || !resultsArea) return;
+
+    const rawText = textarea.value.trim();
+    if (!rawText || rawText.length < 5) {
+      if (window.app) window.app.showToast('Lütfen taranacak bir metin girin veya fotoğraf yükleyin.');
+      return;
     }
 
-    // Fallback if OCR is unavailable or failed
-    if (dropZone) {
-      dropZone.innerHTML = `
-        <input type="file" id="scanner-file-input" accept="image/*" style="display:none;" onchange="schoolMode.handleScannerFileUpload(this)">
-        <div style="font-size:2.5rem; margin-bottom:8px;">📤</div>
-        <strong>Ders Kitabı / Ödev Sayfasının Fotoğrafını Seçin</strong>
-        <p style="font-size:0.75rem; color:var(--text-secondary); margin-top:4px;">PNG, JPG veya Kamera ile çekilmiş fotoğraflar</p>
+    if (!window.geminiAI || !window.geminiAI.hasApiKey()) {
+      window.geminiAI.openConfigModal(() => this.runGeminiScan());
+      return;
+    }
+
+    resultsArea.innerHTML = `
+      <div style="text-align:center; padding:35px; background:rgba(30,27,75,0.4); border-radius:var(--radius-lg); border:1px solid #818cf8;">
+        <div class="spinner" style="margin:0 auto 12px; border-top-color:#818cf8;"></div>
+        <h4 style="color:#ffffff; font-weight:800;">🤖 Google Gemini AI Sayfayı Analiz Ediyor...</h4>
+        <p style="font-size:0.82rem; color:#94a3b8; margin-top:4px;">
+          OCR yazım hataları düzeltiliyor, tüm kelimelerin doğal anlamları ve gramer yapıları çıkarılıyor.
+        </p>
+      </div>
+    `;
+
+    try {
+      const scanResult = await window.bookScanner.scanTextWithGemini(rawText, 'Gemini AI Sayfa Analizi');
+      this.renderScanResult(resultsArea, scanResult);
+      if (window.app) {
+        window.app.addXP(20);
+        window.app.showToast('✨ Gemini AI Analizi Tamamlandı! (+20 XP)');
+      }
+    } catch (err) {
+      console.error(err);
+      resultsArea.innerHTML = `
+        <div class="school-card-panel" style="border-color:#ef4444; color:#fca5a5;">
+          <strong>Gemini AI Hatası:</strong> ${err.message}<br>
+          <button class="btn-secondary sm" style="margin-top:10px;" onclick="schoolMode.runTextScan()">
+            Standart Yerel Analiz ile Devam Et
+          </button>
+        </div>
       `;
     }
   }
@@ -1339,9 +1402,16 @@ Exercise 4: She has already completed her science experiment.`;
       <div class="school-card-panel scanner-results-panel">
         <div class="panel-header" style="border-bottom:1px solid var(--border-color); padding-bottom:12px; margin-bottom:16px;">
           <div>
-            <h3>✨ Sayfa Analiz Raporu</h3>
-            <p style="font-size:0.85rem; color:var(--text-secondary);">
-              Toplam <strong>${res.tokenCount}</strong> kelime tarandı, <strong>${res.uniqueWordCount}</strong> benzersiz kelime ve <strong>${res.grammarMatches.length}</strong> gramer yapısı tespit edildi.
+            <div style="display:flex; align-items:center; gap:8px;">
+              <h3 style="margin:0;">✨ Sayfa Analiz Raporu</h3>
+              ${res.isGemini ? `
+                <span style="background:rgba(129,140,248,0.25); color:#818cf8; border:1px solid #818cf8; font-size:0.72rem; font-weight:800; padding:2px 8px; border-radius:var(--radius-full);">
+                  🤖 Gemini AI Analizi (${res.cefrLevel || 'A2/B1'})
+                </span>
+              ` : ''}
+            </div>
+            <p style="font-size:0.85rem; color:var(--text-secondary); margin-top:4px;">
+              Toplam <strong>${res.tokenCount}</strong> kelime tarandı, <strong>${res.uniqueWordCount}</strong> hedef kelime ve <strong>${res.grammarMatches.length}</strong> gramer yapısı tespit edildi.
             </p>
           </div>
           <div style="display:flex; gap:8px;">
@@ -1350,6 +1420,17 @@ Exercise 4: She has already completed her science experiment.`;
             </button>
           </div>
         </div>
+
+        ${res.summaryTr ? `
+          <div class="controls-card" style="background:linear-gradient(135deg, rgba(30,27,75,0.7), rgba(15,23,42,0.9)); border:1px solid #818cf8; margin-bottom:16px; padding:12px 14px;">
+            <div style="font-size:0.8rem; font-weight:800; color:#818cf8; margin-bottom:4px; display:flex; align-items:center; gap:6px;">
+              <span>🤖</span> <span>Gemini AI Sayfa Özeti & Anlamı:</span>
+            </div>
+            <p style="font-size:0.88rem; color:#e2e8f0; line-height:1.5; margin:0;">
+              ${res.summaryTr}
+            </p>
+          </div>
+        ` : ''}
 
         <!-- Detected Grammar Structures -->
         ${res.grammarMatches.length > 0 ? `
