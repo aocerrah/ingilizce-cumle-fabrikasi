@@ -134,6 +134,65 @@ Return strictly JSON with the following structure:
   }
 
   /**
+   * Gemini 1.5 Flash ile Kelimeye Özel Olumlu (+), Olumsuz (-) ve Soru (?) Cümleleri Üret
+   */
+  async generateGrammarSentences(word, tr, pos, grammarContext = '') {
+    const key = this.getApiKey();
+    if (!key) {
+      throw new Error('NO_API_KEY');
+    }
+
+    const prompt = `You are an expert English teacher for 9th-grade Turkish high school students (A2/B1 level).
+Generate 3 natural, clear English example sentences using the vocabulary word "${word}" (${pos || 'word'}, Turkish meaning: "${tr || ''}").
+The sentences must demonstrate:
+1) Positive / Affirmative (+)
+2) Negative (-)
+3) Question (?)
+Context / Grammar focus: ${grammarContext || 'High school 9th grade curriculum'}.
+
+Return ONLY valid JSON in this exact structure:
+{
+  "positive": {
+    "en": "English affirmative (+) sentence",
+    "tr": "Doğal Türkçe çevirisi"
+  },
+  "negative": {
+    "en": "English negative (-) sentence",
+    "tr": "Doğal Türkçe çevirisi"
+  },
+  "question": {
+    "en": "English question (?) sentence",
+    "tr": "Doğal Türkçe çevirisi"
+  }
+}`;
+
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/${this.model}:generateContent?key=${key}`;
+    const payload = {
+      contents: [{ role: "user", parts: [{ text: prompt }] }],
+      generationConfig: {
+        temperature: 0.3,
+        responseMimeType: "application/json"
+      }
+    };
+
+    const response = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      throw new Error(errorData.error?.message || `HTTP ${response.status}`);
+    }
+
+    const data = await response.json();
+    const content = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+    if (!content) throw new Error('Boş yanıt döndü.');
+    return JSON.parse(content);
+  }
+
+  /**
    * Open Gemini API Key Configuration Modal
    */
   openConfigModal(onSuccessCallback = null) {

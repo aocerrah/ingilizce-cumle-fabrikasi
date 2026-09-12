@@ -740,6 +740,14 @@ class SchoolModeManager {
                       💬 "${w.example}"
                     </div>
                   ` : ''}
+
+                  <!-- Açılır Cümle Kalıpları (+ / - / ?) -->
+                  <div class="school-card-expand-bar" 
+                       onclick="schoolMode.toggleCardSentences(this, '${w.en.replace(/'/g, "\\'")}', '${(w.tr || '').replace(/'/g, "\\'")}', '${(w.pos || w.type || '').replace(/'/g, "\\'")}', '${(unit.grammar_focus || unit.title || '').replace(/'/g, "\\'")}')">
+                    <span class="expand-label">📖 Örnek Cümleler (+ / - / ?)</span>
+                    <span class="expand-icon">▾</span>
+                  </div>
+                  <div class="school-card-sentences-drawer" style="display:none;"></div>
                 </div>
               `;
             }).join('')}
@@ -1163,6 +1171,14 @@ class SchoolModeManager {
                       </div>
                     </div>
                     <div class="word-tr">${w.tr}</div>
+
+                    <!-- Açılır Cümle Kalıpları (+ / - / ?) -->
+                    <div class="school-card-expand-bar" 
+                         onclick="schoolMode.toggleCardSentences(this, '${w.en.replace(/'/g, "\\'")}', '${(w.tr || '').replace(/'/g, "\\'")}', '${(w.pos || 'Kelime').replace(/'/g, "\\'")}', '${(book.title || 'Oxford Graded Reader').replace(/'/g, "\\'")}')">
+                      <span class="expand-label">📖 Örnek Cümleler (+ / - / ?)</span>
+                      <span class="expand-icon">▾</span>
+                    </div>
+                    <div class="school-card-sentences-drawer" style="display:none;"></div>
                   </div>
                 `;
               }).join('')}
@@ -1540,6 +1556,14 @@ Exercise 4: She has already completed her science experiment.`;
                   <div style="font-size:0.75rem; color:var(--text-secondary); margin-top:4px;">
                     Metinde geçiş: <strong>${w.count} kez</strong>
                   </div>
+
+                  <!-- Açılır Cümle Kalıpları (+ / - / ?) -->
+                  <div class="school-card-expand-bar" 
+                       onclick="schoolMode.toggleCardSentences(this, '${w.en.replace(/'/g, "\\'")}', '${(w.tr || '').replace(/'/g, "\\'")}', '${(w.pos || 'Kelime').replace(/'/g, "\\'")}', '${((res.detectedGrammar && res.detectedGrammar.length > 0) ? res.detectedGrammar.map(g => g.structure || '').join(', ') : 'Kitap Analizi').replace(/'/g, "\\'")}')">
+                    <span class="expand-label">📖 Örnek Cümleler (+ / - / ?)</span>
+                    <span class="expand-icon">▾</span>
+                  </div>
+                  <div class="school-card-sentences-drawer" style="display:none;"></div>
                 </div>
               `;
             }).join('')}
@@ -1832,6 +1856,14 @@ Exercise 4: She has already completed her science experiment.`;
                 ${w.example ? `
                   <div class="word-example">💬 "${w.example}"</div>
                 ` : ''}
+
+                <!-- Açılır Cümle Kalıpları (+ / - / ?) -->
+                <div class="school-card-expand-bar" 
+                     onclick="schoolMode.toggleCardSentences(this, '${w.en.replace(/'/g, "\\'")}', '${(w.tr || '').replace(/'/g, "\\'")}', '${(w.pos || 'Kelime').replace(/'/g, "\\'")}', '9. Sınıf Okul Defterim')">
+                  <span class="expand-label">📖 Örnek Cümleler (+ / - / ?)</span>
+                  <span class="expand-icon">▾</span>
+                </div>
+                <div class="school-card-sentences-drawer" style="display:none;"></div>
               </div>
             `).join('')}
           </div>
@@ -1846,6 +1878,353 @@ Exercise 4: She has already completed her science experiment.`;
     this.saveSchoolWords(words);
     if (window.app) window.app.showToast('🗑️ Kelime defterden silindi.');
     this.renderSubTabContent();
+  }
+
+  /* ----------------------------------------------------
+   * 6. GRAMMAR-ALIGNED SENTENCE ENGINE (+ / - / ?)
+   * ---------------------------------------------------- */
+  getCuratedSentenceDatabase() {
+    return {
+      "and": {
+        positive: { en: "Students practice English grammar and vocabulary every day.", tr: "Öğrenciler her gün İngilizce dilbilgisi ve kelime pratiği yapar." },
+        negative: { en: "She didn't finish her reading passage and homework yesterday.", tr: "Dün okuma parçasını ve ödevini bitirmedi." },
+        question: { en: "Do you like reading books and listening to English podcasts?", tr: "Kitap okumayı ve İngilizce podcast dinlemeyi sever misin?" }
+      },
+      "grammar": {
+        positive: { en: "Our English teacher explains difficult grammar rules with clear examples.", tr: "İngilizce öğretmenimiz zor dilbilgisi kurallarını net örneklerle açıklar." },
+        negative: { en: "You don't need to memorize all grammar formulas without practice.", tr: "Pratik yapmadan tüm gramer formüllerini ezberlemenize gerek yoktur." },
+        question: { en: "Can you identify the grammar mistakes in this paragraph?", tr: "Bu paragraftaki dilbilgisi hatalarını tespit edebilir misin?" }
+      },
+      "to": {
+        positive: { en: "He wants to improve his English speaking skills this semester.", tr: "Bu dönem İngilizce konuşma becerilerini geliştirmek istiyor." },
+        negative: { en: "They decided not to cancel the high school football tournament.", tr: "Lise futbol turnuvasını iptal etmemeye karar verdiler." },
+        question: { en: "Where do you plan to go after the afternoon classes?", tr: "Öğleden sonraki derslerden sonra nereye gitmeyi planlıyorsun?" }
+      },
+      "in": {
+        positive: { en: "Students participate in various science club activities at school.", tr: "Öğrenciler okulda çeşitli bilim kulübü etkinliklerine katılırlar." },
+        negative: { en: "He doesn't stay in the classroom during the lunch break.", tr: "Öğle molasında sınıfta kalmaz." },
+        question: { en: "How many students are there in your English study group?", tr: "İngilizce çalışma grubunuzda kaç öğrenci var?" }
+      },
+      "intermediate": {
+        positive: { en: "This textbook contains rich intermediate level reading passages.", tr: "Bu ders kitabı zengin orta seviye okuma parçaları içerir." },
+        negative: { en: "The new exam is not too intermediate for motivated learners.", tr: "Yeni sınav istekli öğrenciler için fazla orta seviye/zor değildir." },
+        question: { en: "Have you reached the intermediate level in English writing?", tr: "İngilizce yazmada orta seviyeye ulaştın mı?" }
+      },
+      "pre": {
+        positive: { en: "Pre-reading tasks help students understand the story easily.", tr: "Okuma öncesi görevler öğrencilerin hikayeyi kolayca anlamasına yardımcı olur." },
+        negative: { en: "We don't skip the pre-exam review sessions before finals.", tr: "Finallerden önceki sınav öncesi tekrar seanslarını atlamayız." },
+        question: { en: "Did you complete the pre-test before starting the new unit?", tr: "Yeni üniteye başlamadan önce ön testi tamamladın mı?" }
+      },
+      "the": {
+        positive: { en: "The school library provides modern resources for all students.", tr: "Okul kütüphanesi tüm öğrenciler için modern kaynaklar sağlar." },
+        negative: { en: "The coach didn't allow players to miss the morning session.", tr: "Antrenör oyuncuların sabah seansını kaçırmasına izin vermedi." },
+        question: { en: "Did you find the answer to the difficult exam question?", tr: "Zor sınav sorusunun cevabını buldun mu?" }
+      },
+      "english": {
+        positive: { en: "We practice English conversation with international friends online.", tr: "İnternette uluslararası arkadaşlarla İngilizce sohbet pratiği yaparız." },
+        negative: { en: "He doesn't feel nervous when speaking English in class.", tr: "Sınıfta İngilizce konuşurken gergin hissetmez." },
+        question: { en: "Why is learning English essential for modern science and careers?", tr: "İngilizce öğrenmek modern bilim ve kariyerler için neden gereklidir?" }
+      },
+      "for": {
+        positive: { en: "She prepared a comprehensive study schedule for the upcoming exam.", tr: "Gelecek sınav için kapsamlı bir çalışma takvimi hazırladı." },
+        negative: { en: "This beginner exercise is not designed for advanced students.", tr: "Bu başlangıç alıştırması ileri düzey öğrenciler için tasarlanmamıştır." },
+        question: { en: "How long have you been preparing for the English competition?", tr: "İngilizce yarışması için ne kadar süredir hazırlanıyorsun?" }
+      },
+      "connect": {
+        positive: { en: "Social media helps students connect with friends around the world.", tr: "Sosyal medya öğrencilerin dünyadaki arkadaşlarla iletişim kurmasına yardımcı olur." },
+        negative: { en: "He doesn't connect to unknown networks without a secure password.", tr: "Güvenli bir şifre olmadan bilinmeyen ağlara bağlanmaz." },
+        question: { en: "How do you connect these two grammar ideas in your essay?", tr: "Denemenizde bu iki gramer fikrini nasıl bağlıyorsunuz?" }
+      },
+      "routine": {
+        positive: { en: "Her morning routine includes a healthy breakfast and light exercise.", tr: "Sabah rutini sağlıklı bir kahvaltı ve hafif egzersiz içerir." },
+        negative: { en: "He doesn't break his study routine even at weekends.", tr: "Hafta sonları bile çalışma rutinini bozmaz." },
+        question: { en: "What is the most effective daily routine for high school success?", tr: "Lise başarısı için en etkili günlük rutin nedir?" }
+      },
+      "leisure": {
+        positive: { en: "In my leisure time, I enjoy reading historical novels and coding.", tr: "Boş zamanlarımda tarihi romanlar okumaktan ve kod yazmaktan keyif alırım." },
+        negative: { en: "Busy athletes don't have much leisure time during the season.", tr: "Meşgul sporcuların sezon boyunca çok fazla boş vakti olmaz." },
+        question: { en: "How do you spend your leisure hours after school?", tr: "Okuldan sonraki boş saatlerini nasıl geçirirsin?" }
+      },
+      "enthusiastic": {
+        positive: { en: "She is very enthusiastic about learning new foreign languages.", tr: "Yeni yabancı diller öğrenme konusunda çok heveslidir." },
+        negative: { en: "He wasn't very enthusiastic about waking up early on Sunday.", tr: "Pazar günü erken uyanma konusunda pek hevesli değildi." },
+        question: { en: "Why is the science club so enthusiastic about the robotics fair?", tr: "Bilim kulübü robotik fuarı hakkında neden bu kadar hevesli?" }
+      },
+      "discovery": {
+        positive: { en: "The recent archaeological discovery attracted worldwide attention.", tr: "Son arkeolojik keşif dünya çapında dikkat çekti." },
+        negative: { en: "The scientists didn't announce the discovery without verification.", tr: "Bilim insanları doğrulama yapmadan keşfi duyurmadı." },
+        question: { en: "What was the most important scientific discovery of the century?", tr: "Yüzyılın en önemli bilimsel keşfi neydi?" }
+      },
+      "mysterious": {
+        positive: { en: "The detective found a mysterious letter inside the old book.", tr: "Dedektif eski kitabın içinde gizemli bir mektup buldu." },
+        negative: { en: "There was nothing mysterious about the sudden power outage.", tr: "Ani elektrik kesintisinde gizemli hiçbir şey yoktu." },
+        question: { en: "Who left this mysterious package at the school gate?", tr: "Bu gizemli paketi okul kapısına kim bıraktı?" }
+      },
+      "archaeological": {
+        positive: { en: "The team conducted archaeological research in the ancient valley.", tr: "Ekip antik vadide arkeolojik araştırmalar yürüttü." },
+        negative: { en: "They didn't damage any archaeological artifacts during excavation.", tr: "Kazı sırasında hiçbir arkeolojik esere zarar vermediler." },
+        question: { en: "Have you ever visited an archaeological museum in Turkey?", tr: "Türkiye'de hiç arkeoloji müzesi ziyaret ettin mi?" }
+      },
+      "interaction": {
+        positive: { en: "Group projects encourage positive student interaction in class.", tr: "Grup projeleri derste olumlu öğrenci etkileşimini teşvik eder." },
+        negative: { en: "Lack of interaction can make online lessons feel lonely.", tr: "Etkileşim eksikliği çevrimiçi derslerin yalnız hissettirmesine neden olabilir." },
+        question: { en: "How can teachers increase student interaction during lectures?", tr: "Öğretmenler ders anlatımı sırasında öğrenci etkileşimini nasıl artırabilir?" }
+      },
+      "belong": {
+        positive: { en: "This English notebook belongs to the new high school student.", tr: "Bu İngilizce defteri yeni lise öğrencisine aittir." },
+        negative: { en: "These keys don't belong to the science laboratory.", tr: "Bu anahtarlar fen laboratuvarına ait değildir." },
+        question: { en: "Does this sports equipment belong to our team?", tr: "Bu spor ekipmanı bizim takımımıza mı ait?" }
+      },
+      "hang out": {
+        positive: { en: "We usually hang out at the youth center after classes.", tr: "Derslerden sonra genellikle gençlik merkezinde takılırız/vakit geçiririz." },
+        negative: { en: "They don't hang out outside when the weather is stormy.", tr: "Hava fırtınalıyken dışarıda vakit geçirmezler." },
+        question: { en: "Where do teenagers usually hang out in your hometown?", tr: "Memleketinizde gençler genellikle nerede vakit geçirir?" }
+      },
+      "keen on": {
+        positive: { en: "Leo is very keen on science experiments and robotics.", tr: "Leo fen deneylerine ve robotiğe çok düşkündür/meraklıdır." },
+        negative: { en: "She isn't keen on watching violent action movies.", tr: "Şiddet içeren aksiyon filmleri izlemeye meraklı değildir." },
+        question: { en: "Are you keen on joining the school drama club this year?", tr: "Bu yıl okul tiyatro kulübüne katılmaya istekli misin?" }
+      },
+      "prefer": {
+        positive: { en: "I prefer working in quiet libraries to crowded cafes.", tr: "Sessiz kütüphanelerde çalışmayı kalabalık kafelere tercih ederim." },
+        negative: { en: "He doesn't prefer studying late at night before an exam.", tr: "Sınavdan önce gece geç saatlerde ders çalışmayı tercih etmez." },
+        question: { en: "Do you prefer studying alone or with a group of friends?", tr: "Yalnız mı yoksa bir grup arkadaşla mı çalışmayı tercih edersin?" }
+      },
+      "schedule": {
+        positive: { en: "Our school schedule starts at eight-thirty in the morning.", tr: "Okul ders programımız sabah sekiz buçukta başlar." },
+        negative: { en: "We didn't change the examination schedule this week.", tr: "Bu hafta sınav takvimini değiştirmedik." },
+        question: { en: "Can you send me the updated weekly club schedule?", tr: "Bana güncellenmiş haftalık kulüp programını gönderebilir misin?" }
+      }
+    };
+  }
+
+  generateDynamicGrammarSentences(en, cleanTr, cleanPos, grammarContext = '') {
+    const w = (en || '').trim();
+    const tr = cleanTr || 'öğrenilecek kelime';
+    const isVerb = cleanPos.includes('fiil') || cleanPos.includes('verb');
+    const isNoun = cleanPos.includes('isim') || cleanPos.includes('noun');
+    const isAdj = cleanPos.includes('sıfat') || cleanPos.includes('adj');
+    const isAdv = cleanPos.includes('zarf') || cleanPos.includes('adv');
+
+    // Context-based grammar tense detection
+    const isPast = grammarContext.toLowerCase().includes('past') || grammarContext.toLowerCase().includes('geçmiş');
+    const isModal = grammarContext.toLowerCase().includes('modal') || grammarContext.toLowerCase().includes('can') || grammarContext.toLowerCase().includes('must');
+
+    if (isVerb) {
+      if (isPast) {
+        return {
+          positive: { en: `The students carefully ${w}ed the key points during yesterday's class.`, tr: `Öğrenciler dünkü derste önemli noktaları dikkatlice ${tr} yaptı/etti.` },
+          negative: { en: `He didn't ${w} with the rest of the study group last week.`, tr: `Geçen hafta çalışma grubunun geri kalanıyla ${tr} yapmadı.` },
+          question: { en: `Did you ${w} all necessary assignments before the deadline?`, tr: `Teslim tarihinden önce gerekli tüm ödevleri ${tr} yaptın mı?` }
+        };
+      }
+      if (isModal) {
+        return {
+          positive: { en: `You must ${w} these essential vocabulary items for the exam.`, tr: `Sınav için bu temel kelimeleri mutlaka ${tr} yapmalısın/etmelisin.` },
+          negative: { en: `Students shouldn't ${w} without reviewing the main instructions.`, tr: `Öğrenciler ana yönergeleri gözden geçirmeden ${tr} yapmamalıdır.` },
+          question: { en: `How can we ${w} our language skills more effectively?`, tr: `Dil becerilerimizi nasıl daha etkili bir şekilde ${tr} yapabiliriz/geliştirebiliriz?` }
+        };
+      }
+      return {
+        positive: { en: `We often ${w} important topics together in our study sessions.`, tr: `Çalışma seanslarımızda önemli konuları sık sık birlikte ${tr} yaparız/ederiz.` },
+        negative: { en: `He doesn't ${w} without checking his notes first.`, tr: `Önce notlarını kontrol etmeden ${tr} yapmaz/etmez.` },
+        question: { en: `How often do you ${w} new expressions in daily conversation?`, tr: `Günlük konuşmalarda yeni ifadeleri ne sıklıkla ${tr} yaparsınız/kullanırsınız?` }
+      };
+    }
+
+    if (isNoun) {
+      return {
+        positive: { en: `Our English teacher emphasized the importance of ${w} in today's lesson.`, tr: `İngilizce öğretmenimiz bugünkü derste ${tr} konusunun/kavramının önemini vurguladı.` },
+        negative: { en: `They didn't encounter any difficulty regarding the ${w} in the project.`, tr: `Projelerinde ${tr} ile ilgili hiçbir zorlukla karşılaşmadılar.` },
+        question: { en: `Did you take clear notes about the ${w} during the lecture?`, tr: `Ders sırasında ${tr} hakkında net notlar aldın mı?` }
+      };
+    }
+
+    if (isAdj) {
+      return {
+        positive: { en: `She always maintains a very ${w} attitude towards learning English.`, tr: `İngilizce öğrenmeye karşı her zaman çok ${tr} bir tutum sergiler.` },
+        negative: { en: `This practice exercise is not too ${w} for motivated students.`, tr: `Bu alıştırma istekli öğrenciler için fazla ${tr}/zor değildir.` },
+        question: { en: `Do you find this new reading topic ${w} and informative?`, tr: `Bu yeni okuma konusunu ${tr} ve bilgilendirici buluyor musun?` }
+      };
+    }
+
+    if (isAdv) {
+      return {
+        positive: { en: `He completes all required assignments ${w} before the bell rings.`, tr: `Zil çalmadan önce gerekli tüm ödevleri ${tr} tamamlar.` },
+        negative: { en: `They don't act ${w} when solving difficult grammar problems.`, tr: `Zor gramer problemlerini çözerken ${tr} davranmazlar.` },
+        question: { en: `Why should we practice speaking and listening more ${w}?`, tr: `Neden daha ${tr} konuşma ve dinleme pratiği yapmalıyız?` }
+      };
+    }
+
+    // Fallback for Prepositions, Conjunctions, Articles, etc.
+    return {
+      positive: { en: `Students read passages ${w} analyze key grammar rules in class.`, tr: `Öğrenciler derste parçalar okur ${tr} önemli gramer kurallarını analiz eder.` },
+      negative: { en: `We don't neglect grammar exercises ${w} vocabulary review.`, tr: `Gramer alıştırmalarını ${tr} kelime tekrarını ihmal etmeyiz.` },
+      question: { en: `How do you use this structure ${w} express your thoughts clearly?`, tr: `Düşüncelerinizi net ifade etmek için bu yapıyı ${tr} nasıl kullanırsınız?` }
+    };
+  }
+
+  getWordGrammarSentences(en, tr, pos = '', grammarContext = '') {
+    const cleanEn = (en || '').trim().toLowerCase();
+    const cleanTr = (tr || '').replace(/🇹🇷/g, '').replace(/\(.*?\)/g, '').trim() || 'öğrenilecek kelime';
+    const cleanPos = (pos || '').toLowerCase();
+
+    // 1. Check APP_DATA verbs / words if available
+    if (typeof APP_DATA !== 'undefined' && APP_DATA.verbs) {
+      const verbMatch = APP_DATA.verbs.find(v => v.word.toLowerCase() === cleanEn || (v.forms && (v.forms.v1 === cleanEn || v.forms.v2 === cleanEn || v.forms.v3 === cleanEn)));
+      if (verbMatch && verbMatch.sentences && verbMatch.sentences.positive) {
+        return {
+          positive: verbMatch.sentences.positive,
+          negative: verbMatch.sentences.negative,
+          question: verbMatch.sentences.question
+        };
+      }
+    }
+
+    // 2. High-Frequency Curated 9th Grade Vocabulary Sentences
+    const curated = this.getCuratedSentenceDatabase();
+    if (curated[cleanEn]) {
+      return curated[cleanEn];
+    }
+
+    // 3. Dynamic Grammatical Generator
+    return this.generateDynamicGrammarSentences(en, cleanTr, cleanPos, grammarContext);
+  }
+
+  renderWordSentencesDrawer(en, tr, pos, grammarContext = '') {
+    const s = this.getWordGrammarSentences(en, tr, pos, grammarContext);
+    const hasGemini = window.geminiAI && window.geminiAI.hasApiKey();
+
+    return `
+      <div class="school-word-sentences-box">
+        ${hasGemini ? `
+          <div style="display:flex; justify-content:flex-end; margin-bottom:4px;">
+            <button class="ai-regen-btn" onclick="event.stopPropagation(); schoolMode.generateAISentences(this, '${en.replace(/'/g, "\\'")}', '${(tr || '').replace(/'/g, "\\'")}', '${(pos || '').replace(/'/g, "\\'")}', '${(grammarContext || '').replace(/'/g, "\\'")}')" title="Gemini AI ile bu kelimeye özel yeni cümleler üret">
+              ✨ Gemini ile Yenile
+            </button>
+          </div>
+        ` : ''}
+        <div class="school-card-sentences-content">
+          <!-- Positive (+) -->
+          <div class="sentence-item pos">
+            <div class="sentence-type-header">
+              <span>✅ Olumlu Cümle (+)</span>
+              <button class="play-voice-btn" onclick="event.stopPropagation(); schoolMode.speakWord('${s.positive.en.replace(/'/g, "\\'")}', this)" title="Cümleyi Dinle">🔊</button>
+            </div>
+            <div class="sentence-text-en">${s.positive.en}</div>
+            <div class="sentence-text-tr">🇹🇷 ${s.positive.tr}</div>
+          </div>
+
+          <!-- Negative (-) -->
+          <div class="sentence-item neg">
+            <div class="sentence-type-header">
+              <span>❌ Olumsuz Cümle (-)</span>
+              <button class="play-voice-btn" onclick="event.stopPropagation(); schoolMode.speakWord('${s.negative.en.replace(/'/g, "\\'")}', this)" title="Cümleyi Dinle">🔊</button>
+            </div>
+            <div class="sentence-text-en">${s.negative.en}</div>
+            <div class="sentence-text-tr">🇹🇷 ${s.negative.tr}</div>
+          </div>
+
+          <!-- Question (?) -->
+          <div class="sentence-item que">
+            <div class="sentence-type-header">
+              <span>❓ Soru Cümlesi (?)</span>
+              <button class="play-voice-btn" onclick="event.stopPropagation(); schoolMode.speakWord('${s.question.en.replace(/'/g, "\\'")}', this)" title="Cümleyi Dinle">🔊</button>
+            </div>
+            <div class="sentence-text-en">${s.question.en}</div>
+            <div class="sentence-text-tr">🇹🇷 ${s.question.tr}</div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  toggleCardSentences(barElement, en, tr, pos, grammarContext = '') {
+    const card = barElement.closest('.school-word-card');
+    if (!card) return;
+    const drawer = card.querySelector('.school-card-sentences-drawer');
+    if (!drawer) return;
+
+    const isClosed = drawer.style.display === 'none' || !drawer.classList.contains('open');
+
+    if (isClosed) {
+      if (!drawer.hasChildNodes() || drawer.innerHTML.trim() === '') {
+        const sHtml = this.renderWordSentencesDrawer(en, tr, pos, grammarContext);
+        drawer.innerHTML = sHtml;
+      }
+      drawer.style.display = 'flex';
+      drawer.classList.add('open');
+      barElement.classList.add('active');
+      const icon = barElement.querySelector('.expand-icon');
+      if (icon) icon.textContent = '▴';
+    } else {
+      drawer.style.display = 'none';
+      drawer.classList.remove('open');
+      barElement.classList.remove('active');
+      const icon = barElement.querySelector('.expand-icon');
+      if (icon) icon.textContent = '▾';
+    }
+  }
+
+  async generateAISentences(btnElement, en, tr, pos, grammarContext) {
+    if (!window.geminiAI || !window.geminiAI.hasApiKey()) {
+      if (window.geminiAI) {
+        window.geminiAI.openConfigModal();
+      } else {
+        if (window.app) window.app.showToast('Gemini API anahtarı gerekli.');
+      }
+      return;
+    }
+
+    const drawer = btnElement.closest('.school-card-sentences-drawer');
+    const contentArea = drawer ? drawer.querySelector('.school-card-sentences-content') : null;
+    const origText = btnElement.innerHTML;
+    btnElement.innerHTML = '⏳ AI Üretiyor...';
+    btnElement.disabled = true;
+
+    try {
+      const result = await window.geminiAI.generateGrammarSentences(en, tr, pos, grammarContext);
+      if (result && result.positive && result.negative && result.question && contentArea) {
+        contentArea.innerHTML = `
+          <!-- Positive (+) -->
+          <div class="sentence-item pos">
+            <div class="sentence-type-header">
+              <span>✅ Olumlu Cümle (+)</span>
+              <button class="play-voice-btn" onclick="event.stopPropagation(); schoolMode.speakWord('${result.positive.en.replace(/'/g, "\\'")}', this)">🔊</button>
+            </div>
+            <div class="sentence-text-en">${result.positive.en}</div>
+            <div class="sentence-text-tr">🇹🇷 ${result.positive.tr}</div>
+          </div>
+
+          <!-- Negative (-) -->
+          <div class="sentence-item neg">
+            <div class="sentence-type-header">
+              <span>❌ Olumsuz Cümle (-)</span>
+              <button class="play-voice-btn" onclick="event.stopPropagation(); schoolMode.speakWord('${result.negative.en.replace(/'/g, "\\'")}', this)">🔊</button>
+            </div>
+            <div class="sentence-text-en">${result.negative.en}</div>
+            <div class="sentence-text-tr">🇹🇷 ${result.negative.tr}</div>
+          </div>
+
+          <!-- Question (?) -->
+          <div class="sentence-item que">
+            <div class="sentence-type-header">
+              <span>❓ Soru Cümlesi (?)</span>
+              <button class="play-voice-btn" onclick="event.stopPropagation(); schoolMode.speakWord('${result.question.en.replace(/'/g, "\\'")}', this)">🔊</button>
+            </div>
+            <div class="sentence-text-en">${result.question.en}</div>
+            <div class="sentence-text-tr">🇹🇷 ${result.question.tr}</div>
+          </div>
+        `;
+        if (window.app) window.app.showToast(`✨ "${en}" için Gemini örnek cümleleri oluşturuldu!`);
+      }
+    } catch (err) {
+      console.error('AI sentence gen failed:', err);
+      if (window.app) window.app.showToast('AI cümle üretimi sırasında hata oluştu.');
+    } finally {
+      btnElement.innerHTML = origText;
+      btnElement.disabled = false;
+    }
   }
 }
 
