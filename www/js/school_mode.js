@@ -23,6 +23,7 @@ class SchoolModeManager {
       result: null
     };
 
+    this.myWordsFilter = 'all'; // 'all', 'unmastered', 'mastered'
     this.schoolWordsKey = 'school_custom_words_9th';
     this.init();
   }
@@ -866,9 +867,11 @@ class SchoolModeManager {
           <!-- Unit Filter Selector -->
           <div class="flashcard-filter-group">
             <label style="font-size:0.8rem; color:var(--text-secondary); font-weight:700;">Ünite Seç:</label>
-            <select class="select-input" style="max-width:240px;" onchange="schoolMode.onFlashcardUnitChange(this.value)">
+            <select class="select-input" style="max-width:260px;" onchange="schoolMode.onFlashcardUnitChange(this.value)">
               <option value="all" ${state.unitId === 'all' || !state.unitId ? 'selected' : ''}>Tüm Üniteler (Karma)</option>
-              <option value="mywords" ${state.unitId === 'mywords' ? 'selected' : ''}>📓 Okul Defterim (${myWords.length} Kelime)</option>
+              <option value="mywords" ${state.unitId === 'mywords' ? 'selected' : ''}>📓 Okul Defterim - Tümü (${myWords.length} Kelime)</option>
+              <option value="mywords_unmastered" ${state.unitId === 'mywords_unmastered' ? 'selected' : ''}>🎯 Okul Defterim - Çalışılacaklar (${myWords.filter(w => !w.mastered).length} Kelime)</option>
+              <option value="mywords_mastered" ${state.unitId === 'mywords_mastered' ? 'selected' : ''}>✅ Okul Defterim - Öğrenilenler (${myWords.filter(w => w.mastered).length} Kelime)</option>
               ${units.map(u => `
                 <option value="${u.id}" ${state.unitId === u.id ? 'selected' : ''}>${u.code}: ${u.title.split(':')[1] || u.title}</option>
               `).join('')}
@@ -983,6 +986,10 @@ class SchoolModeManager {
 
     if (unitId === 'mywords') {
       list = [...this.getSchoolWords()];
+    } else if (unitId === 'mywords_unmastered') {
+      list = this.getSchoolWords().filter(w => !w.mastered);
+    } else if (unitId === 'mywords_mastered') {
+      list = this.getSchoolWords().filter(w => w.mastered);
     } else if (unitId && unitId !== 'all') {
       const u = this.curriculum.units.find(x => x.id === unitId);
       if (u && u.words) list = [...u.words];
@@ -1812,25 +1819,65 @@ Exercise 4: She has already completed her science experiment.`;
    * 6. MY SCHOOL WORDS NOTEBOOK VIEW
    * ---------------------------------------------------- */
   renderMyWordsView(container) {
-    const words = this.getSchoolWords();
+    const allWords = this.getSchoolWords();
+    const masteredCount = allWords.filter(w => w.mastered).length;
+    const unmasteredCount = allWords.length - masteredCount;
+    const percent = allWords.length > 0 ? Math.round((masteredCount / allWords.length) * 100) : 0;
+
+    let displayedWords = allWords;
+    if (this.myWordsFilter === 'unmastered') {
+      displayedWords = allWords.filter(w => !w.mastered);
+    } else if (this.myWordsFilter === 'mastered') {
+      displayedWords = allWords.filter(w => w.mastered);
+    }
+
+    const flashcardTarget = this.myWordsFilter === 'unmastered' ? 'mywords_unmastered' : (this.myWordsFilter === 'mastered' ? 'mywords_mastered' : 'mywords');
 
     container.innerHTML = `
       <div class="school-notebook-module">
         <div class="school-section-header">
           <div>
-            <h3>📓 9. Sınıf Okul Kelime Defterim (${words.length} Kelime)</h3>
+            <h3>📓 9. Sınıf Okul Kelime Defterim (${allWords.length} Kelime)</h3>
             <p>Ders kitaplarından, Oxford hikayelerinden ve tarayıcıdan kaydettiğiniz tüm kelimeler</p>
           </div>
           <div style="display:flex; gap:8px;">
-            ${words.length > 0 ? `
-              <button class="btn-primary sm" onclick="schoolMode.switchSubTab('flashcards', 'mywords')">
-                ⚡ Bu Kelimelerle Kart Çalış
+            ${allWords.length > 0 ? `
+              <button class="btn-primary sm" onclick="schoolMode.switchSubTab('flashcards', '${flashcardTarget}')">
+                ⚡ ${this.myWordsFilter === 'unmastered' ? 'Çalışılacaklarla' : (this.myWordsFilter === 'mastered' ? 'Öğrenilenlerle' : 'Bu Kelimelerle')} Kart Çalış
               </button>
             ` : ''}
           </div>
         </div>
 
-        ${words.length === 0 ? `
+        <!-- Progress Track & Filter Chips -->
+        ${allWords.length > 0 ? `
+          <div class="school-card-panel" style="margin-bottom:16px; padding:14px 16px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:10px;">
+              <div style="display:flex; gap:8px; overflow-x:auto; scrollbar-width:none;">
+                <button class="cat-chip ${this.myWordsFilter === 'all' ? 'active' : ''}" style="font-size:0.8rem; padding:6px 12px; font-weight:700;" onclick="schoolMode.setMyWordsFilter('all')">
+                  📂 Tümü (${allWords.length})
+                </button>
+                <button class="cat-chip ${this.myWordsFilter === 'unmastered' ? 'active' : ''}" style="font-size:0.8rem; padding:6px 12px; font-weight:700;" onclick="schoolMode.setMyWordsFilter('unmastered')">
+                  🎯 Çalışılacaklar (${unmasteredCount})
+                </button>
+                <button class="cat-chip ${this.myWordsFilter === 'mastered' ? 'active' : ''}" style="font-size:0.8rem; padding:6px 12px; font-weight:700;" onclick="schoolMode.setMyWordsFilter('mastered')">
+                  ✅ Öğrenilenler (${masteredCount})
+                </button>
+              </div>
+
+              <div style="font-size:0.82rem; font-weight:800; color:var(--text-secondary);">
+                🏆 Öğrenme Oranı: <strong style="color:#22c55e;">%${percent}</strong> (${masteredCount} / ${allWords.length})
+              </div>
+            </div>
+
+            <!-- Progress Track -->
+            <div style="width:100%; height:8px; background:rgba(255,255,255,0.08); border-radius:10px; overflow:hidden;">
+              <div style="width:${percent}%; height:100%; background:linear-gradient(90deg, #38bdf8, #22c55e); border-radius:10px; transition:width 0.4s ease;"></div>
+            </div>
+          </div>
+        ` : ''}
+
+        ${allWords.length === 0 ? `
           <div class="school-card-panel" style="text-align:center; padding:50px 20px;">
             <div style="font-size:3.5rem; margin-bottom:12px;">📖</div>
             <h4>Okul defteriniz henüz boş.</h4>
@@ -1838,14 +1885,23 @@ Exercise 4: She has already completed her science experiment.`;
               Fly Higher ünitelerindeki kelimelerin yanındaki <strong>"+"</strong> butonuna basarak veya Kitap Tarayıcısından analiz edilen kelimeleri buraya ekleyebilirsiniz.
             </p>
           </div>
+        ` : displayedWords.length === 0 ? `
+          <div class="school-card-panel" style="text-align:center; padding:40px 20px;">
+            <div style="font-size:3rem; margin-bottom:10px;">${this.myWordsFilter === 'mastered' ? '🎯' : '🎉'}</div>
+            <h4>${this.myWordsFilter === 'mastered' ? 'Henüz "Öğrendim" olarak işaretlediğiniz kelime yok.' : 'Tebrikler! Defterinizdeki tüm kelimeleri öğrendiniz.'}</h4>
+            <p style="color:var(--text-secondary); margin-top:6px;">
+              ${this.myWordsFilter === 'mastered' ? 'Kelimeleri öğrendikçe kartın altındaki "⚪ Öğrendim Olarak İşaretle" butonuna basabilirsiniz.' : 'Öğrenilen kelimeleri tekrar etmek için "✅ Öğrenilenler" filtresine tıklayabilirsiniz.'}
+            </p>
+          </div>
         ` : `
           <div class="school-vocab-grid">
-            ${words.map(w => `
-              <div class="school-word-card">
+            ${displayedWords.map(w => `
+              <div class="school-word-card ${w.mastered ? 'mastered-card' : ''}">
                 <div class="word-card-top">
                   <div class="word-card-main" onclick="schoolMode.speakWord('${w.en.replace(/'/g, "\\'")}')" style="cursor:pointer;">
                     <span class="word-en">${w.en}</span>
                     <span class="word-pos">${w.pos || 'Kelime'}</span>
+                    ${w.mastered ? '<span style="font-size:0.68rem; font-weight:800; color:#22c55e; background:rgba(34,197,94,0.15); padding:2px 6px; border-radius:4px; margin-left:4px;">✅ Öğrenildi</span>' : ''}
                   </div>
                   <div class="word-actions">
                     <button class="icon-audio-btn" onclick="schoolMode.speakWord('${w.en.replace(/'/g, "\\'")}', this)">🔊</button>
@@ -1864,12 +1920,45 @@ Exercise 4: She has already completed her science experiment.`;
                   <span class="expand-icon">▾</span>
                 </div>
                 <div class="school-card-sentences-drawer" style="display:none;"></div>
+
+                <!-- Mastered Status Toggle Footer -->
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px; padding-top:6px; border-top:1px solid rgba(255,255,255,0.06);">
+                  <button class="btn-mastered ${w.mastered ? 'mastered' : ''}" onclick="schoolMode.toggleWordMastered('${w.id}')">
+                    ${w.mastered ? '✅ Öğrendim (+3 XP)' : '⚪ Öğrendim Olarak İşaretle'}
+                  </button>
+                  <span style="font-size:0.7rem; color:var(--text-muted);">
+                    ${w.dateAdded ? new Date(w.dateAdded).toLocaleDateString('tr-TR') : ''}
+                  </span>
+                </div>
               </div>
             `).join('')}
           </div>
         `}
       </div>
     `;
+  }
+
+  setMyWordsFilter(filter) {
+    this.myWordsFilter = filter;
+    this.renderSubTabContent();
+  }
+
+  toggleWordMastered(id) {
+    const words = this.getSchoolWords();
+    const word = words.find(w => w.id === id);
+    if (!word) return;
+
+    word.mastered = !word.mastered;
+    this.saveSchoolWords(words);
+
+    if (word.mastered) {
+      if (window.app) window.app.addXP(3);
+      if (window.app) window.app.showToast(`🎉 "${word.en}" öğrenildi olarak kaydedildi! (+3 XP)`);
+    } else {
+      if (window.app) window.app.showToast(`🎯 "${word.en}" tekrar çalışılacaklar listesine alındı.`);
+    }
+
+    this.renderSubTabContent();
   }
 
   deleteFromNotebook(id) {
