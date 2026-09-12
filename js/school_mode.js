@@ -193,7 +193,7 @@ class SchoolModeManager {
             ${gd.examples.map(ex => `
               <div class="grammar-example-card">
                 <div class="g-ex-top">
-                  <span class="g-ex-en">${ex.en}</span>
+                  <span class="g-ex-en">${this.wrapSentence(ex.en)}</span>
                   <button class="icon-audio-btn" onclick="schoolMode.speakWord('${ex.en.replace(/'/g, "\\'")}', this)">🔊</button>
                 </div>
                 <div class="g-ex-tr">🇹🇷 ${ex.tr}</div>
@@ -213,8 +213,8 @@ class SchoolModeManager {
             ${gd.pitfalls.map(pf => `
               <div class="grammar-pitfall-box">
                 <div class="grammar-pitfall-comparison">
-                  <div class="grammar-pitfall-wrong"><span>❌</span><code>${pf.wrong}</code></div>
-                  <div class="grammar-pitfall-correct"><span>✅</span><code>${pf.correct}</code></div>
+                  <div class="grammar-pitfall-wrong"><span>❌</span><code>${this.wrapSentence(pf.wrong)}</code></div>
+                  <div class="grammar-pitfall-correct"><span>✅</span><code>${this.wrapSentence(pf.correct)}</code></div>
                 </div>
                 <div class="grammar-pitfall-note">💡 ${pf.note}</div>
               </div>
@@ -667,7 +667,7 @@ class SchoolModeManager {
                   ${unit.grammar_details.examples.map(ex => `
                     <div class="grammar-example-card">
                       <div class="g-ex-top">
-                        <span class="g-ex-en">${ex.en}</span>
+                        <span class="g-ex-en">${this.wrapSentence(ex.en)}</span>
                         <button class="icon-audio-btn" onclick="schoolMode.speakWord('${ex.en.replace(/'/g, "\\'")}', this)" title="Cümleyi Dinle">
                           🔊
                         </button>
@@ -690,10 +690,10 @@ class SchoolModeManager {
                     <div class="grammar-pitfall-box">
                       <div class="grammar-pitfall-comparison">
                         <div class="grammar-pitfall-wrong">
-                          <span>❌ <strong>Yanlış:</strong> "${pf.wrong}"</span>
+                          <span>❌ <strong>Yanlış:</strong> "${this.wrapSentence(pf.wrong)}"</span>
                         </div>
                         <div class="grammar-pitfall-correct">
-                          <span>✅ <strong>Doğru:</strong> "${pf.correct}"</span>
+                          <span>✅ <strong>Doğru:</strong> "${this.wrapSentence(pf.correct)}"</span>
                         </div>
                         <div class="grammar-pitfall-note">
                           💡 <strong>Açıklama:</strong> ${pf.explanation}
@@ -738,7 +738,7 @@ class SchoolModeManager {
                   <div class="word-tr">${w.tr}</div>
                   ${w.example ? `
                     <div class="word-example">
-                      💬 "${w.example}"
+                      💬 "${this.wrapSentence(w.example)}"
                     </div>
                   ` : ''}
 
@@ -815,8 +815,19 @@ class SchoolModeManager {
     }
   }
 
+  wrapSentence(rawText) {
+    if (!rawText || typeof rawText !== 'string') return rawText || '';
+    if (window.wordLookup && typeof window.wordLookup.wrap === 'function') {
+      return window.wordLookup.wrap(rawText);
+    }
+    return this.renderInteractiveText(rawText);
+  }
+
   renderInteractiveText(rawText) {
     if (!rawText) return '';
+    if (window.wordLookup && typeof window.wordLookup.wrap === 'function') {
+      return window.wordLookup.wrap(rawText);
+    }
     // Split into tokens preserving punctuation and whitespace
     const tokens = rawText.split(/(\s+|[.,!?;:"()]+)/);
     return tokens.map(token => {
@@ -824,7 +835,7 @@ class SchoolModeManager {
       if (!clean || clean.length < 2) {
         return token;
       }
-      return `<span class="interactive-word-token" onclick="schoolMode.handleWordTokenClick('${clean.replace(/'/g, "\\'")}', event)">${token}<span class="token-plus-indicator">+</span></span>`;
+      return `<span class="interactive-word" onclick="schoolMode.handleWordTokenClick('${clean.replace(/'/g, "\\'")}', event)" data-word="${clean}">${token}</span>`;
     }).join('');
   }
 
@@ -914,7 +925,7 @@ class SchoolModeManager {
                 </div>
                 ${currentCard.example ? `
                   <div class="card-example-box">
-                    💬 "${currentCard.example}"
+                    💬 "${this.wrapSentence(currentCard.example)}"
                   </div>
                 ` : ''}
                 <div class="card-click-hint">🔄 Anlamını görmek için karta dokunun</div>
@@ -929,7 +940,7 @@ class SchoolModeManager {
                 ${currentCard.example ? `
                   <div class="card-example-box" style="border-left-color:var(--accent);">
                     <div style="font-size:0.85rem; color:var(--text-secondary);">Örnek Cümle:</div>
-                    <div style="font-weight:600; color:var(--text-primary); margin-top:2px;">"${currentCard.example}"</div>
+                    <div style="font-weight:600; color:var(--text-primary); margin-top:2px;">"${this.wrapSentence(currentCard.example)}"</div>
                   </div>
                 ` : ''}
                 <div class="card-click-hint">🔄 Ön yüze dönmek için dokunun</div>
@@ -1713,7 +1724,7 @@ Exercise 4: She has already completed her science experiment.`;
                 </div>
 
                 <div class="question-text">
-                  ${q.question}
+                  ${this.wrapSentence(q.question)}
                 </div>
 
                 <!-- Choices -->
@@ -1735,7 +1746,7 @@ Exercise 4: She has already completed her science experiment.`;
                               ${isSubmitted ? 'disabled' : ''}
                               onclick="schoolMode.selectExamAnswer('${q.id}', '${optKey}')">
                         <span class="opt-key">${optKey}</span>
-                        <span class="opt-label">${opt.substring(3)}</span>
+                        <span class="opt-label">${this.wrapSentence(opt.substring(3))}</span>
                       </button>
                     `;
                   }).join('')}
@@ -1744,7 +1755,7 @@ Exercise 4: She has already completed her science experiment.`;
                 ${isSubmitted ? `
                   <div class="question-feedback-box ${isCorrect ? 'fb-correct' : 'fb-wrong'}">
                     <strong>${isCorrect ? '✅ Doğru!' : `❌ Yanlış! Doğru Cevap: ${q.correct_answer}`}</strong>
-                    <p style="font-size:0.85rem; margin-top:4px;">${q.explanation || ''}</p>
+                    <p style="font-size:0.85rem; margin-top:4px;">${this.wrapSentence(q.explanation || '')}</p>
                   </div>
                 ` : ''}
               </div>
@@ -1910,7 +1921,7 @@ Exercise 4: She has already completed her science experiment.`;
                 </div>
                 <div class="word-tr">${w.tr}</div>
                 ${w.example ? `
-                  <div class="word-example">💬 "${w.example}"</div>
+                  <div class="word-example">💬 "${this.wrapSentence(w.example)}"</div>
                 ` : ''}
 
                 <!-- Açılır Cümle Kalıpları (+ / - / ?) -->
@@ -2083,6 +2094,21 @@ Exercise 4: She has already completed her science experiment.`;
         positive: { en: "Our school schedule starts at eight-thirty in the morning.", tr: "Okul ders programımız sabah sekiz buçukta başlar." },
         negative: { en: "We didn't change the examination schedule this week.", tr: "Bu hafta sınav takvimini değiştirmedik." },
         question: { en: "Can you send me the updated weekly club schedule?", tr: "Bana güncellenmiş haftalık kulüp programını gönderebilir misin?" }
+      },
+      "worldwide": {
+        positive: { en: "English is a worldwide language used for global communication.", tr: "İngilizce küresel iletişim için kullanılan dünya çapında bir dildir." },
+        negative: { en: "This phenomenon is not worldwide; it only happens locally.", tr: "Bu fenomen dünya çapında değildir; yalnızca yerel olarak gerçekleşir." },
+        question: { en: "Why does soccer have such a massive worldwide fan base?", tr: "Futbolun neden dünya çapında bu kadar büyük bir hayran kitlesi var?" }
+      },
+      "ancient": {
+        positive: { en: "Archaeologists discovered ancient Roman coins near the site.", tr: "Arkeologlar kazı alanının yakınında antik Roma sikkeleri keşfettiler." },
+        negative: { en: "The modern building doesn't contain any ancient architecture.", tr: "Modern bina hiçbir antik mimari içermez." },
+        question: { en: "Did you study the ancient civilizations of Anatolia in history class?", tr: "Tarih dersinde Anadolu'nun antik medeniyetlerini çalıştınız mı?" }
+      },
+      "artifacts": {
+        positive: { en: "The museum exhibits precious historical artifacts from ancient times.", tr: "Müze antik dönemlerden kalma değerli tarihi eserleri sergiliyor." },
+        negative: { en: "Visitors shouldn't touch sensitive artifacts without permission.", tr: "Ziyaretçiler izin almadan hassas tarihi eserlere dokunmamalıdır." },
+        question: { en: "Where did researchers find these mysterious clay artifacts?", tr: "Araştırmacılar bu gizemli kilden tarihi eserleri nerede buldular?" }
       }
     };
   }
@@ -2200,7 +2226,7 @@ Exercise 4: She has already completed her science experiment.`;
               <span>✅ Olumlu Cümle (+)</span>
               <button class="play-voice-btn" onclick="event.stopPropagation(); schoolMode.speakWord('${s.positive.en.replace(/'/g, "\\'")}', this)" title="Cümleyi Dinle">🔊</button>
             </div>
-            <div class="sentence-text-en">${s.positive.en}</div>
+            <div class="sentence-text-en">${this.wrapSentence(s.positive.en)}</div>
             <div class="sentence-text-tr">🇹🇷 ${s.positive.tr}</div>
           </div>
 
@@ -2210,7 +2236,7 @@ Exercise 4: She has already completed her science experiment.`;
               <span>❌ Olumsuz Cümle (-)</span>
               <button class="play-voice-btn" onclick="event.stopPropagation(); schoolMode.speakWord('${s.negative.en.replace(/'/g, "\\'")}', this)" title="Cümleyi Dinle">🔊</button>
             </div>
-            <div class="sentence-text-en">${s.negative.en}</div>
+            <div class="sentence-text-en">${this.wrapSentence(s.negative.en)}</div>
             <div class="sentence-text-tr">🇹🇷 ${s.negative.tr}</div>
           </div>
 
@@ -2220,7 +2246,7 @@ Exercise 4: She has already completed her science experiment.`;
               <span>❓ Soru Cümlesi (?)</span>
               <button class="play-voice-btn" onclick="event.stopPropagation(); schoolMode.speakWord('${s.question.en.replace(/'/g, "\\'")}', this)" title="Cümleyi Dinle">🔊</button>
             </div>
-            <div class="sentence-text-en">${s.question.en}</div>
+            <div class="sentence-text-en">${this.wrapSentence(s.question.en)}</div>
             <div class="sentence-text-tr">🇹🇷 ${s.question.tr}</div>
           </div>
         </div>
@@ -2281,7 +2307,7 @@ Exercise 4: She has already completed her science experiment.`;
               <span>✅ Olumlu Cümle (+)</span>
               <button class="play-voice-btn" onclick="event.stopPropagation(); schoolMode.speakWord('${result.positive.en.replace(/'/g, "\\'")}', this)">🔊</button>
             </div>
-            <div class="sentence-text-en">${result.positive.en}</div>
+            <div class="sentence-text-en">${this.wrapSentence(result.positive.en)}</div>
             <div class="sentence-text-tr">🇹🇷 ${result.positive.tr}</div>
           </div>
 
@@ -2291,7 +2317,7 @@ Exercise 4: She has already completed her science experiment.`;
               <span>❌ Olumsuz Cümle (-)</span>
               <button class="play-voice-btn" onclick="event.stopPropagation(); schoolMode.speakWord('${result.negative.en.replace(/'/g, "\\'")}', this)">🔊</button>
             </div>
-            <div class="sentence-text-en">${result.negative.en}</div>
+            <div class="sentence-text-en">${this.wrapSentence(result.negative.en)}</div>
             <div class="sentence-text-tr">🇹🇷 ${result.negative.tr}</div>
           </div>
 
@@ -2301,7 +2327,7 @@ Exercise 4: She has already completed her science experiment.`;
               <span>❓ Soru Cümlesi (?)</span>
               <button class="play-voice-btn" onclick="event.stopPropagation(); schoolMode.speakWord('${result.question.en.replace(/'/g, "\\'")}', this)">🔊</button>
             </div>
-            <div class="sentence-text-en">${result.question.en}</div>
+            <div class="sentence-text-en">${this.wrapSentence(result.question.en)}</div>
             <div class="sentence-text-tr">🇹🇷 ${result.question.tr}</div>
           </div>
         `;

@@ -81,21 +81,36 @@ class WordLookupEngine {
       return { ...this.cache[w], wordEn: w, original: cleanWord };
     }
 
-    // 3. School Mode 9th Grade Curriculum match
-    if (window.schoolMode && window.schoolMode.schoolData && window.schoolMode.schoolData.units) {
-      for (const u of window.schoolMode.schoolData.units) {
-        if (u.words) {
-          const uMatch = u.words.find(uw => uw.en && uw.en.toLowerCase() === w);
-          if (uMatch) {
-            return {
-              tr: uMatch.tr,
-              type: uMatch.pos || uMatch.type || "school",
-              type_label: `${u.code} • ${uMatch.pos || uMatch.type || 'Kelime'}`,
-              icon: "🏫",
-              wordEn: uMatch.en,
-              original: cleanWord
-            };
+    // 3. School Mode 9th Grade Curriculum match & Notebook match
+    if (window.schoolMode) {
+      if (window.schoolMode.schoolData && window.schoolMode.schoolData.units) {
+        for (const u of window.schoolMode.schoolData.units) {
+          if (u.words) {
+            const uMatch = u.words.find(uw => uw.en && uw.en.toLowerCase() === w);
+            if (uMatch) {
+              return {
+                tr: uMatch.tr,
+                type: uMatch.pos || uMatch.type || "school",
+                type_label: `${u.code} • ${uMatch.pos || uMatch.type || 'Kelime'}`,
+                icon: "🏫",
+                wordEn: uMatch.en,
+                original: cleanWord
+              };
+            }
           }
+        }
+      }
+      if (typeof window.schoolMode.getSchoolWords === 'function') {
+        const myW = window.schoolMode.getSchoolWords().find(mw => mw.en && mw.en.toLowerCase() === w);
+        if (myW) {
+          return {
+            tr: myW.tr,
+            type: myW.pos || "school",
+            type_label: myW.pos || "9. Sınıf Okul Defteri",
+            icon: "⭐",
+            wordEn: myW.en,
+            original: cleanWord
+          };
         }
       }
     }
@@ -289,9 +304,72 @@ class WordLookupEngine {
 
       return part.replace(/\b([a-zA-Z]+(?:'[a-zA-Z]+)?)\b/g, (match) => {
         const clean = match.replace(/'s$/i, '').trim();
-        return `<span class="interactive-word" onclick="wordLookup.openWord('${clean.replace(/'/g, "\\'")}', event)" data-word="${clean}">${match}</span>`;
+        const data = this.lemmatize(clean);
+        
+        let tr = (data.tr || '').replace(/🇹🇷/g, '').trim();
+        if (tr === 'Kelime') tr = '';
+        
+        const pos = data.type_label || (data.type ? data.type.toUpperCase() : 'KELİME');
+        const tooltipTitle = tr ? `${clean} ➔ ${tr} (${pos})` : `${clean} (${pos})`;
+        const safeMeaning = tr.replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+        const safePos = pos.replace(/"/g, '&quot;');
+        const safeTooltip = tooltipTitle.replace(/"/g, '&quot;');
+
+        return `<span class="interactive-word" onclick="wordLookup.openWord('${clean.replace(/'/g, "\\'")}', event)" onmouseenter="wordLookup.handleWordHover(this, '${clean.replace(/'/g, "\\'")}')" data-word="${clean.toLowerCase()}" data-meaning="${safeMeaning}" data-pos="${safePos}" title="${safeTooltip}" data-tooltip="${safeTooltip}">${match}</span>`;
       });
     }).join('');
+  }
+
+  handleWordHover(spanEl, rawWord) {
+    if (!spanEl || !rawWord) return;
+    const currentMeaning = spanEl.getAttribute('data-meaning');
+    if (!currentMeaning || currentMeaning === 'Kelime' || currentMeaning === '') {
+      const clean = rawWord.toLowerCase().trim();
+      const info = this.lemmatize(clean);
+      if (info && info.tr && info.tr !== 'Kelime') {
+        const tr = info.tr.replace(/🇹🇷/g, '').trim();
+        spanEl.setAttribute('data-meaning', tr);
+        spanEl.setAttribute('data-pos', info.type_label || 'Kelime');
+        spanEl.setAttribute('title', `${clean} ➔ ${tr} (${info.type_label || 'Kelime'})`);
+        spanEl.setAttribute('data-tooltip', `${clean} ➔ ${tr} (${info.type_label || 'Kelime'})`);
+      } else {
+        this.fetchWordMeaningQuietly(clean, spanEl);
+      }
+    }
+  }
+
+  async fetchWordMeaningQuietly(cleanWord, spanEl) {
+    if (this.cache[cleanWord]) {
+      const tr = this.cache[cleanWord].tr;
+      if (spanEl && tr) {
+        spanEl.setAttribute('data-meaning', tr);
+        spanEl.setAttribute('title', `${cleanWord} ➔ ${tr}`);
+        spanEl.setAttribute('data-tooltip', `${cleanWord} ➔ ${tr}`);
+      }
+      return;
+    }
+    try {
+      const res = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=tr&dt=t&q=${encodeURIComponent(cleanWord)}`);
+      if (res.ok) {
+        const json = await res.json();
+        if (json && json[0] && json[0][0] && json[0][0][0]) {
+          const turkish = json[0][0][0].trim();
+          this.cache[cleanWord] = {
+            tr: turkish,
+            type: "word",
+            type_label: "Kelime",
+            icon: "📓",
+            wordEn: cleanWord
+          };
+          this.saveCache();
+          if (spanEl) {
+            spanEl.setAttribute('data-meaning', turkish);
+            spanEl.setAttribute('title', `${cleanWord} ➔ ${turkish}`);
+            spanEl.setAttribute('data-tooltip', `${cleanWord} ➔ ${turkish}`);
+          }
+        }
+      }
+    } catch (e) {}
   }
 
   /* =========================================================
