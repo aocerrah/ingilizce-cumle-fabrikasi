@@ -253,6 +253,28 @@ class AppController {
     const rewardTrackHtml = window.rewardsEngine ? window.rewardsEngine.renderRewardTrackHtml(this.xp, masteredCount, totalVerbs, watchedVideosList.length, totalVideosCount) : '';
 
     container.innerHTML = `
+      <!-- 0. School Mode Fast Switch Banner -->
+      <div class="controls-card" style="background: linear-gradient(135deg, rgba(30, 27, 75, 0.95), rgba(15, 23, 42, 0.95)); border: 2px solid #818cf8; box-shadow: 0 0 25px rgba(129, 140, 248, 0.35); cursor: pointer;" onclick="app.switchAppMode('school')">
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <div style="font-size:2.2rem; background:rgba(129,140,248,0.2); width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; border:1px solid #818cf8;">🏫</div>
+            <div>
+              <div style="display:flex; align-items:center; gap:8px;">
+                <h4 style="font-size:1.1rem; font-weight:900; color:#ffffff; margin:0;">9. Sınıf Okul İngilizcesi Portalı</h4>
+                <span class="hero-badge" style="background:rgba(56,189,248,0.2); color:#38bdf8; font-size:0.7rem; border-color:#38bdf8;">Fly Higher 2.0</span>
+              </div>
+              <p style="font-size:0.8rem; color:#94a3b8; margin:3px 0 0 0;">
+                10 Ünite Kelimeleri, 10 Oxford Hikayesi, Akıllı Kitap Tarayıcısı & Sınavlar
+              </p>
+            </div>
+          </div>
+          <button class="btn-primary" style="background:linear-gradient(135deg, #6366f1, #38bdf8); font-size:0.88rem; font-weight:800; padding:8px 16px; border:none; display:inline-flex; align-items:center; gap:6px;">
+            <span>Okul Moduna Geç</span>
+            <span>➔</span>
+          </button>
+        </div>
+      </div>
+
       <!-- 1. Guided Daily Routine Main Hero Action -->
       <div class="hero-card" style="background: linear-gradient(135deg, #1e1b4b, #1e293b); border: 2px solid #818cf8; box-shadow: 0 0 25px rgba(129, 140, 248, 0.3);">
         <div style="display:flex; justify-content:space-between; align-items:flex-start;">
