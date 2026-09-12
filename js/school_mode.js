@@ -368,6 +368,10 @@ class SchoolModeManager {
               <span>📝</span>
               <span>Yazılı Sınavı</span>
             </button>
+            <button class="school-tab-btn" onclick="aiTeacher.openTeacherModal('school_routine')" style="background:linear-gradient(135deg,rgba(236,72,153,0.18),rgba(139,92,246,0.18)); border-color:rgba(236,72,153,0.4); color:#f472b6; font-weight:800;" title="AI Öğretmen Emily ile Konuş & Pratik Yap">
+              <span>👩‍🏫</span>
+              <span>AI Konuşma Pratiği</span>
+            </button>
             <button class="school-tab-btn ${this.currentSubTab === 'mywords' ? 'active' : ''}" onclick="schoolMode.switchSubTab('mywords')">
               <span>📓</span>
               <span>Okul Defterim (${this.getSchoolWords().length})</span>

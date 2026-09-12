@@ -275,6 +275,28 @@ class AppController {
         </div>
       </div>
 
+      <!-- 0.5 AI Teacher & Voice Conversation Coach Card -->
+      <div class="controls-card" style="background: linear-gradient(135deg, rgba(88, 28, 135, 0.35), rgba(15, 23, 42, 0.95)); border: 2px solid #c084fc; box-shadow: 0 0 30px rgba(192, 132, 252, 0.35); cursor: pointer;" onclick="aiTeacher.openTeacherModal()">
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
+          <div style="display:flex; align-items:center; gap:14px;">
+            <div style="font-size:2.2rem; background:linear-gradient(135deg, #ec4899, #8b5cf6); width:52px; height:52px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 0 15px rgba(236,72,153,0.5);">👩‍🏫</div>
+            <div>
+              <div style="display:flex; align-items:center; gap:8px;">
+                <h4 style="font-size:1.15rem; font-weight:900; color:#ffffff; margin:0;">AI İngilizce Öğretmeni (Emily)</h4>
+                <span class="hero-badge" style="background:rgba(236,72,153,0.25); color:#f472b6; font-size:0.7rem; border-color:#f472b6;">🎙️ Sesli Konuşma & Koç</span>
+              </div>
+              <p style="font-size:0.82rem; color:#cbd5e1; margin:4px 0 0 0;">
+                Mikrofonla konuş, cevap ver; Emily hatalarını bir öğretmen gibi düzeltsin ve seni övsün!
+              </p>
+            </div>
+          </div>
+          <button class="btn-primary" style="background:linear-gradient(135deg, #ec4899, #8b5cf6); font-size:0.88rem; font-weight:800; padding:10px 18px; border:none; display:inline-flex; align-items:center; gap:6px; box-shadow:0 4px 15px rgba(236,72,153,0.4);">
+            <span>🎙️ Öğretmenle Konuş</span>
+            <span>➔</span>
+          </button>
+        </div>
+      </div>
+
       <!-- 1. Guided Daily Routine Main Hero Action -->
       <div class="hero-card" style="background: linear-gradient(135deg, #1e1b4b, #1e293b); border: 2px solid #818cf8; box-shadow: 0 0 25px rgba(129, 140, 248, 0.3);">
         <div style="display:flex; justify-content:space-between; align-items:flex-start;">
