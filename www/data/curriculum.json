@@ -5595,46 +5595,53 @@
   ],
   "youtube_videos": [
     {
-      "title": "2. Ders PDF'lerinde İşlenen Tüm Konuların Türkçe Anlatımlı Video Ders Listesi",
-      "description": "Sevgili Öğrenci, Bu rehber, daha önce hazırladığımız 1. ve 2. ders modüllerindeki tüm gramer konularını Türkçe olarak en anlaşılır şekilde anlatan nitelikli YouTube ders videolarını içermektedir. Takıldığın konuları bu videoları izleyerek pekiştirebilirsin.  1. BÖLÜM: TEMEL ZAMANLAR VE CÜMLE DİZİLİMİ (1. PDF) 1. Ders  İngilizce Cümle Yapısı ve Dizilimi Mantığı İngilizcede cümlenin özneden sonra fiil alması (SVOMPT kuralı) ve Türkçe ile arasındaki temel farkların detaylı anlatımı.",
-      "url": "https://www.youtube.com/watch?v=84FD2kZ8FUQ",
-      "video_id": "84FD2kZ8FUQ"
+      "title": "İngilizce Cümle Dizilimi ve SVOMPT Kuralı",
+      "description": "Özne (Subject), Fiil (Verb), Nesne (Object), Durum (Manner), Yer (Place), Zaman (Time) dizilişi ve Türkçe ile temel farklar.",
+      "url": "https://www.youtube.com/watch?v=-HNLa3zcxhw",
+      "video_id": "-HNLa3zcxhw",
+      "author": "Akif Onay Language Academy"
     },
     {
-      "title": "1. Ders  Simple Present Tense (Geniş Zaman) ve Soru Yapıları",
-      "description": "Günlük rutinler, Do/Does yardımcı fiilleri ile olumlu, olumsuz ve WH- soru cümleleri kurma yöntemleri.",
-      "url": "https://www.youtube.com/watch?v=0m0Tp1_N3bs",
-      "video_id": "0m0Tp1_N3bs"
+      "title": "Simple Present Tense (Geniş Zaman & Do/Does)",
+      "description": "Günlük rutinler, Do/Does yardımcı fiilleri ile olumlu, olumsuz ve soru cümleleri kurma yöntemleri.",
+      "url": "https://www.youtube.com/watch?v=JLdIAa8jaZM",
+      "video_id": "JLdIAa8jaZM",
+      "author": "Ayse Eser"
     },
     {
-      "title": "1. Ders  Simple Past Tense (Geçmiş Zaman)",
+      "title": "Simple Past Tense (Geçmiş Zaman - Did / V2)",
       "description": "Geçmişte tamamlanan eylemler, Did kullanımı ve fiillerin 2. halleri ile soru kurma teknikleri.",
-      "url": "https://www.youtube.com/watch?v=1pEx4Gmu4G0",
-      "video_id": "1pEx4Gmu4G0"
+      "url": "https://www.youtube.com/watch?v=38rtAIwqPtw",
+      "video_id": "38rtAIwqPtw",
+      "author": "Ms. Jasmin ELT"
     },
     {
-      "title": "2. Ders  Passive Voice (Edilgen Yapı) - Detaylı Konu Anlatımı",
-      "description": "Etken (Active) ve Edilgen (Passive) cümle farkı, be + Verb 3 yapısı ve eylemden etkilenen nesnenin cümlenin başına geçiş mantığı.",
+      "title": "Present Perfect Tense (Yakın Geçmiş - have/has + V3)",
+      "description": "Geçmişte başlayıp etkisi süren durumlar (have/has + V3) ve deneyimler.",
+      "url": "https://www.youtube.com/watch?v=cwoDqEcicTY",
+      "video_id": "cwoDqEcicTY",
+      "author": "Ayse Eser"
+    },
+    {
+      "title": "Passive Voice (Edilgen Yapı) - Detaylı Konu Anlatımı",
+      "description": "Etken (Active) ve Edilgen (Passive) cümle farkı, be + Verb 3 yapısı.",
       "url": "https://www.youtube.com/watch?v=U415FsKeE2g",
-      "video_id": "U415FsKeE2g"
+      "video_id": "U415FsKeE2g",
+      "author": "İngilizce Konu Anlatımı - Özer Kiraz"
     },
     {
-      "title": "2. Ders  Relative Clauses (Who, Which, Where, Whose, Whom)",
-      "description": "İki ayrı cümleyi sıfat cümlecikleri ve bağlaçlar ile tek bir akıcı cümleye dönüştürme ve isim tanımlama mantığı.",
+      "title": "Relative Clauses (Who, Which, That, Where, Whose)",
+      "description": "İki ayrı cümleyi sıfat cümlecikleri ile akıcı tek bir cümleye bağlama.",
       "url": "https://www.youtube.com/watch?v=oFknXglYI3g",
-      "video_id": "oFknXglYI3g"
+      "video_id": "oFknXglYI3g",
+      "author": "Ms. Jasmin ELT"
     },
     {
-      "title": "2. Ders  Present Perfect & Present Perfect Continuous Tense",
-      "description": "Geçmişte başlayıp etkisi süren durumlar (have/has + V3) ve kesintisiz devam eden eylemler (have/has been + Ving) arasındaki farklar.",
-      "url": "https://www.youtube.com/watch?v=lUedoIUtS7Y",
-      "video_id": "lUedoIUtS7Y"
-    },
-    {
-      "title": "2. Ders  Superlatives (En Üstünlük Derecesi)",
-      "description": "Sıfatlarda en üstünlük derecesi yapma (the highest, the most effective, the most impressive) kuralları ve örnekleri.",
-      "url": "https://www.youtube.com/watch?v=Eognas2iXoY",
-      "video_id": "Eognas2iXoY"
+      "title": "Comparatives & Superlatives (Karşılaştırma ve En Üstünlük)",
+      "description": "Sıfatlarda daha üstün (-er / more than) ve en üstün (-est / the most) derecelendirme kuralları.",
+      "url": "https://www.youtube.com/watch?v=0ZJnHbbnOII",
+      "video_id": "0ZJnHbbnOII",
+      "author": "Let's Improve Our English"
     }
   ],
   "advanced_grammar_notes": [

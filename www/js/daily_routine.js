@@ -1,7 +1,7 @@
 /**
  * Akıllı Günlük Çalışma Rutini & Zorunlu Ders Akışı (Daily Routine Engine)
  * Sıralı Öğrenme Yolu:
- * 1. Adım: 🎥 Günün YouTube Video Dersi (Konu Anlatımı)
+ * 1. Adım: 🎥 Günün YouTube Video Dersi (Konu Anlatımı - Akıllı Rotasyonlu)
  * 2. Adım: 📚 Günün 5 Kritik Fiili (Kelime & Çekim Kartları)
  * 3. Adım: 🧩 SVOMPT Cümle Kurma & Cümle Fabrikası Ödevi
  * 4. Adım: 🎯 Günlük Pekiştirme Sınavı (Mini Test)
@@ -37,13 +37,29 @@ class DailyRoutineEngine {
     // Pick 5 smart words for today
     this.sessionWords = this.pickSmartWords(5);
 
-    // Pick today's featured video lesson based on streak/day
-    const allVideos = window.grammarView ? window.grammarView.getAllVideos() : [];
-    const streak = (window.app ? window.app.streak : 1) - 1;
-    this.sessionVideo = allVideos[streak % allVideos.length] || allVideos[0];
+    // Pick smart non-repeating video for today
+    this.sessionVideo = window.grammarView ? window.grammarView.getSmartNextVideo() : {
+      title: "Simple Present Tense & Cümle Dizilimi",
+      topic: "Simple Present Tense",
+      description: "Geniş zaman kuralları, Do/Does soru yapıları ve SVOMPT dizilimi.",
+      video_id: "JLdIAa8jaZM",
+      author: "Ayse Eser",
+      searchQuery: "Simple Present Tense konu anlatımı türkçe"
+    };
 
     if (window.app) {
       window.app.switchTab('routine');
+    }
+  }
+
+  rotateDailyVideo() {
+    if (window.grammarView) {
+      const nextVid = window.grammarView.getSmartNextVideo();
+      this.sessionVideo = nextVid;
+      if (window.app) {
+        window.app.showToast(`🔄 Yeni video yüklendi: ${nextVid.author || nextVid.topic}`);
+      }
+      this.render();
     }
   }
 
@@ -130,49 +146,77 @@ class DailyRoutineEngine {
   }
 
   /* =========================================================
-     STEP 0: 🎥 FEATURED YOUTUBE VIDEO LESSON
+     STEP 0: 🎥 FEATURED YOUTUBE VIDEO LESSON (SMART ROTATION)
      ========================================================= */
   renderStep0Video(container) {
     const vid = this.sessionVideo || {
       title: "Simple Present Tense & Cümle Dizilimi",
+      topic: "Simple Present Tense",
       description: "Geniş zaman kuralları, Do/Does soru yapıları ve SVOMPT dizilimi.",
-      video_id: "0m0Tp1_N3bs",
-      topic: "Simple Present Tense"
+      video_id: "JLdIAa8jaZM",
+      author: "Ayse Eser",
+      searchQuery: "Simple Present Tense konu anlatımı türkçe"
     };
+
+    const videoId = vid.video_id || (vid.video ? vid.video.id : "JLdIAa8jaZM");
+    const videoTitle = (vid.video && vid.video.title) ? vid.video.title : vid.title;
+    const authorName = vid.author || (vid.video ? vid.video.author : 'Eğitim Kanalı');
+    const topicName = vid.topic || 'Gramer Dersi';
+    const searchQuery = vid.searchQuery || `${topicName} konu anlatımı türkçe`;
 
     container.innerHTML = `
       <div class="quiz-arena-box">
-        <div style="display:flex; justify-content:space-between; align-items:center;">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:6px;">
           <span style="font-size:0.8rem; font-weight:800; color:#ef4444; text-transform:uppercase; background:rgba(239,68,68,0.15); padding:3px 8px; border-radius:6px;">
             ADIM 1 / 4: GÜNÜN VİDEO EĞİTİMİ
           </span>
-          <span class="stat-chip xp">⭐ +25 XP</span>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <button class="btn-secondary" style="font-size:0.75rem; padding:4px 10px; background:rgba(239,68,68,0.12); color:#ef4444; border-color:rgba(239,68,68,0.3);" 
+                    onclick="dailyRoutine.rotateDailyVideo()" title="Farklı bir öğretmen veya konu getir">
+              🔄 Farklı Video Getir
+            </button>
+            <span class="stat-chip xp">⭐ +10 XP</span>
+          </div>
         </div>
 
         <!-- Video Spotlight Card -->
         <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.95)); border: 2px solid #ef4444; border-radius:var(--radius-lg); padding:18px; margin:14px 0; text-align:left;">
-          <span class="stat-chip streak" style="font-size:0.75rem; margin-bottom:8px;">🎥 TÜRKÇE ANLATIMLI DERS</span>
-          <h3 style="font-size:1.2rem; font-weight:900; color:#ffffff; margin:6px 0;">${vid.title}</h3>
-          <p style="font-size:0.85rem; color:var(--text-secondary); line-height:1.4; margin-bottom:14px;">${vid.description}</p>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; flex-wrap:wrap; gap:4px;">
+            <span class="stat-chip streak" style="font-size:0.75rem;">🎥 TÜRKÇE ANLATIMLI DERS</span>
+            <span style="font-size:0.75rem; color:var(--text-muted);">👨‍🏫 Eğitmen: <strong style="color:#ffffff;">${authorName}</strong></span>
+          </div>
+
+          <h3 style="font-size:1.15rem; font-weight:900; color:#ffffff; margin:6px 0;">${vid.title}</h3>
+          <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.4; margin-bottom:12px;">${vid.description || ''}</p>
 
           <!-- Interactive Embedded Player -->
-          <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:12px; margin-bottom:14px; border:1px solid rgba(255,255,255,0.15);">
-            <iframe src="https://www.youtube.com/embed/${vid.video_id}?rel=0" 
+          <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:12px; margin-bottom:14px; border:1px solid rgba(255,255,255,0.15); background:#000;">
+            <iframe id="routine-youtube-iframe"
+                    src="https://www.youtube.com/embed/${videoId}?enablejsapi=1&rel=0" 
                     style="position:absolute; top:0; left:0; width:100%; height:100%; border:none;"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                     allowfullscreen>
             </iframe>
           </div>
 
-          <div style="background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.3); border-radius:var(--radius-md); padding:10px 14px; font-size:0.82rem; color:#cbd5e1; margin-bottom:14px;">
-            <strong style="color:#ef4444;">💡 İpucu:</strong> Videoyu dikkatlice izledikten sonra bir sonraki adımdaki kelime ve cümle kurma ödevlerine geçebilirsiniz!
+          <!-- Helper Fallback Bar -->
+          <div style="background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.3); border-radius:var(--radius-md); padding:10px 14px; font-size:0.8rem; color:#cbd5e1; margin-bottom:14px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+            <span>💡 Video açılmazsa veya farklı anlatım isterseniz:</span>
+            <div style="display:flex; gap:6px;">
+              <button class="btn-secondary" style="padding:4px 8px; font-size:0.74rem; background:rgba(239,68,68,0.2); color:#ef4444;" onclick="dailyRoutine.rotateDailyVideo()">
+                🔄 Alternatif Video
+              </button>
+              <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank" style="color:var(--primary); font-size:0.74rem; font-weight:700; text-decoration:none; padding:4px 8px; background:rgba(56,189,248,0.15); border-radius:4px;">
+                🌐 YouTube'da Aç ↗
+              </a>
+              <a href="https://www.youtube.com/results?search_query=${encodeURIComponent(searchQuery)}" target="_blank" style="color:var(--text-muted); font-size:0.74rem; text-decoration:none; padding:4px 8px; background:rgba(255,255,255,0.08); border-radius:4px;">
+                🔍 YouTube'da Ara
+              </a>
+            </div>
           </div>
 
-          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
-            <a href="https://www.youtube.com/watch?v=${vid.video_id}" target="_blank" style="color:var(--primary); font-size:0.82rem; font-weight:700; text-decoration:none;">
-              🌐 YouTube'da Aç ↗
-            </a>
-            <button class="btn-primary" style="background:#ef4444; padding:10px 20px; font-size:0.9rem;" onclick="dailyRoutine.completeVideoStep()">
+          <div style="display:flex; justify-content:flex-end; align-items:center;">
+            <button class="btn-primary" style="background:#ef4444; padding:12px 24px; font-size:0.95rem; width:100%; justify-content:center;" onclick="dailyRoutine.completeVideoStep()">
               ✅ Dersi İzledim, 2. Adıma Geç (Kelimeler) ➔
             </button>
           </div>
@@ -183,7 +227,13 @@ class DailyRoutineEngine {
 
   completeVideoStep() {
     if (this.sessionVideo && window.grammarView) {
-      window.grammarView.markVideoWatched(this.sessionVideo.video_id);
+      const vidId = this.sessionVideo.video_id || (this.sessionVideo.video ? this.sessionVideo.video.id : null);
+      if (vidId) {
+        window.grammarView.markVideoWatched(vidId, this.sessionVideo.lesson ? this.sessionVideo.lesson.id : null);
+      }
+      if (window.parentReportManager) {
+        window.parentReportManager.recordVideoWatch(this.sessionVideo.title, this.sessionVideo.author || 'Eğitmen');
+      }
     }
     this.currentStep = 1;
     this.currentVocabIndex = 0;
@@ -335,21 +385,27 @@ class DailyRoutineEngine {
         ` : ''}
 
         <!-- Selected Placement Area -->
-        <div style="min-height:60px; background:rgba(15, 23, 42, 0.85); border:2px dashed ${isCorrect ? 'var(--success)' : (isWrong ? 'var(--danger)' : 'var(--border-subtle)')}; border-radius:var(--radius-md); padding:10px 14px; display:flex; flex-wrap:wrap; gap:6px; align-items:center; margin-bottom:12px;">
-          ${this.selectedScrambleTokens.length === 0 ? '<span style="color:var(--text-muted); font-size:0.85rem;">👇 Aşağıdaki kelimelere dokunun...</span>' : ''}
+        <div style="min-height:60px; background:rgba(15, 23, 42, 0.85); border:2px dashed ${isCorrect ? 'var(--success)' : (isWrong ? 'var(--danger)' : 'var(--border-subtle)')}; border-radius:var(--radius-md); padding:10px 14px; display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:12px;">
+          ${this.selectedScrambleTokens.length === 0 ? '<span style="color:var(--text-muted); font-size:0.85rem;">👇 Aşağıdaki kelimelere dokunarak cümlenizi kurun...</span>' : ''}
           ${this.selectedScrambleTokens.map((tok, idx) => `
-            <button class="token-chip" style="background:${isCorrect ? 'var(--success)' : (isWrong ? 'var(--danger)' : 'var(--accent)')}; color:#ffffff;" onclick="dailyRoutine.unselectToken(${idx})">
-              ${tok} ✕
-            </button>
+            <div class="selected-token-chip" style="background:${isCorrect ? 'var(--success)' : (isWrong ? 'var(--danger)' : 'var(--accent)')};" onclick="dailyRoutine.unselectToken(${idx})" title="Cümleden çıkarmak için dokunun">
+              <span>${tok}</span>
+              <span class="selected-token-remove-icon">✕</span>
+            </div>
           `).join('')}
         </div>
 
-        <!-- Available Token Bank -->
+        <!-- Available Token Bank with Integrated + Word Lookup -->
         <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px; min-height:40px;">
           ${this.currentScrambleTokens.map((tok, idx) => `
-            <button class="token-chip" style="font-size:0.95rem; padding:8px 14px;" onclick="dailyRoutine.selectToken('${tok.replace(/'/g, "\\'")}', ${idx})">
-              ${tok}
-            </button>
+            <div class="token-chip-group">
+              <button class="token-word-btn" title="Cümleye Ekle" onclick="dailyRoutine.selectToken('${tok.replace(/'/g, "\\'")}', ${idx})">
+                ${tok}
+              </button>
+              <button class="token-plus-btn" title="Anlamını Gör & Bilinmeyenlere Ekle (+)" onclick="event.stopPropagation(); wordLookup.openWord('${tok.replace(/'/g, "\\'")}', event)">
+                +
+              </button>
+            </div>
           `).join('')}
         </div>
 
@@ -357,7 +413,7 @@ class DailyRoutineEngine {
         ${isCorrect ? `
           <div style="background:rgba(34, 197, 94, 0.15); border:2px solid var(--success); padding:14px; border-radius:var(--radius-md); margin-bottom:14px; animation: slideDownToast 0.3s ease;">
             <div style="display:flex; justify-content:space-between; align-items:center;">
-              <div style="font-weight:900; font-size:1.05rem; color:var(--success);">🎉 MÜKEMMEL! CÜMLE DOĞRU KURULDU (+3 XP)</div>
+              <div style="font-weight:900; font-size:1.05rem; color:var(--success);">🎉 MÜKEMMEL! CÜMLE DOĞRU KURULDU (+2 XP)</div>
               <button class="play-voice-btn" onclick="speechEngine.speak('${rawTarget.replace(/'/g, "\\'")}')">🔊 Dinle</button>
             </div>
             <div style="font-size:0.95rem; color:#ffffff; margin-top:6px; font-weight:700;">
@@ -400,9 +456,23 @@ class DailyRoutineEngine {
       </div>
     `;
 
+    if (isWrong && !this.currentSentenceErrorLogged) {
+      this.currentSentenceErrorLogged = true;
+      if (window.parentReportManager) {
+        window.parentReportManager.recordError({
+          type: 'sentence',
+          word: w.verb,
+          meaning: w.meaning,
+          targetSentence: rawTarget,
+          userAttempt: currentSelectedString,
+          issue: 'SVOMPT diziliminde kelimeler doğru sırada yerleştirilmedi.'
+        });
+      }
+    }
+
     if (isCorrect && !this.currentSentenceSolved) {
       this.currentSentenceSolved = true;
-      if (window.app) window.app.addXP(3);
+      if (window.app) window.app.addXP(2);
       setTimeout(() => speechEngine.speak(rawTarget), 200);
     }
   }
@@ -552,21 +622,31 @@ class DailyRoutineEngine {
     }
 
     if (isCorrect) {
-      this.quizScore += 5;
+      this.quizScore += 2;
       if (window.app) {
-        window.app.addXP(5);
+        window.app.addXP(2);
         window.app.recordQuestionAnswered(true);
       }
       if (feedbackBox) {
         feedbackBox.innerHTML = `
           <div style="background:rgba(34, 197, 94, 0.15); border:1px solid var(--success); color:var(--success); padding:10px 14px; border-radius:var(--radius-md); font-weight:700; font-size:0.9rem;">
-            🎉 Harika! Doğru Cevap (+5 XP)
+            🎉 Harika! Doğru Cevap (+2 XP)
           </div>
         `;
       }
     } else {
       if (window.app) {
         window.app.recordQuestionAnswered(false);
+      }
+      if (window.parentReportManager) {
+        const wrongOpt = options.find(o => o.id === selectedId);
+        window.parentReportManager.recordError({
+          type: 'quiz',
+          word: currentWord.verb,
+          meaning: currentWord.meaning,
+          wrongAnswer: wrongOpt ? wrongOpt.meaning : 'Bilinmiyor',
+          correctAnswer: currentWord.meaning
+        });
       }
       if (feedbackBox) {
         feedbackBox.innerHTML = `
@@ -593,7 +673,7 @@ class DailyRoutineEngine {
      STEP 4: CELEBRATION & XP REWARD
      ========================================================= */
   renderStep4Celebration(container) {
-    const earnedXP = 25 + 15 + this.quizScore; // Video (25) + Sentences (15) + Quiz
+    const earnedXP = 10 + (Math.min(3, this.sessionWords.length) * 2) + this.quizScore; // Video (10) + Sentences (6) + Quiz (10)
 
     container.innerHTML = `
       <div class="hero-card" style="text-align:center; padding:32px 20px; border:2px solid var(--success); box-shadow:0 0 35px rgba(34, 197, 94, 0.35);">
@@ -614,9 +694,27 @@ class DailyRoutineEngine {
           </div>
         </div>
 
-        <p style="font-size:0.85rem; color:var(--text-secondary); max-width:400px; margin:0 auto 20px;">
+        <p style="font-size:0.85rem; color:var(--text-secondary); max-width:400px; margin:0 auto 16px;">
           Video dersi izledin, 5 fiili çalıştın, SVOMPT cümlelerini kurdun ve mini sınavı başarıyla tamamladın. Babandan ödül hedefine bir adım daha yaklaştın! 🌟
         </p>
+
+        <!-- Parent Notification & Email Action Bar -->
+        <div style="background:rgba(129, 140, 248, 0.12); border:1px solid rgba(129, 140, 248, 0.35); border-radius:var(--radius-md); padding:12px; max-width:420px; margin:0 auto 18px; text-align:center;">
+          <div style="font-size:0.85rem; font-weight:800; color:#ffffff; margin-bottom:4px;">
+            👨‍👧 Bugünkü Başarını Babana Gönder!
+          </div>
+          <div style="font-size:0.75rem; color:var(--text-secondary); margin-bottom:10px;">
+            Kazanılan XP, öğrenilen kelimeler ve çalışma süren hazırlandı.
+          </div>
+          <div style="display:flex; justify-content:center; gap:8px; flex-wrap:wrap;">
+            <button class="btn-primary" style="background:#ef4444; font-size:0.82rem; padding:8px 14px;" onclick="parentReportManager.sendEmailReport()">
+              📧 Babama Mail Gönder
+            </button>
+            <button class="btn-secondary" style="font-size:0.82rem; padding:8px 14px;" onclick="parentReportManager.openModal('summary')">
+              📊 Raporu İncele
+            </button>
+          </div>
+        </div>
 
         <div style="display:flex; flex-direction:column; gap:8px; max-width:320px; margin:0 auto;">
           <button class="btn-primary" style="justify-content:center; padding:12px 20px; font-size:1rem;" onclick="app.switchTab('home')">

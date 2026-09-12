@@ -1116,21 +1116,27 @@ class SentenceBuilder {
         ` : ''}
 
         <!-- Selected Result Box -->
-        <div style="min-height:60px; background:rgba(15, 23, 42, 0.85); border:2px dashed ${isCorrect ? 'var(--success)' : (isWrong ? 'var(--danger)' : 'var(--border-subtle)')}; border-radius:var(--radius-md); padding:10px 14px; display:flex; flex-wrap:wrap; gap:6px; align-items:center; margin-bottom:12px;">
-          ${this.selectedTokens.length === 0 ? '<span style="color:var(--text-muted); font-size:0.85rem;">👇 Aşağıdaki kelimelere dokunun...</span>' : ''}
+        <div style="min-height:60px; background:rgba(15, 23, 42, 0.85); border:2px dashed ${isCorrect ? 'var(--success)' : (isWrong ? 'var(--danger)' : 'var(--border-subtle)')}; border-radius:var(--radius-md); padding:10px 14px; display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:12px;">
+          ${this.selectedTokens.length === 0 ? '<span style="color:var(--text-muted); font-size:0.85rem;">👇 Aşağıdaki kelimelere dokunarak cümlenizi kurun...</span>' : ''}
           ${this.selectedTokens.map((tok, idx) => `
-            <button class="token-chip" style="background:${isCorrect ? 'var(--success)' : (isWrong ? 'var(--danger)' : 'var(--accent)')}; color:#ffffff;" onclick="sentenceBuilder.unselectToken(${idx})">
-              ${tok} ✕
-            </button>
+            <div class="selected-token-chip" style="background:${isCorrect ? 'var(--success)' : (isWrong ? 'var(--danger)' : 'var(--accent)')};" onclick="sentenceBuilder.unselectToken(${idx})" title="Cümleden çıkarmak için dokunun">
+              <span>${tok}</span>
+              <span class="selected-token-remove-icon">✕</span>
+            </div>
           `).join('')}
         </div>
 
-        <!-- Available Token Bank -->
+        <!-- Available Token Bank with Integrated + Word Lookup -->
         <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px; min-height:40px;">
           ${this.scrambleTokens.map((tok, idx) => `
-            <button class="token-chip" style="font-size:0.95rem; padding:8px 14px;" onclick="sentenceBuilder.selectToken('${tok.replace(/'/g, "\\'")}', ${idx})">
-              ${tok}
-            </button>
+            <div class="token-chip-group">
+              <button class="token-word-btn" title="Cümleye Ekle" onclick="sentenceBuilder.selectToken('${tok.replace(/'/g, "\\'")}', ${idx})">
+                ${tok}
+              </button>
+              <button class="token-plus-btn" title="Anlamını Gör & Bilinmeyenlere Ekle (+)" onclick="event.stopPropagation(); wordLookup.openWord('${tok.replace(/'/g, "\\'")}', event)">
+                +
+              </button>
+            </div>
           `).join('')}
         </div>
 

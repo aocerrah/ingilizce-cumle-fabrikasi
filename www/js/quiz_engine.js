@@ -301,6 +301,15 @@ class QuizEngine {
         feedbackText.style.color = 'var(--danger)';
         feedbackText.textContent = `❌ Yanlış! Doğru cevap: ${q.correctAnswer}`;
       }
+      if (window.parentReportManager) {
+        window.parentReportManager.recordError({
+          type: 'quiz',
+          word: q.targetWord || q.title || 'Sınav Sorusu',
+          wrongAnswer: selectedAnswer,
+          correctAnswer: q.correctAnswer,
+          issue: q.question || 'Test sorusu'
+        });
+      }
     }
 
     if (nextContainer) nextContainer.style.display = 'flex';

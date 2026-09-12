@@ -1,0 +1,1819 @@
+{
+  "curriculum_name": "Richmond Fly Higher 2.0 & Oxford Bookworms (9. Sınıf)",
+  "target_level": "A2+ / B1 (Pre-Intermediate & Intermediate)",
+  "publisher": "Richmond Solutions & Oxford Graded Readers",
+  "units": [
+    {
+      "id": "fh_unit_starter",
+      "number": 0,
+      "code": "Welcome",
+      "title": "Welcome Unit: Teen Connections & Back to School",
+      "topic": "Daily Life, Free Time & Personal Profile",
+      "grammar_focus": "Present Simple vs. Present Continuous, State Verbs",
+      "icon": "👋",
+      "color": "#38bdf8",
+      "vocab_count": 14,
+      "words": [
+        {
+          "en": "connect",
+          "tr": "bağlanmak, iletişim kurmak",
+          "type": "verb",
+          "pos": "Fiil",
+          "example": "Social media helps students connect with friends around the world."
+        },
+        {
+          "en": "routine",
+          "tr": "günlük rutin, alışkanlık",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "Her morning routine includes a healthy breakfast and a brisk walk."
+        },
+        {
+          "en": "leisure",
+          "tr": "boş vakit, serbest zaman",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "In my leisure time, I enjoy reading graphic novels and coding."
+        },
+        {
+          "en": "enthusiastic",
+          "tr": "hevesli, coşkulu",
+          "type": "adjective",
+          "pos": "Sıfat",
+          "example": "She is enthusiastic about learning new foreign languages."
+        },
+        {
+          "en": "interaction",
+          "tr": "etkileşim, iletişim",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "Group projects encourage positive student interaction."
+        },
+        {
+          "en": "belong",
+          "tr": "ait olmak",
+          "type": "verb",
+          "pos": "Durum Fiili",
+          "example": "This notebook belongs to the new high school student."
+        },
+        {
+          "en": "hang out",
+          "tr": "arkadaşlarla takılmak / vakit geçirmek",
+          "type": "phrasal_verb",
+          "pos": "Deyimsel Fiil",
+          "example": "We usually hang out at the youth center after school."
+        },
+        {
+          "en": "keen on",
+          "tr": "meraklı, düşkün olmak",
+          "type": "adjective",
+          "pos": "Kalıp",
+          "example": "Leo is very keen on science experiments and robotics."
+        },
+        {
+          "en": "prefer",
+          "tr": "tercih etmek",
+          "type": "verb",
+          "pos": "Fiil",
+          "example": "I prefer working in quiet libraries to noisy cafes."
+        },
+        {
+          "en": "schedule",
+          "tr": "ders programı, takvim",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "Our school schedule starts at eight in the morning."
+        }
+      ],
+      "grammar_summary": "Present Simple (genel alışkanlıklar ve durum fiilleri) ile Present Continuous (konuşma anındaki eylemler) arasındaki fark.",
+      "reading_passage": {
+        "title": "Welcome Back to High School!",
+        "text": "Starting ninth grade brings exciting opportunities. Students meet new teachers, choose club activities, and organize their weekly schedules. While some students are keen on competitive sports, others prefer developing digital art and technology projects. Finding a balance between academic study and creative leisure time is the secret to high school success."
+      },
+      "grammar_details": {
+        "title": "Welcome Unit: Present Simple vs. Present Continuous & State Verbs",
+        "badge": "Geniş Zaman vs. Şimdiki Zaman & Durum Fiilleri",
+        "video_data": {
+          "title": "9. Sınıf Welcome: Geniş Zaman vs. Şimdiki Zaman & Durum Fiilleri",
+          "search_query": "9. sınıf Welcome Present Simple vs. Present Continuous, State Verbs konu anlatımı",
+          "videos": [
+            {
+              "id": "JLdIAa8jaZM",
+              "topic_name": "1. Alt Konu: Present Simple (Geniş Zaman)",
+              "badge": "Geniş Zaman",
+              "title": "Sıfırdan İngilizce - Present Simple Tense Detaylı Anlatım",
+              "author": "Ayşe Eser",
+              "duration": "14 Dk"
+            },
+            {
+              "id": "QTJS3nuEn-Y",
+              "topic_name": "2. Alt Konu: Present Continuous (Şimdiki Zaman)",
+              "badge": "Şimdiki Zaman",
+              "title": "Present Continuous Tense Konu Anlatımı | İngilizce Şimdiki Zaman",
+              "author": "Ms. Jasmin ELT",
+              "duration": "12 Dk"
+            },
+            {
+              "id": "DPR3MFHpg6c",
+              "topic_name": "3. Alt Konu: İkisinin Farkı & State Verbs (Durum Fiilleri)",
+              "badge": "Farklar & State Verbs",
+              "title": "Sıfırdan İngilizce - Present Continuous ÇOK DETAYLI Anlatım & State Verbs",
+              "author": "Ayşe Eser",
+              "duration": "16 Dk"
+            },
+            {
+              "id": "BYnlEYOy2z0",
+              "topic_name": "4. Hızlı Özet: Sınav Taktikleri & Püf Noktaları",
+              "badge": "Sınav Özeti",
+              "title": "Simple Present Tense Örnek Cümleler ile 7 Dakikada Öğren!",
+              "author": "English Everyday Words",
+              "duration": "7 Dk"
+            }
+          ]
+        },
+        "formula_cards": [
+          {
+            "tense": "Present Simple (Geniş Zaman)",
+            "usage": "Genel doğrular, günlük rutinler, alışkanlıklar ve değişmeyen gerçekler.",
+            "pos_formula": "Subject + Verb(s/es) + Object",
+            "neg_formula": "Subject + don't / doesn't + Verb1",
+            "que_formula": "Do / Does + Subject + Verb1 ?",
+            "keywords": "always, usually, often, sometimes, never, every day, on Mondays, once a week"
+          },
+          {
+            "tense": "Present Continuous (Şimdiki Zaman)",
+            "usage": "Konuşma anında yapılan eylemler veya bu dönemdeki geçici durumlar.",
+            "pos_formula": "Subject + am / is / are + Verb-ing",
+            "neg_formula": "Subject + am not / isn't / aren't + Verb-ing",
+            "que_formula": "Am / Is / Are + Subject + Verb-ing ?",
+            "keywords": "now, right now, at the moment, at present, currently, Look!, Listen!"
+          }
+        ],
+        "state_verbs_note": {
+          "title": "⚠️ State Verbs (Durum Fiilleri) Kuralı",
+          "desc": "Düşünce, his, sahiplik veya duyu bildiren durum fiilleri 'şimdiki zaman' anlamında olsalar bile -ing takısı ALMAZLAR, Present Simple ile kullanılırlar.",
+          "verbs": [
+            "like",
+            "love",
+            "hate",
+            "want",
+            "need",
+            "know",
+            "understand",
+            "believe",
+            "remember",
+            "belong",
+            "own",
+            "seem",
+            "prefer"
+          ]
+        },
+        "examples": [
+          {
+            "en": "She usually walks to school, but today she is taking the bus.",
+            "tr": "O genellikle okula yürür, ama bugün otobüse biniyor."
+          },
+          {
+            "en": "I understand the grammar rules very well right now.",
+            "tr": "Şu anda gramer kurallarını çok iyi anlıyorum. (State verb: understand -ing almaz)"
+          },
+          {
+            "en": "Look! The students are working on their science project.",
+            "tr": "Bak! Öğrenciler fen projeleri üzerinde çalışıyorlar."
+          },
+          {
+            "en": "This blue backpack belongs to my classmate Leo.",
+            "tr": "Bu mavi sırt çantası sınıf arkadaşım Leo'ya ait."
+          }
+        ],
+        "pitfalls": [
+          {
+            "wrong": "I am knowing the answer right now.",
+            "correct": "I know the answer right now.",
+            "explanation": "'Know' bir durum fiilidir (state verb), şimdiki zamanda dahi -ing eki alamaz."
+          },
+          {
+            "wrong": "She don't like horror movies.",
+            "correct": "She doesn't like horror movies.",
+            "explanation": "He / She / It öznelerinde olumsuz cümle 'doesn't' yardımcı fiili ile kurulur."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fh_unit_1",
+      "number": 1,
+      "code": "Unit 1",
+      "title": "Unit 1: Identity, Passions & Lifestyles",
+      "topic": "Personalities, Hobbies & Unique Talents",
+      "grammar_focus": "Past Simple vs. Past Continuous, Time Clauses (When / While)",
+      "icon": "🎨",
+      "color": "#818cf8",
+      "vocab_count": 16,
+      "words": [
+        {
+          "en": "personality",
+          "tr": "kişilik, karakter",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "Her cheerful personality makes everyone feel welcome."
+        },
+        {
+          "en": "ambitious",
+          "tr": "hırslı, azimli, hedefleri olan",
+          "type": "adjective",
+          "pos": "Sıfat",
+          "example": "Ambitious learners set high goals and practice regularly."
+        },
+        {
+          "en": "creative",
+          "tr": "yaratıcı, üretken",
+          "type": "adjective",
+          "pos": "Sıfat",
+          "example": "She came up with a creative solution to the science challenge."
+        },
+        {
+          "en": "passionate",
+          "tr": "tutkulu, aşırı hevesli",
+          "type": "adjective",
+          "pos": "Sıfat",
+          "example": "He is passionate about wildlife conservation and photography."
+        },
+        {
+          "en": "accomplish",
+          "tr": "başarmak, hedefine ulaşmak",
+          "type": "verb",
+          "pos": "Fiil",
+          "example": "You can accomplish great results with consistent daily effort."
+        },
+        {
+          "en": "lifestyle",
+          "tr": "yaşam tarzı",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "A healthy lifestyle requires balanced nutrition and regular sleep."
+        },
+        {
+          "en": "admire",
+          "tr": "hayranlık duymak, takdir etmek",
+          "type": "verb",
+          "pos": "Fiil",
+          "example": "Many young athletes admire international Olympic champions."
+        },
+        {
+          "en": "inspiration",
+          "tr": "ilham kaynağı",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "Her perseverance serves as a great inspiration to our class."
+        },
+        {
+          "en": "take up",
+          "tr": "yeni bir hobiye/spora başlamak",
+          "type": "phrasal_verb",
+          "pos": "Deyimsel Fiil",
+          "example": "Ela decided to take up swimming this semester."
+        },
+        {
+          "en": "give up",
+          "tr": "pes etmek, bırakmak",
+          "type": "phrasal_verb",
+          "pos": "Deyimsel Fiil",
+          "example": "Never give up when facing difficult mathematics problems."
+        },
+        {
+          "en": "confident",
+          "tr": "kendine güvenen",
+          "type": "adjective",
+          "pos": "Sıfat",
+          "example": "Public speaking helped her become more confident."
+        },
+        {
+          "en": "generous",
+          "tr": "cömert, yardımsever",
+          "type": "adjective",
+          "pos": "Sıfat",
+          "example": "He is generous with his time and volunteers at the shelter."
+        }
+      ],
+      "grammar_summary": "Geçmişte tamamlanmış anlık olaylar (Past Simple - V2) ile devam eden süreçler (Past Continuous) ve When/While bağlaçları.",
+      "reading_passage": {
+        "title": "Finding Your True Passion",
+        "text": "Every teenager has unique talents waiting to be discovered. When Steve was fourteen, he was experimenting with old computer parts while his peers were playing video games. His ambitious mindset and creative curiosity helped him build innovative gadgets. He never gave up when things went wrong; instead, he admired innovators and worked harder until he accomplished his dream."
+      },
+      "grammar_details": {
+        "title": "Unit 1: Past Simple vs. Past Continuous & Time Clauses (When / While)",
+        "badge": "Geçmiş Zaman & Süreç Bildiren Geçmiş & When/While Bağlaçları",
+        "video_data": {
+          "title": "9. Sınıf Unit 1: Geçmiş Zaman & Süreç Bildiren Geçmiş & When/While Bağlaçları",
+          "search_query": "9. sınıf Unit 1 Past Simple vs. Past Continuous, Time Clauses (When / While) konu anlatımı",
+          "videos": [
+            {
+              "id": "38rtAIwqPtw",
+              "topic_name": "1. Alt Konu: Past Simple Tense (Geçmiş Zaman - V2)",
+              "badge": "Geçmiş Zaman (V2)",
+              "title": "Simple Past Tense Konu Anlatımı | İngilizce Geçmiş Zaman",
+              "author": "Ms. Jasmin ELT",
+              "duration": "15 Dk"
+            },
+            {
+              "id": "ob0HW-im7eo",
+              "topic_name": "2. Alt Konu: Past Continuous Tense (Geçmişte Süreç)",
+              "badge": "Was/Were + -ing",
+              "title": "Past Continuous Tense – İngilizce Türkçe Detaylı Konu Anlatımı",
+              "author": "Ms. Jasmin ELT",
+              "duration": "13 Dk"
+            },
+            {
+              "id": "lBGPhcBZRmY",
+              "topic_name": "3. Alt Konu: When & While Bağlaçları ile Cümle Kurma",
+              "badge": "When / While",
+              "title": "İngilizce Past Continuous Tense Nasıl Kullanılır? When & While",
+              "author": "Ayşe Eser",
+              "duration": "11 Dk"
+            },
+            {
+              "id": "L8v05CfesIY",
+              "topic_name": "4. Karşılaştırma: Past Simple vs Continuous Sınav Farkları",
+              "badge": "Sınav Taktikleri",
+              "title": "Sıfırdan İngilizce - Past Simple Detaylı Konu Anlatımı",
+              "author": "Ayşe Eser",
+              "duration": "10 Dk"
+            }
+          ]
+        },
+        "formula_cards": [
+          {
+            "tense": "Past Simple (Geçmiş Zaman - V2)",
+            "usage": "Geçmişte belirli bir zamanda başlayıp tamamlanmış anlık eylemler.",
+            "pos_formula": "Subject + Verb-2 (ed / düzensiz) + Object",
+            "neg_formula": "Subject + didn't + Verb-1",
+            "que_formula": "Did + Subject + Verb-1 ?",
+            "keywords": "yesterday, last night/week/year, two days ago, in 2020"
+          },
+          {
+            "tense": "Past Continuous (Geçmişte Süreç - was/were Ving)",
+            "usage": "Geçmişte belirli bir anda devam etmekte olan uzun süreçli eylemler.",
+            "pos_formula": "Subject + was / were + Verb-ing",
+            "neg_formula": "Subject + wasn't / weren't + Verb-ing",
+            "que_formula": "Was / Were + Subject + Verb-ing ?",
+            "keywords": "at 8 o'clock yesterday, while, as, all day yesterday"
+          }
+        ],
+        "state_verbs_note": {
+          "title": "⚡ When & While Altın Kuralı",
+          "desc": "• WHILE + Past Continuous (Uzun eylem): 'While I was studying...' (Ders çalışıyorken...)\n• WHEN + Past Simple (Kısa/kesen eylem): '...when the telephone rang.' (...telefon çaldığında.)",
+          "verbs": [
+            "While + was/were V-ing",
+            "When + V2 (Past Simple)"
+          ]
+        },
+        "examples": [
+          {
+            "en": "While Ela was reading in the library, her phone rang.",
+            "tr": "Ela kütüphanede kitap okurken telefonu çaldı."
+          },
+          {
+            "en": "When the teacher entered the classroom, the students were talking.",
+            "tr": "Öğretmen sınıfa girdiğinde öğrenciler konuşuyordu."
+          },
+          {
+            "en": "I didn't watch the football match yesterday evening.",
+            "tr": "Dün akşam futbol maçını izlemedim."
+          },
+          {
+            "en": "What were you doing at 10 PM last night?",
+            "tr": "Dün gece saat 22:00'de ne yapıyordun?"
+          }
+        ],
+        "pitfalls": [
+          {
+            "wrong": "While I was walking, I was seeing a strange bird.",
+            "correct": "While I was walking, I saw a strange bird.",
+            "explanation": "Kısa ve anlık eylemler (görmek, düşmek, aramak) Past Simple (V2) olmalıdır."
+          },
+          {
+            "wrong": "Did you saw the new art gallery?",
+            "correct": "Did you see the new art gallery?",
+            "explanation": "'Did' yardımcı fiili kullanıldığında ana fiil daima yalın (V1) haline döner."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fh_unit_2",
+      "number": 2,
+      "code": "Unit 2",
+      "title": "Unit 2: Global Adventures & Earth Wonders",
+      "topic": "Travel, Geography & Cultural Journeys",
+      "grammar_focus": "Present Perfect Simple vs. Past Simple (Since, For, Just, Already, Yet)",
+      "icon": "🌍",
+      "color": "#22c55e",
+      "vocab_count": 16,
+      "words": [
+        {
+          "en": "destination",
+          "tr": "varış yeri, hedef rota",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "Cappadocia is one of the most famous tourist destinations in Turkey."
+        },
+        {
+          "en": "breathtaking",
+          "tr": "nefes kesici, büyüleyici",
+          "type": "adjective",
+          "pos": "Sıfat",
+          "example": "The view from the top of Mount Ararat was breathtaking."
+        },
+        {
+          "en": "expedition",
+          "tr": "keşif gezisi, sefer",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "Scientists organized an expedition to explore the Amazon rainforest."
+        },
+        {
+          "en": "explore",
+          "tr": "keşfetmek, incelemek",
+          "type": "verb",
+          "pos": "Fiil",
+          "example": "We plan to explore historical castles during the summer break."
+        },
+        {
+          "en": "heritage",
+          "tr": "tarihi / kültürel miras",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "Ephesus is a UNESCO World Heritage site of immense value."
+        },
+        {
+          "en": "spectacular",
+          "tr": "muhteşem, göz alıcı",
+          "type": "adjective",
+          "pos": "Sıfat",
+          "example": "The northern lights displayed a spectacular show across the night sky."
+        },
+        {
+          "en": "remote",
+          "tr": "uzak, ıssız",
+          "type": "adjective",
+          "pos": "Sıfat",
+          "example": "They traveled to a remote mountain village with no internet."
+        },
+        {
+          "en": "set off",
+          "tr": "yola çıkmak, seyahate başlamak",
+          "type": "phrasal_verb",
+          "pos": "Deyimsel Fiil",
+          "example": "The hikers set off early at sunrise to avoid the heat."
+        },
+        {
+          "en": "fascinating",
+          "tr": "büyüleyici, son derece ilginç",
+          "type": "adjective",
+          "pos": "Sıfat",
+          "example": "The documentary provided fascinating insights into deep ocean life."
+        },
+        {
+          "en": "landmark",
+          "tr": "tarihi / simgesel yapı",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "The Galata Tower is an iconic landmark of Istanbul."
+        }
+      ],
+      "grammar_summary": "Geçmişte olup etkisi devam eden ya da zamanı belirsiz tecrübeler (have/has + V3) ile belirli geçmiş zamanın (Past Simple) farkı.",
+      "reading_passage": {
+        "title": "Journeys of Discovery",
+        "text": "Have you ever dreamed of exploring the world's most remote locations? Many modern adventurers have traveled to ancient heritage sites and witnessed breathtaking natural landscapes. When travelers set off on expeditions, they not only discover spectacular monuments but also connect with diverse cultures and traditions."
+      },
+      "grammar_details": {
+        "title": "Unit 2: Present Perfect Simple vs. Past Simple",
+        "badge": "Yakın Geçmiş Zaman & Since/For & Just/Already/Yet",
+        "video_data": {
+          "title": "9. Sınıf Unit 2: Yakın Geçmiş Zaman & Since/For & Just/Already/Yet",
+          "search_query": "9. sınıf Unit 2 Present Perfect Simple vs. Past Simple (Since, For, Just, Already, Yet) konu anlatımı",
+          "videos": [
+            {
+              "id": "cwoDqEcicTY",
+              "topic_name": "1. Alt Konu: Present Perfect Tense (Have/Has + V3 Mantığı)",
+              "badge": "Have/Has + V3",
+              "title": "Sıfırdan İngilizce - Present Perfect Tense Konu Anlatımı",
+              "author": "Ayşe Eser",
+              "duration": "18 Dk"
+            },
+            {
+              "id": "fWJbpHgYGGE",
+              "topic_name": "2. Alt Konu: 6 Dakikada Present Perfect & Zaman Zarfları",
+              "badge": "Zaman Zarfları",
+              "title": "6 Dakikada PRESENT PERFECT TENSE (Since, For, Just, Already, Yet)",
+              "author": "Tonguç Akademi",
+              "duration": "6 Dk"
+            },
+            {
+              "id": "0m0Tp1_N3bs",
+              "topic_name": "3. Alt Konu: Present Perfect vs. Past Simple Farkı",
+              "badge": "Farklar & Sınav",
+              "title": "PRESENT PERFECT TENSE KONU ANLATIMI & Sınav Taktikleri",
+              "author": "Ms. Jasmin ELT",
+              "duration": "14 Dk"
+            }
+          ]
+        },
+        "formula_cards": [
+          {
+            "tense": "Present Perfect Tense (have / has + V3)",
+            "usage": "Geçmişte olmuş ama zamanı belirtilmemiş, etkisi veya sonucu şu an devam eden olaylar ya da hayat tecrübeleri.",
+            "pos_formula": "Subject + have / has + Verb-3 (Past Participle)",
+            "neg_formula": "Subject + haven't / hasn't + Verb-3",
+            "que_formula": "Have / Has + Subject + Verb-3 ?",
+            "keywords": "just (henüz), already (zaten), yet (henüz-olumsuz/soru), since (den beri), for (dır), ever, never"
+          },
+          {
+            "tense": "Past Simple vs. Present Perfect Ayrımı",
+            "usage": "Zaman belliyse (yesterday, in 2018) -> Past Simple (V2). Zaman belirsiz veya tecrübe ise -> Present Perfect (have/has V3).",
+            "pos_formula": "Past Simple: I visited Rome in 2021. (Belli zaman)",
+            "neg_formula": "Present Perfect: I have visited Rome twice. (Hayat tecrübesi)",
+            "que_formula": "Have you ever been to London? - Yes, I went there last summer.",
+            "keywords": "Since 2015 vs. In 2015, For 3 years vs. 3 years ago"
+          }
+        ],
+        "state_verbs_note": {
+          "title": "📌 Ever / Never & Just / Already / Yet Kuralları",
+          "desc": "• Ever: Soru cümlelerinde tecrübe sorarken ('Have you ever eaten sushi?')\n• Never: Olumlu yapılı cümlede olumsuz anlam ('I have never been abroad.')\n• Yet: Cümlenin en sonunda ve sadece olumsuz ya da sorularda kullanılır ('I haven't finished yet.')",
+          "verbs": [
+            "Since + Başlangıç Noktası (Since 2010)",
+            "For + Süreç (For 5 years)"
+          ]
+        },
+        "examples": [
+          {
+            "en": "I have already booked my flight ticket to London.",
+            "tr": "Londra uçak biletimi şimdiden (çoktan) aldım."
+          },
+          {
+            "en": "She hasn't packed her travel suitcase yet.",
+            "tr": "Valizini henüz hazırlamadı."
+          },
+          {
+            "en": "They have lived in this historic neighborhood since 2018.",
+            "tr": "2018'den beri bu tarihi mahallede yaşıyorlar."
+          },
+          {
+            "en": "We visited the ancient museum yesterday. (Past Simple - zaman net)",
+            "tr": "Dün antik müzeyi ziyaret ettik."
+          }
+        ],
+        "pitfalls": [
+          {
+            "wrong": "I have seen him yesterday.",
+            "correct": "I saw him yesterday.",
+            "explanation": "'Yesterday' kesin geçmiş zaman bildirdiği için Present Perfect değil, Past Simple (saw) kullanılır."
+          },
+          {
+            "wrong": "She has already not called me.",
+            "correct": "She hasn't called me yet.",
+            "explanation": "Olumsuz cümlelerde 'already' yerine cümlenin sonunda 'yet' kullanılır."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fh_unit_3",
+      "number": 3,
+      "code": "Unit 3",
+      "title": "Unit 3: Science, Tech Innovations & The Future",
+      "topic": "Robotics, AI, Space Exploration & Gadgets",
+      "grammar_focus": "Future Forms (Will vs. Be Going To vs. Present Continuous) & Modals of Probability",
+      "icon": "🤖",
+      "color": "#c084fc",
+      "vocab_count": 16,
+      "words": [
+        {
+          "en": "artificial intelligence",
+          "tr": "yapay zeka",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "Artificial intelligence is transforming medicine and education."
+        },
+        {
+          "en": "breakthrough",
+          "tr": "büyük buluş, çığır açan keşif",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "Renewable solar energy represents a major technological breakthrough."
+        },
+        {
+          "en": "device",
+          "tr": "cihaz, alet",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "This smart wearable device monitors daily heart rate and steps."
+        },
+        {
+          "en": "innovative",
+          "tr": "yenilikçi, inovatif",
+          "type": "adjective",
+          "pos": "Sıfat",
+          "example": "Our school team created an innovative water filtration system."
+        },
+        {
+          "en": "revolutionize",
+          "tr": "devrim yapmak, kökten değiştirmek",
+          "type": "verb",
+          "pos": "Fiil",
+          "example": "Autonomous electric vehicles will revolutionize urban transport."
+        },
+        {
+          "en": "sustainable",
+          "tr": "sürdürülebilir, çevre dostu",
+          "type": "adjective",
+          "pos": "Sıfat",
+          "example": "Wind turbines provide clean and sustainable electrical energy."
+        },
+        {
+          "en": "virtual reality",
+          "tr": "sanal gerçeklik",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "Virtual reality allows students to explore historical museums in 3D."
+        },
+        {
+          "en": "figure out",
+          "tr": "anlamak, çözmek, kavramak",
+          "type": "phrasal_verb",
+          "pos": "Deyimsel Fiil",
+          "example": "The engineers worked together to figure out the coding bug."
+        },
+        {
+          "en": "automated",
+          "tr": "otomatikleştirilmiş",
+          "type": "adjective",
+          "pos": "Sıfat",
+          "example": "Modern smart factories use automated robotics for precision assembly."
+        },
+        {
+          "en": "cutting-edge",
+          "tr": "en son teknoloji, ileri düzey",
+          "type": "adjective",
+          "pos": "Sıfat",
+          "example": "The hospital laboratory uses cutting-edge genetic analysis tools."
+        }
+      ],
+      "grammar_summary": "Anlık kararlar ve tahminler (Will), planlı/kanıtlı durumlar (Be Going To) ile olasılık modalları (May, Might, Could).",
+      "reading_passage": {
+        "title": "Living in the Cities of 2050",
+        "text": "In the near future, artificial intelligence and automated systems will revolutionize daily life. Scientists are going to construct sustainable eco-cities powered entirely by solar and wind energy. High school classrooms will be using cutting-edge virtual reality headsets to conduct chemistry experiments without physical hazards."
+      },
+      "grammar_details": {
+        "title": "Unit 3: Future Forms (Will vs. Be Going To vs. Present Continuous) & Modals of Probability",
+        "badge": "Gelecek Zaman Kalıpları & Olasılık Kipleri (May / Might / Could)",
+        "video_data": {
+          "title": "9. Sınıf Unit 3: Gelecek Zaman Kalıpları & Olasılık Kipleri (May / Might / Could)",
+          "search_query": "9. sınıf Unit 3 Future Forms (Will vs. Be Going To vs. Present Continuous) & Modals of Probability konu anlatımı",
+          "videos": [
+            {
+              "id": "uS4fClJEkF4",
+              "topic_name": "1. Alt Konu: Future Tense - Will & Be Going To",
+              "badge": "Will & Going To",
+              "title": "İngilizcede Future Tense’i Detaylıca Öğren! (Be going to & Will)",
+              "author": "Ayşe Eser",
+              "duration": "16 Dk"
+            },
+            {
+              "id": "Q3hQ8-ymE8I",
+              "topic_name": "2. Alt Konu: Will vs Be Going To Farkları",
+              "badge": "Gelecek Zaman Farkı",
+              "title": "Will vs Be Going To Konu Anlatımı ve Farkı",
+              "author": "Ders Hane",
+              "duration": "12 Dk"
+            },
+            {
+              "id": "85yIJOKGbvw",
+              "topic_name": "3. Alt Konu: Future Continuous (will be doing)",
+              "badge": "Future Continuous",
+              "title": "Future Continuous Tense Konu Anlatımı",
+              "author": "Ms. Jasmin ELT",
+              "duration": "15 Dk"
+            },
+            {
+              "id": "QCYWiRpMBz8",
+              "topic_name": "4. Alt Konu: Modals of Possibility (May, Might, Could)",
+              "badge": "Olasılık Modalları",
+              "title": "May, Might, Can, Could (Olasılık Kipleri) #37",
+              "author": "Özer Kiraz",
+              "duration": "14 Dk"
+            }
+          ]
+        },
+        "formula_cards": [
+          {
+            "tense": "Will (Anlık Karar & Tahmin)",
+            "usage": "Konuşma anında verilen ani kararlar, sözler, teklifler ve kişisel tahminler.",
+            "pos_formula": "Subject + will + Verb-1",
+            "neg_formula": "Subject + won't + Verb-1",
+            "que_formula": "Will + Subject + Verb-1 ?",
+            "keywords": "I think, I believe, probably, maybe, I promise, suddenly"
+          },
+          {
+            "tense": "Be Going To (Önceden Plan & Güçlü Kanıt)",
+            "usage": "Önceden planlanmış niyetler veya şu anki somut kanıtlara dayanan tahminler.",
+            "pos_formula": "Subject + am / is / are + going to + Verb-1",
+            "neg_formula": "Subject + am not / isn't / aren't + going to + Verb-1",
+            "que_formula": "Am / Is / Are + Subject + going to + Verb-1 ?",
+            "keywords": "plan, intend, Look at the dark clouds!, carefully"
+          }
+        ],
+        "state_verbs_note": {
+          "title": "🔮 Modals of Probability (May, Might, Could)",
+          "desc": "Geleceğe veya şu ana dair olasılık bildirmek için kullanılır:\n• May / Might / Could + Verb1 (%40-50 ihtimal)\n• Must + Verb1 (%90 güçlü çıkarım: 'He must be at school.')",
+          "verbs": [
+            "may (olabilir)",
+            "might (belki)",
+            "could (ihtimal var)",
+            "must (olmalı)"
+          ]
+        },
+        "examples": [
+          {
+            "en": "Look at those black clouds! It is going to rain. (Somut kanıt var)",
+            "tr": "Şu kara bulutlara bak! Yağmur yağacak."
+          },
+          {
+            "en": "I think artificial intelligence will create exciting new jobs.",
+            "tr": "Bence yapay zeka heyecan verici yeni işler yaratacak. (Kişisel tahmin)"
+          },
+          {
+            "en": "The phone is ringing. - I will answer it! (Ani karar)",
+            "tr": "Telefon çalıyor. - Ben bakarım!"
+          },
+          {
+            "en": "We are meeting the computer science teacher tomorrow at 10 AM.",
+            "tr": "Yarın sabah saat 10'da bilgisayar öğretmeniyle buluşuyoruz. (Kesin randevu)"
+          }
+        ],
+        "pitfalls": [
+          {
+            "wrong": "Look at the ice on the road! You will slip.",
+            "correct": "Look at the ice on the road! You are going to slip.",
+            "explanation": "Gözümüzün önünde somut bir kanıt (buz) olduğunda 'be going to' kullanılır."
+          },
+          {
+            "wrong": "I will to study computer science.",
+            "correct": "I will study computer science.",
+            "explanation": "'Will' modal fiilinden sonra 'to' gelmez, fiil doğrudan yalın (V1) kullanılır."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fh_unit_4",
+      "number": 4,
+      "code": "Unit 4",
+      "title": "Unit 4: Society, Rules & Global Citizenship",
+      "topic": "Rights, Responsibilities, Law & Community",
+      "grammar_focus": "Modals of Obligation, Prohibition & Advice (Must, Have to, Should, Musn't, Don't have to)",
+      "icon": "⚖️",
+      "color": "#f59e0b",
+      "vocab_count": 15,
+      "words": [
+        {
+          "en": "citizenship",
+          "tr": "vatandaşlık, yurttaşlık",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "Active digital citizenship means respecting privacy and online rights."
+        },
+        {
+          "en": "regulation",
+          "tr": "yönetmelik, kural, düzenleme",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "Traffic regulations are designed to protect pedestrians and drivers."
+        },
+        {
+          "en": "mandatory",
+          "tr": "zorunlu, mecbur",
+          "type": "adjective",
+          "pos": "Sıfat",
+          "example": "Wearing safety goggles is mandatory in the science laboratory."
+        },
+        {
+          "en": "prohibit",
+          "tr": "yasaklamak, men etmek",
+          "type": "verb",
+          "pos": "Fiil",
+          "example": "School rules prohibit using smartphones during examinations."
+        },
+        {
+          "en": "volunteer",
+          "tr": "gönüllü olmak / gönüllü",
+          "type": "verb",
+          "pos": "Fiil / İsim",
+          "example": "High school students often volunteer at environmental clean-up events."
+        },
+        {
+          "en": "equality",
+          "tr": "eşitlik",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "Education promotes social equality and fair opportunities for all."
+        },
+        {
+          "en": "responsibility",
+          "tr": "sorumluluk",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "Protecting nature is a shared global responsibility."
+        },
+        {
+          "en": "comply with",
+          "tr": "kurallara uymak, riayet etmek",
+          "type": "verb",
+          "pos": "Edatlı Fiil",
+          "example": "Athletes must comply with fair play guidelines during matches."
+        },
+        {
+          "en": "protest",
+          "tr": "itiraz etmek, protesto",
+          "type": "verb",
+          "pos": "Fiil / İsim",
+          "example": "Citizens gathered peacefully to protest against deforestation."
+        },
+        {
+          "en": "punishment",
+          "tr": "ceza, yaptırım",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "Cheating in exams carries serious disciplinary punishments."
+        }
+      ],
+      "grammar_summary": "Zorunluluk (Must / Have to), yasaklama (Musn't), gereksizlik (Don't have to) ve tavsiye (Should) kipleri.",
+      "reading_passage": {
+        "title": "Being an Active Global Citizen",
+        "text": "Every civilized society relies on rules and regulations to maintain order. While citizens have rights, they also have important responsibilities. In schools, students must comply with safety codes and show mutual respect. When young people volunteer and stand up for environmental causes, they build a better future for everyone."
+      },
+      "grammar_details": {
+        "title": "Unit 4: Modals of Obligation, Prohibition & Advice (Must, Have to, Should, Can't)",
+        "badge": "Zorunluluk, Yasaklama ve Tavsiye Kipleri",
+        "video_data": {
+          "title": "9. Sınıf Unit 4: Zorunluluk, Yasaklama ve Tavsiye Kipleri",
+          "search_query": "9. sınıf Unit 4 Modals of Obligation, Prohibition & Advice (Must, Have to, Should, Musn't, Don't have to) konu anlatımı",
+          "videos": [
+            {
+              "id": "yi6K5ndAF0M",
+              "topic_name": "1. Alt Konu: Zorunluluk Modalları (Must vs. Have to)",
+              "badge": "Must & Have to",
+              "title": "Can, Could, Must, Should, Might, May Artık Kafanı Karıştırmayacak",
+              "author": "Attack English House",
+              "duration": "17 Dk"
+            },
+            {
+              "id": "HIts3PW1GrY",
+              "topic_name": "2. Alt Konu: Musn't vs. Don't Have to",
+              "badge": "Musn't vs Don't Have To",
+              "title": "Must / Have to / Musn't Farkı / Modals Konu Anlatımı",
+              "author": "English with Mami",
+              "duration": "11 Dk"
+            },
+            {
+              "id": "fvp90lio9WA",
+              "topic_name": "3. Alt Konu: Tavsiye Modalları (Should & Shouldn't)",
+              "badge": "Should & Shouldn't",
+              "title": "Must ve Should Kipleri Kullanımı & Öneriler",
+              "author": "Çilem Akar",
+              "duration": "10 Dk"
+            }
+          ]
+        },
+        "formula_cards": [
+          {
+            "tense": "Must vs. Have to (Zorunluluk)",
+            "usage": "• Must: Konuşmacının kendi içinden gelen güçlü zorunluluk veya kural.\n• Have to: Dışarıdan gelen resmi kurallar, kanunlar ve okul kuralları.",
+            "pos_formula": "Subject + must / have to / has to + Verb-1",
+            "neg_formula": "Don't have to (Zorunda değilsin) ≠ Musn't (YASAK!)",
+            "que_formula": "Do / Does + Subject + have to + Verb-1 ?",
+            "keywords": "rule, law, compulsory, necessary, obligation"
+          },
+          {
+            "tense": "Should & Ought to (Tavsiye / Öneri)",
+            "usage": "Birine yapması iyi olacak bir tavsiyede veya öğütte bulunurken kullanılır.",
+            "pos_formula": "Subject + should / ought to + Verb-1",
+            "neg_formula": "Subject + shouldn't + Verb-1",
+            "que_formula": "Should + Subject + Verb-1 ?",
+            "keywords": "I advise you, If I were you, good idea, suggestion"
+          }
+        ],
+        "state_verbs_note": {
+          "title": "⚠️ EN ÇOK KARIŞTIRILAN FARK: Musn't vs. Don't Have To",
+          "desc": "• MUSTN'T: Kesinlikle YASAK! Yaparsan ceza alırsın ('You mustn't cheat in exams.')\n• DON'T HAVE TO: Zorunda değilsin, istersen yapabilirsin ('You don't have to wake up early on Sundays.')",
+          "verbs": [
+            "Mustn't = Yasak (Prohibition)",
+            "Don't have to = İsteğe bağlı (No obligation)"
+          ]
+        },
+        "examples": [
+          {
+            "en": "Students must follow the digital citizenship rules in the lab.",
+            "tr": "Öğrenciler laboratuvarda dijital vatandaşlık kurallarına uymalıdır."
+          },
+          {
+            "en": "You mustn't share your private passwords with strangers. (Yasak)",
+            "tr": "Özel şifrelerinizi yabancılarla kesinlikle paylaşmamalısınız."
+          },
+          {
+            "en": "Tomorrow is Sunday, so Ela doesn't have to wake up early.",
+            "tr": "Yarın pazar, bu yüzden Ela erken kalkmak zorunda değil."
+          },
+          {
+            "en": "You should practice speaking English every day.",
+            "tr": "Her gün İngilizce konuşma pratiği yapmalısın. (Tavsiye)"
+          }
+        ],
+        "pitfalls": [
+          {
+            "wrong": "You mustn't pay for the museum, it is free.",
+            "correct": "You don't have to pay for the museum, it is free.",
+            "explanation": "Müze ücretsizse 'ödemek zorunda değilsin' denir (don't have to). 'Mustn't' derseniz para ödemek yasaktır anlamına gelir."
+          },
+          {
+            "wrong": "He must to respect other people.",
+            "correct": "He must respect other people.",
+            "explanation": "Must modalından sonra asla 'to' kullanılmaz, fiil yalın gelir."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fh_unit_5",
+      "number": 5,
+      "code": "Unit 5",
+      "title": "Unit 5: Health, Nutrition & Mind-Body Harmony",
+      "topic": "Wellbeing, Sports, Healthy Habits & Medical Advice",
+      "grammar_focus": "Comparatives & Superlatives, (Not) As...as, Too & Enough",
+      "icon": "🥗",
+      "color": "#10b981",
+      "vocab_count": 15,
+      "words": [
+        {
+          "en": "nutrition",
+          "tr": "beslenme, gıda",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "Proper nutrition provides the energy needed for sports and mental focus."
+        },
+        {
+          "en": "cardiovascular",
+          "tr": "kalp ve damar ile ilgili",
+          "type": "adjective",
+          "pos": "Sıfat",
+          "example": "Aerobic running exercises improve cardiovascular endurance."
+        },
+        {
+          "en": "hydration",
+          "tr": "su dengesi, vücudun su alımı",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "Drinking enough water is essential for optimal hydration during training."
+        },
+        {
+          "en": "fatigue",
+          "tr": "aşırı yorgunluk, bitkinlik",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "Lack of sleep leads to physical fatigue and poor concentration."
+        },
+        {
+          "en": "recover",
+          "tr": "iyileşmek, toparlanmak",
+          "type": "verb",
+          "pos": "Fiil",
+          "example": "Athletes need sufficient rest days to recover from muscle strain."
+        },
+        {
+          "en": "immune system",
+          "tr": "bağışıklık sistemi",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "Vitamin C strengthens the immune system against seasonal flu."
+        },
+        {
+          "en": "cut down on",
+          "tr": "azaltmak, kısmak (tüketimi)",
+          "type": "phrasal_verb",
+          "pos": "Deyimsel Fiil",
+          "example": "You should cut down on sugary energy drinks and processed snacks."
+        },
+        {
+          "en": "sedentary",
+          "tr": "hareketsiz, masa başı (yaşam)",
+          "type": "adjective",
+          "pos": "Sıfat",
+          "example": "A sedentary lifestyle increases the risk of chronic back pain."
+        },
+        {
+          "en": "vitality",
+          "tr": "canlılık, zindelik",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "Morning physical workouts boost mental clarity and vitality."
+        },
+        {
+          "en": "prescribe",
+          "tr": "reçete yazmak / tavsiye etmek",
+          "type": "verb",
+          "pos": "Fiil",
+          "example": "The doctor prescribed natural rest and antibiotic medication."
+        }
+      ],
+      "grammar_summary": "Sıfatlarda karşılaştırma (-er/more), en üstünlük (the most/-est), eşitlik (as...as) ve aşırılık/yeterlilik (too/enough).",
+      "reading_passage": {
+        "title": "The Science of High School Wellness",
+        "text": "If you maintain regular sleep patterns, your cognitive memory improves significantly. Nutritionists recommend cutting down on refined sugars and staying hydrated. If students practiced thirty minutes of cardiovascular activity every day, they would experience higher energy levels and less exam anxiety."
+      },
+      "grammar_details": {
+        "title": "Unit 5: Comparatives & Superlatives, (Not) As...as, Too & Enough",
+        "badge": "Sıfatlarda Karşılaştırma, Üstünlük, Aşırılık ve Yeterlilik",
+        "video_data": {
+          "title": "9. Sınıf Unit 5: Sıfatlarda Karşılaştırma, Üstünlük, Aşırılık ve Yeterlilik",
+          "search_query": "9. sınıf Unit 5 Comparatives & Superlatives, (Not) As...as, Too & Enough konu anlatımı",
+          "videos": [
+            {
+              "id": "0ZJnHbbnOII",
+              "topic_name": "1. Alt Konu: Comparatives (Karşılaştırma Sıfatları)",
+              "badge": "Comparatives (-er/more)",
+              "title": "Comparatives ve Superlatives Konu Anlatımı",
+              "author": "Let's Improve Our English",
+              "duration": "14 Dk"
+            },
+            {
+              "id": "zmh-u6YDdHI",
+              "topic_name": "2. Alt Konu: Superlatives (En Üstünlük Sıfatları)",
+              "badge": "Superlatives (the most)",
+              "title": "Comparative & Superlative Adjectives Anlatımı",
+              "author": "Enjoy English With Bahar",
+              "duration": "12 Dk"
+            },
+            {
+              "id": "ubnDq5BcZpg",
+              "topic_name": "3. Alt Konu: (Not) As...as & Too / Enough Kalıpları",
+              "badge": "Too, Enough & As..as",
+              "title": "Comparative and Superlative in English (Too / Enough)",
+              "author": "English with Mu7mad",
+              "duration": "14 Dk"
+            }
+          ]
+        },
+        "formula_cards": [
+          {
+            "tense": "Comparative & Superlative Sıfatlar",
+            "usage": "• Kısa sıfatlar: faster than / the fastest\n• Uzun sıfatlar: more energetic than / the most energetic\n• Düzensizler: good->better->best, bad->worse->worst",
+            "pos_formula": "Comparative: A is more [adj] than B | Superlative: A is the most [adj]",
+            "neg_formula": "As...as: A is not as tall as B (A, B kadar uzun değil)",
+            "que_formula": "Which sport is more challenging, tennis or swimming?",
+            "keywords": "than, the most, the -est, as...as, much more"
+          },
+          {
+            "tense": "Too & Enough (Aşırılık & Yeterlilik)",
+            "usage": "• TOO + Sıfat (Gereğinden fazla/olumsuz aşırı): 'too expensive' (fazla pahalı)\n• Sıfat + ENOUGH (Yeterli derecede): 'healthy enough' (yeterince sağlıklı)",
+            "pos_formula": "too + adjective + (to V1) | adjective + enough + (to V1)",
+            "neg_formula": "not + adjective + enough (yeterince ... değil)",
+            "que_formula": "Is this water warm enough to swim?",
+            "keywords": "too (aşırı/olumsuz), enough (yeterli), so...that"
+          }
+        ],
+        "state_verbs_note": {
+          "title": "⭐ Düzensiz Sıfatlar Tablosu (Irregular Adjectives)",
+          "desc": "• good -> better -> the best (iyi / daha iyi / en iyi)\n• bad -> worse -> the worst (kötü / daha kötü / en kötü)\n• far -> farther/further -> the farthest/furthest (uzak)\n• little -> less -> the least (az / daha az / en az)\n• many/much -> more -> the most (çok / daha çok / en çok)",
+          "verbs": [
+            "good -> better",
+            "bad -> worse",
+            "far -> further",
+            "little -> less"
+          ]
+        },
+        "examples": [
+          {
+            "en": "Swimming is more beneficial for your posture than running.",
+            "tr": "Yüzme, duruşunuz için koşmaktan daha faydalıdır."
+          },
+          {
+            "en": "Ela is the most hardworking student in the ninth grade.",
+            "tr": "Ela, dokuzuncu sınıftaki en çalışkan öğrencidir."
+          },
+          {
+            "en": "This soup is too hot to drink right now.",
+            "tr": "Bu çorba şu an içmek için aşırı sıcak."
+          },
+          {
+            "en": "He is not strong enough to lift that heavy fitness bar.",
+            "tr": "O ağır fitness barını kaldırmak için yeterince güçlü değil."
+          }
+        ],
+        "pitfalls": [
+          {
+            "wrong": "She is more taller than her brother.",
+            "correct": "She is taller than her brother.",
+            "explanation": "Kısa tek heceli sıfatlara hem 'more' hem de '-er' aynı anda eklenmez."
+          },
+          {
+            "wrong": "This laptop is enough fast.",
+            "correct": "This laptop is fast enough.",
+            "explanation": "'Enough' kelimesi sıfatlardan SONRA gelir (fast enough), isimlerden ÖNCE gelir (enough money)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fh_unit_6",
+      "number": 6,
+      "code": "Unit 6",
+      "title": "Unit 6: Arts, Media, Cinema & Entertainment",
+      "topic": "Films, Music Genres, Photography & Digital Content",
+      "grammar_focus": "Passive Voice (Present & Past Simple Passives)",
+      "icon": "🎬",
+      "color": "#ec4899",
+      "vocab_count": 15,
+      "words": [
+        {
+          "en": "cinematography",
+          "tr": "sinematografi, görüntü yönetimi",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "The movie won an Oscar for its breathtaking cinematography."
+        },
+        {
+          "en": "screenplay",
+          "tr": "film senaryosu",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "The director wrote an original screenplay based on true historical events."
+        },
+        {
+          "en": "masterpiece",
+          "tr": "şaheser, başyapıt",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "Leonardo da Vinci's Mona Lisa is considered a worldwide masterpiece."
+        },
+        {
+          "en": "captivate",
+          "tr": "büyülemek, kendine hayran bırakmak",
+          "type": "verb",
+          "pos": "Fiil",
+          "example": "The orchestral symphony captivated the entire concert hall."
+        },
+        {
+          "en": "soundtrack",
+          "tr": "film müziği",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "The emotional soundtrack enhanced the drama of the final scene."
+        },
+        {
+          "en": "premiere",
+          "tr": "ilk gösterim, gala",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "Hollywood stars attended the glamorous film premiere in London."
+        },
+        {
+          "en": "broadcast",
+          "tr": "yayınlamak, canlı yayın",
+          "type": "verb",
+          "pos": "Fiil / İsim",
+          "example": "The championship match was broadcast live across fifty countries."
+        },
+        {
+          "en": "genre",
+          "tr": "tür (müzik, film, edebiyat)",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "Science fiction is my favorite cinematic genre."
+        },
+        {
+          "en": "critic",
+          "tr": "eleştirmen",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "Film critics praised the lead actress for her powerful performance."
+        },
+        {
+          "en": "exhibition",
+          "tr": "sergi",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "The modern art gallery is hosting an interactive photography exhibition."
+        }
+      ],
+      "grammar_summary": "Eylemi yapanın değil yapılan işin önemli olduğu durumlarda etken - edilgen çatı dönüşümleri (am/is/are/was/were + V3).",
+      "reading_passage": {
+        "title": "The Magic of Cinematic Storytelling",
+        "text": "Great movies are created by talented teams of writers, actors, and directors. Blockbuster films are watched by millions of cinema enthusiasts across the globe. Visual effects that captivate audiences are rendered on high-performance supercomputers, turning imaginative screenplays into reality."
+      },
+      "grammar_details": {
+        "title": "Unit 6: The Passive Voice (Present Simple & Past Simple Passives)",
+        "badge": "Edilgen Çatı (am/is/are + V3 & was/were + V3)",
+        "video_data": {
+          "title": "9. Sınıf Unit 6: Edilgen Çatı (am/is/are + V3 & was/were + V3)",
+          "search_query": "9. sınıf Unit 6 Passive Voice (Present & Past Simple Passives) konu anlatımı",
+          "videos": [
+            {
+              "id": "U415FsKeE2g",
+              "topic_name": "1. Alt Konu: Passive Voice (Edilgen Çatı) Temel Mantığı",
+              "badge": "Edilgen Çatı Giriş",
+              "title": "Passive Voice Konu Anlatımı #81",
+              "author": "Özer Kiraz (İngilizce Konu Anlatımı)",
+              "duration": "22 Dk"
+            },
+            {
+              "id": "Xcr3paf7FOg",
+              "topic_name": "2. Alt Konu: Present & Past Simple Passive",
+              "badge": "Present & Past Passive",
+              "title": "PASSIVE VOICE | Bu Konu Bu Kadar Kolay Mıydı?",
+              "author": "FK LANGUAGE",
+              "duration": "12 Dk"
+            },
+            {
+              "id": "Eognas2iXoY",
+              "topic_name": "3. Alt Konu: Edilgen Cümle Örnekleri ve Sınav Soruları",
+              "badge": "Soru Çözümü",
+              "title": "PASSIVE VOICE KONU ANLATIMI & Alıştırmalar",
+              "author": "Sercan İgrek",
+              "duration": "14 Dk"
+            }
+          ]
+        },
+        "formula_cards": [
+          {
+            "tense": "Present Simple Passive (Geniş Zaman Edilgen)",
+            "usage": "İşi yapanın değil, yapılan işin veya nesnenin önemli olduğu genel durumlar.",
+            "pos_formula": "Object + am / is / are + Verb-3 (Past Participle)",
+            "neg_formula": "Object + am not / isn't / aren't + Verb-3",
+            "que_formula": "Is / Are + Object + Verb-3 ?",
+            "keywords": "by (tarafından), is produced, are made, is spoken"
+          },
+          {
+            "tense": "Past Simple Passive (Geçmiş Zaman Edilgen)",
+            "usage": "Geçmişte gerçekleşen ve etkilenen nesnenin ön planda olduğu durumlar.",
+            "pos_formula": "Object + was / were + Verb-3 (Past Participle)",
+            "neg_formula": "Object + wasn't / weren't + Verb-3",
+            "que_formula": "Was / Were + Object + Verb-3 ?",
+            "keywords": "was written in 1990, were invented, was directed by"
+          }
+        ],
+        "state_verbs_note": {
+          "title": "🎨 Aktif Cümleyi Edilgene Çevirme Adımları",
+          "desc": "1. Aktif cümlenin Nesnesini (Object) başa alıp yeni Özne yap.\n2. Zamana uygun 'Be' fiilini koy (is/are veya was/were).\n3. Ana fiilin daima 3. halini (V3) kullan.\n4. İşi yapanı belirtmek istersen cümlenin sonuna '+ by ...' ekle.",
+          "verbs": [
+            "Active: Shakespeare wrote Hamlet.",
+            "Passive: Hamlet was written by Shakespeare."
+          ]
+        },
+        "examples": [
+          {
+            "en": "English is spoken by millions of students around the world.",
+            "tr": "İngilizce, dünya genelinde milyonlarca öğrenci tarafından konuşulur."
+          },
+          {
+            "en": "The famous cinema movie was directed by Christopher Nolan.",
+            "tr": "Ünlü sinema filmi Christopher Nolan tarafından yönetildi."
+          },
+          {
+            "en": "These classical sculptures are protected in the museum.",
+            "tr": "Bu klasik heykeller müzede korunmaktadır."
+          },
+          {
+            "en": "The Mona Lisa was painted in the 16th century.",
+            "tr": "Mona Lisa tablosu 16. yüzyılda yapıldı."
+          }
+        ],
+        "pitfalls": [
+          {
+            "wrong": "The new film was directed with a famous artist.",
+            "correct": "The new film was directed by a famous artist.",
+            "explanation": "Edilgen cümlelerde işi yapan kişiyi belirtirken 'with' değil 'by' bağlacı kullanılır."
+          },
+          {
+            "wrong": "The car was wash yesterday.",
+            "correct": "The car was washed yesterday.",
+            "explanation": "Edilgen çatıda fiil daima 3. halinde (V3) olmak zorundadır."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fh_unit_7",
+      "number": 7,
+      "code": "Unit 7",
+      "title": "Unit 7: Environment, Eco-Warriors & Climate Action",
+      "topic": "Ecology, Deforestation, Clean Energy & Conservation",
+      "grammar_focus": "Conditionals (Zero & First Conditional - If Clauses) & Future Time Clauses",
+      "icon": "🌿",
+      "color": "#14b8a6",
+      "vocab_count": 15,
+      "words": [
+        {
+          "en": "biodiversity",
+          "tr": "biyolojik çeşitlilik",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "Protecting tropical rainforests preserves planetary biodiversity."
+        },
+        {
+          "en": "carbon footprint",
+          "tr": "karbon ayak izi",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "Cycling to school significantly reduces your personal carbon footprint."
+        },
+        {
+          "en": "renewable",
+          "tr": "yenilenebilir (enerji)",
+          "type": "adjective",
+          "pos": "Sıfat",
+          "example": "Solar and geothermal energy are clean, renewable power sources."
+        },
+        {
+          "en": "extinction",
+          "tr": "nesli tükenme, yok olma",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "Climate change threatens hundreds of marine species with extinction."
+        },
+        {
+          "en": "deforestation",
+          "tr": "ormanların yok edilmesi",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "Industrial deforestation harms natural animal habitats."
+        },
+        {
+          "en": "conserve",
+          "tr": "korumak, muhafaza etmek",
+          "type": "verb",
+          "pos": "Fiil",
+          "example": "We must conserve fresh drinking water during hot summer months."
+        },
+        {
+          "en": "decompose",
+          "tr": "çürümek, doğada çözünmek",
+          "type": "verb",
+          "pos": "Fiil",
+          "example": "Plastic bags take over five hundred years to decompose in nature."
+        },
+        {
+          "en": "pollution",
+          "tr": "kirlilik",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "Air pollution in major metropolitan cities causes respiratory problems."
+        },
+        {
+          "en": "advocate",
+          "tr": "savunmak, desteklemek",
+          "type": "verb",
+          "pos": "Fiil",
+          "example": "Youth activists advocate for immediate climate action treaties."
+        },
+        {
+          "en": "sustainable",
+          "tr": "sürdürülebilir",
+          "type": "adjective",
+          "pos": "Sıfat",
+          "example": "Recycling materials supports a circular and sustainable economy."
+        }
+      ],
+      "grammar_summary": "Genel doğa kanunları (Tip 0: If + Present, Present) ile gelecekteki gerçekçi olasılıklar (Tip 1: If + Present, Will) ve Unless.",
+      "reading_passage": {
+        "title": "Guardians of the Green Planet",
+        "text": "Environmental scientists declared that global temperatures had risen at an alarming rate. In order to protect endangered ecosystems, eco-friendly communities are reducing single-use plastics and investing in renewable solar arrays so that future generations can inherit a clean and healthy planet."
+      },
+      "grammar_details": {
+        "title": "Unit 7: Conditionals (Zero & First Conditional - If Clauses) & Future Time Clauses",
+        "badge": "Koşul Cümleleri (Zero & First Conditionals) ve When/Unless/As soon as",
+        "video_data": {
+          "title": "9. Sınıf Unit 7: Koşul Cümleleri (Zero & First Conditionals) ve When/Unless/As soon as",
+          "search_query": "9. sınıf Unit 7 Conditionals (Zero & First Conditional - If Clauses) & Future Time Clauses konu anlatımı",
+          "videos": [
+            {
+              "id": "BdH0Wh0YIXs",
+              "topic_name": "1. Alt Konu: Zero & First Conditional (Tip 0 ve 1)",
+              "badge": "Tip 0 & 1 Şart",
+              "title": "IF CLAUSE TYPE 0 & 1 HEM DE 10 DAKİKADA!",
+              "author": "FK LANGUAGE",
+              "duration": "10 Dk"
+            },
+            {
+              "id": "oTWI0C9HjvU",
+              "topic_name": "2. Alt Konu: If Clauses Tüm Tipler (Conditionals)",
+              "badge": "If Clauses",
+              "title": "IF CLAUSE Konu Anlatımı (CONDITIONALS Type 0, 1, 2, 3)",
+              "author": "Ozan Hoca",
+              "duration": "20 Dk"
+            },
+            {
+              "id": "o2lSbkcZ73c",
+              "topic_name": "3. Alt Konu: Unless (If Not) & Zaman Bağlaçları",
+              "badge": "Unless & Bağlaçlar",
+              "title": "Conditional Sentences Type 0 & Type 1 Konu Anlatımı & Unless",
+              "author": "Orkun Londoner",
+              "duration": "12 Dk"
+            }
+          ]
+        },
+        "formula_cards": [
+          {
+            "tense": "Zero Conditional (Genel Doğa Kanunları & Bilimsel Gerçekler)",
+            "usage": "Her zaman doğru olan bilimsel kurallar veya kesin sonuçlar.",
+            "pos_formula": "If + Present Simple, Present Simple",
+            "neg_formula": "If you don't water plants, they die.",
+            "que_formula": "What happens if water reaches 100 degrees?",
+            "keywords": "always, scientific facts, when, whenever"
+          },
+          {
+            "tense": "First Conditional (Gelecekteki Gerçekçi Olasılıklar)",
+            "usage": "Gelecekte gerçekleşmesi muhtemel olan durumlar ve olası sonuçları.",
+            "pos_formula": "If + Present Simple, will / won't + Verb-1",
+            "neg_formula": "If we don't reduce plastic waste, pollution will increase.",
+            "que_formula": "What will you do if it rains tomorrow?",
+            "keywords": "if, unless (if not), as soon as, when, in case"
+          }
+        ],
+        "state_verbs_note": {
+          "title": "🌱 UNLESS = IF NOT (Madıkça / Medikçe)",
+          "desc": "• 'Unless we protect the forests, wildlife will disappear.'\n(Ormanları korumadıkça yaban hayatı yok olacak.)\n= 'If we do not protect the forests, wildlife will disappear.'",
+          "verbs": [
+            "If + Present -> Future (Will)",
+            "Unless = If + Not"
+          ]
+        },
+        "examples": [
+          {
+            "en": "If we use renewable energy, we will reduce our carbon footprint.",
+            "tr": "Eğer yenilenebilir enerji kullanırsak, karbon ayak izimizi azaltacağız."
+          },
+          {
+            "en": "If you heat ice, it melts. (Zero conditional - bilimsel gerçek)",
+            "tr": "Buzu ısıtırsan erir."
+          },
+          {
+            "en": "Unless we plant more trees, global temperatures will continue to rise.",
+            "tr": "Daha fazla ağaç dikmedikçe küresel sıcaklıklar artmaya devam edecek."
+          },
+          {
+            "en": "As soon as I finish my homework, I will help you with the recycling project.",
+            "tr": "Ödevimi bitirir bitirmez geri dönüşüm projesinde sana yardım edeceğim."
+          }
+        ],
+        "pitfalls": [
+          {
+            "wrong": "If it will rain tomorrow, we will stay at home.",
+            "correct": "If it rains tomorrow, we will stay at home.",
+            "explanation": "'If' cümlesinin içine asla 'will' gelmez, daima Present Simple kullanılır."
+          },
+          {
+            "wrong": "Unless you don't hurry, you will miss the school bus.",
+            "correct": "Unless you hurry, you will miss the school bus.",
+            "explanation": "'Unless' kendi içinde zaten olumsuzluk (if not) barındırır, tekrar 'don't' kullanılmaz."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fh_unit_8",
+      "number": 8,
+      "code": "Unit 8",
+      "title": "Unit 8: Future Careers, Entrepreneurship & Dreams",
+      "topic": "Professions of Tomorrow, Skills & Global Ambitions",
+      "grammar_focus": "Relative Clauses (Who, Which, That, Where, Whose) & Used to",
+      "icon": "🚀",
+      "color": "#f97316",
+      "vocab_count": 15,
+      "words": [
+        {
+          "en": "entrepreneur",
+          "tr": "girişimci",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "The young entrepreneur developed a successful mobile study app."
+        },
+        {
+          "en": "qualification",
+          "tr": "nitelik, diploma, yetkinlik",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "Academic qualifications and practical skills are vital in modern job markets."
+        },
+        {
+          "en": "collaboration",
+          "tr": "iş birliği, ortak çalışma",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "International scientific collaboration solved the medical mystery."
+        },
+        {
+          "en": "perseverance",
+          "tr": "azim, sebat, kararlılık",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "Through constant perseverance, she mastered advanced calculus."
+        },
+        {
+          "en": "leadership",
+          "tr": "liderlik, yöneticilik",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "Effective leadership requires active listening and empathy."
+        },
+        {
+          "en": "internship",
+          "tr": "staj, iş tecrübesi",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "He applied for a summer software engineering internship in Berlin."
+        },
+        {
+          "en": "innovate",
+          "tr": "yenilik yapmak, icat etmek",
+          "type": "verb",
+          "pos": "Fiil",
+          "example": "Tech companies must constantly innovate to remain competitive."
+        },
+        {
+          "en": "adaptable",
+          "tr": "uyum sağlayabilen, esnek",
+          "type": "adjective",
+          "pos": "Sıfat",
+          "example": "Successful professionals are adaptable to fast-changing industry trends."
+        },
+        {
+          "en": "pursue",
+          "tr": "peşinden gitmek, takip etmek (hayal/kariyer)",
+          "type": "verb",
+          "pos": "Fiil",
+          "example": "Ela decided to pursue a career in aerospace engineering."
+        },
+        {
+          "en": "achievement",
+          "tr": "başarı, kazanım",
+          "type": "noun",
+          "pos": "İsim",
+          "example": "Winning the national science fair was her greatest academic achievement."
+        }
+      ],
+      "grammar_summary": "İnsanları, nesneleri ve yerleri tanımlayan sıfat cümlecikleri (Relative Pronouns) ile geçmiş alışkanlıklar (Used to).",
+      "reading_passage": {
+        "title": "Architects of the Modern World",
+        "text": "Choosing a future career is an inspiring journey for every ninth-grade student. Today's dynamic workplace values individuals who enjoy collaborating on complex tasks and never avoid learning new technologies. If you manage to cultivate perseverance and adaptability, you can pursue your wildest ambitions and achieve worldwide success."
+      },
+      "grammar_details": {
+        "title": "Unit 8: Relative Clauses (Who, Which, That, Where, Whose) & Used to for Habits",
+        "badge": "Sıfat Cümlecikleri & Geçmiş Alışkanlıklar (Used to)",
+        "video_data": {
+          "title": "9. Sınıf Unit 8: Sıfat Cümlecikleri & Geçmiş Alışkanlıklar (Used to)",
+          "search_query": "9. sınıf Unit 8 Relative Clauses (Who, Which, That, Where, Whose) & Used to konu anlatımı",
+          "videos": [
+            {
+              "id": "oFknXglYI3g",
+              "topic_name": "1. Alt Konu: Relative Clauses - Who, Which, That (Sıfat Cümlecikleri)",
+              "badge": "Who / Which / That",
+              "title": "RELATIVE CLAUSES KONU ANLATIMI",
+              "author": "Ms. Jasmin ELT",
+              "duration": "19 Dk"
+            },
+            {
+              "id": "84FD2kZ8FUQ",
+              "topic_name": "2. Alt Konu: 5 Dakikada Relative Clauses (Who, Which, Where, Whose)",
+              "badge": "5 Dk Özet",
+              "title": "5 Dakikada Relative Clauses",
+              "author": "Tonguç Akademi",
+              "duration": "5 Dk"
+            },
+            {
+              "id": "nc3ymcJr2XU",
+              "topic_name": "3. Alt Konu: Used to & Didn't use to (Geçmiş Alışkanlıklar)",
+              "badge": "Used to",
+              "title": "İngilizce’de used to / be used to / get used to kalıpları",
+              "author": "İngilizce Bizde",
+              "duration": "11 Dk"
+            },
+            {
+              "id": "V8BoyN2vq_Y",
+              "topic_name": "4. Alt Konu: Relative Clauses Detaylı Soru Çözümü",
+              "badge": "Soru Çözümü",
+              "title": "RELATIVE CLAUSE Konu Anlatımı (Who, Which, That, Whose)",
+              "author": "Ozan Hoca",
+              "duration": "15 Dk"
+            }
+          ]
+        },
+        "formula_cards": [
+          {
+            "tense": "Defining Relative Pronouns (İlgi Zamirleri)",
+            "usage": "İki cümleyi birbirine bağlayıp bir ismi nitelemek için kullanılır:\n• WHO / THAT: İnsanlar için ('The teacher who inspires us...')\n• WHICH / THAT: Hayvanlar ve nesneler için ('The software which analyze data...')\n• WHERE: Mekanlar ve yerler için ('The university where I study...')\n• WHOSE: Sahiplik bildirenler için ('The student whose project won the award...')",
+            "pos_formula": "Noun + [who / which / that / where / whose] + Clause",
+            "neg_formula": "I met a scientist who doesn't use standard algorithms.",
+            "que_formula": "Do you know the architect who designed this eco-building?",
+            "keywords": "who (insan), which (nesne), that (her ikisi), where (yer), whose (aitlik)"
+          },
+          {
+            "tense": "Used to (Geçmiş Alışkanlıklar)",
+            "usage": "Geçmişte düzenli olarak yapılan ama artık terk edilmiş olan eski alışkanlıklar ve durumlar.",
+            "pos_formula": "Subject + used to + Verb-1",
+            "neg_formula": "Subject + didn't use to + Verb-1",
+            "que_formula": "Did + Subject + use to + Verb-1 ?",
+            "keywords": "in the past, when I was a child, no longer, anymore"
+          }
+        ],
+        "state_verbs_note": {
+          "title": "💼 Geleceğin Mesleklerinde Sıfat Cümlecikleri",
+          "desc": "• 'An AI engineer is a specialist WHO designs intelligent systems.'\n• 'A sustainable farm is a place WHERE crops are grown without chemical pesticides.'",
+          "verbs": [
+            "who = insan",
+            "which = nesne",
+            "where = yer",
+            "whose = sahiplik"
+          ]
+        },
+        "examples": [
+          {
+            "en": "An astronaut is a professional who explores outer space.",
+            "tr": "Astronot, uzayı keşfeden profesyonel bir kişidir."
+          },
+          {
+            "en": "This is the innovative company that developed the new eco-engine.",
+            "tr": "Bu, yeni çevre dostu motoru geliştiren yenilikçi şirkettir."
+          },
+          {
+            "en": "I used to play video games for hours, but now I focus on coding.",
+            "tr": "Eskiden saatlerce video oyunu oynardım, ama şimdi kodlamaya odaklanıyorum."
+          },
+          {
+            "en": "Did your father use to work in an international office?",
+            "tr": "Baban eskiden uluslararası bir ofiste mi çalışırdı?"
+          }
+        ],
+        "pitfalls": [
+          {
+            "wrong": "I met a girl which speaks four languages.",
+            "correct": "I met a girl who speaks four languages.",
+            "explanation": "İnsanları nitelerken 'which' değil, 'who' veya 'that' kullanılır."
+          },
+          {
+            "wrong": "She didn't used to like science fiction.",
+            "correct": "She didn't use to like science fiction.",
+            "explanation": "'Didn't' kullanıldığında 'used' fiilindeki -d eki düşer ve 'use to' haline döner."
+          }
+        ]
+      }
+    }
+  ],
+  "bookworms_library": [
+    {
+      "id": "bw_sherlock",
+      "title": "Sherlock Holmes: The Blue Diamond",
+      "stage": "Stage 1 (Oxford Bookworms)",
+      "author": "Sir Arthur Conan Doyle",
+      "genre": "Mystery & Detective",
+      "icon": "🔍",
+      "summary": "Sherlock Holmes ve Dr. Watson'ın Noel gününde çalınan paha biçilmez mavi elmasın izini Londra sokaklarında sürdüğü klasik dedektiflik macerası.",
+      "chapters": [
+        {
+          "num": 1,
+          "title": "An Old Hat and a Fat Goose",
+          "text": "It was two days after Christmas, and I went to visit my friend Sherlock Holmes. He was sitting in his armchair with an old brown felt hat in his hands. 'What is that?' I asked. 'A clue to a terrible crime?' Holmes smiled and said, 'No, Watson. It is just an ordinary hat, but behind it lies a fascinating human story.'"
+        },
+        {
+          "num": 2,
+          "title": "The Countess's Stolen Diamond",
+          "text": "The Countess of Morcar lost her famous blue diamond from her hotel room five days ago. The police arrested a young plumber named John Horner, who was working in the room. But Holmes looked carefully at the evidence and realized that the real thief was still walking freely on the streets of London."
+        }
+      ]
+    },
+    {
+      "id": "bw_phantom",
+      "title": "The Phantom of the Opera",
+      "stage": "Stage 1 (Oxford Bookworms)",
+      "author": "Gaston Leroux",
+      "genre": "Mystery & Music Drama",
+      "icon": "🎭",
+      "summary": "Paris Operası'nın altındaki gizli tünellerde yaşayan gizemli hayalet ve güzel opera şarkıcısı Christine Daaé'nin dramatik hikayesi.",
+      "chapters": [
+        {
+          "num": 1,
+          "title": "The Opera House Ghost",
+          "text": "It was a wonderful night at the Paris Opera House. The dancers were ready, and the audience was waiting eagerly. But down in the dark corridors underneath the stage, the staff whispered nervously. 'Did you see him?' asked one of the stage hands. 'The man with the yellow face and black coat? The Opera Ghost is here tonight!'"
+        },
+        {
+          "num": 2,
+          "title": "The Angel of Music",
+          "text": "Christine Daaé sang like an angel that evening. Count Raoul de Chagny was in the audience, and he fell in love with her voice immediately. Later in her dressing room, Christine heard a beautiful voice coming from behind the mirror. 'I am your teacher,' the mysterious voice whispered."
+        }
+      ]
+    },
+    {
+      "id": "bw_around_world",
+      "title": "Around the World in Eighty Days",
+      "stage": "Stage 2 (Oxford Bookworms)",
+      "author": "Jules Verne",
+      "genre": "Adventure & Travel",
+      "icon": "🚢",
+      "summary": "Phileas Fogg ve sadık yardımcısı Passepartout'nun 80 günde tüm dünyayı dolaşmak üzere giriştikleri nefes kesici macera.",
+      "chapters": [
+        {
+          "num": 1,
+          "title": "The Twenty-Thousand Pound Wager",
+          "text": "In 1872, Phileas Fogg was a wealthy and precise English gentleman living in London. At the Reform Club, his friends were discussing a bank robbery and the possibility of traveling around the globe. 'A man can travel around the world in eighty days now,' Fogg said calmly. 'I will bet twenty thousand pounds that I can do it myself!'"
+        },
+        {
+          "num": 2,
+          "title": "Across the Oceans and Deserts",
+          "text": "Fogg and Passepartout boarded steamers and trains, racing through Egypt, India, Hong Kong, and across the American continent. Detective Fix followed them secretly, believing Fogg was the bank robber. Through storms, delayed ships, and daring rescues, Fogg never lost his calm determination."
+        }
+      ]
+    }
+  ],
+  "sample_exams": [
+    {
+      "id": "exam_1st_term_1st",
+      "title": "9. Sınıf 1. Dönem 1. Yazılı Sınav Simülatörü (Unit 1 & 2)",
+      "term": "1. Dönem 1. Yazılı",
+      "duration": "40 Dakika",
+      "total_points": 100,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "vocab_match",
+          "title": "A) Kelimeleri Türkçe Anlamlarıyla Eşleştirin (20 Puan)",
+          "question": "'ambitious' kelimesinin en doğru Türkçe karşılığı hangisidir?",
+          "options": [
+            "Tembel",
+            "Hırslı ve Azimli",
+            "Korkak",
+            "Kibar"
+          ],
+          "answer": 1,
+          "explanation": "Ambitious = Hedefleri yüksek olan, hırslı ve kararlı kişi demektir."
+        },
+        {
+          "id": "q2",
+          "type": "grammar_cloze",
+          "title": "B) Doğru Zaman Yapısını Seçin (20 Puan)",
+          "question": "While Ela _______ her homework, her best friend Leo called her.",
+          "options": [
+            "did",
+            "was doing",
+            "does",
+            "is doing"
+          ],
+          "answer": 1,
+          "explanation": "'While' bağlacı arkasından geçmişte devam eden süreci (was doing) alır."
+        },
+        {
+          "id": "q3",
+          "type": "grammar_present_perfect",
+          "title": "C) Present Perfect Deneyim Cümlesi (20 Puan)",
+          "question": "Have you _______ traveled to an ancient world heritage site?",
+          "options": [
+            "never",
+            "ever",
+            "yet",
+            "already"
+          ],
+          "answer": 1,
+          "explanation": "Soru cümlelerinde 'hiç yaptın mı?' anlamında 'ever' kullanılır."
+        },
+        {
+          "id": "q4",
+          "type": "reading_comprehension",
+          "title": "D) Okuduğunu Anlama (20 Puan)",
+          "passage": "Steve never gave up when facing computer problems. His ambitious personality and dedication helped him accomplish his dream of building innovative devices.",
+          "question": "Why did Steve succeed in building innovative devices?",
+          "options": [
+            "Because he gave up easily",
+            "Because he had an ambitious personality and perseverance",
+            "Because he only played video games",
+            "Because he didn't study"
+          ],
+          "answer": 1,
+          "explanation": "Metinde Steve'in azimli kişiliği ve sebatı sayesinde başardığı açıkça belirtilmiştir."
+        },
+        {
+          "id": "q5",
+          "type": "svompt_order",
+          "title": "E) SVOMPT Cümle Dizilimi (20 Puan)",
+          "question": "'She / visited / yesterday / Cappadocia / happily' kelimelerinin doğru SVOMPT sıralaması nasıldır?",
+          "options": [
+            "She visited Cappadocia happily yesterday.",
+            "Happily she yesterday Cappadocia visited.",
+            "She yesterday happily Cappadocia visited.",
+            "Visited she Cappadocia happily yesterday."
+          ],
+          "answer": 0,
+          "explanation": "SVOMPT kuralı: Subject (She) + Verb (visited) + Object (Cappadocia) + Manner (happily) + Time (yesterday)."
+        }
+      ]
+    }
+  ]
+}

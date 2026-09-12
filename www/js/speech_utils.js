@@ -99,7 +99,10 @@ class SpeechEngine {
 
     if (canUseWebSpeech) {
       try {
-        // Safety cancel
+        // Safety cancel & resume if paused by browser autoplay policy
+        if (this.synth.paused) {
+          this.synth.resume();
+        }
         this.synth.cancel();
 
         const utterance = new SpeechSynthesisUtterance(cleanText);
@@ -233,5 +236,8 @@ class SpeechEngine {
   }
 }
 
-// Global instance
-window.speechEngine = new SpeechEngine();
+// Global instances with dual aliasing for complete system compatibility
+const speechInstance = new SpeechEngine();
+window.speechEngine = speechInstance;
+window.speechUtils = speechInstance;
+
