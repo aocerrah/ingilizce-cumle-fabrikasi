@@ -728,7 +728,7 @@ class SchoolModeManager {
                         🔊
                       </button>
                       <button class="icon-add-btn ${inNotebook ? 'added' : ''}" 
-                              onclick="schoolMode.toggleWordInNotebook('${w.en.replace(/'/g, "\\'")}', '${w.tr.replace(/'/g, "\\'")}', '${(w.pos || '').replace(/'/g, "\\'")}', '${(w.example || '').replace(/'/g, "\\'")}')" 
+                              onclick="schoolMode.toggleWordInNotebook('${w.en.replace(/'/g, "\\'")}', '${w.tr.replace(/'/g, "\\'")}', '${(w.pos || '').replace(/'/g, "\\'")}', '${(w.example || '').replace(/'/g, "\\'")}', this)" 
                               title="${inNotebook ? 'Defterde Ekli' : 'Okul Defterine Ekle'}">
                         ${inNotebook ? '✓' : '+'}
                       </button>
@@ -766,21 +766,44 @@ class SchoolModeManager {
     `;
   }
 
-  toggleWordInNotebook(en, tr, pos, example) {
+  toggleWordInNotebook(en, tr, pos, example = '', btnElement = null) {
+    if (!en) return;
     const words = this.getSchoolWords();
     const cleanEn = en.trim().toLowerCase();
     const index = words.findIndex(w => w.en.toLowerCase() === cleanEn);
+    let isNowAdded = false;
 
     if (index >= 0) {
       words.splice(index, 1);
       this.saveSchoolWords(words);
       if (window.app) window.app.showToast(`🗑️ "${en}" okul defterinden çıkarıldı.`);
+      isNowAdded = false;
     } else {
-      this.addWordToSchoolNotebook(en, tr, pos, example);
+      const added = this.addWordToSchoolNotebook(en, tr, pos, example);
+      isNowAdded = added;
     }
 
-    // Refresh active view
-    this.renderSubTabContent();
+    // Direct in-place UI update for the clicked button
+    if (btnElement && btnElement.classList) {
+      btnElement.classList.toggle('added', isNowAdded);
+      btnElement.innerHTML = isNowAdded ? '✓' : '+';
+      btnElement.title = isNowAdded ? 'Defterde Ekli' : 'Okul Defterine Ekle';
+    }
+
+    // Also update all matching buttons across the currently rendered DOM
+    document.querySelectorAll('.icon-add-btn').forEach(btn => {
+      const onclickAttr = btn.getAttribute('onclick') || '';
+      if (onclickAttr.toLowerCase().includes(`'${cleanEn}'`) || onclickAttr.toLowerCase().includes(`"${cleanEn}"`)) {
+        btn.classList.toggle('added', isNowAdded);
+        btn.innerHTML = isNowAdded ? '✓' : '+';
+        btn.title = isNowAdded ? 'Defterde Ekli' : 'Okul Defterine Ekle';
+      }
+    });
+
+    // Only refresh active view when on notebook/mywords or flashcards subtab
+    if (this.currentSubTab === 'mywords' || this.currentSubTab === 'flashcards') {
+      this.renderSubTabContent();
+    }
   }
 
   renderInteractiveText(rawText) {
@@ -1133,7 +1156,8 @@ class SchoolModeManager {
                       <div class="word-actions">
                         <button class="icon-audio-btn" onclick="speechUtils.speak('${w.en.replace(/'/g, "\\'")}')">🔊</button>
                         <button class="icon-add-btn ${inNotebook ? 'added' : ''}" 
-                                onclick="schoolMode.toggleWordInNotebook('${w.en.replace(/'/g, "\\'")}', '${w.tr.replace(/'/g, "\\'")}', '${(w.pos || '').replace(/'/g, "\\'")}')">
+                                onclick="schoolMode.toggleWordInNotebook('${w.en.replace(/'/g, "\\'")}', '${w.tr.replace(/'/g, "\\'")}', '${(w.pos || '').replace(/'/g, "\\'")}', '', this)"
+                                title="${inNotebook ? 'Defterde Ekli' : 'Okul Defterine Ekle'}">
                           ${inNotebook ? '✓' : '+'}
                         </button>
                       </div>
@@ -1506,7 +1530,8 @@ Exercise 4: She has already completed her science experiment.`;
                     <div class="word-actions">
                       <button class="icon-audio-btn" onclick="schoolMode.speakWord('${w.en.replace(/'/g, "\\'")}', this)">🔊</button>
                       <button class="icon-add-btn ${inNotebook ? 'added' : ''}" 
-                              onclick="schoolMode.toggleWordInNotebook('${w.en.replace(/'/g, "\\'")}', '${w.tr.replace(/'/g, "\\'")}', '${(w.pos || '').replace(/'/g, "\\'")}')">
+                              onclick="schoolMode.toggleWordInNotebook('${w.en.replace(/'/g, "\\'")}', '${w.tr.replace(/'/g, "\\'")}', '${(w.pos || '').replace(/'/g, "\\'")}', '', this)"
+                              title="${inNotebook ? 'Defterde Ekli' : 'Okul Defterine Ekle'}">
                         ${inNotebook ? '✓' : '+'}
                       </button>
                     </div>
@@ -1538,9 +1563,14 @@ Exercise 4: She has already completed her science experiment.`;
       window.app.showToast(`✨ ${addedCount} kelime okul defterine kaydedildi! (+5 XP)`);
     }
 
-    const resultsArea = document.getElementById('scanner-results-area');
-    if (resultsArea && this.lastScanResult) {
-      this.renderScanResult(resultsArea, this.lastScanResult);
+    // Update all add buttons in scanner results in-place without re-rendering or losing scroll
+    const scannerGrid = document.querySelector('.scanner-results-container .school-vocab-grid');
+    if (scannerGrid) {
+      scannerGrid.querySelectorAll('.icon-add-btn').forEach(btn => {
+        btn.classList.add('added');
+        btn.innerHTML = '✓';
+        btn.title = 'Defterde Ekli';
+      });
     }
   }
 
