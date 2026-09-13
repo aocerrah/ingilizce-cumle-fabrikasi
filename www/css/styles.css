@@ -3819,6 +3819,13 @@ body {
   color: #ffffff;
 }
 
+.voice-tool-btn.active {
+  background: rgba(99, 102, 241, 0.25);
+  border-color: #818cf8;
+  color: #c4b5fd;
+  box-shadow: 0 0 10px rgba(129, 140, 248, 0.3);
+}
+
 .voice-close-btn {
   background: rgba(239, 68, 68, 0.15);
   border: 1px solid rgba(239, 68, 68, 0.35);

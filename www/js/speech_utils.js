@@ -137,7 +137,7 @@ class SpeechEngine {
 
     this.stop();
 
-    // Mode 1: Natural Human Studio Audio Stream (Default & Lifelike)
+    // Mode 1: Natural Human Studio Audio Stream
     if (this.voiceMode === 'natural_human' || this.voiceProfile !== 'device_neural') {
       this.speakNaturalHumanStream(cleanText, onEnd);
       return;
@@ -157,6 +157,9 @@ class SpeechEngine {
 
     if (window.aiTeacher && window.aiTeacher.visualizerOrb) {
       window.aiTeacher.visualizerOrb.setState('speaking');
+    }
+    if (window.aiTeacher && typeof window.aiTeacher.updateCallControlsUI === 'function') {
+      window.aiTeacher.updateCallControlsUI();
     }
 
     // Split text into coherent sentences for seamless natural audio streaming
@@ -181,6 +184,9 @@ class SpeechEngine {
         if (window.aiTeacher && window.aiTeacher.visualizerOrb) {
           window.aiTeacher.visualizerOrb.setState('idle');
         }
+        if (window.aiTeacher && typeof window.aiTeacher.updateCallControlsUI === 'function') {
+          window.aiTeacher.updateCallControlsUI();
+        }
         if (onEnd) onEnd();
         return;
       }
@@ -203,7 +209,6 @@ class SpeechEngine {
       this._currentAudio = audio;
       audio.playbackRate = this.rate;
 
-      // Hook audio element to visualizer if available
       if (window.aiTeacher && window.aiTeacher.visualizerOrb) {
         window.aiTeacher.visualizerOrb.attachAudioElement(audio);
       }
@@ -237,6 +242,14 @@ class SpeechEngine {
           this.speakDeviceSynth(sentence, handleEnd);
         });
       }
+
+      // Sentence level safety watchdog
+      const expectedDuration = Math.max(3000, sentence.length * 90);
+      setTimeout(() => {
+        if (!hasEnded && this._currentAudio === audio) {
+          handleEnd();
+        }
+      }, Math.min(10000, expectedDuration));
     };
 
     playNext();
@@ -248,6 +261,7 @@ class SpeechEngine {
   speakDeviceSynth(cleanText, onEnd = null) {
     const canUseWebSpeech = this.synth && typeof SpeechSynthesisUtterance !== 'undefined';
     if (!canUseWebSpeech) {
+      this.isSpeaking = false;
       if (onEnd) onEnd();
       return;
     }
@@ -261,6 +275,9 @@ class SpeechEngine {
       if (window.aiTeacher && window.aiTeacher.visualizerOrb) {
         window.aiTeacher.visualizerOrb.setState('speaking');
       }
+      if (window.aiTeacher && typeof window.aiTeacher.updateCallControlsUI === 'function') {
+        window.aiTeacher.updateCallControlsUI();
+      }
 
       const utterance = new SpeechSynthesisUtterance(cleanText);
       utterance.lang = 'en-US';
@@ -271,51 +288,42 @@ class SpeechEngine {
       if (this.selectedVoice) utterance.voice = this.selectedVoice;
 
       this._activeUtterance = utterance;
-      let hasStarted = false;
+      let hasEnded = false;
+
+      const finish = () => {
+        if (!hasEnded) {
+          hasEnded = true;
+          this.isSpeaking = false;
+          this._activeUtterance = null;
+          this.clearWatchdog();
+          if (window.aiTeacher && window.aiTeacher.visualizerOrb) {
+            window.aiTeacher.visualizerOrb.setState('idle');
+          }
+          if (window.aiTeacher && typeof window.aiTeacher.updateCallControlsUI === 'function') {
+            window.aiTeacher.updateCallControlsUI();
+          }
+          if (onEnd) onEnd();
+        }
+      };
 
       utterance.onstart = () => {
         this.isSpeaking = true;
-        hasStarted = true;
       };
 
-      utterance.onend = () => {
-        this.isSpeaking = false;
-        this._activeUtterance = null;
-        this.clearWatchdog();
-        if (window.aiTeacher && window.aiTeacher.visualizerOrb) {
-          window.aiTeacher.visualizerOrb.setState('idle');
-        }
-        if (onEnd) onEnd();
-      };
-        this.clearWatchdog();
-        if (onEnd) onEnd();
-      };
-
-      utterance.onerror = (e) => {
-        console.warn("Web Speech API error:", e);
-        this.isSpeaking = false;
-        this._activeUtterance = null;
-        this.clearWatchdog();
-        if (onEnd) onEnd();
-      };
+      utterance.onend = finish;
+      utterance.onerror = finish;
 
       this.clearWatchdog();
-      const expectedDuration = Math.max(2500, cleanText.length * 95);
+      const expectedDuration = Math.max(3000, cleanText.length * 95);
       this._watchdogTimer = setTimeout(() => {
-        if (!hasStarted) {
-          if (this.synth) this.synth.cancel();
-          this._activeUtterance = null;
-          if (onEnd) onEnd();
-        } else if (this.isSpeaking) {
-          this.isSpeaking = false;
-          this._activeUtterance = null;
-          if (onEnd) onEnd();
-        }
-      }, Math.min(9000, expectedDuration));
+        if (this.synth) this.synth.cancel();
+        finish();
+      }, Math.min(10000, expectedDuration));
 
       this.synth.speak(utterance);
     } catch (err) {
       console.warn("Web Speech exception:", err);
+      this.isSpeaking = false;
       if (onEnd) onEnd();
     }
   }
@@ -354,5 +362,3 @@ class SpeechEngine {
 const speechInstance = new SpeechEngine();
 window.speechEngine = speechInstance;
 window.speechUtils = speechInstance;
-
-

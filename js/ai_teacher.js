@@ -4,12 +4,15 @@
  * 
  * Features:
  * 1. 🔮 Real-time Canvas Waveform Orb (Web Audio API 60 FPS Visualizer).
- * 2. ⚡ Full-Duplex Continuous Hands-Free Call Mode with VAD (Voice Activity Detection) & Barge-In.
- * 3. 💬 Live Flowing Subtitles with Interactive Word Translation (Hover/Tap for Turkish).
- * 4. 🎯 Floating Live Coaching Badge (Instant polite grammar correction & encouragement).
- * 5. 🧠 Gemini 2.0 / 1.5 Flash Cloud AI + Deep Multi-Turn Offline Matrix (Zero question repeats).
- * 6. 📜 Expandable Transcript Drawer for full chat history, cards, and quick hints.
- * 7. 🔊 Ultra-Natural Studio Human Speech Stream (Emily / Alex).
+ * 2. ⚡ Full-Duplex Continuous Hands-Free Call Mode with VAD & Instant Barge-In.
+ * 3. 👩‍🏫 Genuine Teacher Persona: Speaks analysis, sentence improvement guidance, and natural follow-up questions.
+ * 4. 🎛️ Optional Display Toggles:
+ *    - 💬 Altyazı (Açık / Kapalı)
+ *    - 🇹🇷 Türkçe Çeviri (Açık / Kapalı)
+ *    - 💡 İpuçları (Açık / Kapalı)
+ * 5. 🎯 Floating Live Coaching Badge (Instant polite grammar correction & encouragement).
+ * 6. 🧠 Gemini 2.0 / 1.5 Flash Cloud AI + Deep Multi-Turn Offline Matrix (Zero repeats).
+ * 7. 📜 Slide-up Transcript Drawer for full chat history & cards.
  */
 
 class AITeacherEngine {
@@ -27,6 +30,11 @@ class AITeacherEngine {
     this.autoSpeak = true;
     this.isDrawerOpen = false;
     
+    // Display Preferences
+    this.showCaptions = localStorage.getItem('voice_pref_captions') !== 'false';
+    this.showTranslation = localStorage.getItem('voice_pref_translation') !== 'false';
+    this.showHints = localStorage.getItem('voice_pref_hints') !== 'false';
+
     // Waveform Orb Visualizer Instance
     this.visualizerOrb = null;
     this.micMediaStream = null;
@@ -90,7 +98,7 @@ class AITeacherEngine {
 
           const activeText = finalTranscript || interimTranscript;
 
-          // Barge-in (Söz kesme): If teacher is speaking and user speaks a real word, stop AI speech
+          // Barge-in: If teacher is speaking and user speaks, stop AI speech immediately
           if (activeText.trim().length > 2 && window.speechEngine && window.speechEngine.isSpeaking) {
             window.speechEngine.stop();
           }
@@ -99,7 +107,6 @@ class AITeacherEngine {
             this.visualizerOrb.setState('listening');
           }
 
-          // Render live subtitle for student in real-time
           if (activeText.trim()) {
             this.renderLiveCaption('student', activeText);
           }
@@ -112,7 +119,7 @@ class AITeacherEngine {
           if (finalTranscript.trim()) {
             this.silenceTimer = setTimeout(() => {
               this.processStudentSpokenSentence(finalTranscript.trim());
-            }, 800);
+            }, 850);
           } else if (interimTranscript.trim().length > 6) {
             this.silenceTimer = setTimeout(() => {
               this.processStudentSpokenSentence(interimTranscript.trim());
@@ -130,7 +137,6 @@ class AITeacherEngine {
         };
 
         this.recognition.onend = () => {
-          // If Full-Duplex mode is still active, automatically restart recognition
           if (this.isOpen && this.isFullDuplexActive && !this.isMuted) {
             try {
               this.recognition.start();
@@ -214,7 +220,40 @@ class AITeacherEngine {
   }
 
   /* =========================================================
-     2. IMMERSIVE VOICE ROOM MODAL & UI CONTROLLER
+     2. DISPLAY PREFERENCE TOGGLES (OPSİYONEL ALTYAZI & İPUCU)
+     ========================================================= */
+  toggleCaptions() {
+    this.showCaptions = !this.showCaptions;
+    localStorage.setItem('voice_pref_captions', this.showCaptions);
+    const container = document.getElementById('voice-live-captions');
+    const btn = document.getElementById('btn-toggle-captions');
+    if (container) container.style.display = this.showCaptions ? 'flex' : 'none';
+    if (btn) btn.classList.toggle('active', this.showCaptions);
+    if (window.app) window.app.showToast(this.showCaptions ? "💬 Altyazı açıldı." : "💬 Altyazı gizlendi.", "info");
+  }
+
+  toggleTranslation() {
+    this.showTranslation = !this.showTranslation;
+    localStorage.setItem('voice_pref_translation', this.showTranslation);
+    const trEl = document.getElementById('caption-text-tr');
+    const btn = document.getElementById('btn-toggle-translation');
+    if (trEl) trEl.style.display = (this.showTranslation && trEl.textContent) ? 'block' : 'none';
+    if (btn) btn.classList.toggle('active', this.showTranslation);
+    if (window.app) window.app.showToast(this.showTranslation ? "🇹🇷 Türkçe çeviri açıldı." : "🇹🇷 Türkçe çeviri gizlendi.", "info");
+  }
+
+  toggleHints() {
+    this.showHints = !this.showHints;
+    localStorage.setItem('voice_pref_hints', this.showHints);
+    const hintsEl = document.getElementById('voice-fast-hints');
+    const btn = document.getElementById('btn-toggle-hints');
+    if (hintsEl) hintsEl.style.display = this.showHints ? 'flex' : 'none';
+    if (btn) btn.classList.toggle('active', this.showHints);
+    if (window.app) window.app.showToast(this.showHints ? "💡 İpuçları açıldı." : "💡 İpuçları gizlendi.", "info");
+  }
+
+  /* =========================================================
+     3. IMMERSIVE VOICE ROOM MODAL & UI CONTROLLER
      ========================================================= */
   openTeacherModal(initialTopic = 'school_routine') {
     this.currentTopic = initialTopic;
@@ -286,7 +325,7 @@ class AITeacherEngine {
             <div class="tutor-pulse-dot"></div>
             <div>
               <h3 class="tutor-name">Teacher Emily</h3>
-              <span class="tutor-sub">Full-Duplex Canlı Sesli AI Koçu</span>
+              <span class="tutor-sub">Canlı İngilizce Öğretmeni & Konuşma Koçu</span>
             </div>
           </div>
 
@@ -300,6 +339,17 @@ class AITeacherEngine {
               </select>
             </div>
 
+            <!-- Display Toggles -->
+            <button class="voice-tool-btn ${this.showCaptions ? 'active' : ''}" id="btn-toggle-captions" onclick="aiTeacher.toggleCaptions()" title="Altyazı Aç/Kapat">
+              💬 Altyazı
+            </button>
+            <button class="voice-tool-btn ${this.showTranslation ? 'active' : ''}" id="btn-toggle-translation" onclick="aiTeacher.toggleTranslation()" title="Türkçe Çeviri Aç/Kapat">
+              🇹🇷 Çeviri
+            </button>
+            <button class="voice-tool-btn ${this.showHints ? 'active' : ''}" id="btn-toggle-hints" onclick="aiTeacher.toggleHints()" title="Cevap İpuçları Aç/Kapat">
+              💡 İpuçları
+            </button>
+
             <!-- Gemini AI Key Connector Button -->
             <button class="voice-gemini-btn" id="voice-room-gemini-btn" onclick="aiTeacher.openGeminiSettings()" title="Gemini 1.5 / 2.0 Flash Bağla">
               🤖 Gemini AI
@@ -307,16 +357,16 @@ class AITeacherEngine {
 
             <!-- Topic Quick Switcher -->
             <button class="voice-tool-btn" onclick="aiTeacher.toggleTopicDropdown()" id="btn-topic-selector" title="Konu Seç">
-              📚 Konu Değiştir
+              📚 Konu
             </button>
 
             <!-- Chat Transcript Drawer Toggle -->
-            <button class="voice-tool-btn" onclick="aiTeacher.toggleDrawer()" title="Sohbet Geçmişi & İpuçları">
-              📜 Sohbet
+            <button class="voice-tool-btn" onclick="aiTeacher.toggleDrawer()" title="Sohbet Geçmişi">
+              📜 Geçmiş
             </button>
 
             <!-- Close / End Call -->
-            <button class="voice-close-btn" onclick="aiTeacher.closeTeacherModal()" title="Görüşmeyi Bitir">✕</button>
+            <button class="voice-close-btn" onclick="aiTeacher.closeTeacherModal()" title="Kapat">✕</button>
           </div>
         </div>
 
@@ -338,27 +388,23 @@ class AITeacherEngine {
         <!-- Center Stage: 3D Glowing Waveform Orb -->
         <div class="voice-orb-stage">
           <!-- Floating Live Grammar Coaching Pill -->
-          <div class="floating-coach-pill" id="floating-coach-pill" style="display:none;">
-            <!-- Instant gentle feedback injected here -->
-          </div>
+          <div class="floating-coach-pill" id="floating-coach-pill" style="display:none;"></div>
 
           <!-- Interactive 60 FPS Canvas Orb -->
           <div class="orb-canvas-wrapper" onclick="aiTeacher.handleOrbClick()">
             <canvas id="ai-teacher-orb-canvas" width="340" height="340"></canvas>
-            <div class="orb-status-text" id="orb-status-text">Dinliyor...</div>
+            <div class="orb-status-text" id="orb-status-text">Dinliyor 🎙️</div>
           </div>
 
           <!-- Live Flowing Subtitles / Captions -->
-          <div class="voice-live-captions-container" id="voice-live-captions">
+          <div class="voice-live-captions-container" id="voice-live-captions" style="${this.showCaptions ? 'display:flex;' : 'display:none;'}">
             <div class="caption-speaker-badge" id="caption-speaker">👩‍🏫 Teacher Emily</div>
             <div class="caption-text-en" id="caption-text-en">Hello dear! Let's practice English speaking together.</div>
-            <div class="caption-text-tr" id="caption-text-tr">Merhaba canım! Birlikte İngilizce konuşma pratiği yapalım.</div>
+            <div class="caption-text-tr" id="caption-text-tr" style="${this.showTranslation ? 'display:block;' : 'display:none;'}">Merhaba canım! Birlikte İngilizce konuşma pratiği yapalım.</div>
           </div>
 
           <!-- Clickable Fast Suggestion Chips -->
-          <div class="voice-fast-hints" id="voice-fast-hints">
-            <!-- Hints injected here -->
-          </div>
+          <div class="voice-fast-hints" id="voice-fast-hints" style="${this.showHints ? 'display:flex;' : 'display:none;'}"></div>
         </div>
 
         <!-- Bottom Controls Bar -->
@@ -388,12 +434,10 @@ class AITeacherEngine {
         <div class="voice-transcript-drawer" id="voice-transcript-drawer">
           <div class="drawer-header" onclick="aiTeacher.toggleDrawer()">
             <div class="drawer-handle"></div>
-            <h4>📜 Sohbet Geçmişi, Analiz & Kelime İpuçları</h4>
+            <h4>📜 Sohbet Geçmişi, Analiz & Cümle İpuçları</h4>
             <button class="drawer-close-btn" onclick="aiTeacher.toggleDrawer()">✕</button>
           </div>
-          <div class="drawer-chat-stream" id="drawer-chat-stream">
-            <!-- Full transcript rendered here -->
-          </div>
+          <div class="drawer-chat-stream" id="drawer-chat-stream"></div>
         </div>
       </div>
     `;
@@ -405,6 +449,7 @@ class AITeacherEngine {
     if (window.speechEngine && window.speechEngine.isSpeaking) {
       window.speechEngine.stop();
       if (this.visualizerOrb) this.visualizerOrb.setState('listening');
+      this.updateCallControlsUI();
     } else {
       this.startListening();
     }
@@ -433,7 +478,7 @@ class AITeacherEngine {
     this.selectedVoiceProfile = profile;
     if (window.speechEngine) {
       window.speechEngine.setVoiceProfile(profile);
-      const testMsg = profile === 'alex_studio' ? "Hello! I am Alex, ready to practice with you." : "Hello dear! I am Emily, your English speaking tutor.";
+      const testMsg = profile === 'alex_studio' ? "Hello! I am Alex, ready to practice speaking with you." : "Hello dear! I am Emily, your English speaking teacher.";
       window.speechEngine.speak(testMsg);
     }
     if (window.app && typeof window.app.showToast === 'function') {
@@ -503,7 +548,7 @@ class AITeacherEngine {
   }
 
   /* =========================================================
-     3. CONVERSATION LOGIC & STARTERS
+     4. CONVERSATION LOGIC & STARTERS
      ========================================================= */
   startTopicConversation(topicId) {
     this.messages = [];
@@ -621,7 +666,7 @@ class AITeacherEngine {
   }
 
   /* =========================================================
-     4. FULL-DUPLEX STUDENT INPUT & RESPONSE PIPELINE
+     5. FULL-DUPLEX STUDENT INPUT & RESPONSE PIPELINE
      ========================================================= */
   async processStudentSpokenSentence(text) {
     if (!text || this.isTeacherTyping) return;
@@ -661,11 +706,13 @@ class AITeacherEngine {
       if (hasGeminiKey) {
         teacherResponse = await this.generateGeminiTeacherReply(cleanText);
       } else {
-        await new Promise(resolve => setTimeout(resolve, 450)); // Fast conversational latency
+        await new Promise(resolve => setTimeout(resolve, 450));
         teacherResponse = this.generateOfflineTeacherReply(cleanText);
       }
 
       this.isTeacherTyping = false;
+      this.updateCallControlsUI();
+
       this.messages.push({
         sender: 'teacher',
         textEn: teacherResponse.reply_en,
@@ -690,6 +737,8 @@ class AITeacherEngine {
     } catch (err) {
       console.error("AI Teacher Voice Pipeline Error:", err);
       this.isTeacherTyping = false;
+      this.updateCallControlsUI();
+
       const fallback = this.generateOfflineTeacherReply(cleanText);
       this.messages.push({
         sender: 'teacher',
@@ -713,7 +762,7 @@ class AITeacherEngine {
   }
 
   /* =========================================================
-     5. GEMINI 1.5/2.0 CLOUD REAL-TIME PROMPT
+     6. GEMINI 1.5/2.0 CLOUD REAL-TIME SPOKEN TEACHER PROMPT
      ========================================================= */
   async generateGeminiTeacherReply(studentSentence) {
     const key = (window.geminiAI && window.geminiAI.getApiKey()) || 
@@ -721,30 +770,32 @@ class AITeacherEngine {
     const topic = this.topics.find(t => t.id === this.currentTopic);
     const targetWords = this.getRecentTargetWords().slice(0, 6).map(w => `${w.en} (${w.tr})`).join(', ');
 
-    const systemPrompt = `You are Teacher Emily, an affectionate, highly encouraging, expert English conversational tutor speaking directly with a 9th-grade Turkish student (around 14-15 years old, CEFR A2/B1 level).
+    const systemPrompt = `You are Teacher Emily, an affectionate, expert English teacher speaking directly via live voice call with a 14-year-old Turkish high school student (A2/B1 level).
 The current live conversation topic is "${topic.title}" (${topic.desc}).
 Target vocabulary she is currently practicing: [${targetWords || 'routine, schedule, breakfast, healthy, prefer, leisure, daily, success'}].
 
-Student just said: "${studentSentence}"
+Student just said to you: "${studentSentence}"
 
 TASK:
-1. Praise her effort warmly and celebrate her confidence.
-2. If she made a grammar, tense, or phrasing slip, gently explain the rule in friendly Turkish and show the corrected sentence.
-3. React directly to what she explicitly mentioned (e.g. friends, pizza, movie, volleyball, study) with genuine enthusiasm.
-4. Continue the spoken conversation by asking an engaging, fresh follow-up question. NEVER repeat previous questions.
-5. Provide 3 short, easy reply suggestions (hints).
+1. Act like a real, dedicated human English tutor speaking warmly face-to-face.
+2. In your spoken English response ('reply_en'):
+   a. Warmly acknowledge and praise her answer.
+   b. Analyze her sentence: if there is a grammatical mistake or awkward phrasing, kindly explain how to phrase it better in spoken English (e.g., "Good attempt! Notice that in English we say '...' instead of '...'. A more natural sentence is: '...'"). If her sentence was already correct, offer a natural native phrasing tip!
+   c. Ask an engaging, fresh conversational follow-up question related to what she said. NEVER repeat previous questions.
+3. Provide Turkish translation ('reply_tr') for subtitle support.
+4. Provide 3 short, easy reply suggestion chips ('suggested_replies').
 
 Return strictly JSON format:
 {
   "student_analysis": {
     "is_correct": true,
-    "praise_tr": "Harika bir cümle!",
+    "praise_tr": "Harika bir deneme!",
     "correction_needed": false,
     "corrected_en": "Corrected sentence",
     "explanation_tr": "Türkçe nazik kural açıklaması",
     "natural_alternative_en": "Daha doğal alternatif"
   },
-  "reply_en": "Emily's warm spoken response and follow-up question in English",
+  "reply_en": "Emily's complete spoken response with sentence guidance and follow-up question",
   "reply_tr": "Öğretmenin cevabının ve sorusunun Türkçe çevirisi",
   "suggested_replies": [
     "Short easy reply 1",
@@ -781,18 +832,19 @@ Return strictly JSON format:
   }
 
   /* =========================================================
-     6. OFFLINE MULTI-TURN DIALOGUE MATRIX (Zero Repetition)
+     7. OFFLINE MULTI-TURN DIALOGUE MATRIX (Vocal Coaching)
      ========================================================= */
   generateOfflineTeacherReply(studentSentence) {
     const raw = studentSentence.trim();
     const lower = raw.toLowerCase();
 
-    // 1. Grammatical Diagnostic Rules
+    // 1. Grammatical Diagnostic Rules & Vocal Coaching
     let isCorrect = true;
     let correctedEn = raw;
     let explanationTr = "Harika! Cümle dizilimin ve gramerin gayet doğru.";
     let praiseTr = "Tebrikler! Kendini çok net ve güzel ifade ettin. 🌟";
     let naturalAlt = raw;
+    let coachingSpeechEn = "Great job! Your sentence is very clear. ";
 
     // Rule: "he don't / she don't / it don't" -> "doesn't"
     if (/\b(he|she|it)\s+don't\b/i.test(lower)) {
@@ -801,6 +853,7 @@ Return strictly JSON format:
       explanationTr = "💡 Küçük bir ipucu: **He, She, It** tekil öznelerinde olumsuz yaparken `doesn't` kullanılır.";
       praiseTr = "Çok güzel bir deneme! Anlamı çok iyi ilettin.";
       naturalAlt = correctedEn;
+      coachingSpeechEn = "Good try! Notice that with he or she, we say doesn't instead of don't. So a more natural sentence is: '" + correctedEn + "'. ";
     }
     // Rule: "I goes / I likes / You plays"
     else if (/\b(i|you|we|they)\s+(goes|likes|plays|studies|wants|works)\b/i.test(lower)) {
@@ -809,6 +862,7 @@ Return strictly JSON format:
       explanationTr = "💡 Hatırlatma: **I, You, We, They** özneleriyle fiilin yalın hali kullanılır (-s takısı almaz).";
       praiseTr = "Harika fikir! Çok iyi anlatmak istediğini belirttin.";
       naturalAlt = correctedEn;
+      coachingSpeechEn = "Nice attempt! With 'I' or 'you', the verb stays in base form without the s ending. A better sentence is: '" + correctedEn + "'. ";
     }
     // Rule: "yesterday I go" -> "yesterday I went"
     else if (/yesterday/i.test(lower) && /\b(go|see|have|eat|drink|buy)\b/i.test(lower)) {
@@ -817,6 +871,7 @@ Return strictly JSON format:
       explanationTr = "💡 Geçmiş zaman ipucu: Cümlede **yesterday (dün)** geçtiği için fiilin geçmiş hali (V2) kullanılır.";
       praiseTr = "Çok güzel! Zaman kuralını pratik ederek pekiştiriyoruz.";
       naturalAlt = correctedEn;
+      coachingSpeechEn = "Great practice! Since you mentioned yesterday, we use past tense. So we say: '" + correctedEn + "'. ";
     }
     // Rule: Missing capital 'I'
     else if (/\bi\b/.test(raw)) {
@@ -833,37 +888,34 @@ Return strictly JSON format:
       studentKeywordReaction = "Hanging out with friends is always so refreshing! ";
       studentKeywordReactionTr = "Arkadaşlarla vakit geçirmek her zaman çok keyiflidir! ";
     } else if (lower.includes('volleyball') || lower.includes('football') || lower.includes('basketball') || lower.includes('sport')) {
-      studentKeywordReaction = "Sports give you so much healthy energy and joy! ";
-      studentKeywordReactionTr = "Spor insana harika bir enerji ve mutluluk verir! ";
+      studentKeywordReaction = "Playing sports gives you so much healthy energy! ";
+      studentKeywordReactionTr = "Spor yapmak insana harika bir enerji verir! ";
     } else if (lower.includes('pizza') || lower.includes('pasta') || lower.includes('manti') || lower.includes('kofte') || lower.includes('burger')) {
-      studentKeywordReaction = "Yum, that is one of the most delicious dishes ever! ";
-      studentKeywordReactionTr = "Nefis, bu gerçekten en lezzetli yemeklerden biridir! ";
+      studentKeywordReaction = "That is one of the most delicious meals ever! ";
+      studentKeywordReactionTr = "Bu gerçekten en lezzetli yemeklerden biridir! ";
     } else if (lower.includes('game') || lower.includes('minecraft') || lower.includes('roblox')) {
-      studentKeywordReaction = "Gaming is a great way to relax and exercise your creativity! ";
-      studentKeywordReactionTr = "Oyun oynamak dinlenmek ve yaratıcılığı geliştirmek için harika bir yoldur! ";
+      studentKeywordReaction = "Gaming is a wonderful way to exercise your creativity! ";
+      studentKeywordReactionTr = "Oyun oynamak yaratıcılığı geliştirmek için harika bir yoldur! ";
     } else if (lower.includes('music') || lower.includes('guitar') || lower.includes('piano') || lower.includes('song')) {
-      studentKeywordReaction = "Music makes every single day so much more colorful! ";
-      studentKeywordReactionTr = "Müzik her günü çok daha renkli hale getirir! ";
+      studentKeywordReaction = "Music makes every single day so much more inspiring! ";
+      studentKeywordReactionTr = "Müzik her günü çok daha ilham verici hale getirir! ";
     } else if (lower.includes('book') || lower.includes('read') || lower.includes('novel')) {
       studentKeywordReaction = "Reading books expands your imagination tremendously! ";
       studentKeywordReactionTr = "Kitap okumak hayal gücünü olağanüstü derecede genişletir! ";
     } else if (lower.includes('doctor') || lower.includes('engineer') || lower.includes('software') || lower.includes('teacher')) {
-      studentKeywordReaction = "That is such an inspiring and respectable career choice! ";
-      studentKeywordReactionTr = "Bu gerçekten ilham verici ve saygın bir kariyer seçimi! ";
+      studentKeywordReaction = "That is such an inspiring and respectable career goal! ";
+      studentKeywordReactionTr = "Bu gerçekten ilham verici ve saygın bir kariyer hedefi! ";
     } else if (lower.includes('london') || lower.includes('japan') || lower.includes('italy') || lower.includes('paris')) {
       studentKeywordReaction = "That place has such incredible culture and beautiful sights! ";
       studentKeywordReactionTr = "Orası gerçekten büyüleyici bir kültüre ve harika manzaralara sahip! ";
     } else if (lower.includes('tired') || lower.includes('sleep') || lower.includes('relax')) {
       studentKeywordReaction = "Make sure you rest well and recharge your energy! ";
       studentKeywordReactionTr = "İyice dinlendiğinden ve enerjini topladığından emin ol! ";
-    } else {
-      studentKeywordReaction = "That sounds lovely and very interesting! ";
-      studentKeywordReactionTr = "Kulağa çok hoş ve ilgi çekici geliyor! ";
     }
 
     const topicMatrix = this.getTopicDialogueMatrix(this.currentTopic, turnIndex);
-    const replyEn = studentKeywordReaction + topicMatrix.questionEn;
-    const replyTr = studentKeywordReactionTr + topicMatrix.questionTr;
+    const replyEn = coachingSpeechEn + studentKeywordReaction + topicMatrix.questionEn;
+    const replyTr = (isCorrect ? "" : `💡 ${explanationTr} `) + studentKeywordReactionTr + topicMatrix.questionTr;
     const hints = topicMatrix.hints;
 
     return {
@@ -1261,12 +1313,17 @@ Return strictly JSON format:
   }
 
   /* =========================================================
-     7. LIVE CAPTIONS, FLOATING PILL & DRAWER RENDERING
+     8. LIVE CAPTIONS, FLOATING PILL & DRAWER RENDERING
      ========================================================= */
   renderLiveCaption(speaker, textEn, textTr = "") {
+    const container = document.getElementById('voice-live-captions');
     const speakerEl = document.getElementById('caption-speaker');
     const textEnEl = document.getElementById('caption-text-en');
     const textTrEl = document.getElementById('caption-text-tr');
+
+    if (container) {
+      container.style.display = this.showCaptions ? 'flex' : 'none';
+    }
 
     if (speakerEl) {
       speakerEl.innerHTML = speaker === 'teacher' ? '👩‍🏫 Teacher Emily' : '👧 Sen (Öğrenci)';
@@ -1280,7 +1337,7 @@ Return strictly JSON format:
 
     if (textTrEl) {
       textTrEl.textContent = textTr ? `🇹🇷 ${textTr}` : '';
-      textTrEl.style.display = textTr ? 'block' : 'none';
+      textTrEl.style.display = (this.showTranslation && textTr) ? 'block' : 'none';
     }
   }
 
@@ -1305,7 +1362,6 @@ Return strictly JSON format:
       `;
     }
 
-    // Auto fade after 7 seconds
     setTimeout(() => {
       if (pill) pill.style.display = 'none';
     }, 7000);
@@ -1315,7 +1371,7 @@ Return strictly JSON format:
     const hintsContainer = document.getElementById('voice-fast-hints');
     if (!hintsContainer) return;
 
-    if (hints && hints.length > 0) {
+    if (hints && hints.length > 0 && this.showHints) {
       hintsContainer.style.display = 'flex';
       hintsContainer.innerHTML = hints.map(h => `
         <button class="voice-hint-chip" onclick="aiTeacher.useQuickHint('${h.replace(/'/g, "\\'")}')">
