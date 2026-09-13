@@ -87,18 +87,17 @@ class AITeacherEngine {
           // Echo suppression: Ignore microphone input while teacher is speaking out loud
           if (window.speechEngine && window.speechEngine.isSpeaking) return;
 
-          let interimTranscript = '';
-          let finalTranscript = '';
+          let fullTranscript = '';
+          let hasFinal = false;
 
-          for (let i = event.resultIndex; i < event.results.length; ++i) {
+          for (let i = 0; i < event.results.length; ++i) {
+            fullTranscript += event.results[i][0].transcript + ' ';
             if (event.results[i].isFinal) {
-              finalTranscript += event.results[i][0].transcript;
-            } else {
-              interimTranscript += event.results[i][0].transcript;
+              hasFinal = true;
             }
           }
 
-          const activeText = (finalTranscript || interimTranscript).trim();
+          const activeText = fullTranscript.trim();
           if (!activeText) return;
 
           if (this.visualizerOrb) {
@@ -119,11 +118,13 @@ class AITeacherEngine {
             clearTimeout(this.silenceTimer);
           }
 
-          const delay = finalTranscript ? 750 : 1100;
+          const delay = hasFinal ? 650 : 1100;
           this.silenceTimer = setTimeout(() => {
-            if (activeText.length >= 2) {
-              this.processStudentSpokenSentence(activeText);
+            if (activeText.length >= 2 && !this.isTeacherTyping) {
+              // Stop recognition to reset session buffer & prevent picking up teacher's voice
+              this.stopListening();
               if (quickInput) quickInput.value = '';
+              this.processStudentSpokenSentence(activeText);
             }
           }, delay);
         };
@@ -701,9 +702,10 @@ class AITeacherEngine {
      5. FULL-DUPLEX STUDENT INPUT & RESPONSE PIPELINE
      ========================================================= */
   async processStudentSpokenSentence(text) {
-    if (!text || this.isTeacherTyping) return;
+    if (!text) return;
     const cleanText = text.trim();
     if (cleanText.length < 2) return;
+    if (this.isTeacherTyping) return;
 
     // 1. Append student message
     const studentMsg = {
@@ -736,14 +738,16 @@ class AITeacherEngine {
                            (window.geminiAIEngine && window.geminiAIEngine.hasApiKey());
 
       if (hasGeminiKey) {
-        teacherResponse = await this.generateGeminiTeacherReply(cleanText);
+        try {
+          teacherResponse = await this.generateGeminiTeacherReply(cleanText);
+        } catch (geminiErr) {
+          console.warn("Gemini API call failed, falling back to offline matrix:", geminiErr);
+          teacherResponse = this.generateOfflineTeacherReply(cleanText);
+        }
       } else {
-        await new Promise(resolve => setTimeout(resolve, 450));
+        await new Promise(resolve => setTimeout(resolve, 250));
         teacherResponse = this.generateOfflineTeacherReply(cleanText);
       }
-
-      this.isTeacherTyping = false;
-      this.updateCallControlsUI();
 
       this.messages.push({
         sender: 'teacher',
@@ -765,12 +769,13 @@ class AITeacherEngine {
 
       if (this.autoSpeak && teacherResponse.reply_en) {
         this.speakText(teacherResponse.reply_en);
+      } else {
+        if (this.isOpen && this.isFullDuplexActive && !this.isMuted) {
+          this.startListening();
+        }
       }
     } catch (err) {
       console.error("AI Teacher Voice Pipeline Error:", err);
-      this.isTeacherTyping = false;
-      this.updateCallControlsUI();
-
       const fallback = this.generateOfflineTeacherReply(cleanText);
       this.messages.push({
         sender: 'teacher',
@@ -785,7 +790,14 @@ class AITeacherEngine {
       this.renderDrawerMessages();
       if (this.autoSpeak && fallback.reply_en) {
         this.speakText(fallback.reply_en);
+      } else {
+        if (this.isOpen && this.isFullDuplexActive && !this.isMuted) {
+          this.startListening();
+        }
       }
+    } finally {
+      this.isTeacherTyping = false;
+      this.updateCallControlsUI();
     }
   }
 
