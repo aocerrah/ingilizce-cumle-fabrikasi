@@ -4093,6 +4093,64 @@ body {
   transform: translateY(-2px);
 }
 
+/* Quick Text & Voice Input Bar */
+.voice-quick-input-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 90%;
+  max-width: 640px;
+  background: rgba(30, 41, 59, 0.85);
+  border: 1.5px solid rgba(99, 102, 241, 0.35);
+  border-radius: var(--radius-full);
+  padding: 6px 8px 6px 18px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  margin-top: 10px;
+  transition: all 0.25s ease;
+}
+
+.voice-quick-input-bar:focus-within {
+  border-color: #38bdf8;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.35);
+  background: rgba(30, 41, 59, 0.95);
+}
+
+.voice-quick-input-bar input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-family: inherit;
+}
+
+.voice-quick-input-bar input::placeholder {
+  color: rgba(148, 163, 184, 0.8);
+  font-size: 0.88rem;
+}
+
+.voice-quick-send-btn {
+  background: linear-gradient(135deg, #6366f1, #06b6d4);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-full);
+  padding: 8px 16px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.voice-quick-send-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 14px rgba(6, 182, 212, 0.5);
+}
+
 /* Bottom Call Controls Bar */
 .voice-room-bottom-bar {
   position: relative;

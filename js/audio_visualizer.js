@@ -119,25 +119,10 @@ class AudioVisualizerOrb {
   }
 
   attachAudioElement(audioElement) {
+    // Note: Do not route cross-origin TTS audio through createMediaElementSource
+    // as browsers mute cross-origin elements without CORS headers.
+    // The visualizer handles speaking state animation organically via setState('speaking').
     this.ensureAudioContext();
-    if (!this.audioCtx || !audioElement) return;
-
-    try {
-      if (!audioElement._hasVisualizerSource) {
-        const source = this.audioCtx.createMediaElementSource(audioElement);
-        this.speakerAnalyser = this.audioCtx.createAnalyser();
-        this.speakerAnalyser.fftSize = 128;
-        this.speakerAnalyser.smoothingTimeConstant = 0.82;
-        source.connect(this.speakerAnalyser);
-        this.speakerAnalyser.connect(this.audioCtx.destination);
-        audioElement._hasVisualizerSource = true;
-        
-        const bufferLength = this.speakerAnalyser.frequencyBinCount;
-        this.speakerDataArray = new Uint8Array(bufferLength);
-      }
-    } catch (err) {
-      console.warn("Could not attach audio element to visualizer:", err);
-    }
   }
 
   setState(newState) {
