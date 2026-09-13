@@ -1,4 +1,4 @@
-const CACHE_NAME = 'english-apk-cache-v23';
+const CACHE_NAME = 'english-apk-cache-v30';
 
 self.addEventListener('install', (event) => {
   self.skipWaiting();
