@@ -884,81 +884,110 @@ class AITeacherEngine {
   }
 
   /* =========================================================
-     6. GEMINI 1.5/2.0 CLOUD REAL-TIME SPOKEN TEACHER PROMPT
+     6. GEMINI 2.0 / 1.5 FLASH REAL-TIME SPOKEN TEACHER ENGINE
      ========================================================= */
   async generateGeminiTeacherReply(studentSentence) {
     const key = (window.geminiAI && window.geminiAI.getApiKey()) || 
                 (window.geminiAIEngine && window.geminiAIEngine.getApiKey());
-    const topic = this.topics.find(t => t.id === this.currentTopic);
+    if (!key) throw new Error("NO_GEMINI_KEY");
+
+    const topic = this.topics.find(t => t.id === this.currentTopic) || { title: 'Free Talk', desc: 'General conversation' };
     const targetWords = this.getRecentTargetWords().slice(0, 6).map(w => `${w.en} (${w.tr})`).join(', ');
 
-    const systemPrompt = `You are Teacher Emily, an affectionate, expert English teacher speaking directly via live voice call with a Turkish high school student (A2/B1 level).
-The current live conversation topic is "${topic.title}" (${topic.desc}).
-Target vocabulary: [${targetWords || 'routine, schedule, breakfast, healthy, prefer, leisure, daily, success'}].
+    // Extract recent multi-turn dialogue history for deep context awareness
+    const historySnippet = this.messages.slice(-8).map(m => {
+      const speaker = m.sender === 'teacher' ? 'Teacher Emily' : 'Student';
+      return `${speaker}: "${m.textEn}"`;
+    }).join('\n');
 
-Student just said to you: "${studentSentence}"
+    const systemPrompt = `You are Teacher Emily, an affectionate, encouraging, expert English tutor having a live, real-time voice conversation with a Turkish student.
+Current Topic: "${topic.title}" (${topic.desc}).
+Target vocabulary she can practice: [${targetWords || 'routine, schedule, healthy, prefer, leisure, daily, goal, creative'}].
 
-CRITICAL RULES (MUST FOLLOW):
-1. NATURAL GREETINGS & SHORT PHRASES:
-   - If the student simply greets you (e.g. "hello", "hi", "hey", "good morning", "how are you"), or gives a short natural answer (e.g. "thank you", "yes", "no", "I don't know"), DO NOT treat it as incomplete or a grammar error.
-   - NEVER fabricate awkward sentences like "I like hello" or force single greetings into weird subject-verb sentences.
-   - For greetings: Set "is_correct": true, "correction_needed": false, "praise_tr": "Harika bir selamlama! Merhaba! 👋", "explanation_tr": "", and greet her back warmly in English (e.g. "Hello there! It is so wonderful to practice speaking with you today!").
-2. CONSTRUCTIVE GRAMMAR COACHING:
+Recent Conversation History:
+${historySnippet || '(Starting the conversation now)'}
+
+Student just said: "${studentSentence}"
+
+TASK & CRITICAL RULES:
+1. DEEP CONTEXTUAL RELEVANCE & INTELLIGENCE:
+   - Understand and directly address what the student said or asked! (e.g. if the student asks for suggestions after eating salmon, give direct, practical advice like drinking warm herbal tea or taking a light walk for digestion, and then ask a related follow-up question).
+   - Talk naturally, warmly, and empathetically like a real human tutor face-to-face!
+2. CONSTRUCTIVE GRAMMAR & PHRASING COACHING:
    - Only correct actual grammatical mistakes (e.g. "go school" -> "go to school", "he like" -> "he likes", "I have 15 years" -> "I am 15 years old").
-   - If the sentence is correct, praise her warmly and provide a natural native alternative phrasing.
-3. CONVERSATIONAL FLOW:
-   - Ask an engaging, fresh conversational follow-up question related to the topic. NEVER repeat previous questions.
-4. SUBTITLES & CHIPS:
-   - Provide Turkish translation ('reply_tr') for subtitle support.
-   - Provide 3 short, easy reply suggestion chips ('suggested_replies').
+   - For greetings ("hello", "hi", "how are you") or short natural replies ("yes", "thank you", "no"), set "is_correct": true, "correction_needed": false, and DO NOT force them into awkward sentence templates.
+   - If the student's sentence is grammatically correct and natural, praise them warmly ("is_correct": true) and optionally provide a smooth native alternative.
+3. CONVERSATIONAL FLOW & QUESTION:
+   - Your spoken English reply ('reply_en') should directly answer/react to the student's thought, and then end with ONE engaging, natural follow-up question to keep the conversation flowing smoothly.
+4. SUBTITLES & QUICK SUGGESTIONS:
+   - 'reply_tr': Accurate, natural Turkish translation of your entire response for subtitles.
+   - 'suggested_replies': 3 short, easy, helpful English sample sentences the student could say next to answer your question.
 
 Return strictly JSON format:
 {
   "student_analysis": {
     "is_correct": true,
-    "praise_tr": "Harika bir deneme!",
+    "praise_tr": "Harika bir cümle!",
     "correction_needed": false,
-    "corrected_en": "Corrected sentence",
-    "explanation_tr": "Türkçe nazik kural açıklaması",
-    "natural_alternative_en": "Daha doğal alternatif"
+    "corrected_en": "...",
+    "explanation_tr": "...",
+    "natural_alternative_en": "..."
   },
-  "reply_en": "Emily's complete spoken response with sentence guidance and follow-up question",
-  "reply_tr": "Öğretmenin cevabının ve sorusunun Türkçe çevirisi",
+  "reply_en": "Emily's complete spoken English response directly answering the student and asking a follow-up question",
+  "reply_tr": "Öğretmenin yanıtının ve sorusunun Türkçe çevirisi",
   "suggested_replies": [
-    "Short easy reply 1",
-    "Short easy reply 2",
-    "Short easy reply 3"
+    "Short response 1",
+    "Short response 2",
+    "Short response 3"
   ]
 }`;
 
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${key}`;
-    const payload = {
-      contents: [{
-        role: "user",
-        parts: [{ text: systemPrompt }]
-      }],
-      generationConfig: {
-        temperature: 0.35,
-        responseMimeType: "application/json"
+    const modelsToTry = ['gemini-2.0-flash', 'gemini-1.5-flash'];
+    let data = null;
+    let lastError = null;
+
+    for (const model of modelsToTry) {
+      try {
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`;
+        const payload = {
+          contents: [{
+            role: "user",
+            parts: [{ text: systemPrompt }]
+          }],
+          generationConfig: {
+            temperature: 0.35,
+            responseMimeType: "application/json"
+          }
+        };
+
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 7500);
+
+        const res = await fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+          signal: controller.signal
+        });
+        clearTimeout(timeoutId);
+
+        if (res.ok) {
+          data = await res.json();
+          break;
+        } else {
+          const errText = await res.text().catch(() => '');
+          console.warn(`Gemini model ${model} status ${res.status}:`, errText);
+          lastError = new Error(`Gemini HTTP ${res.status}`);
+        }
+      } catch (err) {
+        lastError = err;
       }
-    };
-
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 7500);
-
-    const res = await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-      signal: controller.signal
-    });
-    clearTimeout(timeoutId);
-
-    if (!res.ok) {
-      throw new Error(`Gemini HTTP ${res.status}`);
     }
 
-    const data = await res.json();
+    if (!data) {
+      throw lastError || new Error("Gemini API request failed");
+    }
+
     let content = data?.candidates?.[0]?.content?.parts?.[0]?.text || '{}';
     content = content.trim();
     if (content.startsWith('```json')) content = content.replace(/^```json\s*/, '').replace(/```$/, '');
@@ -1224,16 +1253,19 @@ Return strictly JSON format:
       praiseTr = "Mükemmel bir cümle! Gramer ve SVOMPT sözcük dizilimini kusursuz kullandın. 🌟";
       explanationTr = "🌟 Harika! Kendini çok doğal ve doğru bir İngilizceyle ifade ettin.";
       
-      if (lower.includes('bus') || lower.includes('walk') || lower.includes('car')) {
+      if (lower.includes('salmon') || lower.includes('seafood') || lower.includes('fish') || (lower.includes('suggestion') && (lower.includes('food') || lower.includes('eat') || lower.includes('eaten')))) {
+        naturalAlt = "I am feeling great; I just had delicious salmon fish, what do you suggest doing next?";
+        coachingSpeechEn = "Delicious choice! Salmon is full of healthy omega-3 fatty acids and protein. As a suggestion, drinking a warm cup of lemon or herbal tea, or taking a refreshing 10-minute walk is wonderful for digestion! ";
+      } else if (lower.includes('bus') || lower.includes('walk') || lower.includes('car')) {
         naturalAlt = "I catch the morning school bus every single weekday.";
         coachingSpeechEn = "Brilliant sentence! You used the correct transport structure perfectly. A native speaker might also say: '" + naturalAlt + "'. ";
-      } else if (lower.includes('cafeteria') || lower.includes('lunch') || lower.includes('eat')) {
+      } else if (lower.includes('cafeteria') || lower.includes('lunch break')) {
         naturalAlt = "I usually grab lunch in the cafeteria with my classmates.";
         coachingSpeechEn = "Super clear! Your grammar is spot-on. You could also say: '" + naturalAlt + "'. ";
-      } else if (lower.includes('english') || lower.includes('subject') || lower.includes('math') || lower.includes('lesson')) {
+      } else if (lower.includes('english') || lower.includes('favorite subject') || lower.includes('math')) {
         naturalAlt = "English is definitely my all-time favorite school subject.";
         coachingSpeechEn = "Excellent sentence! Very natural. Another great way to say this is: '" + naturalAlt + "'. ";
-      } else if (lower.includes('volleyball') || lower.includes('sport') || lower.includes('play')) {
+      } else if (lower.includes('volleyball') || lower.includes('sport') || lower.includes('football')) {
         naturalAlt = "I am really passionate about playing sports with my friends.";
         coachingSpeechEn = "Fantastic! Your word order is totally accurate. A cool native alternative is: '" + naturalAlt + "'. ";
       } else {
@@ -1248,7 +1280,10 @@ Return strictly JSON format:
     let studentKeywordReaction = "";
     let studentKeywordReactionTr = "";
 
-    if (lower.includes('friend')) {
+    if (lower.includes('salmon') || lower.includes('fish') || lower.includes('seafood')) {
+      studentKeywordReaction = "Eating healthy fish gives your brain amazing energy! ";
+      studentKeywordReactionTr = "Sağlıklı balık yemek zihne harika bir enerji verir! ";
+    } else if (lower.includes('friend')) {
       studentKeywordReaction = "Hanging out with friends is always so refreshing! ";
       studentKeywordReactionTr = "Arkadaşlarla vakit geçirmek her zaman çok keyiflidir! ";
     } else if (lower.includes('volleyball') || lower.includes('football') || lower.includes('basketball') || lower.includes('sport')) {
@@ -1275,6 +1310,27 @@ Return strictly JSON format:
     } else if (lower.includes('tired') || lower.includes('sleep') || lower.includes('relax')) {
       studentKeywordReaction = "Make sure you rest well and recharge your energy! ";
       studentKeywordReactionTr = "İyice dinlendiğinden ve enerjini topladığından emin ol! ";
+    }
+
+    // In Free Talk mode: if student asks about food/suggestion, tailor question directly
+    if (this.currentTopic === 'free_talk' && (lower.includes('salmon') || lower.includes('fish') || lower.includes('eat') || lower.includes('cook'))) {
+      return {
+        student_analysis: {
+          is_correct: true,
+          praise_tr: "Harika ve akıcı bir cümle! 🌟",
+          correction_needed: false,
+          corrected_en: raw,
+          explanation_tr: "Cümleni çok doğal bir şekilde ifade ettin.",
+          natural_alternative_en: raw
+        },
+        reply_en: coachingSpeechEn + "Do you enjoy cooking healthy meals at home, or do you prefer eating out at restaurants?",
+        reply_tr: "Harika bir seçim! Somon çok sağlıklıdır. Sonrasında ılık limonlu çay içmek veya hafif bir yürüyüş yapmak harika hissettirir! Evde sağlıklı yemekler yapmayı mı seversin yoksa dışarıda yemeyi mi?",
+        suggested_replies: [
+          "I really enjoy cooking simple healthy recipes at home.",
+          "I prefer eating out at seafood restaurants with my family.",
+          "I like taking a relaxing walk outside after eating."
+        ]
+      };
     }
 
     const topicMatrix = this.getTopicDialogueMatrix(this.currentTopic, turnIndex);

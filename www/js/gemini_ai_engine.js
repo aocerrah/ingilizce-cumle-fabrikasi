@@ -202,34 +202,36 @@ Return ONLY valid JSON in this exact structure:
     const currentKey = this.getApiKey();
     const modalHtml = `
       <div class="modal-overlay" id="gemini-config-modal" style="display:flex;">
-        <div class="modal-card" style="max-width:540px; width:92%; border:2px solid #818cf8; box-shadow:0 0 35px rgba(129,140,248,0.3);">
+        <div class="modal-card" style="max-width:560px; width:92%; border:2px solid #818cf8; box-shadow:0 0 40px rgba(129,140,248,0.35);">
           <div class="modal-header">
             <div style="display:flex; align-items:center; gap:8px;">
               <span style="font-size:1.6rem;">🤖</span>
-              <h3 style="color:#ffffff; font-size:1.15rem; font-weight:800; margin:0;">Gemini AI API Bağlantısı</h3>
+              <h3 style="color:#ffffff; font-size:1.15rem; font-weight:800; margin:0;">Google Gemini AI Bağlantısı</h3>
             </div>
             <button class="icon-btn" onclick="document.getElementById('gemini-config-modal').remove()">✕</button>
           </div>
 
-          <div style="font-size:0.85rem; color:#cbd5e1; line-height:1.5; margin-bottom:16px;">
-            <p>
-              Google Gemini AI entegrasyonu ile kitap sayfalarınızdaki <strong>OCR yazım hataları otomatik düzeltilir</strong>, tüm kelimelerin tam Türkçe anlamları ve cümle gramer analizleri saniyeler içinde çıkarılır.
+          <div style="font-size:0.85rem; color:#cbd5e1; line-height:1.55; margin-bottom:16px;">
+            <p style="margin:0 0 10px 0;">
+              ✨ <strong>Canlı Sesli Öğretmen & Serbest Sohbet:</strong> Gemini API bağlandığında Teacher Emily ile istediğiniz her konuda (yemek, günün olayları, bilim, tavsiyeler) tıpkı <strong>gerçek bir ana dili İngilizce olan insanla konuşur gibi</strong> akıcı ve bağlama uygun sohbet edebilirsiniz!
             </p>
-            <div style="background:rgba(56,189,248,0.1); border-left:3px solid #38bdf8; padding:10px 12px; border-radius:6px; margin:10px 0;">
-              <strong style="color:#38bdf8;">🎁 Google AI Studio'dan Ücretsiz Anahtar Alın:</strong><br>
-              <a href="https://aistudio.google.com/app/apikey" target="_blank" style="color:#93c5fd; text-decoration:underline; font-weight:700;">
-                Google AI Studio API Key Sayfası (Ücretsiz Alın) ↗
-              </a>
+            <div style="background:rgba(56,189,248,0.1); border-left:3.5px solid #38bdf8; padding:12px 14px; border-radius:8px; margin:10px 0;">
+              <strong style="color:#38bdf8; font-size:0.9rem;">🎁 10 Saniyede %100 Ücretsiz API Anahtarı Alın:</strong>
+              <ol style="margin:6px 0 6px 18px; padding:0; color:#e2e8f0; font-size:0.82rem; line-height:1.5;">
+                <li><a href="https://aistudio.google.com/app/apikey" target="_blank" style="color:#93c5fd; text-decoration:underline; font-weight:700;">Google AI Studio API Key Sayfası ↗</a> linkine tıklayın.</li>
+                <li>Google hesabınızla giriş yapıp <strong>"Create API key"</strong> butonuna basın.</li>
+                <li>Oluşan anahtarı kopyalayıp aşağıdaki kutucuğa yapıştırın ve <strong>"Test Et & Etkinleştir"</strong>e tıklayın.</li>
+              </ol>
             </div>
           </div>
 
           <div class="form-row" style="margin-bottom:12px;">
-            <label style="font-size:0.82rem; font-weight:700; color:#ffffff; margin-bottom:6px; display:block;">
+            <label style="font-size:0.84rem; font-weight:700; color:#ffffff; margin-bottom:6px; display:block;">
               🔑 Google Gemini API Anahtarınız (AIzaSy...):
             </label>
             <input type="password" id="gemini-api-key-input" class="select-input" 
                    placeholder="AIzaSy..." value="${currentKey}" 
-                   style="width:100%; font-family:monospace; font-size:0.9rem;">
+                   style="width:100%; font-family:monospace; font-size:0.92rem; padding:10px 14px; border:1.5px solid #6366f1;">
           </div>
 
           <div id="gemini-modal-status-msg" style="font-size:0.82rem; margin-bottom:14px; min-height:20px;"></div>
@@ -245,7 +247,7 @@ Return ONLY valid JSON in this exact structure:
               <button class="btn-secondary" onclick="document.getElementById('gemini-config-modal').remove()">
                 Kapat
               </button>
-              <button class="btn-primary" id="gemini-save-btn" style="background:linear-gradient(135deg, #6366f1, #38bdf8);" onclick="geminiAI.saveKeyFromModal()">
+              <button class="btn-primary" id="gemini-save-btn" style="background:linear-gradient(135deg, #6366f1, #38bdf8); font-weight:700; padding:10px 20px;" onclick="geminiAI.saveKeyFromModal()">
                 💾 Test Et & Etkinleştir
               </button>
             </div>
