@@ -461,7 +461,7 @@ class AITeacherEngine {
 
           <!-- Interactive 60 FPS Canvas Orb -->
           <div class="orb-canvas-wrapper" onclick="aiTeacher.handleOrbClick()">
-            <canvas id="ai-teacher-orb-canvas" width="340" height="340"></canvas>
+            <canvas id="ai-teacher-orb-canvas" width="220" height="220"></canvas>
             <div class="orb-status-text" id="orb-status-text">Dinliyor 🎙️</div>
           </div>
 
@@ -474,8 +474,10 @@ class AITeacherEngine {
 
           <!-- Clickable Fast Suggestion Chips -->
           <div class="voice-fast-hints" id="voice-fast-hints" style="${this.showHints ? 'display:flex;' : 'display:none;'}"></div>
+        </div>
 
-          <!-- Quick Text & Voice Input Bar -->
+        <!-- Dedicated Permanent Fixed Input & Action Dock (Always Visible) -->
+        <div class="voice-room-action-dock">
           <div class="voice-quick-input-bar">
             <input 
               type="text" 
@@ -484,7 +486,7 @@ class AITeacherEngine {
               onkeydown="if(event.key==='Enter') aiTeacher.handleQuickSend()"
               autocomplete="off"
             />
-            <button class="voice-quick-send-btn" onclick="aiTeacher.handleQuickSend()" title="Cevabı Gönder">
+            <button class="voice-quick-send-btn" id="btn-voice-quick-send" onclick="aiTeacher.handleQuickSend()" title="Cevabı Gönder">
               <span>Gönder</span> 🚀
             </button>
           </div>
