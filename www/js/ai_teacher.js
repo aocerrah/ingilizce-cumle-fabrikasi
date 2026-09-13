@@ -84,6 +84,8 @@ class AITeacherEngine {
 
         this.recognition.onresult = (event) => {
           if (this.isMuted) return;
+          // Echo suppression: Ignore microphone input while teacher is speaking out loud
+          if (window.speechEngine && window.speechEngine.isSpeaking) return;
 
           let interimTranscript = '';
           let finalTranscript = '';
@@ -96,19 +98,20 @@ class AITeacherEngine {
             }
           }
 
-          const activeText = finalTranscript || interimTranscript;
-
-          // Barge-in: If teacher is speaking and user speaks, stop AI speech immediately
-          if (activeText.trim().length > 2 && window.speechEngine && window.speechEngine.isSpeaking) {
-            window.speechEngine.stop();
-          }
+          const activeText = (finalTranscript || interimTranscript).trim();
+          if (!activeText) return;
 
           if (this.visualizerOrb) {
             this.visualizerOrb.setState('listening');
           }
 
-          if (activeText.trim()) {
-            this.renderLiveCaption('student', activeText);
+          // Live visual feedback: Display student's spoken words immediately
+          this.renderLiveCaption('student', activeText);
+
+          // Mirror into quick input so user gets instant confirmation
+          const quickInput = document.getElementById('voice-quick-input');
+          if (quickInput && document.activeElement !== quickInput) {
+            quickInput.value = activeText;
           }
 
           // Voice Activity Detection (VAD) Silence Timer
@@ -116,19 +119,17 @@ class AITeacherEngine {
             clearTimeout(this.silenceTimer);
           }
 
-          if (finalTranscript.trim()) {
-            this.silenceTimer = setTimeout(() => {
-              this.processStudentSpokenSentence(finalTranscript.trim());
-            }, 850);
-          } else if (interimTranscript.trim().length > 6) {
-            this.silenceTimer = setTimeout(() => {
-              this.processStudentSpokenSentence(interimTranscript.trim());
-            }, 1200);
-          }
+          const delay = finalTranscript ? 750 : 1100;
+          this.silenceTimer = setTimeout(() => {
+            if (activeText.length >= 2) {
+              this.processStudentSpokenSentence(activeText);
+              if (quickInput) quickInput.value = '';
+            }
+          }, delay);
         };
 
         this.recognition.onerror = (event) => {
-          console.warn("Speech recognition error:", event.error);
+          console.warn("Speech recognition event:", event.error);
           if (event.error === 'not-allowed') {
             if (window.app && typeof window.app.showToast === 'function') {
               window.app.showToast("⚠️ Mikrofon izni verilmedi. Lütfen mikrofona izin verin.", "warning");
@@ -137,12 +138,18 @@ class AITeacherEngine {
         };
 
         this.recognition.onend = () => {
-          if (this.isOpen && this.isFullDuplexActive && !this.isMuted) {
-            try {
-              this.recognition.start();
-            } catch (e) {}
+          this.isListening = false;
+          if (this.isOpen && this.isFullDuplexActive && !this.isMuted && !window.speechEngine?.isSpeaking) {
+            setTimeout(() => {
+              if (this.isOpen && this.isFullDuplexActive && !this.isMuted && !window.speechEngine?.isSpeaking) {
+                try {
+                  this.recognition.start();
+                  this.isListening = true;
+                } catch (e) {}
+              }
+              this.updateCallControlsUI();
+            }, 120);
           } else {
-            this.isListening = false;
             this.updateCallControlsUI();
           }
         };
@@ -169,9 +176,10 @@ class AITeacherEngine {
     if (!this.recognition) return;
     try {
       this.startMicrophoneAudioStream();
-      if (window.speechEngine) {
+      if (window.speechEngine && window.speechEngine.isSpeaking) {
         window.speechEngine.stop();
       }
+      try { this.recognition.stop(); } catch(e) {}
       this.recognition.start();
       this.isListening = true;
       this.isFullDuplexActive = true;
@@ -405,6 +413,20 @@ class AITeacherEngine {
 
           <!-- Clickable Fast Suggestion Chips -->
           <div class="voice-fast-hints" id="voice-fast-hints" style="${this.showHints ? 'display:flex;' : 'display:none;'}"></div>
+
+          <!-- Quick Text & Voice Input Bar -->
+          <div class="voice-quick-input-bar">
+            <input 
+              type="text" 
+              id="voice-quick-input" 
+              placeholder="💬 İster mikrofona konuş, istersen buraya yaz..." 
+              onkeydown="if(event.key==='Enter') aiTeacher.handleQuickSend()"
+              autocomplete="off"
+            />
+            <button class="voice-quick-send-btn" onclick="aiTeacher.handleQuickSend()" title="Cevabı Gönder">
+              <span>Gönder</span> 🚀
+            </button>
+          </div>
         </div>
 
         <!-- Bottom Controls Bar -->
@@ -414,9 +436,9 @@ class AITeacherEngine {
             <span class="ctrl-label">${this.isMuted ? 'Aç' : 'Sessiz'}</span>
           </button>
 
-          <button class="call-control-btn listen-pulse-btn" id="btn-call-speak-trigger" onclick="aiTeacher.handleManualSpeakTrigger()" title="Konuş">
-            <span class="ctrl-icon">✨</span>
-            <span class="ctrl-label">Canlı Görüşme</span>
+          <button class="call-control-btn listen-pulse-btn" id="btn-call-speak-trigger" onclick="aiTeacher.handleManualSpeakTrigger()" title="Konuşmaya Başla">
+            <span class="ctrl-icon">🎙️</span>
+            <span class="ctrl-label">Dinle / Konuş</span>
           </button>
 
           <button class="call-control-btn reset-btn" onclick="aiTeacher.restartConversation()" title="Yeniden Başlat">
@@ -443,6 +465,16 @@ class AITeacherEngine {
     `;
 
     document.body.appendChild(modalDiv);
+  }
+
+  handleQuickSend() {
+    const input = document.getElementById('voice-quick-input');
+    if (!input) return;
+    const val = input.value.trim();
+    if (val) {
+      input.value = '';
+      this.processStudentSpokenSentence(val);
+    }
   }
 
   handleOrbClick() {
@@ -816,19 +848,27 @@ Return strictly JSON format:
       }
     };
 
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 7500);
+
     const res = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
+      body: JSON.stringify(payload),
+      signal: controller.signal
     });
+    clearTimeout(timeoutId);
 
     if (!res.ok) {
       throw new Error(`Gemini HTTP ${res.status}`);
     }
 
     const data = await res.json();
-    const content = data?.candidates?.[0]?.content?.parts?.[0]?.text;
-    return JSON.parse(content);
+    let content = data?.candidates?.[0]?.content?.parts?.[0]?.text || '{}';
+    content = content.trim();
+    if (content.startsWith('```json')) content = content.replace(/^```json\s*/, '').replace(/```$/, '');
+    else if (content.startsWith('```')) content = content.replace(/^```\s*/, '').replace(/```$/, '');
+    return JSON.parse(content.trim());
   }
 
   /* =========================================================
@@ -1456,24 +1496,33 @@ Return strictly JSON format:
 
   speakText(text) {
     if (!text || !window.speechEngine) return;
+    // Temporarily halt recognition to prevent audio loop / self-interruption from device speakers
+    if (this.recognition) {
+      try { this.recognition.stop(); } catch (e) {}
+    }
     window.speechEngine.setRate(this.speechRate);
     window.speechEngine.speak(text, () => {
       if (this.isOpen && this.isFullDuplexActive && !this.isMuted) {
         if (this.visualizerOrb) this.visualizerOrb.setState('listening');
-        this.updateCallControlsUI();
+        this.startListening();
       }
+      this.updateCallControlsUI();
     });
   }
 
   speakSlow(text) {
     if (!text || !window.speechEngine) return;
+    if (this.recognition) {
+      try { this.recognition.stop(); } catch (e) {}
+    }
     window.speechEngine.setRate(0.7);
     window.speechEngine.speak(text, () => {
       window.speechEngine.setRate(this.speechRate);
       if (this.isOpen && this.isFullDuplexActive && !this.isMuted) {
         if (this.visualizerOrb) this.visualizerOrb.setState('listening');
-        this.updateCallControlsUI();
+        this.startListening();
       }
+      this.updateCallControlsUI();
     });
   }
 }

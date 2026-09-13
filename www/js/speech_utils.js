@@ -209,10 +209,6 @@ class SpeechEngine {
       this._currentAudio = audio;
       audio.playbackRate = this.rate;
 
-      if (window.aiTeacher && window.aiTeacher.visualizerOrb) {
-        window.aiTeacher.visualizerOrb.attachAudioElement(audio);
-      }
-
       let hasEnded = false;
       const handleEnd = () => {
         if (!hasEnded) {
@@ -224,6 +220,7 @@ class SpeechEngine {
       audio.onended = handleEnd;
 
       audio.onerror = () => {
+        console.warn("Audio stream error, switching to device synthesis fallback");
         if (audio.src !== fallbackUrl) {
           audio.src = fallbackUrl;
           audio.play().catch(() => {
@@ -244,12 +241,12 @@ class SpeechEngine {
       }
 
       // Sentence level safety watchdog
-      const expectedDuration = Math.max(3000, sentence.length * 90);
+      const expectedDuration = Math.max(2500, sentence.length * 85);
       setTimeout(() => {
         if (!hasEnded && this._currentAudio === audio) {
           handleEnd();
         }
-      }, Math.min(10000, expectedDuration));
+      }, Math.min(9000, expectedDuration));
     };
 
     playNext();
