@@ -149,11 +149,15 @@ class SpeechEngine {
 
   /**
    * Ultra-HD Natural Human Studio Voice Stream
-   * Uses Google Neural TTS endpoint + sentence streaming with fallback
+   * Uses Google Neural TTS endpoint + sentence streaming with visualizer hook
    */
   speakNaturalHumanStream(cleanText, onEnd = null) {
     this.stop();
     this.isSpeaking = true;
+
+    if (window.aiTeacher && window.aiTeacher.visualizerOrb) {
+      window.aiTeacher.visualizerOrb.setState('speaking');
+    }
 
     // Split text into coherent sentences for seamless natural audio streaming
     const rawSentences = cleanText.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [cleanText];
@@ -161,6 +165,9 @@ class SpeechEngine {
     
     if (sentences.length === 0) {
       this.isSpeaking = false;
+      if (window.aiTeacher && window.aiTeacher.visualizerOrb) {
+        window.aiTeacher.visualizerOrb.setState('idle');
+      }
       if (onEnd) onEnd();
       return;
     }
@@ -171,12 +178,20 @@ class SpeechEngine {
       if (currentIndex >= sentences.length) {
         this.isSpeaking = false;
         this._currentAudio = null;
+        if (window.aiTeacher && window.aiTeacher.visualizerOrb) {
+          window.aiTeacher.visualizerOrb.setState('idle');
+        }
         if (onEnd) onEnd();
         return;
       }
 
       const sentence = sentences[currentIndex];
       currentIndex++;
+
+      if (window.aiTeacher && typeof window.aiTeacher.onTeacherSentenceSpoken === 'function') {
+        window.aiTeacher.onTeacherSentenceSpoken(sentence);
+      }
+
       const encoded = encodeURIComponent(sentence);
 
       // Studio Voice Endpoints
@@ -187,6 +202,11 @@ class SpeechEngine {
       const audio = new Audio();
       this._currentAudio = audio;
       audio.playbackRate = this.rate;
+
+      // Hook audio element to visualizer if available
+      if (window.aiTeacher && window.aiTeacher.visualizerOrb) {
+        window.aiTeacher.visualizerOrb.attachAudioElement(audio);
+      }
 
       let hasEnded = false;
       const handleEnd = () => {
@@ -202,7 +222,6 @@ class SpeechEngine {
         if (audio.src !== fallbackUrl) {
           audio.src = fallbackUrl;
           audio.play().catch(() => {
-            // If network stream fails, fallback to device synth for this sentence
             this.speakDeviceSynth(sentence, handleEnd);
           });
         } else {
@@ -239,6 +258,10 @@ class SpeechEngine {
       }
       this.synth.cancel();
 
+      if (window.aiTeacher && window.aiTeacher.visualizerOrb) {
+        window.aiTeacher.visualizerOrb.setState('speaking');
+      }
+
       const utterance = new SpeechSynthesisUtterance(cleanText);
       utterance.lang = 'en-US';
       utterance.rate = this.rate;
@@ -258,6 +281,12 @@ class SpeechEngine {
       utterance.onend = () => {
         this.isSpeaking = false;
         this._activeUtterance = null;
+        this.clearWatchdog();
+        if (window.aiTeacher && window.aiTeacher.visualizerOrb) {
+          window.aiTeacher.visualizerOrb.setState('idle');
+        }
+        if (onEnd) onEnd();
+      };
         this.clearWatchdog();
         if (onEnd) onEnd();
       };
