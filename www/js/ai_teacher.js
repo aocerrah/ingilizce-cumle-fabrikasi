@@ -29,6 +29,7 @@ class AITeacherEngine {
     this.speechRate = 0.88;
     this.autoSpeak = true;
     this.isDrawerOpen = false;
+    this.activeStudentText = '';
     
     // Display Preferences
     this.showCaptions = localStorage.getItem('voice_pref_captions') !== 'false';
@@ -102,6 +103,7 @@ class AITeacherEngine {
 
           const activeText = fullTranscript.trim();
           if (!activeText) return;
+          this.activeStudentText = activeText;
 
           if (this.visualizerOrb) {
             this.visualizerOrb.setState('listening');
@@ -483,9 +485,16 @@ class AITeacherEngine {
               type="text" 
               id="voice-quick-input" 
               placeholder="${this.sendMode === 'tap_to_send' ? "🎙️ Konuş veya yaz, bitince 'Gönder 🚀' butonuna bas..." : "💬 İster mikrofona konuş, istersen buraya yaz..."}" 
+              oninput="aiTeacher.handleQuickInputChange(this.value)"
               onkeydown="if(event.key==='Enter') aiTeacher.handleQuickSend()"
               autocomplete="off"
             />
+            <button class="voice-input-sub-btn" onclick="aiTeacher.deleteLastStudentWord()" title="Son Kelimeyi Sil (⌫)">
+              ⌫
+            </button>
+            <button class="voice-input-sub-btn" onclick="aiTeacher.clearStudentSpeech()" title="Tümünü Temizle (🗑️)">
+              🗑️
+            </button>
             <button class="voice-quick-send-btn" id="btn-voice-quick-send" onclick="aiTeacher.handleQuickSend()" title="Cevabı Gönder">
               <span>Gönder</span> 🚀
             </button>
@@ -535,11 +544,95 @@ class AITeacherEngine {
 
   handleQuickSend() {
     const input = document.getElementById('voice-quick-input');
-    if (!input) return;
-    const val = input.value.trim();
+    const val = (input && input.value.trim()) || (this.activeStudentText && this.activeStudentText.trim()) || '';
     if (val) {
-      input.value = '';
+      if (input) input.value = '';
+      this.activeStudentText = '';
+      if (this.silenceTimer) {
+        clearTimeout(this.silenceTimer);
+        this.silenceTimer = null;
+      }
+      this.stopListening();
       this.processStudentSpokenSentence(val);
+    }
+  }
+
+  handleQuickInputChange(val) {
+    this.activeStudentText = val || '';
+    if (val && val.trim()) {
+      this.renderLiveCaption('student', val.trim());
+    } else {
+      const textEnEl = document.getElementById('caption-text-en');
+      if (textEnEl) {
+        textEnEl.innerHTML = `<span class="caption-empty-prompt">🎙️ Konuşmaya veya yazmaya başlayın...</span>`;
+      }
+    }
+  }
+
+  deleteStudentWord(index) {
+    const input = document.getElementById('voice-quick-input');
+    let text = (input && input.value.trim()) || (this.activeStudentText && this.activeStudentText.trim()) || '';
+    let words = text.split(/\s+/).filter(Boolean);
+    if (index >= 0 && index < words.length) {
+      const removed = words.splice(index, 1)[0];
+      const newText = words.join(' ');
+      this.activeStudentText = newText;
+      if (input) input.value = newText;
+
+      if (newText) {
+        this.renderLiveCaption('student', newText);
+      } else {
+        const textEnEl = document.getElementById('caption-text-en');
+        if (textEnEl) {
+          textEnEl.innerHTML = `<span class="caption-empty-prompt">🗑️ Kelimeler temizlendi. Konuşabilir veya yazabilirsiniz...</span>`;
+        }
+      }
+
+      // Reset timer if auto-send mode is on
+      if (this.silenceTimer) {
+        clearTimeout(this.silenceTimer);
+        this.silenceTimer = null;
+      }
+      if (this.sendMode === 'auto_send' && newText) {
+        this.silenceTimer = setTimeout(() => {
+          if (this.activeStudentText && this.activeStudentText.length >= 2 && !this.isTeacherTyping) {
+            const toSend = this.activeStudentText;
+            this.activeStudentText = '';
+            if (input) input.value = '';
+            this.processStudentSpokenSentence(toSend);
+          }
+        }, 5000);
+      }
+
+      if (window.app && typeof window.app.showToast === 'function') {
+        window.app.showToast(`🗑️ "${removed}" silindi.`);
+      }
+    }
+  }
+
+  deleteLastStudentWord() {
+    const input = document.getElementById('voice-quick-input');
+    let text = (input && input.value.trim()) || (this.activeStudentText && this.activeStudentText.trim()) || '';
+    let words = text.split(/\s+/).filter(Boolean);
+    if (words.length > 0) {
+      this.deleteStudentWord(words.length - 1);
+    }
+  }
+
+  clearStudentSpeech() {
+    const input = document.getElementById('voice-quick-input');
+    if (input) input.value = '';
+    this.activeStudentText = '';
+    if (this.silenceTimer) {
+      clearTimeout(this.silenceTimer);
+      this.silenceTimer = null;
+    }
+    const textEnEl = document.getElementById('caption-text-en');
+    if (textEnEl) {
+      textEnEl.innerHTML = `<span class="caption-empty-prompt">🗑️ Temizlendi. Mikrofona tekrar konuşabilir veya yazabilirsiniz.</span>`;
+    }
+    if (window.app && typeof window.app.showToast === 'function') {
+      window.app.showToast("🗑️ Cümle temizlendi.");
     }
   }
 
@@ -1751,8 +1844,39 @@ Return strictly JSON format:
     }
 
     if (textEnEl) {
-      const wrappedEn = window.wordLookup ? window.wordLookup.wrap(textEn) : textEn;
-      textEnEl.innerHTML = wrappedEn;
+      if (speaker === 'student') {
+        const words = (textEn || '').trim().split(/\s+/).filter(Boolean);
+        if (this.isTeacherTyping) {
+          textEnEl.innerHTML = `<span style="color:#7dd3fc; font-weight:700;">"${textEn}"</span> <span style="font-size:0.82rem; color:#94a3b8; margin-left:8px; font-style:italic;">(Emily yanıtlıyor ⏳...)</span>`;
+        } else if (words.length > 0) {
+          textEnEl.innerHTML = `
+            <div class="student-words-stream">
+              ${words.map((w, idx) => `
+                <span class="student-word-chip" data-idx="${idx}" title="Bu kelimeyi silmek için ✕'e tıkla">
+                  <span class="word-chip-text">${w}</span>
+                  <button class="word-chip-del" onclick="event.stopPropagation(); aiTeacher.deleteStudentWord(${idx})" title="'${w}' kelimesini sil (✕)">✕</button>
+                </span>
+              `).join(' ')}
+            </div>
+            <div class="student-live-edit-toolbar">
+              <button class="live-edit-btn" onclick="aiTeacher.deleteLastStudentWord()" title="Son kelimeyi sil">
+                <span>⌫</span> Son Kelimeyi Sil
+              </button>
+              <button class="live-edit-btn danger" onclick="aiTeacher.clearStudentSpeech()" title="Tüm cümleyi temizle">
+                <span>🗑️</span> Temizle
+              </button>
+              <button class="live-edit-btn send" onclick="aiTeacher.handleQuickSend()" title="Şimdi Gönder">
+                <span>🚀</span> Gönder
+              </button>
+            </div>
+          `;
+        } else {
+          textEnEl.innerHTML = `<span class="caption-empty-prompt">🎙️ Konuşmaya veya yazmaya başlayın...</span>`;
+        }
+      } else {
+        const wrappedEn = window.wordLookup ? window.wordLookup.wrap(textEn) : textEn;
+        textEnEl.innerHTML = wrappedEn;
+      }
     }
 
     if (textTrEl) {
