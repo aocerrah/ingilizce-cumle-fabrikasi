@@ -348,6 +348,11 @@ class AITeacherEngine {
               </select>
             </div>
 
+            <!-- Voice Sound Test Button -->
+            <button class="voice-tool-btn" onclick="aiTeacher.testVoicePlayback()" title="Sesi Hoparlörden Test Et">
+              🔊 Sesi Test Et
+            </button>
+
             <!-- Display Toggles -->
             <button class="voice-tool-btn ${this.showCaptions ? 'active' : ''}" id="btn-toggle-captions" onclick="aiTeacher.toggleCaptions()" title="Altyazı Aç/Kapat">
               💬 Altyazı
@@ -516,6 +521,19 @@ class AITeacherEngine {
     }
     if (window.app && typeof window.app.showToast === 'function') {
       window.app.showToast(`🎙️ Ses ayarlandı: ${profile === 'alex_studio' ? 'Alex (Erkek)' : profile === 'emily_studio' ? 'Emily (Kadın)' : 'Cihaz Sesi'}`, "info");
+    }
+  }
+
+  testVoicePlayback() {
+    if (window.speechEngine) {
+      const isAlex = this.selectedVoiceProfile === 'alex_studio';
+      const msg = isAlex 
+        ? "Hello! I am Alex. My voice is working loud and clear!" 
+        : "Hello dear! I am Teacher Emily. My voice is working loud and clear!";
+      this.speakText(msg);
+      if (window.app && typeof window.app.showToast === 'function') {
+        window.app.showToast("🔊 Ses testi oynatılıyor...", "info");
+      }
     }
   }
 
