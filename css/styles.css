@@ -1898,6 +1898,32 @@ body {
   z-index: 50;
 }
 
+/* Multi-Word Idioms, Conjunctions & Phrasal Verbs Unified Pill */
+.interactive-phrase {
+  border-bottom: 2px solid rgba(192, 132, 252, 0.75) !important;
+  background: rgba(192, 132, 252, 0.12);
+  border-radius: 6px;
+  padding: 1px 6px;
+  font-weight: 600;
+}
+
+.interactive-phrase:hover,
+.interactive-phrase:active {
+  background: rgba(192, 132, 252, 0.32) !important;
+  color: #f3e8ff !important;
+  border-bottom-color: #c084fc !important;
+  box-shadow: 0 0 14px rgba(192, 132, 252, 0.4);
+}
+
+.interactive-phrase[data-meaning]:not([data-meaning=""]):hover::after {
+  border-color: #c084fc;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7), 0 0 16px rgba(192, 132, 252, 0.45);
+}
+
+.interactive-phrase[data-meaning]:not([data-meaning=""]):hover::before {
+  border-color: #c084fc transparent transparent transparent;
+}
+
 /* Floating Instant Turkish Hover Tooltip */
 .interactive-word[data-meaning]:not([data-meaning=""]):hover::after {
   content: "🇹🇷 " attr(data-meaning);
