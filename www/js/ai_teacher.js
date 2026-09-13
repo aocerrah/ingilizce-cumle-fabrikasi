@@ -884,50 +884,218 @@ Return strictly JSON format:
   }
 
   /* =========================================================
-     7. OFFLINE MULTI-TURN DIALOGUE MATRIX (Vocal Coaching)
+     7. OFFLINE MULTI-TURN DIALOGUE MATRIX (Deep Vocal Coach)
      ========================================================= */
   generateOfflineTeacherReply(studentSentence) {
     const raw = studentSentence.trim();
-    const lower = raw.toLowerCase();
+    const lower = raw.toLowerCase().replace(/[.,!?;:]/g, '');
+    const words = lower.split(/\s+/).filter(Boolean);
 
-    // 1. Grammatical Diagnostic Rules & Vocal Coaching
     let isCorrect = true;
     let correctedEn = raw;
-    let explanationTr = "Harika! Cümle dizilimin ve gramerin gayet doğru.";
-    let praiseTr = "Tebrikler! Kendini çok net ve güzel ifade ettin. 🌟";
+    let explanationTr = "";
+    let praiseTr = "";
     let naturalAlt = raw;
-    let coachingSpeechEn = "Great job! Your sentence is very clear. ";
+    let coachingSpeechEn = "";
 
-    // Rule: "he don't / she don't / it don't" -> "doesn't"
-    if (/\b(he|she|it)\s+don't\b/i.test(lower)) {
+    // ---------------------------------------------------------
+    // A. Single-Word & Fragment Expansion Diagnosis
+    // ---------------------------------------------------------
+    if (words.length <= 2) {
       isCorrect = false;
-      correctedEn = raw.replace(/\bdon't\b/gi, "doesn't");
-      explanationTr = "💡 Küçük bir ipucu: **He, She, It** tekil öznelerinde olumsuz yaparken `doesn't` kullanılır.";
-      praiseTr = "Çok güzel bir deneme! Anlamı çok iyi ilettin.";
-      naturalAlt = correctedEn;
-      coachingSpeechEn = "Good try! Notice that with he or she, we say doesn't instead of don't. So a more natural sentence is: '" + correctedEn + "'. ";
+      praiseTr = "Güzel bir başlangıç! Kelimeyi doğru bildin.";
+      
+      if (lower.includes('bus') || lower.includes('car') || lower.includes('walk') || lower.includes('train')) {
+        correctedEn = lower.includes('walk') ? "I walk to school every morning." : `I travel to school by ${words[words.length - 1]}.`;
+        explanationTr = "💡 Cümleyi genişletme ipucu: Sadece vasıtayı söylemek yerine 'I go to school by bus' diyerek tam bir cümle kurabilirsin.";
+        coachingSpeechEn = `Good start! To practice fluent speaking, answer with a full sentence like: '${correctedEn}'. `;
+      } else if (lower.includes('pizza') || lower.includes('pasta') || lower.includes('burger') || lower.includes('manti') || lower.includes('salad')) {
+        correctedEn = `My favorite food is ${raw}.`;
+        explanationTr = "💡 Tam cümle ipucu: 'My favorite food is " + raw + "' veya 'I love eating " + raw + "' şeklinde kurabilirsin.";
+        coachingSpeechEn = `Yummy choice! You can say in a full sentence: 'My favorite food is ${raw}'. `;
+      } else if (lower.includes('english') || lower.includes('math') || lower.includes('science') || lower.includes('history') || lower.includes('art')) {
+        correctedEn = `My favorite subject is ${raw}.`;
+        explanationTr = "💡 Dersler için tam cümle: 'My favorite subject is " + raw + "' diyerek kendini ifade edebilirsin.";
+        coachingSpeechEn = `Great! In full sentence form, you can say: 'My favorite subject is ${raw}'. `;
+      } else if (lower.includes('volleyball') || lower.includes('football') || lower.includes('basketball') || lower.includes('chess') || lower.includes('game')) {
+        correctedEn = `I enjoy playing ${raw} in my free time.`;
+        explanationTr = "💡 Hobi ve spor ipucu: 'I like playing " + raw + "' şeklinde tam cümle kurabilirsin.";
+        coachingSpeechEn = `Awesome hobby! A complete sentence would be: 'I enjoy playing ${raw}'. `;
+      } else if (lower.includes('doctor') || lower.includes('engineer') || lower.includes('teacher') || lower.includes('software')) {
+        correctedEn = `I want to be a ${raw} in the future.`;
+        explanationTr = "💡 Meslek hedefi ipucu: 'I want to be a " + raw + "' şeklinde kurabilirsin.";
+        coachingSpeechEn = `Inspiring goal! You can say: 'I want to be a ${raw} in the future'. `;
+      } else if (lower === 'yes' || lower === 'yeah' || lower === 'yep') {
+        correctedEn = "Yes, I definitely do!";
+        explanationTr = "💡 Kısa yanıtı zenginleştirme: Sadece 'Yes' yerine 'Yes, I do' veya 'Yes, I love it' diyebilirsin.";
+        coachingSpeechEn = "Good! To sound more natural, you can expand it: 'Yes, I definitely do!'. ";
+      } else if (lower === 'no' || lower === 'nope') {
+        correctedEn = "No, I usually don't.";
+        explanationTr = "💡 Olumsuz yanıt ipucu: 'No, I don't' veya 'Not really, I prefer something else' diyebilirsin.";
+        coachingSpeechEn = "I see! You can say: 'No, I usually don't'. ";
+      } else if (/\b\d+\b/.test(lower) || lower.includes('oclock') || lower.includes('am') || lower.includes('pm')) {
+        correctedEn = `I usually wake up at ${raw}.`;
+        explanationTr = "💡 Saat ve rutin ipucu: 'I usually wake up at " + raw + "' diyerek cümleni tamamlayabilirsin.";
+        coachingSpeechEn = `Great! A full sentence would be: 'I usually wake up at ${raw}'. `;
+      } else {
+        correctedEn = `I like ${raw}.`;
+        explanationTr = "💡 Tam cümle ipucu: Konuşma pratiği yaparken cümleni özne ve fiille genişletmek akıcılık kazandırır.";
+        coachingSpeechEn = `Nice! You can express that as a complete sentence: 'I like ${raw}'. `;
+      }
     }
-    // Rule: "I goes / I likes / You plays"
-    else if (/\b(i|you|we|they)\s+(goes|likes|plays|studies|wants|works)\b/i.test(lower)) {
+    // ---------------------------------------------------------
+    // B. Preposition & Collocation Diagnostics
+    // ---------------------------------------------------------
+    else if (/\bgo\s+school\b/i.test(raw)) {
       isCorrect = false;
-      correctedEn = raw.replace(/\b(goes|likes|plays|studies|wants|works)\b/gi, (m) => m.replace(/s$/i, '').replace(/ie$/i, 'y'));
-      explanationTr = "💡 Hatırlatma: **I, You, We, They** özneleriyle fiilin yalın hali kullanılır (-s takısı almaz).";
-      praiseTr = "Harika fikir! Çok iyi anlatmak istediğini belirttin.";
-      naturalAlt = correctedEn;
-      coachingSpeechEn = "Nice attempt! With 'I' or 'you', the verb stays in base form without the s ending. A better sentence is: '" + correctedEn + "'. ";
+      correctedEn = raw.replace(/\bgo\s+school\b/gi, "go to school");
+      explanationTr = "🎯 Edat kuralı: Bir yere yönelme belirtirken **to** kullanılır: `go to school`.";
+      praiseTr = "Harika deneme! Yönelme edatını ekliyoruz.";
+      coachingSpeechEn = "Good attempt! In English, we say 'go to school' with the preposition 'to'. So we say: '" + correctedEn + "'. ";
     }
-    // Rule: "yesterday I go" -> "yesterday I went"
-    else if (/yesterday/i.test(lower) && /\b(go|see|have|eat|drink|buy)\b/i.test(lower)) {
+    else if (/\blisten\s+(music|songs?|radio|podcasts?)\b/i.test(raw)) {
       isCorrect = false;
-      correctedEn = raw.replace(/\bgo\b/gi, "went").replace(/\bsee\b/gi, "saw").replace(/\bhave\b/gi, "had").replace(/\beat\b/gi, "ate");
-      explanationTr = "💡 Geçmiş zaman ipucu: Cümlede **yesterday (dün)** geçtiği için fiilin geçmiş hali (V2) kullanılır.";
-      praiseTr = "Çok güzel! Zaman kuralını pratik ederek pekiştiriyoruz.";
-      naturalAlt = correctedEn;
-      coachingSpeechEn = "Great practice! Since you mentioned yesterday, we use past tense. So we say: '" + correctedEn + "'. ";
+      correctedEn = raw.replace(/\blisten\s+(music|songs?|radio|podcasts?)\b/gi, "listen to $1");
+      explanationTr = "🎯 Kalıp kuralı: **Listen** fiili her zaman **to** ile kullanılır: `listen to music`.";
+      praiseTr = "Çok güzel! Listen + to kalıbını pekiştiriyoruz.";
+      coachingSpeechEn = "Nice! Remember that 'listen' always takes 'to', so we say: '" + correctedEn + "'. ";
     }
-    // Rule: Missing capital 'I'
-    else if (/\bi\b/.test(raw)) {
-      correctedEn = raw.replace(/\bi\b/g, 'I');
+    else if (/\bgo\s+to\s+home\b/i.test(raw)) {
+      isCorrect = false;
+      correctedEn = raw.replace(/\bgo\s+to\s+home\b/gi, "go home");
+      explanationTr = "🎯 İstisna kuralı: **Home** kelimesinden önce 'to' gelmez: `go home`.";
+      praiseTr = "Çok iyi fikir! Home istisnasını hatırlayalım.";
+      coachingSpeechEn = "Good try! With home, we don't use 'to', we just say: '" + correctedEn + "'. ";
+    }
+    else if (/\bwith\s+(bus|car|train|plane|bicycle|bike)\b/i.test(raw)) {
+      isCorrect = false;
+      correctedEn = raw.replace(/\bwith\s+(bus|car|train|plane|bicycle|bike)\b/gi, "by $1");
+      explanationTr = "🎯 Vasıta edatı: Ulaşım araçlarıyla giderken 'with' yerine **by** kullanılır: `by bus`, `by car`.";
+      praiseTr = "Harika! Vasıta kuralını çok güzel uyguluyoruz.";
+      coachingSpeechEn = "Nice sentence! In English, for transport we use 'by', so we say: '" + correctedEn + "'. ";
+    }
+    // ---------------------------------------------------------
+    // C. Subject-Verb Agreement & Verb Form Diagnostics
+    // ---------------------------------------------------------
+    else if (/\b(he|she|it)\s+(don't|dont)\b/i.test(raw)) {
+      isCorrect = false;
+      correctedEn = raw.replace(/\b(don't|dont)\b/gi, "doesn't");
+      explanationTr = "🎯 Özne-Yüklem uyumu: **He, She, It** tekil özneleriyle olumsuzda `doesn't` kullanılır.";
+      praiseTr = "Güzel deneme! Tekil özne kuralını uyguluyoruz.";
+      coachingSpeechEn = "Good attempt! With he or she, we say doesn't. So a better sentence is: '" + correctedEn + "'. ";
+    }
+    else if (/\b(he|she|it)\s+have\b/i.test(raw)) {
+      isCorrect = false;
+      correctedEn = raw.replace(/\b(he|she|it)\s+have\b/gi, "$1 has");
+      explanationTr = "🎯 Have/Has kuralı: **He, She, It** özneleriyle `has` kullanılır.";
+      praiseTr = "Çok güzel! Has kullanımını pekiştiriyoruz.";
+      coachingSpeechEn = "Well done! With he, she, or it, we use 'has'. So you can say: '" + correctedEn + "'. ";
+    }
+    else if (/\b(i|you|we|they)\s+(goes|likes|plays|studies|wants|works|eats)\b/i.test(raw)) {
+      isCorrect = false;
+      correctedEn = raw.replace(/\b(goes|likes|plays|studies|wants|works|eats)\b/gi, (m) => m.replace(/s$/i, '').replace(/ie$/i, 'y'));
+      explanationTr = "🎯 Fiil takısı: **I, You, We, They** ile fiil yalın halde kullanılır (-s almaz).";
+      praiseTr = "Harika anlatım! Fiili yalın kullanıyoruz.";
+      coachingSpeechEn = "Nice! With 'I' or 'you', the verb stays in base form: '" + correctedEn + "'. ";
+    }
+    else if (/\b(he|she|it)\s+(like|play|go|study|eat|drink|want|need)\b/i.test(raw)) {
+      isCorrect = false;
+      correctedEn = raw.replace(/\b(he|she|it)\s+(like|play|go|study|eat|drink|want|need)\b/gi, (m, subj, verb) => {
+        const v = verb.toLowerCase();
+        let s = v + 's';
+        if (v === 'go') s = 'goes';
+        else if (v === 'study') s = 'studies';
+        return `${subj} ${s}`;
+      });
+      explanationTr = "🎯 Geniş Zaman: **He, She, It** öznelerinde olumlu fiile `-s / -es` eklenir.";
+      praiseTr = "Çok iyi! Geniş zaman kuralını uyguluyoruz.";
+      coachingSpeechEn = "Good practice! In present simple with he or she, we add -s to the verb: '" + correctedEn + "'. ";
+    }
+    // ---------------------------------------------------------
+    // D. Verb Complementation (like + -ing, can + bare)
+    // ---------------------------------------------------------
+    else if (/\b(like|love|enjoy|prefer)\s+(play|read|swim|dance|cook|run|walk|watch)\b/i.test(raw)) {
+      isCorrect = false;
+      correctedEn = raw.replace(/\b(like|love|enjoy|prefer)\s+(play|read|swim|dance|cook|run|walk|watch)\b/gi, (m, v1, v2) => {
+        let ing = v2.toLowerCase() + 'ing';
+        if (v2.toLowerCase() === 'swim') ing = 'swimming';
+        if (v2.toLowerCase() === 'run') ing = 'running';
+        if (v2.toLowerCase() === 'dance') ing = 'dancing';
+        return `${v1} ${ing}`;
+      });
+      explanationTr = "🎯 Gerund kuralı: **Like, Love, Enjoy** fiillerinden sonra gelen eyleme `-ing` takısı eklenir: `like playing`.";
+      praiseTr = "Çok güzel! Fiil tamlaması kuralını uyguluyoruz.";
+      coachingSpeechEn = "Great try! After verbs like 'like' or 'enjoy', we add -ing: '" + correctedEn + "'. ";
+    }
+    else if (/\b(can|must|should|could)\s+to\s+(\w+)\b/i.test(raw)) {
+      isCorrect = false;
+      correctedEn = raw.replace(/\b(can|must|should|could)\s+to\s+(\w+)\b/gi, "$1 $2");
+      explanationTr = "🎯 Modal kuralı: **Can, Must, Should** gibi kiplerden sonra 'to' kullanılmaz, fiil yalın gelir: `can speak`.";
+      praiseTr = "Harika fikir! Modal kuralını pekiştiriyoruz.";
+      coachingSpeechEn = "Good effort! Modal verbs like 'can' take a bare verb without 'to': '" + correctedEn + "'. ";
+    }
+    // ---------------------------------------------------------
+    // E. Turkish-English False Friends & Literal Translations
+    // ---------------------------------------------------------
+    else if (/\bi\s+have\s+(\d+)\s+years\b/i.test(raw)) {
+      isCorrect = false;
+      correctedEn = raw.replace(/\bi\s+have\s+(\d+)\s+years\b/gi, "I am $1 years old");
+      explanationTr = "🎯 Yaş belirtme: İngilizcede yaş söylerken 'have' yerine **to be (am)** kullanılır: `I am 14 years old`.";
+      praiseTr = "Harika! Yaş belirtme kuralını doğru kullanıyoruz.";
+      coachingSpeechEn = "Good try! In English, we use 'I am' for age: '" + correctedEn + "'. ";
+    }
+    else if (/\bvery\s+(like|love)\b/i.test(raw)) {
+      isCorrect = false;
+      correctedEn = raw.replace(/\bvery\s+(like|love)\b/gi, "really $1");
+      explanationTr = "🎯 Zarf dizilimi: 'Very like' yerine **really like** veya cümlenin sonuna **very much** denir.";
+      praiseTr = "Çok güzel ifade! Doğal İngilizce dizilimini uyguluyoruz.";
+      coachingSpeechEn = "Nice! Instead of 'very like', native speakers say: '" + correctedEn + "'. ";
+    }
+    else if (/\bmore\s+(better|faster|bigger|smaller|easier)\b/i.test(raw)) {
+      isCorrect = false;
+      correctedEn = raw.replace(/\bmore\s+(better|faster|bigger|smaller|easier)\b/gi, "$1");
+      explanationTr = "🎯 Karşılaştırma kuralı: `-er` alan kısa sıfatların başına 'more' gelmez: `better`, `faster`.";
+      praiseTr = "Çok iyi deneme! Karşılaştırma kuralını düzeltiyoruz.";
+      coachingSpeechEn = "Good attempt! We say '" + correctedEn + "' without 'more'. ";
+    }
+    else if (/\bbecause\s+is\b/i.test(raw)) {
+      isCorrect = false;
+      correctedEn = raw.replace(/\bbecause\s+is\b/gi, "because it is");
+      explanationTr = "🎯 Özne eksikliği: İngilizce cümlelerde özne zorunludur: `because it is...`.";
+      praiseTr = "Çok güzel! Cümleye özne zamirini ekliyoruz.";
+      coachingSpeechEn = "Nice! In English sentences we include the pronoun: '" + correctedEn + "'. ";
+    }
+    else if (/\byesterday\b/i.test(raw) && /\b(go|see|have|eat|drink|buy|play)\b/i.test(raw)) {
+      isCorrect = false;
+      correctedEn = raw.replace(/\bgo\b/gi, "went").replace(/\bsee\b/gi, "saw").replace(/\bhave\b/gi, "had").replace(/\beat\b/gi, "ate").replace(/\bplay\b/gi, "played");
+      explanationTr = "🎯 Geçmiş Zaman: Cümlede **yesterday (dün)** olduğu için fiilin 2. hali (V2) kullanılır: `went`, `played`.";
+      praiseTr = "Çok iyi! Geçmiş zaman kuralını pekiştiriyoruz.";
+      coachingSpeechEn = "Great practice! Since you mentioned yesterday, we use past tense: '" + correctedEn + "'. ";
+    }
+    // ---------------------------------------------------------
+    // F. Completely Correct Sentences -> Genuine Content Praise & Native Tips
+    // ---------------------------------------------------------
+    else {
+      isCorrect = true;
+      praiseTr = "Mükemmel bir cümle! Gramer ve SVOMPT sözcük dizilimini kusursuz kullandın. 🌟";
+      explanationTr = "🌟 Harika! Kendini çok doğal ve doğru bir İngilizceyle ifade ettin.";
+      
+      if (lower.includes('bus') || lower.includes('walk') || lower.includes('car')) {
+        naturalAlt = "I catch the morning school bus every single weekday.";
+        coachingSpeechEn = "Brilliant sentence! You used the correct transport structure perfectly. A native speaker might also say: '" + naturalAlt + "'. ";
+      } else if (lower.includes('cafeteria') || lower.includes('lunch') || lower.includes('eat')) {
+        naturalAlt = "I usually grab lunch in the cafeteria with my classmates.";
+        coachingSpeechEn = "Super clear! Your grammar is spot-on. You could also say: '" + naturalAlt + "'. ";
+      } else if (lower.includes('english') || lower.includes('subject') || lower.includes('math') || lower.includes('lesson')) {
+        naturalAlt = "English is definitely my all-time favorite school subject.";
+        coachingSpeechEn = "Excellent sentence! Very natural. Another great way to say this is: '" + naturalAlt + "'. ";
+      } else if (lower.includes('volleyball') || lower.includes('sport') || lower.includes('play')) {
+        naturalAlt = "I am really passionate about playing sports with my friends.";
+        coachingSpeechEn = "Fantastic! Your word order is totally accurate. A cool native alternative is: '" + naturalAlt + "'. ";
+      } else {
+        naturalAlt = raw;
+        coachingSpeechEn = "Great job! Your sentence is very clear, grammatically sound, and well-structured. ";
+      }
     }
 
     const turnIndex = this.topicTurnCounts[this.currentTopic] || 1;
@@ -967,7 +1135,7 @@ Return strictly JSON format:
 
     const topicMatrix = this.getTopicDialogueMatrix(this.currentTopic, turnIndex);
     const replyEn = coachingSpeechEn + studentKeywordReaction + topicMatrix.questionEn;
-    const replyTr = (isCorrect ? "" : `💡 ${explanationTr} `) + studentKeywordReactionTr + topicMatrix.questionTr;
+    const replyTr = (isCorrect ? (explanationTr ? `🌟 ${explanationTr} ` : "") : `🎯 ${explanationTr} `) + studentKeywordReactionTr + topicMatrix.questionTr;
     const hints = topicMatrix.hints;
 
     return {
@@ -1404,17 +1572,18 @@ Return strictly JSON format:
 
     if (isCorrect) {
       pill.innerHTML = `
-        <span class="pill-badge">🌟 Harika İfade!</span>
-        <span class="pill-text">${fb.praise_tr || 'Tebrikler! Çok net konuştun.'}</span>
+        <span class="pill-badge">🌟 Harika Cümle!</span>
+        <span class="pill-text">${(fb.natural_alternative_en && fb.natural_alternative_en !== fb.corrected_en) ? `💡 Doğal Alternatif: <em>"${fb.natural_alternative_en}"</em>` : (fb.praise_tr || 'Tebrikler! Cümleyi doğru kurdun.')}</span>
       `;
     } else {
       pill.innerHTML = `
-        <span class="pill-badge">🎯 Canlı İpucu</span>
+        <span class="pill-badge">🎯 Cümle İpucu</span>
         <span class="pill-text">${fb.explanation_tr || ''} (✅ <code>${fb.corrected_en || ''}</code>)</span>
       `;
     }
 
-    setTimeout(() => {
+    if (this._pillTimer) clearTimeout(this._pillTimer);
+    this._pillTimer = setTimeout(() => {
       if (pill) pill.style.display = 'none';
     }, 7000);
   }

@@ -136,124 +136,12 @@ class SpeechEngine {
     }
 
     this.stop();
-
-    // Mode 1: Natural Human Studio Audio Stream
-    if (this.voiceMode === 'natural_human' || this.voiceProfile !== 'device_neural') {
-      this.speakNaturalHumanStream(cleanText, onEnd);
-      return;
-    }
-
-    // Mode 2: Device Neural Web Speech API
     this.speakDeviceSynth(cleanText, onEnd);
   }
 
   /**
-   * Ultra-HD Natural Human Studio Voice Stream
-   * Uses Google Neural TTS endpoint + sentence streaming with visualizer hook
-   */
-  speakNaturalHumanStream(cleanText, onEnd = null) {
-    this.stop();
-    this.isSpeaking = true;
-
-    if (window.aiTeacher && window.aiTeacher.visualizerOrb) {
-      window.aiTeacher.visualizerOrb.setState('speaking');
-    }
-    if (window.aiTeacher && typeof window.aiTeacher.updateCallControlsUI === 'function') {
-      window.aiTeacher.updateCallControlsUI();
-    }
-
-    // Split text into coherent sentences for seamless natural audio streaming
-    const rawSentences = cleanText.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [cleanText];
-    const sentences = rawSentences.map(s => s.trim()).filter(s => s.length > 0);
-    
-    if (sentences.length === 0) {
-      this.isSpeaking = false;
-      if (window.aiTeacher && window.aiTeacher.visualizerOrb) {
-        window.aiTeacher.visualizerOrb.setState('idle');
-      }
-      if (onEnd) onEnd();
-      return;
-    }
-
-    let currentIndex = 0;
-
-    const playNext = () => {
-      if (currentIndex >= sentences.length) {
-        this.isSpeaking = false;
-        this._currentAudio = null;
-        if (window.aiTeacher && window.aiTeacher.visualizerOrb) {
-          window.aiTeacher.visualizerOrb.setState('idle');
-        }
-        if (window.aiTeacher && typeof window.aiTeacher.updateCallControlsUI === 'function') {
-          window.aiTeacher.updateCallControlsUI();
-        }
-        if (onEnd) onEnd();
-        return;
-      }
-
-      const sentence = sentences[currentIndex];
-      currentIndex++;
-
-      if (window.aiTeacher && typeof window.aiTeacher.onTeacherSentenceSpoken === 'function') {
-        window.aiTeacher.onTeacherSentenceSpoken(sentence);
-      }
-
-      const encoded = encodeURIComponent(sentence);
-
-      // Studio Voice Endpoints
-      const langParam = (this.voiceGender === 'male' || this.voiceProfile === 'alex_studio') ? 'en-GB' : 'en-US';
-      const primaryUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=${langParam}&client=tw-ob&q=${encoded}`;
-      const fallbackUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=en-US&client=tw-ob&q=${encoded}`;
-
-      const audio = new Audio();
-      this._currentAudio = audio;
-      audio.playbackRate = this.rate;
-
-      let hasEnded = false;
-      const handleEnd = () => {
-        if (!hasEnded) {
-          hasEnded = true;
-          playNext();
-        }
-      };
-
-      audio.onended = handleEnd;
-
-      audio.onerror = () => {
-        console.warn("Audio stream error, switching to device synthesis fallback");
-        if (audio.src !== fallbackUrl) {
-          audio.src = fallbackUrl;
-          audio.play().catch(() => {
-            this.speakDeviceSynth(sentence, handleEnd);
-          });
-        } else {
-          this.speakDeviceSynth(sentence, handleEnd);
-        }
-      };
-
-      audio.src = primaryUrl;
-      const playPromise = audio.play();
-      if (playPromise !== undefined) {
-        playPromise.catch((err) => {
-          console.warn("Audio stream autoplay catch, using device synth fallback:", err);
-          this.speakDeviceSynth(sentence, handleEnd);
-        });
-      }
-
-      // Sentence level safety watchdog
-      const expectedDuration = Math.max(2500, sentence.length * 85);
-      setTimeout(() => {
-        if (!hasEnded && this._currentAudio === audio) {
-          handleEnd();
-        }
-      }, Math.min(9000, expectedDuration));
-    };
-
-    playNext();
-  }
-
-  /**
-   * Device Neural Speech Synthesis Engine (Web Speech API)
+   * High-Fidelity Voice Synthesis Engine (Web Speech API)
+   * Streams sentences naturally with real-time UI/visualizer sync
    */
   speakDeviceSynth(cleanText, onEnd = null) {
     const canUseWebSpeech = this.synth && typeof SpeechSynthesisUtterance !== 'undefined';
@@ -264,10 +152,7 @@ class SpeechEngine {
     }
 
     try {
-      if (this.synth.paused) {
-        this.synth.resume();
-      }
-      this.synth.cancel();
+      this.isSpeaking = true;
 
       if (window.aiTeacher && window.aiTeacher.visualizerOrb) {
         window.aiTeacher.visualizerOrb.setState('speaking');
@@ -276,20 +161,23 @@ class SpeechEngine {
         window.aiTeacher.updateCallControlsUI();
       }
 
-      const utterance = new SpeechSynthesisUtterance(cleanText);
-      utterance.lang = 'en-US';
-      utterance.rate = this.rate;
-      utterance.pitch = (this.voiceGender === 'female' || this.voiceProfile === 'emily_studio') ? 1.05 : 0.95;
+      // Split into sentences for rhythmic, natural human phrasing
+      const rawSentences = cleanText.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [cleanText];
+      const sentences = rawSentences.map(s => s.trim()).filter(s => s.length > 0);
 
-      if (!this.selectedVoice) this.initVoices();
-      if (this.selectedVoice) utterance.voice = this.selectedVoice;
+      if (sentences.length === 0) {
+        this.isSpeaking = false;
+        if (window.aiTeacher && window.aiTeacher.visualizerOrb) {
+          window.aiTeacher.visualizerOrb.setState('idle');
+        }
+        if (onEnd) onEnd();
+        return;
+      }
 
-      this._activeUtterance = utterance;
-      let hasEnded = false;
+      let sentenceIdx = 0;
 
-      const finish = () => {
-        if (!hasEnded) {
-          hasEnded = true;
+      const speakSentence = () => {
+        if (sentenceIdx >= sentences.length) {
           this.isSpeaking = false;
           this._activeUtterance = null;
           this.clearWatchdog();
@@ -300,26 +188,73 @@ class SpeechEngine {
             window.aiTeacher.updateCallControlsUI();
           }
           if (onEnd) onEnd();
+          return;
+        }
+
+        const currentSentence = sentences[sentenceIdx];
+        sentenceIdx++;
+
+        if (window.aiTeacher && typeof window.aiTeacher.onTeacherSentenceSpoken === 'function') {
+          window.aiTeacher.onTeacherSentenceSpoken(currentSentence);
+        }
+
+        const utterance = new SpeechSynthesisUtterance(currentSentence);
+        utterance.lang = 'en-US';
+        utterance.rate = this.rate;
+        utterance.pitch = (this.voiceGender === 'female' || this.voiceProfile === 'emily_studio') ? 1.05 : 0.95;
+
+        if (!this.selectedVoice) this.initVoices();
+        if (this.selectedVoice) utterance.voice = this.selectedVoice;
+
+        this._activeUtterance = utterance;
+        let sentenceFinished = false;
+
+        const advance = () => {
+          if (!sentenceFinished) {
+            sentenceFinished = true;
+            this.clearWatchdog();
+            speakSentence();
+          }
+        };
+
+        utterance.onstart = () => {
+          this.isSpeaking = true;
+        };
+
+        utterance.onend = advance;
+        utterance.onerror = (e) => {
+          console.warn("Speech synthesis error on sentence, advancing:", e);
+          advance();
+        };
+
+        this.clearWatchdog();
+        const expectedDuration = Math.max(2500, currentSentence.length * 90);
+        this._watchdogTimer = setTimeout(() => {
+          advance();
+        }, Math.min(8000, expectedDuration));
+
+        // Chrome/Safari safety: unpause and speak
+        try {
+          if (this.synth.paused) {
+            this.synth.resume();
+          }
+          this.synth.cancel();
+          setTimeout(() => {
+            try {
+              if (this.synth.paused) this.synth.resume();
+              this.synth.speak(utterance);
+            } catch (e) {
+              advance();
+            }
+          }, 40);
+        } catch (e) {
+          advance();
         }
       };
 
-      utterance.onstart = () => {
-        this.isSpeaking = true;
-      };
-
-      utterance.onend = finish;
-      utterance.onerror = finish;
-
-      this.clearWatchdog();
-      const expectedDuration = Math.max(3000, cleanText.length * 95);
-      this._watchdogTimer = setTimeout(() => {
-        if (this.synth) this.synth.cancel();
-        finish();
-      }, Math.min(10000, expectedDuration));
-
-      this.synth.speak(utterance);
+      speakSentence();
     } catch (err) {
-      console.warn("Web Speech exception:", err);
+      console.warn("Speech synthesis exception:", err);
       this.isSpeaking = false;
       if (onEnd) onEnd();
     }

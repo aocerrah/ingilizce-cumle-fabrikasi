@@ -3,17 +3,16 @@ class SpeechEngine {
     this.synth = window.speechSynthesis || null;
     this.voices = [];
     this.selectedVoice = null;
-    this.rate = 0.88; // Natural conversational human pace
+    this.rate = 0.90; // Natural conversational human pace
     this.pitch = 1.0;
+    this.volume = 1.0;
     this.isSpeaking = false;
     this._activeUtterance = null;
     this._watchdogTimer = null;
-    this._currentAudio = null;
     this._isAudioUnlocked = false;
     
     // Voice Persona: 'emily_studio' (Default HD Female) | 'alex_studio' (HD Male) | 'device_neural'
     this.voiceProfile = localStorage.getItem('english_app_voice_profile') || 'emily_studio';
-    this.voiceMode = localStorage.getItem('english_app_voice_mode') || 'natural_human';
     this.voiceGender = localStorage.getItem('english_app_voice_gender') || 'female';
 
     this.init();
@@ -32,8 +31,9 @@ class SpeechEngine {
       this._isAudioUnlocked = true;
       try {
         if (this.synth) {
-          const silent = new SpeechSynthesisUtterance('');
-          silent.volume = 0;
+          if (this.synth.paused) this.synth.resume();
+          const silent = new SpeechSynthesisUtterance(' ');
+          silent.volume = 0.01;
           this.synth.speak(silent);
         }
       } catch (e) {}
@@ -51,7 +51,7 @@ class SpeechEngine {
     try {
       this.voices = this.synth.getVoices() || [];
       if (this.voices.length > 0) {
-        const enVoices = this.voices.filter(v => v.lang.startsWith('en'));
+        const enVoices = this.voices.filter(v => v.lang && (v.lang.startsWith('en') || v.lang.includes('EN')));
         
         // Priority ranking for natural sounding female voices
         const femaleRanked = enVoices.find(v => 
@@ -63,7 +63,10 @@ class SpeechEngine {
           v.name.includes('Victoria') ||
           v.name.includes('Natural') ||
           v.name.includes('Enhanced') ||
-          v.name.includes('Premium')
+          v.name.includes('Premium') ||
+          v.name.includes('Karen') ||
+          v.name.includes('Zira') ||
+          v.name.includes('Susan')
         );
 
         // Priority ranking for natural sounding male voices
@@ -73,15 +76,15 @@ class SpeechEngine {
           v.name.includes('Tom') || 
           v.name.includes('Google UK English Male') || 
           v.name.includes('Oliver') ||
-          v.name.includes('Alex')
+          v.name.includes('Alex') ||
+          v.name.includes('David') ||
+          v.name.includes('George')
         );
 
-        if (this.voiceGender === 'female' && femaleRanked) {
-          this.selectedVoice = femaleRanked;
-        } else if (this.voiceGender === 'male' && maleRanked) {
-          this.selectedVoice = maleRanked;
+        if (this.voiceGender === 'male' || this.voiceProfile === 'alex_studio') {
+          this.selectedVoice = maleRanked || enVoices.find(v => v.lang === 'en-GB') || enVoices[0];
         } else {
-          this.selectedVoice = femaleRanked || enVoices.find(v => v.lang === 'en-US') || enVoices[0] || this.voices[0];
+          this.selectedVoice = femaleRanked || enVoices.find(v => v.lang === 'en-US') || enVoices[0];
         }
       }
     } catch (e) {
@@ -93,22 +96,12 @@ class SpeechEngine {
     this.voiceProfile = profile;
     localStorage.setItem('english_app_voice_profile', profile);
     if (profile === 'alex_studio') {
-      this.voiceMode = 'natural_human';
       this.voiceGender = 'male';
-    } else if (profile === 'emily_studio') {
-      this.voiceMode = 'natural_human';
+    } else {
       this.voiceGender = 'female';
-    } else if (profile === 'device_neural') {
-      this.voiceMode = 'device_neural';
     }
-    localStorage.setItem('english_app_voice_mode', this.voiceMode);
     localStorage.setItem('english_app_voice_gender', this.voiceGender);
     this.initVoices();
-  }
-
-  setVoiceMode(mode) {
-    this.voiceMode = mode;
-    localStorage.setItem('english_app_voice_mode', mode);
   }
 
   setVoiceGender(gender) {
@@ -135,23 +128,19 @@ class SpeechEngine {
       return;
     }
 
-    this.stop();
-    this.speakDeviceSynth(cleanText, onEnd);
-  }
-
-  /**
-   * High-Fidelity Voice Synthesis Engine (Web Speech API)
-   * Streams sentences naturally with real-time UI/visualizer sync
-   */
-  speakDeviceSynth(cleanText, onEnd = null) {
-    const canUseWebSpeech = this.synth && typeof SpeechSynthesisUtterance !== 'undefined';
-    if (!canUseWebSpeech) {
-      this.isSpeaking = false;
+    if (!this.synth) {
       if (onEnd) onEnd();
       return;
     }
 
+    this.clearWatchdog();
+
     try {
+      if (this.synth.paused) {
+        this.synth.resume();
+      }
+      this.synth.cancel();
+
       this.isSpeaking = true;
 
       if (window.aiTeacher && window.aiTeacher.visualizerOrb) {
@@ -161,23 +150,23 @@ class SpeechEngine {
         window.aiTeacher.updateCallControlsUI();
       }
 
-      // Split into sentences for rhythmic, natural human phrasing
-      const rawSentences = cleanText.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [cleanText];
-      const sentences = rawSentences.map(s => s.trim()).filter(s => s.length > 0);
+      const utterance = new SpeechSynthesisUtterance(cleanText);
+      utterance.lang = 'en-US';
+      utterance.volume = 1.0;
+      utterance.rate = this.rate || 0.90;
+      utterance.pitch = (this.voiceGender === 'female' || this.voiceProfile === 'emily_studio') ? 1.05 : 0.95;
 
-      if (sentences.length === 0) {
-        this.isSpeaking = false;
-        if (window.aiTeacher && window.aiTeacher.visualizerOrb) {
-          window.aiTeacher.visualizerOrb.setState('idle');
-        }
-        if (onEnd) onEnd();
-        return;
+      if (!this.selectedVoice || this.voices.length === 0) {
+        this.initVoices();
+      }
+      if (this.selectedVoice) {
+        utterance.voice = this.selectedVoice;
       }
 
-      let sentenceIdx = 0;
-
-      const speakSentence = () => {
-        if (sentenceIdx >= sentences.length) {
+      let finished = false;
+      const onFinished = () => {
+        if (!finished) {
+          finished = true;
           this.isSpeaking = false;
           this._activeUtterance = null;
           this.clearWatchdog();
@@ -188,73 +177,49 @@ class SpeechEngine {
             window.aiTeacher.updateCallControlsUI();
           }
           if (onEnd) onEnd();
-          return;
-        }
-
-        const currentSentence = sentences[sentenceIdx];
-        sentenceIdx++;
-
-        if (window.aiTeacher && typeof window.aiTeacher.onTeacherSentenceSpoken === 'function') {
-          window.aiTeacher.onTeacherSentenceSpoken(currentSentence);
-        }
-
-        const utterance = new SpeechSynthesisUtterance(currentSentence);
-        utterance.lang = 'en-US';
-        utterance.rate = this.rate;
-        utterance.pitch = (this.voiceGender === 'female' || this.voiceProfile === 'emily_studio') ? 1.05 : 0.95;
-
-        if (!this.selectedVoice) this.initVoices();
-        if (this.selectedVoice) utterance.voice = this.selectedVoice;
-
-        this._activeUtterance = utterance;
-        let sentenceFinished = false;
-
-        const advance = () => {
-          if (!sentenceFinished) {
-            sentenceFinished = true;
-            this.clearWatchdog();
-            speakSentence();
-          }
-        };
-
-        utterance.onstart = () => {
-          this.isSpeaking = true;
-        };
-
-        utterance.onend = advance;
-        utterance.onerror = (e) => {
-          console.warn("Speech synthesis error on sentence, advancing:", e);
-          advance();
-        };
-
-        this.clearWatchdog();
-        const expectedDuration = Math.max(2500, currentSentence.length * 90);
-        this._watchdogTimer = setTimeout(() => {
-          advance();
-        }, Math.min(8000, expectedDuration));
-
-        // Chrome/Safari safety: unpause and speak
-        try {
-          if (this.synth.paused) {
-            this.synth.resume();
-          }
-          this.synth.cancel();
-          setTimeout(() => {
-            try {
-              if (this.synth.paused) this.synth.resume();
-              this.synth.speak(utterance);
-            } catch (e) {
-              advance();
-            }
-          }, 40);
-        } catch (e) {
-          advance();
         }
       };
 
-      speakSentence();
+      utterance.onstart = () => {
+        this.isSpeaking = true;
+      };
+
+      utterance.onend = onFinished;
+      utterance.onerror = (e) => {
+        console.warn("Speech synthesis error event:", e);
+        onFinished();
+      };
+
+      this._activeUtterance = utterance;
+
+      // Watchdog timer (approx 75ms per character + 3s minimum)
+      const expectedTime = Math.max(3000, cleanText.length * 80);
+      this._watchdogTimer = setTimeout(() => {
+        onFinished();
+      }, Math.min(15000, expectedTime));
+
+      // Chrome long-text keepalive
+      const keepAliveInterval = setInterval(() => {
+        if (!this.isSpeaking || finished) {
+          clearInterval(keepAliveInterval);
+        } else if (this.synth.paused) {
+          this.synth.resume();
+        }
+      }, 3000);
+
+      // Speak directly
+      setTimeout(() => {
+        try {
+          if (this.synth.paused) this.synth.resume();
+          this.synth.speak(utterance);
+        } catch (e) {
+          console.warn("Speech speak exception:", e);
+          onFinished();
+        }
+      }, 50);
+
     } catch (err) {
-      console.warn("Speech synthesis exception:", err);
+      console.warn("Speech synthesis outer exception:", err);
       this.isSpeaking = false;
       if (onEnd) onEnd();
     }
@@ -266,13 +231,6 @@ class SpeechEngine {
       try {
         this.synth.cancel();
       } catch (e) {}
-    }
-    if (this._currentAudio) {
-      try {
-        this._currentAudio.pause();
-        this._currentAudio.currentTime = 0;
-      } catch (e) {}
-      this._currentAudio = null;
     }
     this._activeUtterance = null;
     this.isSpeaking = false;
