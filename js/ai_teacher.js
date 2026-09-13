@@ -44,6 +44,9 @@ class AITeacherEngine {
     this.askedQuestionKeys = new Set();
     this.sessionKeywords = [];
 
+    // Voice Send Mode: 'tap_to_send' (Default: Student speaks, taps send when done) | 'auto_send' (Hands-free 3.5s pause)
+    this.sendMode = localStorage.getItem('voice_send_mode') || 'tap_to_send';
+
     // Voice Profiles
     this.selectedVoiceProfile = localStorage.getItem('english_app_voice_profile') || 'emily_studio';
 
@@ -113,20 +116,21 @@ class AITeacherEngine {
             quickInput.value = activeText;
           }
 
-          // Voice Activity Detection (VAD) Silence Timer
-          if (this.silenceTimer) {
-            clearTimeout(this.silenceTimer);
-          }
-
-          const delay = hasFinal ? 650 : 1100;
-          this.silenceTimer = setTimeout(() => {
-            if (activeText.length >= 2 && !this.isTeacherTyping) {
-              // Stop recognition to reset session buffer & prevent picking up teacher's voice
-              this.stopListening();
-              if (quickInput) quickInput.value = '';
-              this.processStudentSpokenSentence(activeText);
+          // In 'auto_send' mode: Use relaxed 3.5s pause timer so student has plenty of time to formulate sentence
+          if (this.sendMode === 'auto_send') {
+            if (this.silenceTimer) {
+              clearTimeout(this.silenceTimer);
             }
-          }, delay);
+
+            const delay = hasFinal ? 3500 : 4500;
+            this.silenceTimer = setTimeout(() => {
+              if (activeText.length >= 2 && !this.isTeacherTyping) {
+                this.stopListening();
+                if (quickInput) quickInput.value = '';
+                this.processStudentSpokenSentence(activeText);
+              }
+            }, delay);
+          }
         };
 
         this.recognition.onerror = (event) => {
@@ -261,6 +265,51 @@ class AITeacherEngine {
     if (window.app) window.app.showToast(this.showHints ? "💡 İpuçları açıldı." : "💡 İpuçları gizlendi.", "info");
   }
 
+  toggleSendMode() {
+    this.sendMode = this.sendMode === 'tap_to_send' ? 'auto_send' : 'tap_to_send';
+    localStorage.setItem('voice_send_mode', this.sendMode);
+    this.updateSendModeUI();
+    if (window.app && typeof window.app.showToast === 'function') {
+      if (this.sendMode === 'tap_to_send') {
+        window.app.showToast("📤 'Kendin Gönder' modu aktif: Rahatça konuş, cümlen bitince Gönder'e bas. Araya girme olmaz!", "info");
+      } else {
+        window.app.showToast("⚡ 'Otomatik Gönder' modu aktif: Cümlen bitip 4 saniye duraklayınca otomatik yanıtlar.", "info");
+      }
+    }
+  }
+
+  updateSendModeUI() {
+    const btn = document.getElementById('btn-toggle-send-mode');
+    const guide = document.getElementById('voice-mode-guide-text');
+    const quickInput = document.getElementById('voice-quick-input');
+    
+    if (btn) {
+      if (this.sendMode === 'tap_to_send') {
+        btn.innerHTML = `📤 Kendin Gönder`;
+        btn.title = "Konuşman bitince Gönder butonuna bas (Araya girme yok - Rahat düşünme süresi)";
+        btn.className = "voice-tool-btn voice-mode-btn mode-manual active";
+      } else {
+        btn.innerHTML = `⚡ Otomatik`;
+        btn.title = "4 saniye sessizlikte otomatik gönderir";
+        btn.className = "voice-tool-btn voice-mode-btn mode-auto";
+      }
+    }
+
+    if (guide) {
+      if (this.sendMode === 'tap_to_send') {
+        guide.innerHTML = `✨ <strong>Kendin Gönder Modu:</strong> İstediğin kadar duraklayıp düşünebilirsin. Konuşman bitince sağdaki <strong>'Gönder 🚀'</strong> butonuna dokun.`;
+      } else {
+        guide.innerHTML = `⚡ <strong>Otomatik Mod:</strong> Konuşmayı bitirip 4 saniye sessiz kalınca otomatik gönderilir.`;
+      }
+    }
+
+    if (quickInput) {
+      quickInput.placeholder = this.sendMode === 'tap_to_send' 
+        ? "🎙️ Konuş veya yaz, bitince 'Gönder 🚀' butonuna bas..."
+        : "💬 İster mikrofona konuş, istersen buraya yaz...";
+    }
+  }
+
   /* =========================================================
      3. IMMERSIVE VOICE ROOM MODAL & UI CONTROLLER
      ========================================================= */
@@ -286,6 +335,7 @@ class AITeacherEngine {
 
     this.startMicrophoneAudioStream();
     this.updateGeminiStatusBadge();
+    this.updateSendModeUI();
 
     // If starting fresh, post first teacher greeting
     if (this.messages.length === 0) {
@@ -351,6 +401,11 @@ class AITeacherEngine {
             <!-- Voice Sound Test Button -->
             <button class="voice-tool-btn" onclick="aiTeacher.testVoicePlayback()" title="Sesi Hoparlörden Test Et">
               🔊 Sesi Test Et
+            </button>
+
+            <!-- Send Mode Toggle (Kendin Gönder vs Otomatik) -->
+            <button class="voice-tool-btn voice-mode-btn ${this.sendMode === 'tap_to_send' ? 'mode-manual active' : 'mode-auto'}" id="btn-toggle-send-mode" onclick="aiTeacher.toggleSendMode()" title="Konuşma Gönderme Modu">
+              ${this.sendMode === 'tap_to_send' ? '📤 Kendin Gönder' : '⚡ Otomatik'}
             </button>
 
             <!-- Display Toggles -->
@@ -425,13 +480,16 @@ class AITeacherEngine {
             <input 
               type="text" 
               id="voice-quick-input" 
-              placeholder="💬 İster mikrofona konuş, istersen buraya yaz..." 
+              placeholder="${this.sendMode === 'tap_to_send' ? "🎙️ Konuş veya yaz, bitince 'Gönder 🚀' butonuna bas..." : "💬 İster mikrofona konuş, istersen buraya yaz..."}" 
               onkeydown="if(event.key==='Enter') aiTeacher.handleQuickSend()"
               autocomplete="off"
             />
             <button class="voice-quick-send-btn" onclick="aiTeacher.handleQuickSend()" title="Cevabı Gönder">
               <span>Gönder</span> 🚀
             </button>
+          </div>
+          <div class="voice-input-guide-text" id="voice-mode-guide-text">
+            ${this.sendMode === 'tap_to_send' ? "✨ <strong>Kendin Gönder Modu:</strong> İstediğin kadar duraklayıp düşünebilirsin. Konuşman bitince sağdaki <strong>'Gönder 🚀'</strong> butonuna dokun." : "⚡ <strong>Otomatik Mod:</strong> Konuşmayı bitirip 4 saniye sessiz kalınca otomatik gönderilir."}
           </div>
         </div>
 
@@ -832,20 +890,25 @@ class AITeacherEngine {
     const topic = this.topics.find(t => t.id === this.currentTopic);
     const targetWords = this.getRecentTargetWords().slice(0, 6).map(w => `${w.en} (${w.tr})`).join(', ');
 
-    const systemPrompt = `You are Teacher Emily, an affectionate, expert English teacher speaking directly via live voice call with a 14-year-old Turkish high school student (A2/B1 level).
+    const systemPrompt = `You are Teacher Emily, an affectionate, expert English teacher speaking directly via live voice call with a Turkish high school student (A2/B1 level).
 The current live conversation topic is "${topic.title}" (${topic.desc}).
-Target vocabulary she is currently practicing: [${targetWords || 'routine, schedule, breakfast, healthy, prefer, leisure, daily, success'}].
+Target vocabulary: [${targetWords || 'routine, schedule, breakfast, healthy, prefer, leisure, daily, success'}].
 
 Student just said to you: "${studentSentence}"
 
-TASK:
-1. Act like a real, dedicated human English tutor speaking warmly face-to-face.
-2. In your spoken English response ('reply_en'):
-   a. Warmly acknowledge and praise her answer.
-   b. Analyze her sentence: if there is a grammatical mistake or awkward phrasing, kindly explain how to phrase it better in spoken English (e.g., "Good attempt! Notice that in English we say '...' instead of '...'. A more natural sentence is: '...'"). If her sentence was already correct, offer a natural native phrasing tip!
-   c. Ask an engaging, fresh conversational follow-up question related to what she said. NEVER repeat previous questions.
-3. Provide Turkish translation ('reply_tr') for subtitle support.
-4. Provide 3 short, easy reply suggestion chips ('suggested_replies').
+CRITICAL RULES (MUST FOLLOW):
+1. NATURAL GREETINGS & SHORT PHRASES:
+   - If the student simply greets you (e.g. "hello", "hi", "hey", "good morning", "how are you"), or gives a short natural answer (e.g. "thank you", "yes", "no", "I don't know"), DO NOT treat it as incomplete or a grammar error.
+   - NEVER fabricate awkward sentences like "I like hello" or force single greetings into weird subject-verb sentences.
+   - For greetings: Set "is_correct": true, "correction_needed": false, "praise_tr": "Harika bir selamlama! Merhaba! 👋", "explanation_tr": "", and greet her back warmly in English (e.g. "Hello there! It is so wonderful to practice speaking with you today!").
+2. CONSTRUCTIVE GRAMMAR COACHING:
+   - Only correct actual grammatical mistakes (e.g. "go school" -> "go to school", "he like" -> "he likes", "I have 15 years" -> "I am 15 years old").
+   - If the sentence is correct, praise her warmly and provide a natural native alternative phrasing.
+3. CONVERSATIONAL FLOW:
+   - Ask an engaging, fresh conversational follow-up question related to the topic. NEVER repeat previous questions.
+4. SUBTITLES & CHIPS:
+   - Provide Turkish translation ('reply_tr') for subtitle support.
+   - Provide 3 short, easy reply suggestion chips ('suggested_replies').
 
 Return strictly JSON format:
 {
@@ -906,7 +969,7 @@ Return strictly JSON format:
      ========================================================= */
   generateOfflineTeacherReply(studentSentence) {
     const raw = studentSentence.trim();
-    const lower = raw.toLowerCase().replace(/[.,!?;:]/g, '');
+    const lower = raw.toLowerCase().replace(/[.,!?;:]/g, '').trim();
     const words = lower.split(/\s+/).filter(Boolean);
 
     let isCorrect = true;
@@ -915,13 +978,81 @@ Return strictly JSON format:
     let praiseTr = "";
     let naturalAlt = raw;
     let coachingSpeechEn = "";
+    let isGreetingOrSmallTalk = false;
 
     // ---------------------------------------------------------
-    // A. Single-Word & Fragment Expansion Diagnosis
+    // 0. Natural Greetings, Politeness & Small Talk (TOP PRIORITY)
     // ---------------------------------------------------------
-    if (words.length <= 2) {
+    if (/^(hello|hi|hey|good\s+morning|good\s+afternoon|good\s+evening|howdy|hi\s+there|hello\s+there|hi\s+teacher|hello\s+teacher|good\s+day|hi\s+emily|hello\s+emily|hello\s+teacher\s+emily|greetings)$/i.test(lower) || (/^(hello|hi|hey)\b/i.test(lower) && words.length <= 3)) {
+      isCorrect = true;
+      isGreetingOrSmallTalk = true;
+      praiseTr = "Harika bir selamlama! Merhaba! 👋";
+      explanationTr = "";
+      correctedEn = raw;
+      coachingSpeechEn = "Hello there! It is so wonderful to practice English with you today! ";
+    }
+    else if (/^(how\s+are\s+you|how\s+are\s+you\s+doing|how\s+do\s+you\s+do|how\s+is\s+it\s+going|whats\s+up|what\s+is\s+up|how\s+are\s+things)$/i.test(lower)) {
+      isCorrect = true;
+      isGreetingOrSmallTalk = true;
+      praiseTr = "Çok nazik bir soru! Teşekkürler.";
+      explanationTr = "";
+      correctedEn = raw;
+      coachingSpeechEn = "I am feeling wonderful, thank you so much for asking! ";
+    }
+    else if (/^(what\s+is\s+your\s+name|who\s+are\s+you)$/i.test(lower)) {
+      isCorrect = true;
+      isGreetingOrSmallTalk = true;
+      praiseTr = "Güzel bir tanışma sorusu!";
+      explanationTr = "";
+      correctedEn = raw;
+      coachingSpeechEn = "I am Teacher Emily, your personal English speaking coach! ";
+    }
+    else if (/^(thank\s+you|thanks|thanks\s+a\s+lot|thank\s+you\s+very\s+much)$/i.test(lower)) {
+      isCorrect = true;
+      isGreetingOrSmallTalk = true;
+      praiseTr = "Çok kibarsın! Rica ederim.";
+      explanationTr = "";
+      correctedEn = raw;
+      coachingSpeechEn = "You are very welcome! It is always a pleasure to learn with you. ";
+    }
+    else if (/^(goodbye|bye|bye\s+bye|see\s+you|have\s+a\s+nice\s+day|see\s+you\s+later)$/i.test(lower)) {
+      isCorrect = true;
+      isGreetingOrSmallTalk = true;
+      praiseTr = "Görüşmek üzere!";
+      explanationTr = "";
+      correctedEn = raw;
+      coachingSpeechEn = "Goodbye! You did a fantastic job today. Keep practicing and see you soon! ";
+    }
+    else if (/^(yes|yeah|yep|sure|of\s+course|definitely|absolutely)$/i.test(lower)) {
+      isCorrect = true;
+      isGreetingOrSmallTalk = true;
+      praiseTr = "Harika!";
+      explanationTr = "";
+      correctedEn = "Yes, absolutely!";
+      coachingSpeechEn = "Awesome! ";
+    }
+    else if (/^(no|nope|not\s+really)$/i.test(lower)) {
+      isCorrect = true;
+      isGreetingOrSmallTalk = true;
+      praiseTr = "Anladım!";
+      explanationTr = "";
+      correctedEn = "No, not really.";
+      coachingSpeechEn = "I understand! ";
+    }
+    else if (/^(i\s+dont\s+know|i\s+do\s+not\s+know|not\s+sure|no\s+idea)$/i.test(lower)) {
+      isCorrect = true;
+      isGreetingOrSmallTalk = true;
+      praiseTr = "Hiç sorun değil!";
+      explanationTr = "";
+      correctedEn = "I'm not sure yet.";
+      coachingSpeechEn = "No problem at all! We can practice together step by step. ";
+    }
+    // ---------------------------------------------------------
+    // A. Single-Word Noun & Contextual Topic Expansions
+    // ---------------------------------------------------------
+    else if (words.length <= 2) {
       isCorrect = false;
-      praiseTr = "Güzel bir başlangıç! Kelimeyi doğru bildin.";
+      praiseTr = "Güzel bir başlangıç! Tam cümle kurarak akıcılık kazanalım.";
       
       if (lower.includes('bus') || lower.includes('car') || lower.includes('walk') || lower.includes('train')) {
         correctedEn = lower.includes('walk') ? "I walk to school every morning." : `I travel to school by ${words[words.length - 1]}.`;
@@ -943,22 +1074,15 @@ Return strictly JSON format:
         correctedEn = `I want to be a ${raw} in the future.`;
         explanationTr = "💡 Meslek hedefi ipucu: 'I want to be a " + raw + "' şeklinde kurabilirsin.";
         coachingSpeechEn = `Inspiring goal! You can say: 'I want to be a ${raw} in the future'. `;
-      } else if (lower === 'yes' || lower === 'yeah' || lower === 'yep') {
-        correctedEn = "Yes, I definitely do!";
-        explanationTr = "💡 Kısa yanıtı zenginleştirme: Sadece 'Yes' yerine 'Yes, I do' veya 'Yes, I love it' diyebilirsin.";
-        coachingSpeechEn = "Good! To sound more natural, you can expand it: 'Yes, I definitely do!'. ";
-      } else if (lower === 'no' || lower === 'nope') {
-        correctedEn = "No, I usually don't.";
-        explanationTr = "💡 Olumsuz yanıt ipucu: 'No, I don't' veya 'Not really, I prefer something else' diyebilirsin.";
-        coachingSpeechEn = "I see! You can say: 'No, I usually don't'. ";
       } else if (/\b\d+\b/.test(lower) || lower.includes('oclock') || lower.includes('am') || lower.includes('pm')) {
-        correctedEn = `I usually wake up at ${raw}.`;
+        correctedEn = `I usually do that at ${raw}.`;
         explanationTr = "💡 Saat ve rutin ipucu: 'I usually wake up at " + raw + "' diyerek cümleni tamamlayabilirsin.";
-        coachingSpeechEn = `Great! A full sentence would be: 'I usually wake up at ${raw}'. `;
+        coachingSpeechEn = `Great! A full sentence would be: 'I usually do that at ${raw}'. `;
       } else {
-        correctedEn = `I like ${raw}.`;
-        explanationTr = "💡 Tam cümle ipucu: Konuşma pratiği yaparken cümleni özne ve fiille genişletmek akıcılık kazandırır.";
-        coachingSpeechEn = `Nice! You can express that as a complete sentence: 'I like ${raw}'. `;
+        isCorrect = true;
+        praiseTr = "Güzel fikir!";
+        explanationTr = "💡 Cümle ipucu: Cevabını 'I think that...' veya özne + fiille genişleterek daha akıcı hale getirebilirsin.";
+        coachingSpeechEn = `Good point! `;
       }
     }
     // ---------------------------------------------------------
@@ -1152,8 +1276,8 @@ Return strictly JSON format:
     }
 
     const topicMatrix = this.getTopicDialogueMatrix(this.currentTopic, turnIndex);
-    const replyEn = coachingSpeechEn + studentKeywordReaction + topicMatrix.questionEn;
-    const replyTr = (isCorrect ? (explanationTr ? `🌟 ${explanationTr} ` : "") : `🎯 ${explanationTr} `) + studentKeywordReactionTr + topicMatrix.questionTr;
+    const replyEn = coachingSpeechEn + (isGreetingOrSmallTalk ? "How are you doing today? " : studentKeywordReaction) + topicMatrix.questionEn;
+    const replyTr = (isCorrect ? (explanationTr ? `🌟 ${explanationTr} ` : "") : `🎯 ${explanationTr} `) + (isGreetingOrSmallTalk ? "Bugün nasılsın? " : studentKeywordReactionTr) + topicMatrix.questionTr;
     const hints = topicMatrix.hints;
 
     return {
