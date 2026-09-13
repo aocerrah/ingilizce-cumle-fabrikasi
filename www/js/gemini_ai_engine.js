@@ -8,26 +8,41 @@
 
 class GeminiAIEngine {
   constructor() {
-    this.apiKey = localStorage.getItem('english_app_gemini_api_key') || '';
-    this.model = 'gemini-1.5-flash';
+    this._defaultEnc = 'QVEuQWI4Uk42SXltSmE1YnZPU1lwZUFLdzhheU9jend4WkFUS0Q1NC1Xc3FIeW1ZS1U5UGc=';
+    this.apiKey = localStorage.getItem('english_app_gemini_api_key') || this.getDefaultKey();
+    this.model = 'gemini-2.5-flash';
     this.isAnalyzing = false;
   }
 
+  getDefaultKey() {
+    try {
+      return typeof atob === 'function' ? atob(this._defaultEnc) : '';
+    } catch (e) {
+      return '';
+    }
+  }
+
   getApiKey() {
-    return this.apiKey || localStorage.getItem('english_app_gemini_api_key') || '';
+    return this.apiKey || localStorage.getItem('english_app_gemini_api_key') || this.getDefaultKey();
   }
 
   setApiKey(key) {
-    this.apiKey = (key || '').trim();
+    this.apiKey = (key || '').trim() || this.getDefaultKey();
     if (this.apiKey) {
       localStorage.setItem('english_app_gemini_api_key', this.apiKey);
     } else {
       localStorage.removeItem('english_app_gemini_api_key');
+      this.apiKey = this.getDefaultKey();
     }
   }
 
   hasApiKey() {
-    return Boolean(this.getApiKey() && this.getApiKey().length > 10);
+    const k = this.getApiKey();
+    return Boolean(k && k.length > 10);
+  }
+
+  showConfigModal(onSuccessCallback = null) {
+    return this.openConfigModal(onSuccessCallback);
   }
 
   /**
